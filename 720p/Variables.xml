@@ -344,6 +344,12 @@
 		<value>$INFO[ListItem.Art(poster)]</value>
 	</variable>
 	
+	<variable name="SeasonLandscapeThumbVar">
+		<value condition="IntegerGreaterThan(ListItem.Season,9)">$INFO[ListItem.Path]season$INFO[ListItem.Season]-landscape.jpg</value>
+		<value condition="IntegerGreaterThan(ListItem.Season,0)">$INFO[ListItem.Path]season0$INFO[ListItem.Season]-landscape.jpg</value>
+        <value condition="!SubString(ListItem.Episode,S)">$INFO[ListItem.Path]season-all-landscape.jpg</value>
+		<value condition="SubString(ListItem.Episode,S)">$INFO[ListItem.Path]season00-landscape.jpg</value>
+    </variable>	
 	
 	<variable name="view_Landscape.Thumb">
 	    <value condition="Container.Content(movies) | ">$INFO[ListItem.Path,,extrathumbs/thumb2.jpg]</value>

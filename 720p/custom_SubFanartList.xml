@@ -104,7 +104,7 @@
 		                <onclick>Skin.ToggleSetting(FanartListDiscart.movies.enable)</onclick>
 		                <selected>Skin.HasSetting(FanartListDiscart.movies.enable)</selected>
 						<include>menu_Button2</include>
-					<include>menu_RadioButton2</include>
+					<include>menu_RadioButton2</include>				
 					  </control>
 				<control type="radiobutton" id="153">					
                         <label>Logo</label>
