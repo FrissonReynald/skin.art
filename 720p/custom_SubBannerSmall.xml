@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="693">
+	<defaultcontrol>149</defaultcontrol>
+	<include>Animation_TopDialogPopup</include>		
+	<height>250</height>
+	<coordinates>
+		<system>1</system>
+		<left>0</left>
+		<top>0</top>
+		<origin x="0" y="0" />
+	</coordinates>
+	<zorder>1</zorder>
+	<controls>	
+	<control type="image" id="149">
+			<width>270</width>
+			<height>80</height>
+			<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+		</control>
+		<control type="image">
+			<left>4</left>
+			<top>18</top>
+			<width>650</width>			
+			<include>dialog_Separator</include>
+		</control>		
+		<control type="image">
+			<left>0</left>
+			<top>60</top>
+			<width>270</width>
+			<height>720</height>
+			<include>dialog_Menu</include>
+			<colordiffuse></colordiffuse>
+		</control>	
+		<control type="image" id="1490">
+	<top>185</top>
+	<left>0</left>
+			<width>270</width>
+			<height>20</height>
+			<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
+			<colordiffuse>Color3</colordiffuse>
+		</control>
+		<control type="label">	
+					<left>-1050</left>
+			<top>15</top>
+					    <label>SETTINGS</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>Color3</textcolor>					   
+					</control>
+			<control type="label">	
+					<left>-1150</left>
+			<top>70</top>
+					    <label>LAYOUT</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>					   
+					</control>
+		<control type="label">	
+					<left>-1050</left>
+			<top>95</top>
+					    <label>Banner</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>					   
+					</control>			
+		<control type="label">	
+					<left>-1170</left>
+			<top>125</top>
+					    <label>VIEW</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>					   
+					</control>
+					<control type="label">	
+				<left>-1100</left>
+			<top>150</top>
+					    <label>Small Grid</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>					   
+					</control>			
+		<control type="label">	
+					<left>-1050</left>
+			<top>200</top>
+					    <label>OPTIONS</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>					   
+					</control>						
+				
+		<control type="grouplist" id="149">
+		<onleft>back</onleft>
+		<onright>back</onright>
+			<left>5</left>
+			<top>250</top>
+			<width>275</width>
+			<height min="40" max="720">auto</height>
+			<itemgap>0</itemgap>			
+			 				
+			<!--info banner small -->
+                <control type="radiobutton" id="160"> 
+		            <label>Info 1</label>
+					<width>260</width>	
+                    <onclick>Skin.ToggleSetting(bannerinfo1.enable)</onclick>
+		            <onclick condition="Skin.HasSetting(bannerinfo3.enable)">Skin.ToggleSetting(bannerinfo3.enable)</onclick>
+                    <onclick condition="Skin.HasSetting(bannerinfo2.enable)">Skin.ToggleSetting(bannerinfo2.enable)</onclick>       
+                    <selected>!Skin.HasSetting(bannerinfo1.enable)</selected>
+		             <include>menu_Button2</include>
+		            <include>menu_RadioButton2</include>
+		            
+                </control> 
+                <control type="radiobutton" id="161">
+	                <label>Info 2</label>
+					<width>260</width>	
+                    <onclick>Skin.ToggleSetting(bannerinfo2.enable)</onclick>
+                    <onclick condition="!Skin.HasSetting(bannerinfo1.enable)">Skin.ToggleSetting(bannerinfo1.enable)</onclick>
+                    <onclick condition="Skin.HasSetting(bannerinfo3.enable)">Skin.ToggleSetting(bannerinfo3.enable)</onclick>
+		            <selected>Skin.HasSetting(bannerinfo2.enable)</selected> 
+		            <include>menu_Button2</include>
+		            <include>menu_RadioButton2</include>
+                </control>
+	            <control type="radiobutton" id="162">
+	                <label>Info 3</label>	
+					<width>260</width>	
+                    <onclick>Skin.ToggleSetting(bannerinfo3.enable)</onclick>
+                    <onclick condition="!Skin.HasSetting(bannerinfo1.enable)">Skin.ToggleSetting(bannerinfo1.enable)</onclick>
+                    <onclick condition="Skin.HasSetting(bannerinfo2.enable)">Skin.ToggleSetting(bannerinfo2.enable)</onclick>
+                    <selected>Skin.HasSetting(bannerinfo3.enable)</selected> 
+		            <include>menu_Button2</include>
+		            <include>menu_RadioButton2</include>
+                </control>						
+		</control>
+	</controls>
+</window>

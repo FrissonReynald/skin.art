@@ -1,4 +1,4 @@
-reFocus Glass for XBMC
+ART -reFocus for XBMC
 ============
 
 A mod of the XBMC Refocus Gotham skin where new views and options were added to give a more pleasing design, especially for (fanart, poster, landscape etc.  You can also find into the forum

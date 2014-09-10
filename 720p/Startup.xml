@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">10</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<onload condition="Stringcompare(Skin.String(startupcount),2)">Skin.SetString(startupcount,3)</onload>
+    <onload condition="Stringcompare(Skin.String(startupcount),1)">Skin.SetString(startupcount,2)</onload>
+    <onload condition="IsEmpty(Skin.String(startupcount))">Skin.SetString(startupcount,1)</onload>
+	<onload condition="System.HasAddon(script.tv.show.next.aired) + Library.HasContent(TVShows) + !Skin.HasSetting(nextaired.disable)">XBMC.RunScript(script.tv.show.next.aired,silent=True)</onload>
+	<onload condition="System.HasAddon(script.artistslideshow) + IsEmpty(Window(Visualisation).Property(ArtistSlideshowRunning)) + !Skin.HasSetting(artistslideshow.disable)">RunScript(script.artistslideshow, daemon=True)</onload>
+	<onload condition="System.HasAddon(script.grab.fanart)">RunScript(script.grab.fanart,mode=random,refresh=20)</onload>
+	<onload>Runscript(script.extendedinfo, backend=true)</onload> 
+	
+	<!--set alarm to prevent startup loop if fanart grabber is version 0.12.6 or lower-->
+	<onload>AlarmClock(StartupCheck,ReplaceWindow($INFO[System.StartupWindow]),00:10,silent)</onload>
+	 <animation type="WindowClose" reversible="false">
+        <effect type="fade" start="100" end="0" time="640" />
+    </animation>
+    <animation type="WindowOpen" reversible="false">
+        <effect type="fade" end="100" delay="800" time="640" />
+    </animation>
+	<controls>
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture>special://skin/fanart.jpg</texture>			
+		</control>
+		
+		<!--initial focus or re-check-->
+		<control type="button" id="10">
+			<include>TriggerButton</include>
+			<onfocus>SetFocus(11)</onfocus>
+		</control>
+		
+		<!--fanart grabber not installed, or installed but not enabled. No further checking, move to home.-->
+		<control type="button" id="11">
+			<include>TriggerButton</include>
+			<onfocus>AlarmClock(StartupDelay,ReplaceWindow($INFO[System.StartupWindow]),00:03,silent)</onfocus>
+			<visible>!System.HasAddon(script.grab.fanart)</visible>
+		</control>
+		
+		<!--fanart grabber installed, go to startup evaluation-->
+		<control type="button" id="11">
+			<include>TriggerButton</include>
+			<onfocus>SetFocus(20)</onfocus>
+			<visible>System.HasAddon(script.grab.fanart)</visible>
+		</control>
+
+		<!--check if fanart grabber is ready-->
+		<control type="button" id="20">
+			<include>TriggerButton</include>
+			
+			<!--ready, move to home window-->
+			<onfocus condition="!IsEmpty(Window(Home).Property(script.grab.fanart.Ready))">AlarmClock(StartupDelay,ReplaceWindow($INFO[System.StartupWindow]),00:03,silent)</onfocus>
+			
+			<!--not ready, re-check-->
+			<onfocus condition="IsEmpty(Window(Home).Property(script.grab.fanart.Ready))">SetFocus(10)</onfocus>
+		</control>
+		
+		<control type="label">
+			<top>500</top>
+			<width>screen_Width</width>
+			<height>20</height>
+			<label>$VAR[startup_Status]</label>
+			<font>regular_Small</font>
+			<align>center</align>
+			<textcolor>Color1</textcolor>
+			<include>fadeinout</include>
+		</control>
+	</controls>	
+</window>

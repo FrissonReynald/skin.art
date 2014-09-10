@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>	
+<!--LANDSCAPE-->
+<include name="view_PosterList">	
+ <control type="group">
+				<include>global_ListScroll</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+			<visible>Control.IsVisible(61)</visible>
+		</control>
+			 <control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[thumb_Landscape]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>Control.IsVisible(61)</visible>	
+		</control>
+		<control type="group">	
+				<control type="multiimage">				
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					</control>					
+				<visible>Control.IsVisible(61) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>	
+		<control type="image">
+		<top>-50</top>
+			<width>1290</width>
+			<height>700</height>
+			<texture>overlays/vignetteFullscreen.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(61)</visible>	
+		</control>
+		</control>
+	        <control type="group">
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			    <control type="image">
+				     <top>285</top>
+				     <left>0</left>
+				     <width>1290</width>
+				     <height>450</height>				
+                    <texture background="true">frames/contentpanel.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<colordiffuse>base_2</colordiffuse>
+			         <visible>Control.IsVisible(61)</visible>					 
+			    </control>				
+			</control>
+			<control type="group">
+				<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+				<control type="image">
+				     <top>650</top>
+				     <left>0</left>
+				     <width>1290</width>
+				     <height>70</height>				
+                     <texture background="true">frames/contentpanel.png</texture>
+					 <aspectratio>stretch</aspectratio>
+			         <visible>Control.IsVisible(61)</visible>
+			    </control>
+			 </control>
+	<visible>Control.IsVisible(61)</visible>	
+		<control type="fixedlist" id="61">		
+			<viewtype label="Poster & Fanart List">bigwrap</viewtype>
+			<left>295</left>
+			<top>305</top>
+			<width>430</width>
+			<height>350</height>
+			<onleft>6000</onleft>
+			<onright>70</onright>
+			<onup>61</onup>
+			<ondown>61</ondown>
+			<pagecontrol>70</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>vertical</orientation>
+			<include>global_ListScroll</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>		
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>			
+			<itemlayout condition="IsEmpty(Container.FolderPath)" width="420" height="40">
+				<control type="label">
+					<left>5</left>
+					<width>350</width>
+					<label>$INFO[ListItem.Label]</label>
+					<include>container_Single</include>
+				</control>
+			</itemlayout>
+			<focusedlayout condition="IsEmpty(Container.FolderPath)" width="420" height="40">
+				<control type="group">
+					<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
+					<control type="image">
+						<width>370</width>
+						<height>38</height>
+						<texture>frames/frame-fo.png</texture>
+					</control>
+					<control type="label">
+						<left>5</left>
+						<width>350</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>container_Single-focus</include>
+					</control>
+				</control>
+				<control type="label">
+					<left>15</left>
+					<width>350</width>
+					<label>$INFO[ListItem.Label]</label>
+					<include>container_Single</include>
+					<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
+				</control>				
+			</focusedlayout>
+			<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)" width="420" height="40">
+				<control type="label">
+					<left>5</left>
+					<top>6</top>
+					<width>350</width>
+					<height>27</height>
+					<label>$VAR[global_Title]</label>
+					<include>container_Title</include>
+				</control>
+			</itemlayout>
+			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)" width="420" height="65">
+				<control type="group">
+					<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
+					<control type="image">
+						<width>370</width>
+						<height>65</height>
+						<texture>frames/frame-fo.png</texture>
+					</control>
+					<control type="label">
+						<left>5</left>
+						<top>6</top>
+						<width>350</width>
+						<aligny>center</aligny>
+						<height>27</height>
+						<label>$VAR[global_Title]</label>
+						<include>container_Title-focus</include>
+					</control>
+					<control type="fadelabel">
+					<description>Fade Movie info/Tagline</description>
+					<left>5</left>
+					<top>35</top>
+					<width>415</width>
+					<visible>true</visible>
+					<scroll>false</scroll>
+					<scrollout>false</scrollout>
+					<pauseatend>5123</pauseatend>
+					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
+                    <label>$INFO[ListItem.Tagline]</label>
+					<textcolor>ff000000</textcolor>	
+		            <visible>Container.Content(movies)</visible>
+					</control>
+					<control type="fadelabel">
+					<description>Fade Movie info/Tagline</description>
+					<left>5</left>
+					<top>35</top>
+					<width>415</width>
+					<visible>true</visible>
+					<scroll>false</scroll>
+					<scrollout>false</scrollout>
+					<pauseatend>5123</pauseatend>
+					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
+                    <label>$INFO[ListItem.Tagline]</label>
+					<textcolor>ff000000</textcolor>	
+		            <visible>Container.Content(tvshows)</visible>
+					</control>
+					<control type="fadelabel">
+					<description>Fade Movie info/Tagline</description>
+					<left>5</left>
+					<top>35</top>
+					<width>415</width>
+					<visible>true</visible>
+					<scroll>false</scroll>
+					<scrollout>false</scrollout>
+					<pauseatend>5123</pauseatend>
+					<label>$INFO[ListItem.Year,,]$INFO[Window(home).Property(Set.Movies.Genre), • ]$INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
+                    <label>$INFO[ListItem.Tagline]</label>
+					<textcolor>ff000000</textcolor>	
+		            <visible>Container.Content(sets)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
+					<control type="label">
+						<left>15</left>
+						<top>6</top>
+						<width>350</width>
+						<height>30</height>
+						<label>$VAR[global_Title]</label>
+						<include>container_Title</include>
+					</control>					
+				</control>				
+			</focusedlayout>			
+		</control>		
+	</include>	
+	<include name="view_PosterList-ContainerCommons">
+	</include>
+	<include name="detail_PosterList">	
+<control type="group">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+	 <control type="group">
+		<left>50</left>
+		<top>300</top>
+			<control type="image">									
+				<width>233</width>
+				<height>350</height>
+			    <texture border="5">frames/frame-back-alt.png</texture>
+			    <aspectratio>stretch</aspectratio>
+			    <visible>Control.IsVisible(61)</visible>
+			</control>
+			<control type="image">		     	 		 	 
+				 <width>233</width>
+				 <height>350</height>
+				 <texture background="true">thumbs/default_Portrait.png</texture>
+				 <aspectratio>stretch</aspectratio>				 
+				 <visible>Control.IsVisible(61)</visible>
+			</control>
+			<control type="image">
+                        <left>18</left>
+                        <top>115</top>
+                        <width>205</width>
+                        <height>205</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">$VAR[Icon_Discart]</texture>
+						<animation type="WindowOpen">
+					<effect type="slide" start="0,0" end="0,-225" time="550" delay="850" tween="cubic" easing="out"/>
+	<effect type="fade" start="0" end="100" time="600" delay="500"/>
+	</animation>	
+	<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+	<animation type="Hidden">
+	<effect type="slide" start="-80" end="0" time="400" tween="cubic" easing="out"/>
+	<effect type="fade" start="-50" end="0" time="200"/>
+	</animation>				
+					<visible>Control.IsVisible(61) + Skin.HasSetting(PosterListDiscart.movies.enable) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+                    </control>
+			<control type="image">				 
+				  <width>233</width>
+				  <height>350</height>
+				  <include>art_DefaultIcon</include>
+				  <visible>Control.IsVisible(61)</visible>
+			</control>
+			<control type="image">				  				   
+				   <width>233</width>
+				   <height>350</height>
+				   <texture background="true">$VAR[thumb_Portrait]</texture>
+				   <aspectratio align="center" aligny="top">scale</aspectratio>
+				   <fadetime>fadetime_Thumb</fadetime>
+				   <visible>Control.IsVisible(61)</visible>
+			</control>
+			<control type="image">
+					<left>200</left>
+					<top>25</top>
+					<width>32</width>
+            <height>32</height>
+			<texture background="true" diffuse="videoextras_overlay.png">$VAR[VideoextrasOverlay]</texture>
+			<visible>Control.IsVisible(61) + System.HasAddon(script.videoextras) + Window.IsVisible(Videos) + Container.Content(Movies) + !Skin.HasSetting(Enable.videoextrasOverlays)</visible>
+		<colordiffuse>FFFFFFFF</colordiffuse>	
+		</control>
+	<control type="group">				  			
+			<control type="group">
+					<left>208</left>
+					<top>325</top>
+					<include>status_Info</include>
+					<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+					<visible>Control.IsVisible(61)</visible>
+			</control>
+		    <control type="group">
+					<left>203</left>
+					<top>320</top>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>					
+				<control type="image">
+					<info>ListItem.Overlay</info>
+					<visible>Control.IsVisible(61)</visible>
+				</control>
+			</control>		        
+	</control>
+    </control>
+		<control type="group">
+		<left>690</left>
+		<top>305</top>	
+			<control type="group">
+					<control type="label">					
+						<label>$VAR[gallery_Header]</label>
+						<width>520</width>
+						<textcolor>Color1</textcolor>
+						<include>detail_Title</include>
+						<visible>Control.IsVisible(61)</visible>
+					</control>
+			</control>
+		</control>	
+            <!--info et flag -->			
+				<control type="image">
+				    <left>-10</left>
+				    <top>670</top>
+				    <width>80</width>
+				    <height>40</height>
+				    <aspectratio align="right">keep</aspectratio>
+				    <texture>$VAR[flag_VideoType-fo]</texture>
+				    <visible>Control.IsVisible(61)</visible>
+			    </control>				
+				<control type="image">
+			        <top>660</top>
+				    <left>90</left>
+				    <width>80</width>
+				    <height>60</height>
+				    <aspectratio align="center">keep</aspectratio>
+				    <texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+				    <visible>!IsEmpty(Listitem.VideoResolution)</visible>
+				    <visible>Control.IsVisible(61)</visible>
+			    </control>
+				<control type="image">
+				    <top>672</top>
+				    <left>172</left>
+				    <width>96</width>
+				    <height>34</height>
+				    <aspectratio align="center">keep</aspectratio>
+				    <texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+				    <visible>!IsEmpty(Listitem.AudioChannels)</visible>
+				    <visible>Control.IsVisible(61)</visible>
+			     </control>
+				 <control type="image">
+			        <top>664</top>
+			        <left>270</left>
+					<width>85</width>
+					<height>50</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+					<visible>Control.IsVisible(61)</visible>
+				</control>
+				<control type="image">
+				    <top>665</top>
+				    <left>380</left>
+					<bottom>40</bottom>
+					<width>80</width>
+					<height>45</height>
+					<aspectratio align="left">keep</aspectratio>
+					<texture>$VAR[flag_Studio]</texture>
+					<visible>Control.IsVisible(61)</visible>
+				</control>
+				<control type="label">
+					 <left>50</left>
+					 <top>680</top>
+					 <width>460</width>
+					 <label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
+					 <include>detail_Sub</include>
+					 <visible>Container.Content(tvshows) | Container.Content(sets) + !IsEmpty(ListItem.TVShowTitle)</visible>
+					 <visible>Control.IsVisible(61)</visible>
+				</control>
+				<control type="label">
+				            <left>690</left>
+							<top>675</top>
+							<label>$VAR[nextaired_Info]</label>
+							<width>470</width>
+							<include>detail_Sub</include>
+							<visible>Control.IsVisible(61)</visible>
+				</control>
+				<control type="image">
+					<width>90</width>
+					<right>30</right>
+					<top>665</top>
+					<include>detail_StarRating</include>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
+					<visible>Control.IsVisible(61)</visible>	
+				</control>			
+		<!--info 2-->
+		<control type="group">
+		        <left>690</left>
+		        <top>340</top>
+				<control type="textbox">									
+					<width>530</width>
+					<align>justify</align>
+					<height max="290">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(61)</visible>
+				</control>
+				<visible>Skin.HasSetting(posterlistinfo2.enable)</visible>
+		</control>
+		<!--info3-->
+		<control type="group">
+		        <left>600</left>
+		        <top>298</top>
+				<control type="image">
+				<left>235</left>
+					<top>250</top>
+				<width>250</width>
+				<height>95</height>
+				<texture>$VAR[logo_clearart]</texture>
+				<aspectratio>keep</aspectratio>	
+				<visible>Control.IsVisible(61)</visible>
+				<aspectratio align="center" aligny="top">keep</aspectratio>				
+		</control>
+		        <control type="textbox">
+				<left>90</left>
+					<top>45</top>
+					<width>530</width>
+					<align>justify</align>
+					<height max="160">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(61)</visible>
+				</control>
+				<visible>Skin.HasSetting(posterlistinfo3.enable)</visible>		
+		</control>	
+</control>	
+	</include>
+<!-- Fanart List // Handbone // //--> 	
+	<include name="view_FanartList_Handbone-Commons">			
+	</include>
+	<include name="view_FanartList_Handbone">
+	        <control type="group">				
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+			<visible>Control.IsVisible(611)</visible>
+		</control>
+			 <control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[thumb_Landscape]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>Control.IsVisible(611)</visible>	
+		</control>
+		<control type="group">	
+				<control type="multiimage">				
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					</control>					
+				<visible>Control.IsVisible(611) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>	
+		<control type="image">
+		<top>-20</top>
+			<width>1920</width>
+			<height>720</height>
+			<texture>overlays/vignetteFullscreen.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(611)</visible>	
+		</control>
+		<control type="image">
+			<left>950</left>
+			<top>20</top>
+			<width>256</width>
+			<height>99</height>
+			<aspectratio align="center" aligny="top">keep</aspectratio>
+			<texture>$VAR[logo_clearart]</texture>
+			<visible>Control.IsVisible(611) + Skin.HasSetting(FanartListLogo.movies.enable)</visible>
+		</control>	
+			</control>
+			<control type="group">
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+				<control type="image">
+				     <top>497</top>
+				     <left>0</left>
+				     <width>1290</width>
+				     <height>240</height>			
+                    <texture background="true">frames/contentpanel.png</texture>
+					<aspectratio>stretch</aspectratio>
+			         <visible>Control.IsVisible(611)</visible>
+			    </control>
+			 </control>
+			 <visible>Control.IsVisible(611)</visible>	
+		<control type="wraplist" id="611">		
+			<viewtype label="Poster & Fanart List">bigwrap</viewtype>			
+			<left>300</left>
+			<top>515</top>
+			<width>420</width>
+			<height>195</height>
+			<onleft>6000</onleft>
+			<onright>70</onright>
+			<onup>611</onup>
+			<ondown>611</ondown>
+			<pagecontrol>70</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>vertical</orientation>
+			<include>global_ListScroll</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>		
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>			
+			<itemlayout condition="IsEmpty(Container.FolderPath)" width="420" height="40">
+				<control type="label">
+					<left>5</left>
+					<width>350</width>
+					<label>$INFO[ListItem.Label]</label>
+					<include>container_Single</include>
+				</control>
+			</itemlayout>
+			<focusedlayout condition="IsEmpty(Container.FolderPath)" width="420" height="65">
+				<control type="group">
+					<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
+					<control type="image">
+						<width>420</width>
+						<height>38</height>
+						<texture>frames/frame-fo.png</texture>
+					</control>
+					<control type="label">
+						<left>5</left>
+						<width>350</width>
+						<label>$INFO[ListItem.Label]</label>
+						<include>container_Single-focus</include>
+					</control>
+				</control>
+				<control type="label">
+					<left>5</left>
+					<width>350</width>
+					<label>$INFO[ListItem.Label]</label>
+					<include>container_Single</include>
+					<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
+				</control>				
+			</focusedlayout>
+			<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)" width="420" height="40">
+				<control type="label">
+					<left>5</left>
+					<top>6</top>
+					<width>350</width>
+					<height>27</height>
+					<label>$VAR[global_Title]</label>
+					<include>container_Title</include>
+				</control>
+			</itemlayout>
+			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)" width="420" height="65">
+				<control type="group">
+					<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
+					<control type="image">
+						<width>420</width>
+						<height>70</height>
+						<texture>frames/frame-fo.png</texture>
+					</control>
+					<control type="label">
+						<left>5</left>
+						<top>6</top>
+						<width>350</width>
+						<aligny>center</aligny>
+						<height>27</height>
+						<label>$VAR[global_Title]</label>
+						<include>container_Title-focus</include>
+					</control>
+					<control type="fadelabel">
+					<description>Fade Movie info/Tagline</description>
+					<left>5</left>
+					<top>35</top>
+					<width>415</width>
+					<visible>true</visible>
+					<scroll>false</scroll>
+					<scrollout>false</scrollout>
+					<pauseatend>5123</pauseatend>
+					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
+                    <label>$INFO[ListItem.Tagline]</label>
+					<textcolor>ff000000</textcolor>	
+		            <visible>Container.Content(movies)</visible>
+					</control>
+					<control type="fadelabel">
+					<description>Fade Movie info/Tagline</description>
+					<left>5</left>
+					<top>35</top>
+					<width>415</width>
+					<visible>true</visible>
+					<scroll>false</scroll>
+					<scrollout>false</scrollout>
+					<pauseatend>5123</pauseatend>
+					<label>$INFO[ListItem.Premiered] • $INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[global_EpisodeCount]$VAR[nextaired_Info, • ]• IMDB $INFO[ListItem.Rating]</label>
+                    <label>$INFO[ListItem.Tagline]</label>
+					<textcolor>ff000000</textcolor>	
+		            <visible>Container.Content(tvshows)</visible>
+					</control>
+					<control type="fadelabel">
+					<description>Fade Movie info/Tagline</description>
+					<left>5</left>
+					<top>35</top>
+					<width>415</width>
+					<visible>true</visible>
+					<scroll>false</scroll>
+					<scrollout>false</scrollout>
+					<pauseatend>5123</pauseatend>
+					<label>$INFO[ListItem.Year,,]$INFO[Window(home).Property(Set.Movies.Genre), • ]$INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
+                    <label>$INFO[ListItem.Tagline]</label>
+					<textcolor>ff000000</textcolor>	
+		            <visible>Container.Content(sets)</visible>
+					</control>
+					
+				</control>
+				<control type="group">
+					<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
+					<control type="label">
+						<left>5</left>
+						<top>6</top>
+						<width>350</width>
+						<height>30</height>
+						<label>$VAR[global_Title]</label>
+						<include>container_Title</include>
+					</control>					
+				</control>					
+			</focusedlayout>			
+		</control>		
+	</include>
+	<include name="detail_FanartList_Handbone">	
+<control type="group">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+	 <control type="group">
+		<left>40</left>
+		<top>355</top>			
+			<control type="image">		     	 		 	 
+				 <width>245</width>
+				 <height>350</height>
+				 <texture background="true">thumbs/default_Portrait.png</texture>
+				 <aspectratio>stretch</aspectratio>				 
+				 <visible>Control.IsVisible(611)</visible>
+			</control>
+			<control type="image">
+                        <left>25</left>
+                        <top>110</top>
+                        <width>205</width>
+                        <height>205</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">$VAR[Icon_Discart]</texture>
+						<animation type="WindowOpen">
+					<effect type="slide" start="0,0" end="0,-225" time="550" delay="850" tween="cubic" easing="out"/>
+	<effect type="fade" start="0" end="100" time="600" delay="500"/>
+	</animation>	
+	<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+	<animation type="Hidden">
+	<effect type="slide" start="-80" end="0" time="400" tween="cubic" easing="out"/>
+	<effect type="fade" start="-50" end="0" time="200"/>
+	</animation>				
+					<visible>[Control.IsVisible(611)] + Skin.HasSetting(FanartListDiscart.movies.enable) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+                    </control>
+			<control type="image">				 
+				  <width>233</width>
+				  <height>350</height>
+				  <include>art_DefaultIcon</include>
+				  <visible>Control.IsVisible(611)</visible>
+			</control>
+			<control type="image">				  				   
+				   <width>255</width>
+				   <height>360</height>
+				   <texture background="true">$VAR[Thumb_Portrait]</texture>
+				   <aspectratio align="center" aligny="top">scale</aspectratio>
+				   <fadetime>fadetime_Thumb</fadetime>
+				   <visible>Control.IsVisible(611)</visible>
+			</control>
+			<control type="image">
+					<left>200</left>
+					<top>25</top>
+					<width>32</width>
+            <height>32</height>
+			<texture background="true" diffuse="videoextras_overlay.png">$VAR[VideoextrasOverlay]</texture>
+			<visible>Control.IsVisible(611) + System.HasAddon(script.videoextras) + Window.IsVisible(Videos) + Container.Content(Movies) + !Skin.HasSetting(Enable.videoextrasOverlays)</visible>
+		<colordiffuse>FFFFFFFF</colordiffuse>	
+		</control>
+	<control type="group">	
+	<top>10</top>
+	<left>15</left>
+			<control type="group">
+					<left>212</left>
+					<top>325</top>
+					<include>status_Info</include>
+					<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+					<visible>Control.IsVisible(611)</visible>
+			</control>
+		    <control type="group">
+					<left>210</left>
+					<top>320</top>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>					
+				<control type="image">
+					<info>ListItem.Overlay</info>
+					<visible>Control.IsVisible(611)</visible>
+				</control>
+			</control>
+	</control>
+    </control>
+	<!--info 1-->
+		<control type="group">
+		<visible>Control.IsVisible(611)</visible>
+			<top>10</top>	
+				<control type="image">	
+		<left>725</left>
+	<top>505</top>
+		<width>270</width>
+		<height>145</height>
+		<texture background="true">$VAR[view_Extra.Thumb2]</texture>
+		<aspectratio>scale</aspectratio>
+		<visible>!Container.Content(sets)</visible>
+		</control>
+			<control type="image">	
+		<left>1000</left>
+	<top>506</top>
+		<width>270</width>
+		<height>145</height>
+		<texture background="true">$VAR[view_Extra.Thumb4]</texture>
+		<aspectratio>scale</aspectratio>
+		<visible>!Container.Content(sets)</visible>
+		</control>
+		<visible>Skin.HasSetting(Fanartlistinfo1.enable)</visible>
+		</control>	
+		<control type="group">
+		        <left>725</left>
+		        <top>506</top>
+				<control type="textbox">									
+					<width>530</width>
+					<align>justify</align>
+					<height max="195">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(611) + [Container.Content(sets)]</visible>
+				</control>
+				<visible>Skin.HasSetting(Fanartlistinfo1.enable)</visible>
+		</control>
+		<control type="group"> 
+			   <control type="image">			 
+			    <visible>!StringCompare(ListItem.Label,..)</visible>
+				 <top>355</top>									
+				<left>294</left>
+				    <width>980</width>
+				     <height>145</height>				
+                    <texture background="true">frames/contentpanel.png</texture>
+					<aspectratio>stretch</aspectratio>	
+					 <animation condition="true" effect="Fade" start="70" end="60" time="0">Conditional</animation>					 
+				<visible>Container.Content(sets) + !Skin.HasSetting(Fanartlistinfo1.enable)</visible>
+	<visible>Control.IsVisible(611)</visible>
+					   </control>
+				  </control>	   
+		<control type="grouplist">		
+				<left>24%</left>
+				<top>360</top>	
+				<orientation>horizontal</orientation>				
+					<itemgap>7</itemgap>				
+					<control type="image">
+					<fadetime>fadetime_Fanart</fadetime>
+						<width>88</width>
+					<height>130</height>	
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.1.Art(poster))]</texture>
+					</control>
+				<control type="image">	
+				<fadetime>fadetime_Fanart</fadetime>
+					<width>88</width>
+					<height>130</height>	
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.2.Art(poster))]</texture>
+					</control>	
+				<control type="image">
+				<fadetime>fadetime_Fanart</fadetime>
+					<width>88</width>
+					<height>130</height>	
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.3.Art(poster))]</texture>
+					</control>
+				<control type="image">
+				<fadetime>fadetime_Fanart</fadetime>
+					<width>88</width>
+					<height>130</height>	
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.4.Art(poster))]</texture>
+					</control>
+						<visible>Control.IsVisible(611) + Container.Content(sets) + !Skin.HasSetting(Fanartlistinfo2.enable)</visible>
+		      </control>	
+			<control type="grouplist">			
+				<left>53.9%</left>
+				<top>360</top>	
+				<orientation>horizontal</orientation>				
+					<itemgap>7</itemgap>
+				<visible>!Container.Content(movies) + !Container.Content(tvshows)</visible>			
+				<control type="image">	
+				<fadetime>fadetime_Fanart</fadetime>
+				<width>88</width>
+					<height>130</height>	
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.5.Art(poster))]</texture>
+					</control>
+				<control type="image">	
+				<fadetime>fadetime_Fanart</fadetime>
+				<width>88</width>
+					<height>130</height>	
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.6.Art(poster))]</texture>
+					</control>
+				<control type="image">	
+				<fadetime>fadetime_Fanart</fadetime>
+				<width>88</width>
+					<height>130</height>	
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.7.Art(poster))]</texture>
+					</control>
+					<control type="image">
+					<fadetime>fadetime_Fanart</fadetime>
+				<width>88</width>
+					<height>130</height>		
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.8.Art(poster))]</texture>
+					</control>
+					<control type="image">	
+					<fadetime>fadetime_Fanart</fadetime>
+				<width>88</width>
+					<height>130</height>		
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.9.Art(poster))]</texture>
+					</control>
+					<control type="image">
+					<fadetime>fadetime_Fanart</fadetime>
+				<width>88</width>
+					<height>130</height>		
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.10.Art(poster))]</texture>
+					</control>
+				<visible>Control.IsVisible(611) + Container.Content(sets) + !Skin.HasSetting(Fanartlistinfo2.enable)</visible>
+		<visible></visible>
+		</control>	
+		<!--info 2-->
+		<control type="group">
+		        <left>725</left>
+		        <top>506</top>
+				<control type="textbox">									
+					<width>530</width>
+					<align>justify</align>
+					<height max="160">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(611) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+				</control>
+				<visible>!Skin.HasSetting(Fanartlistinfo2.enable)</visible>
+		</control>		
+		<control type="group">
+		        <left>725</left>
+		        <top>506</top>
+				<control type="textbox">									
+					<width>530</width>
+					<align>justify</align>
+					<height max="195">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(611) + [Container.Content(sets)]</visible>
+				</control>
+				<visible>!Skin.HasSetting(Fanartlistinfo2.enable)</visible>
+		</control>		
+		<control type="grouplist" id="100">
+				<left>720</left>
+				<bottom>10</bottom>
+				<width>350</width>
+				<height>40</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>	
+					<visible>Control.IsVisible(611)</visible>							
+				<control type="image">			       
+				    <width>80</width>
+				    <height>40</height>
+				    <aspectratio align="center" aligny="top">keep</aspectratio>
+				    <texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+				    <visible>!IsEmpty(Listitem.VideoResolution)</visible>
+				    <visible>Control.IsVisible(611)</visible>
+			    </control>
+				<control type="image">
+				  
+				    <width>70</width>
+				    <height>35</height>
+				    <aspectratio align="center">keep</aspectratio>
+				    <texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+				    <visible>!IsEmpty(Listitem.AudioChannels)</visible>
+				    <visible>Control.IsVisible(611)</visible>
+			     </control>
+				 <control type="image">
+			       
+					<width>80</width>
+					<height>40</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+					<visible>Control.IsVisible(611)</visible>
+				</control>
+				<control type="image">				  
+					<width>80</width>
+					<height>40</height>
+					<aspectratio align="left">keep</aspectratio>
+					<texture>$VAR[flag_Studio]</texture>
+					<visible>Control.IsVisible(611)</visible>
+				</control>	
+				</control>	
+</control>	
+	</include>
+</includes>

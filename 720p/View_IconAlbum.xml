@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<!--Square Music-->
+	<!--SQUARE SMALL-->	
+	<include name="view_IconSquareSmallAlbum">	
+		<control type="image">
+		<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+		<left>0</left>
+		<top>183</top>
+		<width>1279</width>
+			<height>70</height>
+			<texture background="true">frames/contentpanel.png</texture> 
+			 <animation condition="true" effect="Fade" start="90" end="90" time="0">Conditional</animation>					 
+			
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(68)</visible>	
+		</control>
+		<control type="image">
+		<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+		<left>0</left>
+		<top>573</top>
+		<width>1279</width>
+			<height>100</height>
+			<texture background="true">frames/contentpanel.png</texture> 
+			 <animation condition="true" effect="Fade" start="90" end="90" time="0">Conditional</animation>					 
+			
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(68)</visible>	
+		</control>
+		<control type="image">
+		<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+		<left>0</left>
+		<top>250</top>
+		<width>1279</width>
+			<height>325</height>
+			<texture background="true">frames/contentpanel.png</texture> 
+			 <animation condition="true" effect="Fade" start="70" end="70" time="0">Conditional</animation>					 
+			
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(68)</visible>	
+		</control>
+		<control type="group">
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<visible>Control.IsVisible(68)</visible>
+			<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+			<!--info-->							
+				<control type="grouplist" id="1000">
+				<left>385</left>
+				<top>195</top>
+				<itemgap>0</itemgap>
+				<control type="label">
+					<width>680</width>
+					<label>$INFO[ListItem.Label]</label>
+					<include>detail_Title</include>
+				</control>	
+				<control type="label">
+						<top>27</top>
+						<width>680</width>
+						<label>$VAR[global_Info]</label>						
+						<include>detail_Sub</include>
+					</control>					
+				</control>
+				<control type="image">
+				<left>240</left>
+				<top>580</top>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<include>detail_StarRating</include>
+				<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				
+				</control>	
+				<control type="image">
+				<left>240</left>
+				<top>580</top>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<include>detail_StarRating</include>
+					<visible>Skin.HasSetting(tracklist) + Container.Content(albums) </visible>
+				</control>				
+				<control type="group">				
+				 <control type="image">
+				    <left>25</left>
+				    <top>254</top>
+					<width>353</width>
+					<height>315</height>
+					<texture>$VAR[thumb_Square]</texture>
+					<aspectratio>scale</aspectratio>	
+					<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				</control>				
+				<!-- logo -->	
+				<control type="image">
+					<left>50</left>
+					<top>550</top>
+					   <width>100</width>
+				       <height>100</height>					   
+					  <aspectratio align="center">keep</aspectratio>
+				<texture>$VAR[art_Logo.Condition]</texture>
+				<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<control type="image">
+					<left>50</left>
+					<top>550</top>
+					   <width>100</width>
+				       <height>100</height>					   
+					  <aspectratio align="center">keep</aspectratio>
+				<texture>$VAR[art_Logo.Condition]</texture>
+				<visible>Skin.HasSetting(tracklist) + Container.Content(albums)</visible>
+				</control>
+				<control type="textbox">
+						<top>580</top>
+						 <left>390</left>
+						<width>770</width>
+						<height>80</height>
+						<align>justify</align>
+						<label>$VAR[global_Plot]</label>
+						<include>detail_Text</include>
+						<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+						</control>
+				<control type="label">
+						 <left>50</left>
+				    <top>248</top>
+					<width>300</width>
+					<height>310</height>
+					<align>justify</align>
+						<label>$VAR[Tracklist_Info]</label>						
+						<include>detail_Text</include>
+						<visible>Skin.HasSetting(tracklist) + Container.Content(albums)</visible>
+					</control>	
+			</control>				
+			
+			<!--container-->
+			<control type="panel" id="68">
+				<viewtype label="Icon Album">bigicon</viewtype>
+				<left>380</left>
+				<top>250</top>
+				<width>880</width>
+				<height>321</height>
+				<onleft>6000</onleft>
+				<onright>70</onright>
+				<onup>68</onup>
+				<ondown>68</ondown>
+				<pagecontrol>70</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<include>global_ListScroll</include>
+				<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				<itemlayout height="80" width="80">
+					<control type="group">
+						<left>7</left>
+						<top>7</top>
+						<control type="image">
+							<width>70</width>
+							<height>70</height>
+							<texture>thumbs/default_Square.png</texture>
+						</control>
+						<control type="image">
+							<centerleft>37</centerleft>
+							<centertop>37</centertop>
+							<width>70</width>
+							<height>70</height>
+							<include>art_DefaultIcon</include>
+						</control>
+						<control type="image">
+							<width>70</width>
+							<height>70</height>
+							<texture background="true">$VAR[thumb_Square]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+						<control type="image">
+						<width>75</width>
+						<height>75</height>
+						<include>art_Frame-nf</include>
+					</control>					
+					</control>
+				</itemlayout>											
+				<focusedlayout height="80" width="80">
+					<control type="image">
+					<left>2</left>
+						<top>2</top>
+						<width>80</width>
+						<height>80</height>
+						<include>art_Frame-fo</include>
+					</control>
+						<control type="group">
+						<left>7</left>
+						<top>7</top>
+						<control type="image">
+							<width>70</width>
+							<height>70</height>
+							<texture>thumbs/default_Square.png</texture>
+						</control>
+						<control type="image">
+							<centerleft>37</centerleft>
+							<centertop>37</centertop>
+							<width>70</width>
+							<height>70</height>
+							<include>art_DefaultIcon</include>
+						</control>
+						<control type="image">
+							<width>70</width>
+							<height>70</height>
+							<texture background="true">$VAR[thumb_Square]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>																
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
+	<!--Fin-->		
+</includes>
+	

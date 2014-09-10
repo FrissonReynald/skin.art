@@ -1,0 +1,671 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<!--BANNERS SMALL GRID-->
+	<include name="view_Banner-ContainerCommons">
+		<control type="group">		
+		    <left>7</left>
+			<top>7</top>
+			<control type="image">	
+				<width>558</width>
+				<height>103</height>
+				<texture background="true">thumbs/default_Banner.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<centerleft>279</centerleft>
+				<centertop>51.5</centertop>
+				<width>72</width>
+				<height>72</height>
+				<include>art_DefaultIcon</include>
+			</control>
+			<control type="image">
+				<centerleft>279</centerleft>
+				<centertop>51.5</centertop>
+				<texture background="true">$VAR[thumb_Banner]</texture>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+			</control>
+			<control type="group">
+				<left>532</left>
+				<top>77</top>
+				<include>status_Info</include>					
+				<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+			</control>
+				<control type="group">
+					<left>530</left>
+				<top>73</top>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<control type="image">
+						<info>ListItem.Overlay</info>
+					</control>
+				</control>
+			<control type="image">
+			<left>-7</left>
+			<top>-5</top>
+			<width>572</width>
+			<height>115</height>
+			<include>art_Frame-nf</include>
+		</control>		
+		</control>
+	</include>
+	<include name="view_Banner">
+	 <control type="group">
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			    <control type="image">
+				     <top>100</top>
+				     <left>620</left>
+				     <width>630</width>
+				     <height>610</height>				
+                    <texture background="true">frames/contentpanel.png</texture>
+					 <animation condition="true" effect="Fade" start="70" end="70" time="0">Conditional</animation>					 
+					<aspectratio>stretch</aspectratio>					
+			         <visible>Control.IsVisible(54)</visible>					 
+			    </control>				
+			</control>
+		<control type="panel" id="54">
+			<viewtype label="31110">wide</viewtype> 	
+			<left>35</left>
+			<top>100</top>
+			<width>572</width>
+			<height>600</height>
+			<onleft>6000</onleft>
+			<onright>70</onright>
+			<onup>54</onup>
+			<ondown>54</ondown>
+			<pagecontrol>70</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>vertical</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
+			<itemlayout width="572" height="122">
+				<include>view_Banner-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="572" height="122">
+				<control type="image">
+					<width>572</width>
+					<height>117</height>
+					<include>art_Frame-fo</include>
+				</control>
+				<include>view_Banner-ContainerCommons</include>
+			</focusedlayout>
+		</control>
+		<!--container info-->			
+		<control type="group">
+		<control type="label">
+					 <left>190</left>
+					<top>55</top>
+						<width>355</width>
+						<label>$INFO[ListItem.Genre]</label>
+						<include>detail_Sub</include>
+						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
+					</control>
+					<control type="label">
+					<left>0</left>
+					<top>55</top>
+					<width>165</width>
+					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(tvshows)</visible>
+				</control>
+				<control type="label" id="1">
+				    <left>0</left>
+					<top>30</top>
+					<width>555</width>
+					<label>$VAR[global_Title]</label>
+					<include>detail_Title</include>
+				</control>
+				<control type="image">
+				    <left>-2</left>
+					<top>83</top>
+					<width>100</width>
+					<height>25</height>
+					<include>detail_StarRating</include>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+				</control>
+				<!--banner info 1 -->
+				<control type="group">
+				<control type="image">
+					<left>190</left>
+					<top>320</top>
+					<width>180</width>
+					<height>180</height>
+					<include>art_ClearLogo</include>					
+				</control>								
+				<visible>!Skin.HasSetting(bannerinfo1.enable)</visible>		
+				</control>
+				<!--banner info 2-->
+				<control type="group">
+				<left>0</left>
+						<top>120</top>				
+						<control type="image">	
+							<width>555</width>
+							<height>285</height>
+							<texture background="true">thumbs/default_Landscape.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>fadetime_Thumb</fadetime>
+						</control>
+						<control type="image">
+							<left>202</left>
+							<top>83.5</top>
+							<width>128</width>
+							<height>128</height>
+							<include>art_DefaultIcon</include>
+							<fadetime>fadetime_Thumb</fadetime>
+						</control>
+						<control type="image">
+							<width>555</width>
+							<height>285</height>
+							<texture background="true">$VAR[thumb_Landscape]</texture>
+							<fadetime>fadetime_Thumb</fadetime>
+							<aspectratio align="center" aligny="top">scale</aspectratio>
+						</control>
+						<control type="image">
+							<centerleft>269</centerleft>
+							<top>165</top>
+							<width>532</width>
+							<height>96</height>
+							<aspectratio align="center" aligny="bottom">keep</aspectratio>
+							<include>art_ClearLogo</include>
+						</control>						
+				<visible>Skin.HasSetting(bannerinfo2.enable)</visible>		
+				</control>
+				<!--banner info 3-->
+				<control type="group">
+				<left>290</left>
+						<top>120</top>
+				<control type="image">
+						    <left>-15</left>
+						    <top>-5</top>
+							<width>267</width>
+							<height>400</height>
+							<texture>frames/frame-landscape-back-alt.png</texture>
+							<aspectratio>stretch</aspectratio>
+							</control>
+						<control type="image">	
+							<width>267</width>
+							<height>400</height>
+							<texture background="true">thumbs/default_Portrait.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>fadetime_Thumb</fadetime>
+						</control>
+						<control type="image">
+							<left>80</left>
+							<top>83.5</top>
+							<width>128</width>
+							<height>128</height>
+							<include>art_DefaultIcon</include>
+							<fadetime>fadetime_Thumb</fadetime>
+						</control>							
+				<visible>Skin.HasSetting(bannerinfo3.enable)</visible>		
+				</control>
+				<control type="label">
+				    <left>0</left>
+					<top>60</top>
+					<width>550</width>
+					<label>$VAR[global_Info]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(movies)</visible>
+				</control>		
+					<control type="group">
+				<control type="textbox" id="4">
+				<top>110</top>
+				    <width>555</width>
+					<height>300</height>
+					<align>justify</align>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+				</control>				
+				<visible>!Skin.HasSetting(bannerinfo1.enable)</visible>		
+				</control>	
+					<control type="group">
+					<left>5</left>
+						<top>90</top>										
+					<control type="textbox">
+							<top>315</top>
+							<width>555</width>
+							<align>justify</align>
+							<height max="115">auto</height>
+							<label>$VAR[global_Plot]</label>
+							<include>detail_Text</include>
+						</control>							
+				<visible>Skin.HasSetting(bannerinfo2.enable)</visible>		
+				</control>	
+				<control type="group">
+				<left>0</left>
+						<top>90</top>					
+						<control type="textbox">
+						<left>0</left>
+							<top>25</top>
+							<width>265</width>
+							<align>justify</align>
+							<height max="400">auto</height>
+							<label>$VAR[global_Plot]</label>
+							<include>detail_Text</include>
+						</control>
+				<control type="image">
+				<left>290</left>
+				            <top>30</top>
+							<width>270</width>
+							<height>400</height>
+							<texture background="true">$VAR[thumb_Portrait]</texture>
+							<fadetime>fadetime_Thumb</fadetime>
+							<aspectratio>scale</aspectratio>
+						</control>		
+				<visible>Skin.HasSetting(bannerinfo3.enable)</visible>		
+				</control>				
+			<left>645</left>
+			<top>90</top>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<visible>Control.IsVisible(54) + [Container.Content(tvshows) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]]</visible>
+			<control type="grouplist">	
+			<left>0</left>
+					<top>590</top>
+				<itemgap>0</itemgap>
+				<control type="label">
+					<width>550</width>
+					<label>$VAR[nextaired_Info]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(tvshows) + !SubString(ListItem.Icon,default)</visible>
+				</control>				
+				</control>
+				<control type="group">
+				
+					<top>-10</top>
+				<left>10</left>
+			<control type="image">
+				<bottom>40</bottom>
+				<left>-2</left>
+				<top>535</top>
+				<width>150</width>
+				<height>70</height>
+				<aspectratio align="left">keep</aspectratio>
+				<texture>$VAR[flag_Studio]</texture>
+				<visible>[Container.Content(movies) | Control.IsVisible(54) + Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			</control>
+			<control type="image">
+			    <top>555</top>
+				<left>115</left>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
+				<visible>!IsEmpty(Listitem.VideoResolution)</visible>
+			</control>
+			<control type="image">
+				<top>555</top>
+				<left>210</left>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+				<visible>!IsEmpty(Listitem.AudioChannels)</visible>
+			 </control>
+			 <control type="image">
+			        <top>550</top>
+			        <left>320</left>
+					<width>96</width>
+					<height>50</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+			 <control type="image">
+				    <top>540</top>
+			        <left>450</left>
+					<width>96</width>
+					<height>64</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>	
+				</control>
+		</control>
+	</include>
+<!--BANNERS BIG GRID-->
+	<include name="view_BigBanner-ContainerCommons">
+		<control type="group">			
+			    <control type="image">
+				<top>128</top>
+				   	<width>608</width>
+					<height>58</height>				
+                    <texture background="true">frames/contentpanel.png</texture>
+					 <animation condition="true" effect="Fade" start="25" end="25" time="0">Conditional</animation>					 
+					<aspectratio>stretch</aspectratio>					
+			         <visible>Control.IsVisible(541)</visible>					 
+			    </control>				
+			</control>
+		<control type="group">
+			<left>7</left>
+			<top>7</top>
+			<control type="image">	
+				<width>590</width>
+				<height>109</height>
+				<texture background="true">thumbs/default_Banner.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<left>259</left>
+				<top>18.5</top>
+				<width>72</width>
+				<height>72</height>
+				<include>art_DefaultIcon</include>
+			</control>
+			<control type="image">
+				<width>590</width>
+				<height>109</height>
+				<texture background="true">$VAR[thumb_Banner]</texture>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+			</control>			
+				<control type="group">
+				<left>566</left>
+				<top>77</top>
+				<include>status_Info</include>					
+				<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+			</control>
+				<control type="group">
+					<left>560</left>
+				<top>77</top>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<control type="image">
+						<info>ListItem.Overlay</info>
+					</control>
+				</control>				
+			<control type="image">
+			<left>-5</left>
+			<top>-8</top>
+			<width>603</width>
+			<height>125</height>
+			<include>art_Frame-nf</include>
+		</control>		
+		</control>
+		<control type="image">
+			<right>14</right>
+			<top>133</top>
+			<height>22</height>
+			<include>detail_StarRating</include>
+			<aspectratio align="right">keep</aspectratio>
+			<visible>!SubString(ListItem.Icon,default)</visible>
+		</control>
+		<control type="group">
+			<left>7</left>
+			<top>130</top>
+			<control type="label">
+				<width>470</width>
+				<label>$VAR[global_Title]</label>
+				<include>detail_Title</include>
+			</control>
+			<control type="group">
+				<top>22</top>
+				<control type="label">
+					<width>440</width>
+					<label>$VAR[global_Info]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(tvshows) + !SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<control type="label">
+					<width>590</width>
+					<label>$VAR[global_Info]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(movies)</visible>
+				</control>
+				<control type="label">
+					<width>440</width>
+					<label>$VAR[global_Info.Addon]</label>
+					<include>detail_Title</include>
+					<visible>SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<control type="label">
+					<left>590</left>
+					<width>150</width>
+					<label>$INFO[ListItem.Studio]</label>
+					<align>right</align>
+					<include>detail_Sub</include>
+					<visible>Container.Content(tvshows) + !SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="view_BigBanner">
+		<control type="panel" id="541">
+			<viewtype label="31110">bigwide</viewtype>
+			<left>25</left>
+			<top>105</top>
+			<width>1240</width>
+			<height>570</height>
+			<onleft>6000</onleft>
+			<onright>70</onright>
+			<onup>541</onup>
+			<ondown>541</ondown>
+			<pagecontrol>70</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>vertical</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
+			<itemlayout width="620" height="190">
+				<include>view_BigBanner-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="620" height="190">
+				<control type="image">
+					<width>604</width>
+					<height>123</height>
+					<include>art_Frame-fo</include>
+				</control>
+			    <control type="image">
+				<top>128</top>
+				   	<width>608</width>
+					<height>58</height>			
+                    <texture background="true">frames/contentpanel.png</texture>
+					 <animation condition="true" effect="Fade" start="70" end="70" time="0">Conditional</animation>					 
+					<aspectratio>stretch</aspectratio>					
+			         <visible>Control.IsVisible(541)</visible>
+			</control>
+				<include>view_BigBanner-ContainerCommons</include>
+			</focusedlayout>
+		</control>
+	</include>
+	<!--BANNERS small GRID-->
+	<include name="view_SmallBanner-ContainerCommons">
+		<control type="group">
+		<include>focus_slimBanner</include>
+			<control type="image">	
+				<width>250</width>
+				<height>50</height>
+				<texture background="true">thumbs/default_Banner.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>			
+			<control type="image">
+				<width>250</width>
+				<height>50</height>
+				<texture background="true">$VAR[thumb_Banner]</texture>
+				<aspectratio align="left" aligny="center">scale</aspectratio>
+			</control>
+			<animation effect="zoom" center="auto" start="85" end="100" time="480" tween="back" reversible="false">Focus</animation>
+		</control>
+	</include>
+	<include name="view_SmallBanner">	
+	 <control type="group">
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			    <control type="image">
+				     <top>90</top>
+				     <left>40</left>
+				     <width>1225</width>
+				     <height>625</height>				
+                    <texture background="true">frames/contentpanel.png</texture>
+					 <animation condition="true" effect="Fade" start="60" end="60" time="0">Conditional</animation>					 
+					<aspectratio>stretch</aspectratio>					
+			         <visible>Control.IsVisible(543)</visible>					 
+			    </control>				
+			</control>
+		<control type="panel" id="543">
+			<viewtype label="31110">bigwide</viewtype>
+			<left>60</left>
+			<top>105</top>
+			<width>945</width>
+			<height>445</height>
+			<onleft>6000</onleft>
+			<onright>70</onright>
+			<onup>543</onup>
+			<ondown>543</ondown>
+			<pagecontrol>70</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>vertical</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
+			<itemlayout width="253" height="53">
+				<include>view_SmallBanner-ContainerCommons</include>
+				<control type="image">		
+					<width>250</width>
+					<height>50</height>
+					<texture background="true"colordiffuse="190ffffff">white.png</texture>
+				</control>
+			</itemlayout>
+			<focusedlayout width="253" height="53">						
+				<include>view_SmallBanner-ContainerCommons</include>
+			</focusedlayout>
+		</control>
+		<control type="group">
+			<control type="image">
+			<visible>Control.IsVisible(543)</visible>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<left>825</left>
+			<top>105</top>
+				<width>425</width>
+				<height>593</height>
+				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<visible>!Skin.HasSetting(thumb_Portrait)</visible>
+		</control>	
+		<control type="group">
+		<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+		<visible>Control.IsVisible(543)</visible>
+			<control type="textbox">
+			<left>830</left>
+			<top>105</top>
+				<width>415</width>
+				<height>593</height>
+					<align>justify</align>
+					<label>$INFO[ListItem.Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(543)</visible>
+				</control>	
+		<visible>Skin.HasSetting(Text_Box)</visible>		
+		</control>		
+		<control type="group">
+		<visible>Control.IsVisible(543)</visible>					
+		<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<left>70</left>
+				<top>580</top>
+					<control type="group">
+					<control type="label">
+					<left>35</left>
+					<top>-9</top>
+						<width>690</width>
+						<label>$VAR[global_Title]</label>
+						<include>detail_Title</include>
+						<scroll>autoscroll_Line</scroll>
+					</control>
+					<control type="image">
+				<left>2</left>
+					<top>-8</top>
+					<texture colordiffuse="Color3">$VAR[status_List]</texture>
+					<include>status_List</include>
+				</control>
+					<control type="group">
+						<top>30</top>
+						<left>35</left>
+						<visible>!SubString(ListItem.Icon,default)</visible>
+						<control type="label">
+							<width>550</width>
+							<label>$VAR[global_Info]</label>
+							<include>detail_Sub</include>
+							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+						<control type="label">
+							<width>550</width>
+							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
+							<include>detail_Sub</include>
+							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+					</control>					
+				</control>							
+			</control>
+			<control type="grouplist" id="100">
+			<visible>Control.IsVisible(543)</visible>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<left>65</left>
+				<bottom>25</bottom>
+				<width>900</width>
+				<height>50</height>
+				<itemgap>35</itemgap>
+				<orientation>horizontal</orientation>
+				<control type="image">
+					<width>100</width>
+					<height>50</height>
+					<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[ListItem.VideoResolution,flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$VAR[flag_Studio]</texture>
+					<aspectratio align="center">keep</aspectratio>					
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
+				</control>
+			</control>
+	</include>
+</includes>
