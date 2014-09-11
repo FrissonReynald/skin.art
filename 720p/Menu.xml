@@ -18,7 +18,7 @@
 		</control>	
 		<control type="image">
 			<left>7</left>
-			<top>-667</top>
+			<top>-655</top>
 			<width>257</width>
 			<texture>logos/refocusART.png</texture>
 			<aspectratio align="left">keep</aspectratio>			
@@ -311,7 +311,6 @@
 				<include>menu_Button</include>
 				<visible>Control.IsVisible(573)</visible>		
 		</control>		
-			
 		<!-- List Small-->
 		<control type="button" id="305">
 			<label>Setting</label>
@@ -361,7 +360,6 @@
 				<include>menu_Button</include>
 				<visible>Control.IsVisible(532)</visible>		
 		</control>		
-		
 		<!-- Strip big-->
 		<control type="button" id="317">
 			<label>Setting</label>
@@ -517,7 +515,6 @@
 			<visible>Control.IsVisible(543)</visible>		
 		</control>
 	</include>
-
 <!--VIDEO MENU-->
 	<include name="menu_Video">
 		<control type="group">
@@ -622,9 +619,10 @@
 					<onclick condition="Control.IsVisible(592)">Container.SetViewMode(62)</onclick>
 					<onclick condition="Control.IsVisible(62)">Container.SetViewMode(622)</onclick>
 					<onclick condition="Control.IsVisible(622)">Container.SetViewMode(621)</onclick>
-					<onclick condition="Control.IsVisible(621)">Container.SetViewMode(592)</onclick>
+					<onclick condition="Control.IsVisible(621)">Container.SetViewMode(623)</onclick>
+					<onclick condition="Control.IsVisible(623)">Container.SetViewMode(592)</onclick>
 					<include>menu_Button</include>
-					<visible>[Control.IsVisible(592) | Control.IsVisible(62) | Control.IsVisible(621) | Control.IsVisible(622)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+					<visible>[Control.IsVisible(592) | Control.IsVisible(62) | Control.IsVisible(621) | Control.IsVisible(622) | Control.IsVisible(623)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
 				</control>
 			<!--Movies Sets -->
 				<control type="button" id="119">
@@ -666,9 +664,7 @@
 					<include>menu_Button</include>
 					<visible>[Control.IsVisible(61) | Control.IsVisible(611)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
 				  </control>
-			
 			<!--options-->	
-		   
 			    <include>menuSetting_ViewMode</include>
 				<include>menu_Sorting</include>
 				<include>menu_LibraryHeader</include>
@@ -849,12 +845,10 @@
 						<onclick>Container.SetViewMode(691)</onclick>
 						<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 					</control>
-				
 				</control>
 			</control>
 		</control>
 	</include>
-
 <!--MUSIC MENU-->
 <!--Icon album-->
 	<include name="menuSetting_MusicMode">
@@ -873,7 +867,6 @@
 			<visible>Container.Content(albums)</visible>
 		</control>
 	</include>	
-
 	<include name="menu_Music">
 		<control type="group">
 			<include>menu_Commons</include>
@@ -965,7 +958,6 @@
 			</control>
 		</control>
 	</include>
-
 <!--FILES MENU-->
 	<include name="menu_Files">
 		<control type="group">
@@ -1075,7 +1067,6 @@
 			</control>
 		</control>
 	</include>
-
 <!--ADD-ONS MENU-->
 	<include name="menu_Addons">
 		<control type="group">
@@ -1163,7 +1154,6 @@
 			</control>
 		</control>
 	</include>
-
 <!--PLAYLIST MENU-->
 	<include name="menu_Playlist">
 		<control type="group">
@@ -1203,7 +1193,6 @@
 			</control>
 		</control>
 	</include>
-
 <!--TV MENU-->
 	<include name="menu_TV">
 		<control type="group">
@@ -1256,7 +1245,6 @@
 			</control>
 		</control>
 	</include>
-
 <!--SETTINGS MENU-->
 	<include name="menu_Settings">
 		<control type="group">
@@ -1279,7 +1267,6 @@
 			</control>
 		</control>
 	</include>
-
 <!--WEATHER-->
 	<include name="menu_Weather">
 		<control type="group">

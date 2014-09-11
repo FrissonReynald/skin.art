@@ -193,9 +193,12 @@
 		</control>
 	</include>
 	<include name="view_IconPortraitSmall">
-	<control type="image">					
+	<control type="image">	
+	<include>transition_Content</include>
+			<include>toggle_Menu</include>
+			<include>transition_Info</include>
 				<top>235</top>
-				<left>-0</left>
+				<left>17</left>
 				<width>1280</width>
 				<height>475</height>
                <texture background="true">frames/contentpanel.png</texture>
@@ -208,7 +211,7 @@
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
 				<top>235</top>
-				<left>-0</left>
+				<left>17</left>
 				<width>1280</width>
 				<height>475</height>
                <texture background="true">frames/contentpanel.png</texture>
@@ -221,7 +224,7 @@
 			<include>toggle_Menu</include>
 			<include>transition_Info</include>
 				<top>140</top>
-				<left>0</left>
+				<left>17</left>
 				<width>1280</width>
 				<height>90</height>
                <texture background="true">frames/contentpanel.png</texture>
@@ -326,7 +329,7 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 				<top>235</top>
-				<left>-0</left>
+				<left>17</left>
 				<width>1280</width>
 				<height>475</height>
               <texture background="true">frames/contentpanel.png</texture>  <aspectratio>stretch</aspectratio>
@@ -338,7 +341,7 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 				<top>235</top>
-				<left>-0</left>
+				<left>17</left>
 				<width>1280</width>
 				<height>475</height>
                 <texture background="true">frames/contentpanel.png</texture>  <aspectratio>stretch</aspectratio>
@@ -922,8 +925,19 @@
 			   <width>200</width>
 			       <height>90</height>
 			        <include>art_ClearLogo</include>	
-				    <aspectratio>keep</aspectratio>		
-		           </control>			
+				    <aspectratio>keep</aspectratio>	
+					<visible>Container.Content(movies)</visible>		
+		           </control>	
+				   <control type="image">
+			    <left>-670</left>
+			    <top>40</top>
+			   <width>200</width>
+			       <height>90</height>
+			      <texture background="true">$VAR[logo_clearart]</texture>
+				    <aspectratio>keep</aspectratio>	
+					<visible>Container.Content(sets)</visible>
+		
+		           </control>	
 			 <control type="group">
 			 <control type="image">
 			 <left>-379</left>

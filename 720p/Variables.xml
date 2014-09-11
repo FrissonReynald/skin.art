@@ -104,6 +104,7 @@
 		<value condition="Control.IsVisible(62)">$LOCALIZE[31120]: Full Wall</value>
 		<value condition="Control.IsVisible(621)">$LOCALIZE[31120]: Wall & Fanart</value>
 		<value condition="Control.IsVisible(622)">$LOCALIZE[31120]: Wall & Full Fanart</value>
+		<value condition="Control.IsVisible(623)">$LOCALIZE[31120]: Wall & Poster</value>
 		<value condition="Control.IsVisible(63)">$LOCALIZE[31120]: Poster </value>
 		<value condition="Control.IsVisible(631)">$LOCALIZE[31120]: Landscape</value>
 		<value condition="Control.IsVisible(632)">$LOCALIZE[31120] : Episode Banner</value>	

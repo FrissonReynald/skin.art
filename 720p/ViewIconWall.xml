@@ -1232,5 +1232,418 @@
 		</control>
 		</control>
 </include>
+<!-- view wall 2-->
+
+<include name="viewIconWall5Portrait-ContainerCommons">
+
+
+	</include>
+    <include name="view_IconWall5Portrait">
+	<control type="group">
+			
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+			<visible>Control.IsVisible(623)</visible>
+		</control>
+			 <control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[thumb_Landscape]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>Control.IsVisible(623)</visible>	
+		</control>
+		<control type="image">
+		<top>50</top>
+			<width>1290</width>
+			<height>700</height>
+			<texture>overlays/vignetteFullscreen.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(623)</visible>	
+		</control>
+		<control type="image">
+					<left>1035</left>
+					<top>25</top>
+					<width>170</width>
+					<height>70</height>
+					<include>art_ClearLogo</include>					
+				</control>	
+		</control>		
+		 <control type="group">
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			    <control type="image">
+				     <top>648</top>
+				     <left>0</left>
+				     <width>1290</width>
+				     <height>100</height>				
+                    <texture background="true">frames/contentpanel.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<colordiffuse>base_2</colordiffuse>
+			         <visible>Control.IsVisible(623)</visible>					 
+			    </control>				
+			</control>
+			<control type="grouplist" id="100">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<left>15</left>
+				<top>655</top>
+				<itemgap>-50</itemgap>
+				<orientation>horizontal</orientation>				
+					<control type="image">					
+						<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true" flipy="true">$INFO[Window(home).Property(Set.Movie.1.Art(discart))]</texture>
+					 <colordiffuse>ff333333</colordiffuse>	
+					</control>					
+					<control type="image">					
+						<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.2.Art(discart))]</texture>
+					 <colordiffuse>ff333333</colordiffuse>	
+					</control>
+					<control type="image">					
+					<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.3.Art(discart))]</texture>
+					 <colordiffuse>ff333333</colordiffuse>	
+					</control>
+					<control type="image">								
+						<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.4.Art(discart))]</texture>
+					 <colordiffuse>ff333333</colordiffuse>	
+					</control>
+					<control type="image">					
+						<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.5.Art(discart))]</texture>
+					 <colordiffuse>ff333333</colordiffuse>	
+					</control>
+					<control type="image">					
+					<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.6.Art(discart))]</texture>
+					 <colordiffuse>ff333333</colordiffuse>	
+					</control>
+				<control type="image">				
+						<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.7.Art(discart))]</texture>
+					  <colordiffuse>ff333333</colordiffuse>	
+					</control>					
+				<control type="image">				
+						<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.8.Art(discart))]</texture>
+					 <colordiffuse>ff666666</colordiffuse>	
+					</control>
+					<visible>Control.IsVisible(623) + [Container.Content(sets)]</visible>
+				</control>	
+			<control type="image">	
+		<include>transition_Content</include>
+			<include>toggle_Menu</include>
+			<include>transition_Info</include>
+				<left>0</left>
+				<bottom>70</bottom>
+				<width>1290</width>
+				<height>170</height>
+               <texture background="true">frames/contentpanel.png</texture>
+			    <animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>					 
+				 <aspectratio>stretch</aspectratio>			    
+			   <visible>Control.IsVisible(623)</visible> 			  		   
+			</control>
+		
+        <control type="wraplist" id="623">	
+        <viewtype label="Wall">icon</viewtype> 
+            <top>370</top>
+			<left>10</left>
+            <width>1280</width>
+            <height>210</height>
+            <onup>6000</onup>
+            <ondown>70</ondown>
+            <onleft>623</onleft>
+            <onright>623</onright>
+            <pagecontrol>70</pagecontrol>            
+            <focusposition>8</focusposition>
+            <orientation>horizontal</orientation>
+            <include>global_ListScroll</include>
+            <include>transition_Content</include>
+            <include>toggle_Menu</include>
+            <include>transition_Info</include>
+            <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(actors)</visible>
+            <scrolltime>200</scrolltime>        
+            <animation type="WindowOpen">
+                <effect type="fade" start="0" end="100" time="500"/>
+                <effect type="zoom" start="200" end="100" center="auto" time="500"/>
+            </animation>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" time="500"/>
+                <effect type="zoom" start="100" end="200" center="auto" time="500"/>
+            </animation>
+            <itemlayout width="75" height="110">
+            <include>viewIconWall2Portrait-ContainerCommons</include> 
+			
+			<control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>70</width>
+                    <height>110</height>
+                    <texture>views\frame-Wall/white_diffuse_wall.png</texture>
+                    <colordiffuse>FFFFFFFF</colordiffuse>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>70</width>
+                    <height>110</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
+                    <bordersize>1</bordersize>
+                    <colordiffuse>ff003366</colordiffuse>
+                    <visible>stringcompare(ListItem.Label,..)</visible>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>70</width>
+                    <height>110</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
+                    <bordersize>2</bordersize>
+                    <colordiffuse>60ffffff</colordiffuse>
+                    <visible>!stringcompare(ListItem.Label,..)</visible>
+                </control>
+            </itemlayout>
+		
+            <focusedlayout width="70" height="210"> 
+			<control type="image">
+                        <left>-18</left>
+                        <top>15</top>
+                        <width>100</width>
+                        <height>100</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">$VAR[Icon_Discart]</texture>
+                        <animation effect="slide" delay="1600" end="0,-100" time="300" tween="quadratic">Focus</animation>
+                        <animation effect="slide" start="0,50" end="0" time="10" tween="quadratic" easing="in">Unfocus</animation>
+                        <animation effect="zoom" start="70" end="200" center="auto" time="160" condition="Control.HasFocus(623)">Conditional</animation>
+                        <visible>Container.Content(movies)</visible>
+                        <bordersize>7</bordersize>
+                    </control>
+            <include>viewIconWallPortrait-ContainerCommons</include>
+            </focusedlayout>
+		</control> 
+</include>
+	
+<include name="detail_ThumbnailsWall5">
+<visible>Control.IsVisible(623)</visible>
+	<control type="image">	
+	<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				 <posx>535</posx>
+                    <posy>350</posy>
+                    <width>215</width>
+                    <height>295</height>
+				 <texture background="true">thumbs/default_Portrait.png</texture>
+				 <aspectratio>stretch</aspectratio>				 
+				 <visible>Control.IsVisible(623)</visible>
+			</control>
+			<control type="image">	
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				  <posx>535</posx>
+                    <posy>350</posy>
+                    <width>215</width>
+                    <height>295</height>
+				  <include>art_DefaultIcon</include>
+				  <visible>Control.IsVisible(623)</visible>
+			</control>
+  <control type="image">
+  	<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+                    <posx>535</posx>
+                    <posy>350</posy>
+                    <width>215</width>
+                    <height>295</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
+                    <bordertexture>black.png</bordertexture>
+                    <bordersize>0</bordersize>
+                       <visible>!stringcompare(ListItem.Label,..)</visible>
+					   <visible>Control.IsVisible(623)</visible>	
+                </control>
+				<control type="grouplist" id="100">
+					<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<left>20</left>
+				<bottom>30</bottom>
+				<width>500</width>
+				<height>200</height>
+				<itemgap>15</itemgap>
+				<orientation>horizontal</orientation>
+		<control type="image">
+		<width>240</width>
+		<height>150</height>
+		<texture background="true">$VAR[view_Extra.Thumb2]</texture>
+		<aspectratio>scale</aspectratio>          			
+		</control>			
+		<control type="image">		
+		<width>240</width>
+		<height>150</height>
+		<texture background="true">$VAR[view_Extra.Thumb3]</texture>
+		<aspectratio>scale</aspectratio>			
+		</control>
+		<visible>Control.IsVisible(623)</visible>	
+		</control>	
+			<control type="textbox">
+				<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<top>490</top>
+					<left>775</left>
+				    <width>470</width>
+					<height>140</height>
+					<align>justify</align>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(623)</visible>	
+				</control>
+				
+		
+		<control type="group">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<!--large grid-->
+			<control type="group">
+				<visible>Control.IsVisible(623)</visible>				
+				<!--flags-->
+				<control type="group">
+				<top>470</top>
+				<control type="image">
+					<right>100</right>
+					<top>210</top>
+					<width>80</width>
+					<include>detail_StarRating</include>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
+					<visible>Control.IsVisible(623)</visible>	
+				</control>
+				<control type="image">
+				    <top>190</top>
+				    <left>17</left>
+					<bottom>40</bottom>
+					<width>80</width>
+					<height>49</height>
+					<aspectratio align="left">keep</aspectratio>
+					<texture>$VAR[flag_Studio]</texture>
+				</control>          				
+				<control type="label">				
+				        <top>190</top>
+						<left>110</left>
+						<label>$VAR[global_Title]</label>
+						<width>600</width>
+						<include>detail_Title</include>
+						<animation effect="zoom" start="140" end="130" time="0" condition="true">Conditional</animation>
+						<visible>Control.IsVisible(623)</visible>						
+					</control>					
+					<control type="label">
+					    <top>220</top>
+						<left>110</left>
+						<label>$VAR[global_Info]</label>
+						<width>500</width>
+						<include>detail_Sub</include>
+						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+						<visible>Control.IsVisible(623)</visible>
+					</control>		
+					<control type="label">					
+						<top>220</top>
+						<left>110</left>
+						<label>$VAR[global_Info.Addon]</label>
+						<width>500</width>
+						<include>detail_Sub</include>
+						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+						<visible>Control.IsVisible(623)</visible>
+					</control>	
+				</control>	
+			</control>
+		</control>
+		<control type="grouplist" id="100">
+		<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<left>15</left>
+				<top>535</top>
+				<itemgap>-50</itemgap>
+				<orientation>horizontal</orientation>					
+					<control type="image">						
+						<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.1.Art(discart))]</texture>
+					</control>
+					<control type="image">					
+						<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.2.Art(discart))]</texture>
+					</control>
+					<control type="image">					
+							<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.3.Art(discart))]</texture>
+					</control>
+					<control type="image">								
+							<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.4.Art(discart))]</texture>
+					</control>
+					<control type="image">					
+							<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.5.Art(discart))]</texture>
+					</control>
+					<control type="image">					
+							<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.6.Art(discart))]</texture>
+					</control>
+				<control type="image">				
+						<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.7.Art(discart))]</texture>
+					</control>					
+				<control type="image">				
+						<width>105</width>
+						<height>105</height>
+						<aspectratio>stretch</aspectratio>
+						<texture background="true">$INFO[Window(home).Property(Set.Movie.8.Art(discart))]</texture>
+					</control>
+					<visible>Control.IsVisible(623) + [Container.Content(sets)]</visible>
+				</control>						
+</include>
 
 </includes> 

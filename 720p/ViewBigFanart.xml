@@ -44,8 +44,7 @@
 				<left>250</left>
 					<top>690</top>
 					<width>960</width>
-							<label>$VAR[global_Info]</label>
-							<textcolor>Color12</textcolor>
+							<label>$VAR[global_Info]</label>							
 							<include>detail_Sub</include>							
 							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
 						<visible>Control.IsVisible(596)</visible>
@@ -55,8 +54,7 @@
 					<top>690</top>
 							<width>960</width>
 							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
-							<include>detail_Sub</include>
-							<textcolor>Color14</textcolor>
+							<include>detail_Sub</include>							
 							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
 						<visible>Control.IsVisible(596)</visible>
 						</control>

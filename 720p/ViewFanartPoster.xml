@@ -59,6 +59,19 @@
 			   <aspectratio>stretch</aspectratio>
 			   <visible>Control.IsVisible(59)</visible>
 	 </control>
+	 <control type="image">
+	<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			   <top>538</top>
+			   <left>585</left>
+			   <width>627</width>
+			   <height>170</height>
+                <texture background="true">frames/contentpanel.png</texture>			   				   
+			   <aspectratio>stretch</aspectratio>
+			   <visible>Control.IsVisible(59)</visible>
+			   <visible>Skin.HasSetting(FanartSupp)</visible>
+	 </control>
 		<control type="fixedlist" id="59">
 			<viewtype label="Poster & Fanart">Big</viewtype>           		
             <left>600</left>
@@ -106,7 +119,7 @@
                 <texture background="true">frames/contentpanel.png</texture>
 				  <animation condition="true" effect="Fade" start="100" end="90" time="0">Conditional</animation>					 
 			   <aspectratio>stretch</aspectratio>
-			   <visible>Control.IsVisible(591)</visible>			   
+			   <visible>Control.IsVisible(591)</visible>			
 			</control>	
 		<control type="fixedlist" id="591">		
 			<viewtype label="Poster & Fanart">bigwrap</viewtype>
@@ -212,7 +225,7 @@
 			<control type="label">
 				   <label>$VAR[global_Title]</label>
 				   <left>365</left>
-				   <top>220</top>
+				   <top>225</top>
 				   <width>700</width>
 				   <include>detail_Title</include>
 				   <animation effect="zoom" start="120" end="120" time="0" condition="true">Conditional</animation>
@@ -241,7 +254,7 @@
 		</control>			
 			<control type="image">
 					<left>345</left>
-					<top>500</top>
+					<top>525</top>
 					<width>150</width>
 					<height>150</height>
 					<texture background="true">$VAR[Icon_Discart]</texture>
@@ -305,7 +318,7 @@
 			    <height>160</height>
 				<texture background="true">$VAR[logo_clearart]</texture>
 				<aspectratio>stretch</aspectratio>	
-				<visible>Skin.HasSetting(LogoFanartPoster)</visible>
+				<visible>Skin.HasSetting(LogoFanartPoster) + !Skin.HasSetting(FanartSupp)</visible>
 			</control>			
              <control type="image">
 				<top>335</top>
@@ -362,10 +375,10 @@
 			</control>
 			<control type="group">
 				<control type="label">
-					<left>515</left>
+					<left>440</left>
 					<top>500</top>	
 					<label>$VAR[gallery_Header]</label>
-					<width>650</width>
+					<width>700</width>
 					<textcolor>Color1</textcolor>
 					<include>detail_Title</include>
 			    </control>
@@ -382,10 +395,55 @@
 					<align>justify</align>
 					<label>$VAR[global_Plot]</label>
 					<include>detail_Text</include>
-					<visible>!SubString(ListItem.Icon,default)</visible>
+					<visible>!SubString(ListItem.Icon,default)</visible>					
 					</control>		
+					<visible>!Skin.HasSetting(FanartSupp)</visible>
+				</control>
+				<control type="group">                 				
+					<left>435</left>
+					<top>270</top>					
+				<control type="textbox" id="4">
+				  <top>-175</top>
+			        <left>165</left>
+					<width>600</width>
+					<height>160</height>					
+					<textcolor>Color1</textcolor>
+					<align>justify</align>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>!SubString(ListItem.Icon,default)</visible>
+					</control>	
+					<visible>Skin.HasSetting(FanartSupp)</visible>
 				</control>
 		</control>
+		<control type="group">  
+		 <top>450</top>
+		 <left>50</left>
+			<control type="image">			
+				<left>555</left>
+					<top>100</top>
+					<width>285</width>
+					<height>150</height>
+				<texture background="true">$VAR[thumb_Landscape]</texture>
+				<aspectratio align="center" aligny="top">scale</aspectratio>
+				<visible>Control.IsVisible(59)</visible>
+			     </control>	
+				 <control type="multiimage">
+				 	<left>860</left>
+					<top>100</top>
+					<width>285</width>
+					<height>150</height>
+				   <imagepath>$VAR[extrafanart.path]</imagepath>
+				   <aspectratio scalediffuse="false">scale</aspectratio>
+				   <include>fadeinout</include>	
+				   <timeperimage>9000</timeperimage>
+                   <randomize>true</randomize>
+                   <fadetime>5</fadetime>					
+                   <loop>yes</loop>					             
+				   <visible>Control.IsVisible(59)</visible>				
+				</control>
+				<visible>Skin.HasSetting(FanartSupp)</visible>
+		</control>			
 <!--view Landscape-->			
 			 <!--Big Landscape--> 
 			    <control type="image">

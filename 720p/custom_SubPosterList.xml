@@ -117,7 +117,7 @@
 					<include>menu_RadioButton2</include>
                 </control>
 	            <control type="radiobutton" id="155">
-	                <label>Info 3</label>
+	                <label>Info 2</label>
 					<width>260</width>	
                     <onclick>Skin.ToggleSetting(posterlistinfo3.enable)</onclick>
 					<onclick>Skin.ToggleSetting(posterlistinfo2.enable)</onclick>

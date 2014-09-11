@@ -82,7 +82,7 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)] + Skin.HasSetting(banner.movies.enable)</visible>
+			<visible>[Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]]</visible>
 			<itemlayout width="572" height="122">
 				<include>view_Banner-ContainerCommons</include>
 			</itemlayout>
@@ -210,7 +210,7 @@
 					<width>550</width>
 					<label>$VAR[global_Info]</label>
 					<include>detail_Sub</include>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<visible>Container.Content(movies)| Container.Content(seasons)</visible>
 		</control>		
 					<control type="group">
 				<control type="textbox" id="4">
@@ -453,7 +453,7 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible> Container.Content(seasons) | Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
+			<visible>[Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]]</visible>
 			<itemlayout width="620" height="190">
 				<include>view_BigBanner-ContainerCommons</include>
 			</itemlayout>
@@ -528,7 +528,7 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-			<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
+			<visible>[Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]]</visible>
 			<itemlayout width="253" height="53">
 				<include>view_SmallBanner-ContainerCommons</include>
 				<control type="image">		

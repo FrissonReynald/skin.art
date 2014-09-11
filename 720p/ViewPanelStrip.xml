@@ -144,10 +144,8 @@
 			<top>43</top>
 					<width>840</width>
 					<height>357</height>
-						<aspectratio scalediffuse="true">scale</aspectratio>	
-					
-					<fadetime>fadetime_Fanart</fadetime>
-					<texture diffuse="frames/frame-fo.png" background="true" fallback="frames/frame-fo.png">$VAR[view_Extra.Thumb2]</texture>
+						<aspectratio scalediffuse="true">scale</aspectratio>				
+					<texture>$VAR[view_Extra.Thumb2]</texture>
 				<visible>Skin.HasSetting(Landscape_PanelStrip)</visible>	
 				</control>
 			</control>	

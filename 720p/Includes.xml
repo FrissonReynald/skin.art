@@ -172,8 +172,7 @@
 			<visible>!Control.IsVisible(531)</visible>
 			<visible>Skin.HasSetting(Disable.global_Itemcount)</visible>			
 		</control>
-	</include>
-	
+	</include>	    
 	<include name="global_MenuGuide">
 		<control type="group" id="6100">
 			<left>20</left>
