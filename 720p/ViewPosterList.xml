@@ -14,13 +14,15 @@
 			<visible>Control.IsVisible(61)</visible>
 		</control>
 			 <control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
 			<include>screen_Dimensions</include>
-			<texture background="true">$VAR[thumb_Landscape]</texture>
+			<texture background="true">$VAR[global_Fanart]</texture>
 			<aspectratio align="center" aligny="top">scale</aspectratio>
 			<visible>Control.IsVisible(61)</visible>	
 		</control>
 		<control type="group">	
-				<control type="multiimage">				
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
 				<include>screen_Dimensions</include>
 				<include>fadeinout</include>
 				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
@@ -438,13 +440,15 @@
 			<visible>Control.IsVisible(611)</visible>
 		</control>
 			 <control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
 			<include>screen_Dimensions</include>
-			<texture background="true">$VAR[thumb_Landscape]</texture>
+			<texture background="true">$VAR[global_Fanart]</texture>
 			<aspectratio align="center" aligny="top">scale</aspectratio>
 			<visible>Control.IsVisible(611)</visible>	
 		</control>
 		<control type="group">	
-				<control type="multiimage">				
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
 				<include>screen_Dimensions</include>
 				<include>fadeinout</include>
 				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>

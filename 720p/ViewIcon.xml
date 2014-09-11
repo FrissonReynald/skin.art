@@ -935,8 +935,7 @@
 			       <height>90</height>
 			      <texture background="true">$VAR[logo_clearart]</texture>
 				    <aspectratio>keep</aspectratio>	
-					<visible>Container.Content(sets)</visible>
-		
+					<visible>Container.Content(sets)</visible>		
 		           </control>	
 			 <control type="group">
 			 <control type="image">

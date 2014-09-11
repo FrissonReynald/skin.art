@@ -84,6 +84,7 @@
 		<value condition="Control.IsVisible(543)">$LOCALIZE[31120]: Mini Grid</value>
 		<value condition="Control.IsVisible(579)">$LOCALIZE[31120]: Sets 2</value>
 		<value condition="Control.IsVisible(57)">$LOCALIZE[31120]: $LOCALIZE[31123]</value>
+		<value condition="Control.IsVisible(511)">$LOCALIZE[31120]: Big List</value>
 		<value condition="Control.IsVisible(571)">$LOCALIZE[31120]: $LOCALIZE[31124]</value>
 		<value condition="Control.IsVisible(572)">$LOCALIZE[31120]: $LOCALIZE[31123]</value>
 		<value condition="Control.IsVisible(573)">$LOCALIZE[31120]: Small Alt</value>

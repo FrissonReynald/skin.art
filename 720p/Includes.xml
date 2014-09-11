@@ -17,6 +17,7 @@
 	<include file="ViewIcon2.xml" /><!--(581)-->
 	<include file="View_IconAlbum.xml" /><!--(68)-->
 	<include file="ViewList.xml" /><!--(50)-(51)-(67)-->
+	<include file="View_BigList2.xml" /><!--(511)-->
 	<include file="ViewSlide.xml" /><!--(52)-(521)-(523)-(525)-(526)-->
 	<include file="ViewsTV.xml" />
 	<include file="ViewFanartPoster.xml" /><!--(59)-(591)-->
@@ -44,8 +45,8 @@
 	<constant name="screen_Center">640,360</constant>
 	<constant name="screen_Centerx">640</constant>
 	<constant name="screen_Centery">360</constant>
-	<constant name="fadetime_Thumb">200</constant>
-	<constant name="fadetime_Fanart">300</constant>
+	<constant name="fadetime_Thumb">185</constant>
+	<constant name="fadetime_Fanart">270</constant>
 	<constant name="fadetime_Slideshow">900</constant>
 	<constant name="transition_Open">250</constant>
 	<constant name="transition_Close">180</constant>
@@ -184,7 +185,7 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>navigation/left.png</texture>
-				<visible>[Control.IsVisible(50) | Control.IsVisible(51) | Control.IsVisible(501) | Control.IsVisible(524) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(542) | Control.IsVisible(543) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572)  | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(575) | Control.IsVisible(576) | Control.IsVisible(577) | Control.IsVisible(578) | Control.IsVisible(579) | Control.IsVisible(591) | Control.IsVisible(61) | Control.IsVisible(611) | Control.IsVisible(622) | Control.IsVisible(63) | Control.IsVisible(631) | Control.IsVisible(632) | Control.IsVisible(67) | Control.IsVisible(68) | Control.IsVisible(692) | Window.IsActive(weather) | Window.IsActive(pvr) | Window.IsActive(600) | Window.IsActive(SettingsCategory.xml)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+				<visible>[Control.IsVisible(50) | Control.IsVisible(51)  | Control.IsVisible(511) | Control.IsVisible(501) | Control.IsVisible(524) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(542) | Control.IsVisible(543) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572)  | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(575) | Control.IsVisible(576) | Control.IsVisible(577) | Control.IsVisible(578) | Control.IsVisible(579) | Control.IsVisible(591) | Control.IsVisible(61) | Control.IsVisible(611) | Control.IsVisible(622) | Control.IsVisible(63) | Control.IsVisible(631) | Control.IsVisible(632) | Control.IsVisible(67) | Control.IsVisible(68) | Control.IsVisible(692) | Window.IsActive(weather) | Window.IsActive(pvr) | Window.IsActive(600) | Window.IsActive(SettingsCategory.xml)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 				<include>nav_IndicatorLeft</include>
 				<colordiffuse>Color1</colordiffuse>
 			</control>

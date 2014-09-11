@@ -111,15 +111,36 @@
 		                <selected>Skin.HasSetting(Wall4textMovies)</selected>
 						<include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
+					<visible>!Container.Content(sets)</visible>
 		            </control>
 					 <control type="radiobutton" id="158">					
+                        <label>HIdden Info</label>
+						<width>260</width>	
+		                 <onclick>Skin.ToggleSetting(Wall4textMoviesSets)</onclick>
+		                <selected>Skin.HasSetting(Wall4textMoviesSets)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>Container.Content(sets)</visible>
+		            </control>
+					 <control type="radiobutton" id="159">					
                         <label>Logo</label>
 						<width>260</width>	
 		                 <onclick>Skin.ToggleSetting(Wall4Logo)</onclick>
 		                <selected>Skin.HasSetting(Wall4Logo)</selected>
 						<include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
+					<visible>!Container.Content(sets)</visible>
 		            </control>
+					 <control type="radiobutton" id="160">					
+                        <label>Logo</label>
+						<width>260</width>	
+		                 <onclick>Skin.ToggleSetting(Wall4LogoSets)</onclick>
+		                <selected>Skin.HasSetting(Wall4LogoSets)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>Container.Content(sets)</visible>
+		            </control>
+					
 					 
 					
 	</control>
