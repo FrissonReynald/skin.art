@@ -1270,7 +1270,8 @@
 					<top>25</top>
 					<width>170</width>
 					<height>70</height>
-					<include>art_ClearLogo</include>					
+					<include>art_ClearLogo</include>	
+					  <visible>Control.IsVisible(623)</visible>	
 				</control>	
 		</control>		
 		 <control type="group">
