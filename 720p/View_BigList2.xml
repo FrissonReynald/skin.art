@@ -108,6 +108,7 @@
                         <texture background="true">$VAR[Icon_Discart]</texture>
                           <visible>Container.Content(movies)</visible>
                         <bordersize>7</bordersize>
+						<visible>Skin.HasSetting(BigList2Discart)</visible>
                     </control>	   
 				<include>view_BigList2-ContainerCommons</include>				
 				<control type="group">
@@ -213,6 +214,7 @@
                         <texture background="true">$VAR[Icon_Discart]</texture>
                           <visible>Container.Content(movies)</visible>
                         <bordersize>7</bordersize>
+						<visible>Skin.HasSetting(BigList2Discart)</visible>
                     </control>	
 				<include>view_BigList2-ContainerCommons</include>	
 				<control type="group">

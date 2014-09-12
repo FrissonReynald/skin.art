@@ -353,16 +353,7 @@
 				<visible>Control.IsVisible(62)</visible>				
 				<!--flags-->
 				<control type="group">
-				<top>470</top>
-				<control type="image">
-					<right>100</right>
-					<top>210</top>
-					<width>80</width>
-					<include>detail_StarRating</include>
-					<aspectratio align="right" aligny="top">keep</aspectratio>
-					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
-					<visible>Control.IsVisible(62)</visible>	
-				</control>
+				<top>470</top>				
 				<control type="image">
 				    <top>190</top>
 				    <left>17</left>
@@ -373,10 +364,10 @@
 					<texture>$VAR[flag_Studio]</texture>
 				</control>          				
 				<control type="label">				
-				        <top>190</top>
+				        <top>185</top>
 						<left>110</left>
 						<label>$VAR[global_Title]</label>
-						<width>600</width>
+						<width>750</width>
 						<include>detail_Title</include>
 						<animation effect="zoom" start="140" end="130" time="0" condition="true">Conditional</animation>
 						<visible>Control.IsVisible(62)</visible>						
@@ -385,7 +376,7 @@
 					    <top>220</top>
 						<left>110</left>
 						<label>$VAR[global_Info]</label>
-						<width>500</width>
+						<width>600</width>
 						<include>detail_Sub</include>
 						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(62)</visible>
@@ -394,7 +385,7 @@
 						<top>220</top>
 						<left>110</left>
 						<label>$VAR[global_Info.Addon]</label>
-						<width>500</width>
+						<width>600</width>
 						<include>detail_Sub</include>
 						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(62)</visible>
@@ -1041,16 +1032,7 @@
 				<visible>Control.IsVisible(622)</visible>				
 				<!--flags-->
 				<control type="group">
-				<top>470</top>
-				<control type="image">
-					<right>100</right>
-					<top>210</top>
-					<width>80</width>
-					<include>detail_StarRating</include>
-					<aspectratio align="right" aligny="top">keep</aspectratio>
-					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
-					<visible>Control.IsVisible(622)</visible>	
-				</control>
+				<top>470</top>				
 				<control type="image">
 				    <top>190</top>
 				    <left>17</left>
@@ -1061,7 +1043,7 @@
 					<texture>$VAR[flag_Studio]</texture>
 				</control>          				
 				<control type="label">				
-				        <top>190</top>
+				        <top>180</top>
 						<left>110</left>
 						<label>$VAR[global_Title]</label>
 						<width>850</width>
@@ -1073,7 +1055,7 @@
 					    <top>220</top>
 						<left>110</left>
 						<label>$VAR[global_Info]</label>
-						<width>850</width>
+						<width>650</width>
 						<include>detail_Sub</include>
 						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(622)</visible>
@@ -1082,7 +1064,7 @@
 						<top>220</top>
 						<left>110</left>
 						<label>$VAR[global_Info.Addon]</label>
-						<width>500</width>
+						<width>650</width>
 						<include>detail_Sub</include>
 						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(622)</visible>
@@ -1452,7 +1434,7 @@
 						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.8.Art(discart))]</texture>
 					 <colordiffuse>ff666666</colordiffuse>	
 					</control>
-					<visible>Control.IsVisible(623) + [Container.Content(sets)]</visible>
+					<visible>Control.IsVisible(623) + [Container.Content(sets)] + Skin.HasSetting(Wall5DiscartSets)</visible>
 				</control>	
 			<control type="image">	
 		<include>transition_Content</include>
@@ -1538,7 +1520,7 @@
                         <animation effect="slide" delay="1600" end="0,-100" time="300" tween="quadratic">Focus</animation>
                         <animation effect="slide" start="0,50" end="0" time="10" tween="quadratic" easing="in">Unfocus</animation>
                         <animation effect="zoom" start="70" end="200" center="auto" time="160" condition="Control.HasFocus(623)">Conditional</animation>
-                        <visible>Container.Content(movies)</visible>
+                        <visible>Container.Content(movies) + Skin.HasSetting(Wall5DiscartMovies)</visible>
                         <bordersize>7</bordersize>
                     </control>
             <include>viewIconWallPortrait-ContainerCommons</include>
@@ -1634,16 +1616,7 @@
 				<visible>Control.IsVisible(623)</visible>				
 				<!--flags-->
 				<control type="group">
-				<top>470</top>
-				<control type="image">
-					<right>100</right>
-					<top>210</top>
-					<width>80</width>
-					<include>detail_StarRating</include>
-					<aspectratio align="right" aligny="top">keep</aspectratio>
-					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
-					<visible>Control.IsVisible(623)</visible>	
-				</control>
+				<top>470</top>				
 				<control type="image">
 				    <top>190</top>
 				    <left>17</left>
@@ -1654,10 +1627,10 @@
 					<texture>$VAR[flag_Studio]</texture>
 				</control>          				
 				<control type="label">				
-				        <top>190</top>
+				        <top>180</top>
 						<left>110</left>
 						<label>$VAR[global_Title]</label>
-						<width>600</width>
+						<width>750</width>
 						<include>detail_Title</include>
 						<animation effect="zoom" start="140" end="130" time="0" condition="true">Conditional</animation>
 						<visible>Control.IsVisible(623)</visible>						
@@ -1666,7 +1639,7 @@
 					    <top>220</top>
 						<left>110</left>
 						<label>$VAR[global_Info]</label>
-						<width>500</width>
+						<width>650</width>
 						<include>detail_Sub</include>
 						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(623)</visible>
@@ -1675,7 +1648,7 @@
 						<top>220</top>
 						<left>110</left>
 						<label>$VAR[global_Info.Addon]</label>
-						<width>500</width>
+						<width>650</width>
 						<include>detail_Sub</include>
 						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(623)</visible>
@@ -1739,7 +1712,53 @@
 						<aspectratio>stretch</aspectratio>
 						<texture background="true">$INFO[Window(home).Property(Set.Movie.8.Art(discart))]</texture>
 					</control>
-					<visible>Control.IsVisible(623) + [Container.Content(sets)]</visible>
-				</control>						
+					<visible>Control.IsVisible(623) + [Container.Content(sets)] + Skin.HasSetting(Wall5DiscartSets)</visible>
+				</control>	
+				<control type="grouplist" id="100">
+				<left>66%</left>
+				<bottom>0</bottom>
+				<width>510</width>
+				<height>40</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+					<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[ListItem.VideoResolution,flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture >$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
+				</control>				
+				<visible>Control.IsVisible(62) | Control.IsVisible(622) | Control.IsVisible(623)</visible>
+			</control>	
 </include>
 </includes> 

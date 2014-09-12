@@ -70,7 +70,7 @@
                 <texture background="true">frames/contentpanel.png</texture>			   				   
 			   <aspectratio>stretch</aspectratio>
 			   <visible>Control.IsVisible(59)</visible>
-			   <visible>Skin.HasSetting(FanartSupp)</visible>
+			   <visible>Skin.HasSetting(FanartSupp) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
 	 </control>
 		<control type="fixedlist" id="59">
 			<viewtype label="Poster & Fanart">Big</viewtype>           		
@@ -254,7 +254,7 @@
 		</control>			
 			<control type="image">
 					<left>345</left>
-					<top>525</top>
+					<top>530</top>
 					<width>150</width>
 					<height>150</height>
 					<texture background="true">$VAR[Icon_Discart]</texture>
@@ -397,7 +397,7 @@
 					<include>detail_Text</include>
 					<visible>!SubString(ListItem.Icon,default)</visible>					
 					</control>		
-					<visible>!Skin.HasSetting(FanartSupp)</visible>
+					<visible>!Skin.HasSetting(FanartSupp) |  SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
 				</control>
 				<control type="group">                 				
 					<left>435</left>
@@ -413,7 +413,7 @@
 					<include>detail_Text</include>
 					<visible>!SubString(ListItem.Icon,default)</visible>
 					</control>	
-					<visible>Skin.HasSetting(FanartSupp)</visible>
+					<visible>Skin.HasSetting(FanartSupp) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
 				</control>
 		</control>
 		<control type="group">  
@@ -442,7 +442,7 @@
                    <loop>yes</loop>					             
 				   <visible>Control.IsVisible(59)</visible>				
 				</control>
-				<visible>Skin.HasSetting(FanartSupp)</visible>
+				<visible>Skin.HasSetting(FanartSupp) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
 		</control>			
 <!--view Landscape-->			
 			 <!--Big Landscape--> 

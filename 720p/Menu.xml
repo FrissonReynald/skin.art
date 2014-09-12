@@ -325,6 +325,13 @@
 		<include>menu_Button</include>
 		<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>		
 		</control>	
+		<!-- Big List 2 -->
+		<control type="button" id="307">
+		<label>Setting</label>
+		<onclick>ActivateWindow(687)</onclick>
+		<include>menu_Button</include>
+		<visible>Control.IsVisible(511) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>		
+		</control>
 		<!-- Slide Portrait -->
 		<control type="button" id="308">
 			<label>Setting</label>
@@ -386,7 +393,7 @@
 			<label>Setting</label>
 			<onclick>ActivateWindow(700)</onclick>
 				<include>menu_Button</include>
-				<visible>Control.IsVisible(59) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers) </visible>		
+				<visible>Control.IsVisible(59) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>		
 		</control>
 		<!-- Landscape & Poster-->
 		<control type="button" id="321">
@@ -478,6 +485,13 @@
 			<onclick>ActivateWindow(7121)</onclick>
 				<include>menu_Button</include>
 				<visible>Control.IsVisible(621)</visible>		
+		</control>
+		<!--Wall 5-->
+		<control type="button" id="3332">
+			<label>Setting</label>
+			<onclick>ActivateWindow(7122)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(623)</visible>		
 		</control>
 		<!--Showcase-->
 		<control type="button" id="334">
