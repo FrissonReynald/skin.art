@@ -1452,15 +1452,15 @@
         <control type="wraplist" id="623">	
         <viewtype label="Wall">icon</viewtype> 
             <top>370</top>
-			<left>10</left>
-            <width>1280</width>
+			<left>-215</left>
+            <width>1920</width>
             <height>210</height>
             <onup>6000</onup>
             <ondown>70</ondown>
             <onleft>623</onleft>
             <onright>623</onright>
             <pagecontrol>70</pagecontrol>            
-            <focusposition>9</focusposition>
+            <focusposition>10</focusposition>
             <orientation>horizontal</orientation>
             <include>global_ListScroll</include>
             <include>transition_Content</include>
@@ -1509,7 +1509,7 @@
                     <visible>!stringcompare(ListItem.Label,..)</visible>
                 </control>
             </itemlayout>
-            <focusedlayout width="70" height="210"> 
+            <focusedlayout width="220" height="210"> 
 			<control type="image">
                         <left>-90</left>
                         <top>15</top>

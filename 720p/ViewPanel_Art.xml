@@ -849,7 +849,7 @@
 				<width>345</width>
 				<height>145</height>
 				<texture background="true">$VAR[view_Extra.Thumb2]</texture>
-				<aspectratio>scale</aspectratio>
+				<aspectratio align="left" aligny="top">scale</aspectratio>
 				<visible>Control.IsVisible(694) + Container.Content(movies)</visible>
 				</control>
 				<control type="image">
