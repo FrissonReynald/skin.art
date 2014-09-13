@@ -360,6 +360,13 @@
 				<include>menu_Button</include>
 				<visible>Control.IsVisible(54)</visible>		
 		</control>
+		<!-- Banner Fanart-->
+		<control type="button" id="3130">
+			<label>Setting</label>
+			<onclick>ActivateWindow(6930)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(544)</visible>		
+		</control>
 		<!-- Gallery Full Alt-->
 		<control type="button" id="314">
 			<label>Setting</label>
@@ -593,21 +600,23 @@
 					<onclick condition="Control.IsVisible(573)">Container.SetViewMode(576)</onclick>					
 					<onclick condition="Control.IsVisible(576)">Container.SetViewMode(578)</onclick>
 					<onclick condition="Control.IsVisible(578)">Container.SetViewMode(511)</onclick>
-					<onclick condition="Control.IsVisible(511)">Container.SetViewMode(57)</onclick>
+					<onclick condition="Control.IsVisible(511)">Container.SetViewMode(512)</onclick>
+					<onclick condition="Control.IsVisible(512)">Container.SetViewMode(57)</onclick>
 					<onclick condition="Control.IsVisible(579) + Container.Content(movies) + Container.Content(sets)">Container.SetViewMode(57)</onclick>
 					<onclick condition="Control.IsVisible(572) + Container.Content(addons)">Container.SetViewMode(574)</onclick>
 					<onclick condition="Control.IsVisible(574) + Container.Content(addons) + Container.Content(albums)">Container.SetViewMode(572)</onclick>
 					<include>menu_Button</include>
-					<visible>[Control.IsVisible(511) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572) | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(576) | Control.IsVisible(578)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(addons) |  Container.Content(albums) + !SubString(Container.FolderPath,plugin://)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+					<visible>[Control.IsVisible(511) | Control.IsVisible(512) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572) | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(576) | Control.IsVisible(578)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(addons) |  Container.Content(albums) + !SubString(Container.FolderPath,plugin://)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
 				</control>
 			<!--banners: small or large grid-->
 				<control type="button" id="117">
 					<label>$VAR[view_Layout]</label>
 					<onclick condition="Control.IsVisible(54)">Container.SetViewMode(541)</onclick>
 					<onclick condition="Control.IsVisible(541)">Container.SetViewMode(543)</onclick>
-					<onclick condition="Control.IsVisible(543)">Container.SetViewMode(54)</onclick>
+					<onclick condition="Control.IsVisible(543)">Container.SetViewMode(544)</onclick>
+					<onclick condition="Control.IsVisible(544)">Container.SetViewMode(54)</onclick>
 					<include>menu_Button</include>
-					<visible>[Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(543)] + [Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]]</visible>
+					<visible>[Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(543) | Control.IsVisible(544)] + [Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]]</visible>
 			    </control>
 			<!--Strip: small or Large-->
 				<control type="button" id="118">
@@ -659,9 +668,10 @@
 				<control type="button" id="128">
 				<label>$VAR[view_Layout]</label>
 					<onclick condition="Control.IsVisible(691)">Container.SetViewMode(692)</onclick>				
-					<onclick condition="Control.IsVisible(692)">Container.SetViewMode(691)</onclick>
+					<onclick condition="Control.IsVisible(692)">Container.SetViewMode(694)</onclick>
+					<onclick condition="Control.IsVisible(694)">Container.SetViewMode(691)</onclick>					
 					<include>menu_Button</include>
-					<visible>[Control.IsVisible(691) | Control.IsVisible(692)] + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
+					<visible>[Control.IsVisible(691) | Control.IsVisible(692) | Control.IsVisible(694)] + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
 				  </control>
 				<!--Panel-->				
 				<control type="button" id="130">

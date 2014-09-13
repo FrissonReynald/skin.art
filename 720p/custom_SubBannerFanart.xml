@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window type="dialog" id="691">
+<window type="dialog" id="6930">
 	<defaultcontrol>149</defaultcontrol>
 	<include>Animation_TopDialogPopup</include>		
-	<height>250</height>
+	<height>200</height>
 	<coordinates>
 		<system>1</system>
 		<left>0</left>
@@ -22,8 +22,7 @@
 			<top>18</top>
 			<width>650</width>			
 			<include>dialog_Separator</include>
-		</control>
-		<!-- Thumbnails Small-->
+		</control>		
 		<control type="image">
 			<left>0</left>
 			<top>60</top>
@@ -59,7 +58,7 @@
 		<control type="label">	
 					<left>-1050</left>
 			<top>95</top>
-					    <label>Panel</label>
+					    <label>Banner</label>
 						<align>center</align>
 					    <font>normal</font>
 				        <textcolor>ff000000</textcolor>					   
@@ -75,7 +74,7 @@
 					<control type="label">	
 				<left>-1100</left>
 			<top>150</top>
-					    <label>TextBox</label>
+					    <label>Fanart</label>
 						<align>center</align>
 					    <font>normal</font>
 				        <textcolor>ff000000</textcolor>					   
@@ -87,7 +86,8 @@
 						<align>center</align>
 					    <font>normal</font>
 				        <textcolor>ff000000</textcolor>					   
-					</control>
+					</control>						
+				
 		<control type="grouplist" id="149">
 		<onleft>back</onleft>
 		<onright>back</onright>
@@ -96,25 +96,36 @@
 			<width>275</width>
 			<height min="40" max="720">auto</height>
 			<itemgap>0</itemgap>
-			 <control type="radiobutton" id="153">
-					    <label>Landscape</label>
-						<width>260</width>	
-					   <onclick>Skin.ToggleSetting(PanelTextbox_Landscape.movies.enable)</onclick>
-					    <onclick>Skin.ToggleSetting(PanelTextbox_Logo.movies.enable)</onclick>
-					    <selected>Skin.HasSetting(PanelTextbox_Landscape.movies.enable)</selected>
-						 <include>menu_Button2</include>
-		            <include>menu_RadioButton2</include>
-					</control>					
-					<control type="radiobutton" id="154">
-					    <label>Logo</label>
-						<width>260</width>	
-					     <onclick>Skin.ToggleSetting(PanelTextbox_Logo.movies.enable)</onclick>
-					   <onclick>Skin.ToggleSetting(PanelTextbox_Landscape.movies.enable)</onclick>
-					    <selected>!Skin.HasSetting(PanelTextbox_Logo.movies.enable)</selected>
-						 <include>menu_Button2</include>
-		            <include>menu_RadioButton2</include>
-				   </control>
-				   
+			  <control type="radiobutton" id="150">
+				   <label>Info 1</label>
+				   <width>260</width>
+				   <onclick>Skin.ToggleSetting(Text_Box_BannerFanart)</onclick>
+                   <onclick condition="Skin.HasSetting(Text_Poster_BannerFanart)">Skin.ToggleSetting(Text_Poster_BannerFanart)</onclick>
+		            <selected>!Skin.HasSetting(Text_Box_BannerFanart)</selected>
+		          <include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+                </control>
+				  <control type="radiobutton" id="151">
+				   <label>Info 2</label>
+				   <width>260</width>
+				   <onclick>Skin.ToggleSetting(Text_Poster_BannerFanart)</onclick>
+                   <onclick condition="!Skin.HasSetting(Text_Box_BannerFanart)">Skin.ToggleSetting(Text_Box_BannerFanart)</onclick>
+		            <selected>Skin.HasSetting(Text_Poster_BannerFanart)</selected>
+		          <include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+                </control>	
+			
+				 <control type="radiobutton" id="153">					
+                        <label>Info 2 - Alt </label>
+						<width>260</width>		                
+		              <onclick>Skin.ToggleSetting(Text_Landscape_BannerFanart)</onclick>					  
+					   <selected>Skin.HasSetting(Text_Landscape_BannerFanart)</selected>
+					   <enable>Skin.HasSetting(Text_Poster_BannerFanart)</enable>
+					   <include>menu_Button2</include>
+		            <include>menu_RadioButton2</include>						
+		            </control>		
+										
+						
 		</control>
 	</controls>
 </window>

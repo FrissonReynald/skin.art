@@ -124,6 +124,8 @@
 				      <width>545</width>
 				     <height>330</height>
 				      <texture background="true">frames/contentpanel.png</texture>
+					   <animation condition="true" effect="Fade" start="60" end="60" time="0">Conditional</animation>					 
+				  
 					 <visible>Control.IsVisible(581)</visible> 
 					  <visible>Skin.HasSetting(stripsmallinfo2.enable)</visible>	
 					 </control>	
@@ -203,9 +205,8 @@
 				     <width>395</width>
 				     <height>315</height>
 				     <texture background="true">frames/contentpanel.png</texture>
-					 <animation condition="true" effect="Fade" start="70" end="70" time="0">Conditional</animation>					 
-				     <aspectratio>scale</aspectratio>
-					 <colordiffuse>accent_4</colordiffuse>
+					 <animation condition="true" effect="Fade" start="60" end="60" time="0">Conditional</animation>					 
+				     <aspectratio>scale</aspectratio>					
 			      </control>
 				  <left>755</left>
 				 <include>fadeinout</include>

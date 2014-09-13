@@ -873,47 +873,48 @@
 				<visible>!Skin.HasSetting(Fanartlistinfo2.enable)</visible>
 		</control>		
 		<control type="grouplist" id="100">
-				<left>720</left>
-				<bottom>10</bottom>
-				<width>350</width>
+				<left>56.5%</left>
+				<bottom>3</bottom>
+				<width>510</width>
 				<height>40</height>
-				<itemgap>10</itemgap>
-				<orientation>horizontal</orientation>	
-					<visible>Control.IsVisible(611)</visible>							
-				<control type="image">			       
-				    <width>80</width>
-				    <height>40</height>
-				    <aspectratio align="center" aligny="top">keep</aspectratio>
-				    <texture>$INFO[Listitem.VideoResolution,flags/video/resolution/,.png]</texture>
-				    <visible>!IsEmpty(Listitem.VideoResolution)</visible>
-				    <visible>Control.IsVisible(611)</visible>
-			    </control>
+				<itemgap>25</itemgap>
+				<orientation>horizontal</orientation>			
 				<control type="image">
-				  
-				    <width>70</width>
-				    <height>35</height>
-				    <aspectratio align="center">keep</aspectratio>
-				    <texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
-				    <visible>!IsEmpty(Listitem.AudioChannels)</visible>
-				    <visible>Control.IsVisible(611)</visible>
-			     </control>
-				 <control type="image">
-			       
-					<width>80</width>
-					<height>40</height>
-					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[ListItem.VideoResolution,flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture >$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
 					<aspectratio align="center">keep</aspectratio>
 					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
-					<visible>Control.IsVisible(611)</visible>
 				</control>
-				<control type="image">				  
-					<width>80</width>
-					<height>40</height>
-					<aspectratio align="left">keep</aspectratio>
-					<texture>$VAR[flag_Studio]</texture>
-					<visible>Control.IsVisible(611)</visible>
-				</control>	
-				</control>	
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
+				</control>				
+				<visible>Control.IsVisible(611)</visible>
+			</control>	
 </control>	
 	</include>
 </includes>
