@@ -926,7 +926,7 @@
 				<height>40</height>
 				<itemgap>16</itemgap>
 				<orientation>horizontal</orientation>
-					<animation condition="true" effect="Fade" start="100" end="10" time="0">Conditional</animation>					 
+					<animation condition="true" effect="Fade" start="100" end="7" time="0">Conditional</animation>					 
 				<control type="image">
 					<width>76</width>
 					<height>44</height>
@@ -963,7 +963,7 @@
 		<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-				<top>530</top>
+				<top>525</top>
 				<left>0</left>
 				<width>1280</width>
 				<height>250</height>
@@ -1034,8 +1034,8 @@
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<top>135</top>
-			<left>465</left>
-			<width>390</width>
+			<left>469</left>
+			<width>385</width>
 			<height>540</height>
 			<texture background="true">$VAR[thumb_Portrait]</texture>
 			<aspectratio aligny="top" align="right">stretch</aspectratio> 
@@ -1101,8 +1101,8 @@
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
-			<top>134</top>
-			<left>340</left>
+			<top>131</top>
+			<left>345</left>
 				<width>350</width>
 				<height>550</height>
 				<texture>frames/frame-panel-Art.png</texture>
@@ -1135,7 +1135,7 @@
 			<width>450</width>
 			<height>610</height>
 		<texture background="true"flipy="true">frames/contentpanel.png</texture>
-		<animation condition="true" effect="Fade" start="100" end="40" time="0">Conditional</animation>		  	
+		<animation condition="true" effect="Fade" start="100" end="65" time="0">Conditional</animation>		  	
 			<aspectratio>stretch</aspectratio>
 			<visible>Control.IsVisible(694)</visible>			
 	</control>	
