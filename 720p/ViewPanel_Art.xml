@@ -824,7 +824,6 @@
 	<include name="viewPanel_Art2-ContainerCommons">
 		<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 	</include>	
-
 <!-----// // // // View Tri Panel ART  (id694) // // // -->
 <include name="detail_TriPanel_Art"> 			
 			<control type="textbox">
@@ -832,9 +831,9 @@
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 				<top>175</top>
-				<left>900</left>
-				    <width>340</width>
-					<height>290</height>
+				<left>875</left>
+				    <width>360</width>
+					<height>240</height>
 					<align>justify</align>
 					<label>$VAR[global_Plot]</label>
 					<include>detail_Text</include>
@@ -844,10 +843,10 @@
 				<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
-				<top>480</top>
-				<left>895</left>
-				<width>345</width>
-				<height>145</height>
+				<top>425</top>
+				<left>875</left>
+				<width>363</width>
+				<height>170</height>
 				<texture background="true">$VAR[view_Extra.Thumb2]</texture>
 				<aspectratio align="left" aligny="top">scale</aspectratio>
 				<visible>Control.IsVisible(694) + Container.Content(movies)</visible>
@@ -856,37 +855,36 @@
 				<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
-				<top>480</top>
-				<left>895</left>
-				<width>345</width>
-				<height>185</height>
-				<texture background="true">$VAR[view_Extra.Thumb2]</texture>
+				<top>425</top>
+				<left>875</left>
+				<width>363</width>
+				<height>190</height>
+				<texture background="true">$VAR[thumb_Landscape]</texture>
 				<aspectratio>scale</aspectratio>
 				<visible>Control.IsVisible(694) + Container.Content(tvshows)</visible>
-				</control>	
+				</control>
 				<control type="image">
-			<include>transition_Info</include>
-			<include>toggle_Menu</include>
-			<include>transition_Content</include>
-			<top>480</top>
-			<left>760</left>
-				<width>300</width>
-				<height>145</height>
-				<texture>frames/frame-panel-Art.png</texture>
-				<animation condition="true" effect="Fade" start="100" end="40" time="0">Conditional</animation>					 
-			  	<aspectratio>keep</aspectratio> 
-				<include>fadeinout</include>				
-				<visible>Control.IsVisible(694)</visible>
-			</control>
-				<control type="grouplist" id="100">
 				<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
-				<left>69.9%</left>
-				<bottom>50</bottom>
+				<top>690</top>
+				<left>875</left>
+				<width>363</width>
+				<height>170</height>
+				<texture background="true" flipy="true">$VAR[thumb_Landscape]</texture>
+				<aspectratio>scale</aspectratio>
+				<visible>Control.IsVisible(694) + Container.Content(tvshows)</visible>
+					<animation condition="true" effect="Fade" start="100" end="20" time="0">Conditional</animation>					 
+				</control>	
+						<control type="grouplist" id="100">
+				<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+				<left>68.9%</left>
+				<bottom>75</bottom>
 				<width>510</width>
 				<height>40</height>
-				<itemgap>15</itemgap>
+				<itemgap>16</itemgap>
 				<orientation>horizontal</orientation>
 				<control type="image">
 					<width>76</width>
@@ -917,25 +915,90 @@
 					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
 				</control>				
 				<visible>Control.IsVisible(694)</visible>
-			</control>			
-	
-	
-	
-			
+			</control>
+					<control type="grouplist" id="100">
+				<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+				<left>68.9%</left>
+				<bottom>20</bottom>
+				<width>510</width>
+				<height>40</height>
+				<itemgap>16</itemgap>
+				<orientation>horizontal</orientation>
+					<animation condition="true" effect="Fade" start="100" end="10" time="0">Conditional</animation>					 
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture  flipy="true">$INFO[ListItem.VideoResolution,flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture  flipy="true">$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture  flipy="true">$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture  flipy="true">$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
+				</control>				
+				<visible>Control.IsVisible(694)</visible>
+			</control>
 </include>
 	<include name="viewTriPanel_Art">
+	<control type="image">
+		<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<top>530</top>
+				<left>0</left>
+				<width>1280</width>
+				<height>250</height>
+			<texture border="5" colordiffuse="ff252525">coverflow/coverflow_frame.png</texture>
+				<animation condition="true" effect="Fade" start="100" end="80" time="0">Conditional</animation>					 
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(694)</visible> 
+			</control>	
 	<control type="image">
 		<include>transition_Info</include>
 		<include>toggle_Menu</include>
 		<include>transition_Content</include>
 		<top>160</top>
-			<left>885</left>
-				<width>370</width>
-							<height>520</height>
+			<left>855</left>
+				<width>390</width>
+							<height>500</height>
 		<texture background="true">frames/contentpanel.png</texture>
 			<aspectratio>stretch</aspectratio>
 			<animation condition="true" effect="Fade" start="100" end="80" time="0">Conditional</animation>					 
-		
+		<visible>!IsEmpty(ListItem.Title)</visible>
+			<visible>Control.IsVisible(694)</visible>	
+	</control>
+	<control type="image">
+		<include>transition_Info</include>
+		<include>toggle_Menu</include>
+		<include>transition_Content</include>
+		<top>655</top>
+			<left>853</left>
+				<width>390</width>
+							<height>520</height>
+		<texture background="true" flipy="true">frames/contentpanel.png</texture>
+		<colordiffuse>base_2</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+			<animation condition="true" effect="Fade" start="100" end="40" time="0">Conditional</animation>					 
+		<visible>!IsEmpty(ListItem.Title)</visible>
 			<visible>Control.IsVisible(694)</visible>	
 	</control>
 	<control type="image">
@@ -943,38 +1006,84 @@
 		<include>toggle_Menu</include>
 		<include>transition_Content</include>
 		<top>127</top>
-			<left>470</left>
-				<width>423</width>
-							<height>568</height>
+		<left>470</left>
+		<width>392</width>
+		<height>558</height>
 		<texture background="true">frames/contentpanel.png</texture>
-			<aspectratio>stretch</aspectratio>
-			<visible>Control.IsVisible(694)</visible>	
-	</control>
-	<control type="image">
+		<aspectratio>stretch</aspectratio>
+		<visible>Control.IsVisible(694)</visible>	
+		<visible>!IsEmpty(ListItem.Title)</visible>
+	     </control>
+		 <control type="image">
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<top>166</top>
+			<left>725</left>
+				<width>350</width>
+				<height>485</height>
+				<texture>frames/frame-panel-Art.png</texture>
+				<animation condition="true" effect="Fade" start="100" end="80" time="0">Conditional</animation>					 
+			  	<aspectratio>keep</aspectratio> 
+				<include>fadeinout</include>				
+				<visible>Control.IsVisible(694)</visible>
+				<visible>!IsEmpty(ListItem.Title)</visible>
+			</control>
+	     <control type="image">
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<top>135</top>
-			<left>475</left>
-				<width>412</width>
-							<height>550</height>
-				<texture background="true">$VAR[thumb_Portrait]</texture>
-				<aspectratio align="left" aligny="top">stretch</aspectratio> 
-				<include>fadeinout</include>				
-				<visible>Control.IsVisible(694)</visible>
+			<left>465</left>
+			<width>390</width>
+			<height>540</height>
+			<texture background="true">$VAR[thumb_Portrait]</texture>
+			<aspectratio aligny="top" align="right">stretch</aspectratio> 
+			<include>fadeinout</include>				
+			<visible>Control.IsVisible(694)</visible>
 			</control>
+			<control type="image">
+		<include>transition_Info</include>
+		<include>toggle_Menu</include>
+		<include>transition_Content</include>
+		<top>683</top>
+		<left>470</left>
+		<width>390</width>
+		<height>568</height>
+		<texture background="true"flipy="true">frames/contentpanel.png</texture>
+		<animation condition="true" effect="Fade" start="100" end="30" time="0">Conditional</animation>					 
+		<aspectratio>stretch</aspectratio>
+		<visible>Control.IsVisible(694)</visible>	
+		<visible>!IsEmpty(ListItem.Title)</visible>
+	     </control>
+	     <control type="image">
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<top>686</top>
+			<left>460</left>
+			<width>393</width>
+			<height>550</height>
+			<texture background="true"flipy="true">$VAR[thumb_Portrait]</texture>
+			<animation condition="true" effect="Fade" start="100" end="25" time="0">Conditional</animation>					 
+			<aspectratio aligny="top" align="right">stretch</aspectratio> 
+			<include>fadeinout</include>				
+			<visible>Control.IsVisible(694)</visible>
+			</control>				
+			<control type="group">
+			<left>-33</left>
 			<control type="group">
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
-					<left>862</left>
-				<top>658</top>				
-				<include>status_Info</include>					
-				<visible>Skin.HasSetting(overlay_statu.disable)</visible>
-				<visible>Control.IsVisible(694)</visible>
+			<left>862</left>
+			<top>658</top>				
+			<include>status_Info</include>					
+			<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+			<visible>Control.IsVisible(694)</visible>
 			</control>
 				<control type="group">
-					<include>transition_Info</include>
+			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 				<left>860</left>
@@ -987,19 +1096,22 @@
 						<visible>Control.IsVisible(694)</visible>
 					</control>
 				</control>
+			</control>	
 			<control type="image">
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
-			<top>135</top>
-			<left>350</left>
+			<top>134</top>
+			<left>340</left>
 				<width>350</width>
 				<height>550</height>
 				<texture>frames/frame-panel-Art.png</texture>
-				<animation condition="true" effect="Fade" start="100" end="40" time="0">Conditional</animation>					 
-			  	<aspectratio>keep</aspectratio> 
+				<animation condition="true" effect="Fade" start="100" end="60" time="0">Conditional</animation>					 
+			  	<colordiffuse>base_2</colordiffuse>
+				<aspectratio>keep</aspectratio> 
 				<include>fadeinout</include>				
 				<visible>Control.IsVisible(694)</visible>
+				<visible>!IsEmpty(ListItem.Title)</visible>
 			</control>			
     <control type="image">
 		<include>transition_Info</include>
@@ -1008,16 +1120,28 @@
 			<top>98</top>
 			<left>25</left>
 			<width>450</width>
-			<height>610</height>
+			<height>608</height>
 		<texture background="true">frames/contentpanel.png</texture>
-		<animation condition="true" effect="Fade" start="100" end="80" time="0">Conditional</animation>					 
-			  	
+		<animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>		  	
 			<aspectratio>stretch</aspectratio>
-			<visible>Control.IsVisible(694)</visible>	
+			<visible>Control.IsVisible(694)</visible>			
 	</control>
+ <control type="image">
+		<include>transition_Info</include>
+		<include>toggle_Menu</include>
+		<include>transition_Content</include>
+			<top>699</top>
+			<left>25</left>
+			<width>450</width>
+			<height>610</height>
+		<texture background="true"flipy="true">frames/contentpanel.png</texture>
+		<animation condition="true" effect="Fade" start="100" end="40" time="0">Conditional</animation>		  	
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(694)</visible>			
+	</control>	
 		<control type="wraplist" id="694">		
 			<viewtype label="ART">List</viewtype>			
-			<left>35</left>
+			<left>30</left>
 			<top>110</top>
 			<width>600</width>
 			<height>580</height>
@@ -1036,67 +1160,144 @@
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets)</visible>
 			<itemlayout condition="IsEmpty(Container.FolderPath)" width="420" height="40">
 				<control type="label">
-					<left>5</left>
-					<width>350</width>
-					<label>[COLOR=Color4]$INFO[ListItem.Year,, • ][/COLOR] $INFO[ListItem.Label]</label>
-						<include>container_Single</include>
-				</control>
+						<left>5</left>
+						<top>6</top>
+						<width>400</width>						
+						<height>27</height>
+						<align>left</align>
+							<aligny>center</aligny>
+							<label fallback="• • • •">$INFO[ListItem.Year]</label>
+							<visible>!IsEmpty(ListItem.Title)</visible>
+					<include>container_Title</include>
+					</control>
+					<control type="label">
+						<left>75</left>
+						<top>6</top>
+						<width>325</width>						
+						<height>27</height>
+						<align>left</align>
+							<aligny>center</aligny>							
+							<label>$INFO[ListItem.Label]</label>						
+					<include>container_Title</include>
+					</control>		
 			</itemlayout>
 			<focusedlayout condition="IsEmpty(Container.FolderPath)" width="420" height="40">
 				<control type="group">
 					<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 					<control type="image">
-						<width>434</width>
+						<width>438</width>
 						<height>38</height>
 						<texture>frames/frame-fo.png</texture>
 					</control>
 					<control type="label">
 						<left>5</left>
-						<width>400</width>
-						<label>[COLOR=Color4]$INFO[ListItem.Year,, • ][/COLOR] $INFO[ListItem.Label]</label>
-						<include>container_Single-focus</include>
+						<top>6</top>
+						<width>400</width>						
+						<height>27</height>
+						<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>Color4</textcolor>
+							<label fallback="• • • •">$INFO[ListItem.Year]</label>
+							<visible>!IsEmpty(ListItem.Title)</visible>
+					<include>container_Title-focus</include>
 					</control>
+					<control type="label">
+						<left>75</left>
+						<top>6</top>
+						<width>325</width>						
+						<height>27</height>
+						<align>left</align>
+							<aligny>center</aligny>							
+							<label>$INFO[ListItem.Label]</label>						
+					<include>container_Title-focus</include>
+					</control>		
 				</control>
 				<control type="label">
-					<left>15</left>
-					<width>400</width>
-					<label>[COLOR=Color4]$INFO[ListItem.Year,, • ][/COLOR] $INFO[ListItem.Label]</label>
-						<include>container_Single</include>
-					<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
-				</control>				
+						<left>5</left>
+						<top>6</top>
+						<width>400</width>						
+						<height>27</height>
+						<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>Color4</textcolor>
+							<label fallback="• • • •">$INFO[ListItem.Year]</label>
+							<visible>!IsEmpty(ListItem.Title)</visible>
+					<include>container_Title-focus</include>
+					<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>			
+					</control>
+					<control type="label">
+						<left>75</left>
+						<top>6</top>
+						<width>325</width>						
+						<height>27</height>
+						<align>left</align>
+							<aligny>center</aligny>							
+							<label>$INFO[ListItem.Label]</label>						
+					<include>container_Title-focus</include>
+					<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
+					</control>		
 			</focusedlayout>
 			<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)" width="420" height="40">
 				<control type="label">
-					<left>5</left>
-					<top>6</top>
-					<width>400</width>
-					<height>27</height>
-					<label>[COLOR=Color4]$INFO[ListItem.Year,, • ][/COLOR] $INFO[ListItem.Label]</label>
+						<left>5</left>
+						<top>6</top>
+						<width>90</width>						
+						<height>27</height>
+						<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>Color4</textcolor>
+							<label fallback="• • • •">$INFO[ListItem.Year]</label>
+							<visible>!IsEmpty(ListItem.Title)</visible>
+					<include>container_Title</include>					
+					</control>
+					<control type="label">
+						<left>75</left>
+						<top>6</top>
+						<width>350</width>						
+						<height>27</height>
+						<align>left</align>
+							<aligny>center</aligny>							
+							<label>$INFO[ListItem.Label]</label>						
 					<include>container_Title</include>
-				</control>
+					</control>
 			</itemlayout>
 			<focusedlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)" width="420" height="65">
 				<control type="group">
 					<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 					<control type="image">
-						<width>434</width>
+					<left>0</left>
+						<width>438</width>
 						<height>65</height>
 						<texture>frames/frame-fo.png</texture>
+						<include>VisibleFadeEffect</include>
 					</control>
 					<control type="label">
 						<left>5</left>
 						<top>6</top>
-						<width>400</width>
-						<aligny>center</aligny>
+						<width>90</width>						
 						<height>27</height>
-						<label>[COLOR=Color4]$INFO[ListItem.Year,, • ][/COLOR] $INFO[ListItem.Label]</label>
+						<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>Color4</textcolor>
+							<label fallback="• • • •">$INFO[ListItem.Year]</label>
+							<visible>!IsEmpty(ListItem.Title)</visible>
 					<include>container_Title-focus</include>
 					</control>
+					<control type="label">
+						<left>75</left>
+						<top>6</top>
+						<width>350</width>						
+						<height>27</height>
+						<align>left</align>
+							<aligny>center</aligny>							
+							<label>$INFO[ListItem.Label]</label>						
+					<include>container_Title-focus</include>
+					</control>					
 					<control type="fadelabel">
 					<description>Fade Movie info/Tagline</description>
-					<left>5</left>
+					<left>75</left>
 					<top>35</top>
-					<width>415</width>
+					<width>350</width>
 					<visible>true</visible>
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
@@ -1108,7 +1309,7 @@
 					</control>
 					<control type="fadelabel">
 					<description>Fade Movie info/Tagline</description>
-					<left>5</left>
+					<left>75</left>
 					<top>35</top>
 					<width>415</width>
 					<visible>true</visible>
@@ -1122,9 +1323,9 @@
 					</control>
 					<control type="fadelabel">
 					<description>Fade Movie info/Tagline</description>
-					<left>5</left>
+					<left>75</left>
 					<top>35</top>
-					<width>415</width>
+					<width>350</width>
 					<visible>true</visible>
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
@@ -1152,5 +1353,4 @@
 	<include name="viewTriPanel_Art-ContainerCommons">
 		<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 	</include>	
-	
 </includes>

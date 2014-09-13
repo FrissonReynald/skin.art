@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 <!--global-->
-
 	<include name="fadeinout">
 		<animation type="WindowOpen">
 			<effect type="Fade" start="0" end="100" time="200" />
@@ -41,7 +40,6 @@
 			<effect type="fade" start="100" end="60" tween="sine" easing="inout" time="750"/>
 		</animation>
 	</include>
-
 <!--menu guide-->
 	<include name="nav_IndicatorLeft">
 		<animation effect="rotate" center="auto" start="0" end="-180" time="250" tween="Quadratic" condition="ControlGroup(6000).HasFocus">Conditional</animation>
@@ -49,7 +47,6 @@
 	<include name="nav_IndicatorUp">
 		<animation effect="rotate" center="auto" start="0" end="-90" time="250" tween="Quadratic" condition="ControlGroup(6000).HasFocus">Conditional</animation>
 	</include>
-
 <!--viewtypes-->
 	<include name="focus_SlidePoster">
 		<animation type="Focus">
@@ -139,7 +136,6 @@
 	<include name="Animation_DefaultGlass">
 	<animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
 	</include>
-
 <!--transitions-->
 	<include name="transition_Home">
 		<animation type="WindowOpen">
@@ -166,7 +162,6 @@
 			<effect type="Fade" time="300" start="100" end="0" tween="Cubic" easing="Out" />
 		</animation>
 	</include>
-
 	<include name="transition_BG">
 		<animation type="WindowOpen" condition="!Skin.HasSetting(fanart.global) + !Skin.HasSetting(backgroundvideo.global)">
 			<effect type="fade" time="transition_Open" start="0" tween="cubic" easing="out" end="100" reversible="false" />
@@ -181,7 +176,6 @@
 			<effect type="fade" time="transition_Close" start="90" tween="cubic" easing="in" end="0" delay="100" />
 		</animation>
 	</include>
-
 	<include name="transition_Content">
 		<animation type="WindowOpen">
 			<effect type="zoom" time="transition_Open" start="110"  end="100" tween="Back" easing="Out" center="screen_Center" />
@@ -192,7 +186,6 @@
 			<effect type="Fade" time="transition_Close" start="100" end="0" tween="Sine" easing="Out" />
 		</animation>
 	</include>
-
 	<include name="transition_Info">
 		<animation type="Conditional" condition="[Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(script-globalsearch-main.xml)]">
 			<effect type="zoom" time="transition_Close" start="100" end="95" tween="Sine" easing="Out" center="screen_Center"/>
@@ -203,7 +196,6 @@
 			<effect type="Fade" time="transition_Close" start="0" end="100" tween="Sine" easing="Out" />
 		</animation>
 	</include>
-
 	<include name="transition_WindowTitle">
 		<animation type="WindowOpen">
 			<effect type="Fade" start="0" end="100" time="transition_Open" />
@@ -224,7 +216,6 @@
 			<effect type="Fade" start="0" end="100" time="150" delay="150" />
 		</animation>
 	</include>
-
 	<include name="transition_Indicator">
 		<animation type="WindowOpen">
 			<effect type="Slide" time="transition_Open" center="auto" start="-64" end="0" easing="Out" tween="Quadratic"/>
@@ -247,7 +238,6 @@
 			<effect type="Fade" start="0" end="100" time="150" delay="150" />
 		</animation>
 	</include>
-
 	<include name="transition_Toast">
 		<animation type="WindowOpen">
 			<effect type="Fade" start="0" end="100" time="transition_Open" delay="150" />
@@ -262,7 +252,6 @@
 			<effect type="Fade" start="100" end="0" time="transition_Hidden" />
 		</animation>
 	</include>
-
 	<include name="transition_OSD">
 		<animation type="WindowOpen">
 			<effect type="Fade" start="0" end="97" time="250" />
@@ -270,9 +259,11 @@
 		<animation type="WindowClose">
 			<effect type="Fade" start="97" end="0" time="150" />
 		</animation>
-
 	</include>
-
+	<include name="VisibleFadeEffect">
+		<animation effect="fade" time="300">Visible</animation>
+		<animation effect="fade" time="300">Hidden</animation>
+	</include>
 	<include name="transition_Dialog">
 		<animation type="WindowOpen">
 			<effect type="zoom" time="transition_DialogOpen" start="90"  end="100" tween="Sine" easing="Out" center="screen_Center"/>
@@ -321,14 +312,12 @@
 	<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 	<animation effect="slide" start="0,0" end="300" time="300" easing="inout" tween="cubic">Hidden</animation>
 	</include>
-
 <!--toggles-->
 	<include name="toggle_Menu">
 		<animation type="Conditional" condition="[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus] + !Skin.HasSetting(global.kiosk) + !Window.IsActive(virtualkeyboard)" reversible="true">
 			<effect type="Slide" start="0" end="270" time="350" tween="Quadratic" easing="Out" />
 		</animation>
 	</include>
-
 	<include name="toggle_RSS">
 		<animation effect="slide" start="0,32" end="0,0" time="250" tween="Quadratic" easing="Out">WindowOpen</animation>
 		<animation effect="slide" start="0,0" end="0,32" time="250" tween="Quadratic" easing="Out">WindowClose</animation>
