@@ -155,7 +155,7 @@
 					<description>Fade Movie info/Tagline</description>
 					<left>5</left>
 					<top>35</top>
-					<width>415</width>
+					<width>350</width>
 					<visible>true</visible>
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
@@ -170,7 +170,7 @@
 					<description>Fade Movie info/Tagline</description>
 					<left>5</left>
 					<top>35</top>
-					<width>415</width>
+					<width>350</width>
 					<visible>true</visible>
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
@@ -185,7 +185,7 @@
 					<description>Fade Movie info/Tagline</description>
 					<left>5</left>
 					<top>35</top>
-					<width>415</width>
+					<width>350</width>
 					<visible>true</visible>
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
@@ -578,7 +578,7 @@
 					<description>Fade Movie info/Tagline</description>
 					<left>5</left>
 					<top>35</top>
-					<width>415</width>
+					<width>400</width>
 					<visible>true</visible>
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
@@ -593,28 +593,30 @@
 					<description>Fade Movie info/Tagline</description>
 					<left>5</left>
 					<top>35</top>
-					<width>415</width>
+					<width>400</width>
 					<visible>true</visible>
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
 					<pauseatend>5123</pauseatend>
 					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
                     <label>$INFO[ListItem.Genre]</label>
-				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>		<textcolor>ff000000</textcolor>	
+				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>
+				   <textcolor>ff000000</textcolor>	
 		            <visible>Container.Content(tvshows)</visible>
 					</control>
 					<control type="fadelabel">
 					<description>Fade Movie info/Tagline</description>
 					<left>5</left>
 					<top>35</top>
-					<width>415</width>
+					<width>400</width>
 					<visible>true</visible>
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
 					<pauseatend>5123</pauseatend>
 					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
                     <label>$INFO[ListItem.Genre]</label>
-				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>	<textcolor>ff000000</textcolor>	
+				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>
+				   <textcolor>ff000000</textcolor>	
 		            <visible>Container.Content(sets)</visible>
 					</control>
 					
