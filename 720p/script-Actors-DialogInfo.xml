@@ -5,13 +5,10 @@
 	<control type="group"><!-- default group -->
 	<visible>![Window.IsVisible(FileBrowser) | Window.IsVisible(script-Actors-Browser.xml) | [Window.IsVisible(DialogSelect.xml) + StringCompare(Window.Property(actorsselect),1)]]</visible>
 	<include>Animation_Window</include>	
-	<include>global_Background</include>
+	<include>global_Background</include>	
 	<control type="image">
-	<posx>0</posx>
-	<posy>0</posy>
-	<width>1280</width>
-	<height>720</height>
-	<texture>overlays/base_color_refocus.png</texture>
+	<include>screen_Dimensions</include>
+	<texture>overlays/base_color.png</texture>
 	<colordiffuse>base_2</colordiffuse>	
 	</control>
 	<control type="image">
@@ -398,15 +395,7 @@
 	<width>1280</width>
 	<texture>white.png</texture>
 	<colordiffuse>ffffffff</colordiffuse>
-	</control>
-	<control type="image"><!-- Fundo do rodape -->
-	<posx>0</posx>
-	<posy>650</posy>
-	<width>1280</width>
-	<height>70</height>
-	<colordiffuse>base_3</colordiffuse>
-	<texture>overlays/semitrans.png</texture>
-	</control>
+	</control>	
 	<control type="image">
 	<posx>0</posx>
 	<posy>494</posy>
@@ -607,10 +596,10 @@
 	<posy>465</posy>
 	<control type="image">
 	<posx>0</posx>
-	<posy>-30</posy>
+	<posy>0</posy>
 	<width>1280</width>
 	<height>20</height>
-	<texture>overlays/opacity/vignette2_20.png</texture>
+	<texture flipy="true">overlays/vignettefullscreen.png</texture>
 	<colordiffuse>aa333333</colordiffuse>
 	</control>
 	<control type="image">
@@ -618,7 +607,7 @@
 	<posy>29</posy>
 	<width>1280</width>
 	<height>20</height>
-	<texture flipy="true">overlays/opacity/vignette2_20.png</texture>
+	<texture flipy="true">overlays/vignettefullscreen.png</texture>
 	<colordiffuse>aa333333</colordiffuse>
 	</control>
 	<control type="image">
@@ -790,14 +779,6 @@
 	<onclick>SendClick(25)</onclick>
 	</item>
 	</content>
-	</control>
-	<control type="image">
-	<posx>0</posx>
-	<posy>0</posy>
-	<width>1280</width>
-	<height>30</height>
-	<texture>frames/Glassbanner.png</texture>
-	<colordiffuse>aafffffff</colordiffuse>
 	</control>
 	</control>
 

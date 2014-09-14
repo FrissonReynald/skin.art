@@ -67,8 +67,7 @@
 		<value condition="Control.IsVisible(52)">$LOCALIZE[31120]: $LOCALIZE[31122]</value>
 		<value condition="Control.IsVisible(521)">$LOCALIZE[31120]: $LOCALIZE[31121]</value>
 		<value condition="Control.IsVisible(522)">$LOCALIZE[31120]: $LOCALIZE[31122]</value>
-		<value condition="Control.IsVisible(523)">$LOCALIZE[31120]: Big Poster</value>
-		<value condition="Control.IsVisible(524)">$LOCALIZE[31120]: Big Poster 2</value>
+		<value condition="Control.IsVisible(523)">$LOCALIZE[31120]: Big Poster</value>		
 		<value condition="Control.IsVisible(525)">$LOCALIZE[31120]: Coverflow</value>
 		<value condition="Control.IsVisible(526)">$LOCALIZE[31120]: Coverflow Landscape</value>
 		<value condition="Control.IsVisible(527)">$LOCALIZE[31120]: Coverflow Small</value>
@@ -117,6 +116,7 @@
 	    <value condition="Control.IsVisible(692)">$LOCALIZE[31120]: List</value>
 		<value condition="Control.IsVisible(693)">$LOCALIZE[31120]: Strip</value>
 		<value condition="Control.IsVisible(694)">$LOCALIZE[31120]: Tri Panel</value>
+		<value condition="Control.IsVisible(695)">$LOCALIZE[31120]: Trip Panel 2</value>
 	</variable>		
 
 		<variable name="playing_Title">

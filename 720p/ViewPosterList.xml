@@ -161,7 +161,8 @@
 					<scrollout>false</scrollout>
 					<pauseatend>5123</pauseatend>
 					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
-                    <label>$INFO[ListItem.Tagline]</label>
+                    <label>$INFO[ListItem.Genre]</label>
+				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>	
 					<textcolor>ff000000</textcolor>	
 		            <visible>Container.Content(movies)</visible>
 					</control>
@@ -175,7 +176,8 @@
 					<scrollout>false</scrollout>
 					<pauseatend>5123</pauseatend>
 					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
-                    <label>$INFO[ListItem.Tagline]</label>
+                    <label>$INFO[ListItem.Genre]</label>
+				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>	
 					<textcolor>ff000000</textcolor>	
 		            <visible>Container.Content(tvshows)</visible>
 					</control>
@@ -189,7 +191,8 @@
 					<scrollout>false</scrollout>
 					<pauseatend>5123</pauseatend>
 					<label>$INFO[ListItem.Year,,]$INFO[Window(home).Property(Set.Movies.Genre), • ]$INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
-                    <label>$INFO[ListItem.Tagline]</label>
+                    <label>$INFO[ListItem.Genre]</label>
+				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>	
 					<textcolor>ff000000</textcolor>	
 		            <visible>Container.Content(sets)</visible>
 					</control>
@@ -581,7 +584,8 @@
 					<scrollout>false</scrollout>
 					<pauseatend>5123</pauseatend>
 					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
-                    <label>$INFO[ListItem.Tagline]</label>
+                    <label>$INFO[ListItem.Genre]</label>
+				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>	
 					<textcolor>ff000000</textcolor>	
 		            <visible>Container.Content(movies)</visible>
 					</control>
@@ -594,9 +598,9 @@
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
 					<pauseatend>5123</pauseatend>
-					<label>$INFO[ListItem.Premiered] • $INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[global_EpisodeCount]$VAR[nextaired_Info, • ]• IMDB $INFO[ListItem.Rating]</label>
-                    <label>$INFO[ListItem.Tagline]</label>
-					<textcolor>ff000000</textcolor>	
+					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
+                    <label>$INFO[ListItem.Genre]</label>
+				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>		<textcolor>ff000000</textcolor>	
 		            <visible>Container.Content(tvshows)</visible>
 					</control>
 					<control type="fadelabel">
@@ -608,9 +612,9 @@
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
 					<pauseatend>5123</pauseatend>
-					<label>$INFO[ListItem.Year,,]$INFO[Window(home).Property(Set.Movies.Genre), • ]$INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
-                    <label>$INFO[ListItem.Tagline]</label>
-					<textcolor>ff000000</textcolor>	
+					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
+                    <label>$INFO[ListItem.Genre]</label>
+				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>	<textcolor>ff000000</textcolor>	
 		            <visible>Container.Content(sets)</visible>
 					</control>
 					

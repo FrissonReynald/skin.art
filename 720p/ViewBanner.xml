@@ -979,6 +979,17 @@
 							
 							<visible>!Skin.HasSetting(Text_Landscape_BannerFanart)</visible>
 						</control>
+						<control type="image">
+					<left>625</left>
+				            <top>185</top>
+							<width>535</width>
+							<height>290</height>
+							<texture background="true">$VAR[global_Fanart]</texture>
+							<fadetime>fadetime_Thumb</fadetime>
+							<aspectratio align="center" aligny="top">scale</aspectratio>
+							
+							<visible>Container.Content(seasons) + !Skin.HasSetting(Text_Landscape_BannerFanart)</visible>
+						</control>
 							<control type="image">
 					<left>325</left>
 				            <top>185</top>
@@ -988,8 +999,19 @@
 							<fadetime>fadetime_Thumb</fadetime>
 							<aspectratio align="center" aligny="top">scale</aspectratio>
 					<visible>Skin.HasSetting(Text_Landscape_BannerFanart)</visible>
-					</control>	
+					</control>
+						<control type="image">
+					<left>325</left>
+				            <top>185</top>
+							<width>535</width>
+							<height>290</height>
+					<texture background="true">$VAR[global_Fanart]</texture>
+							<fadetime>fadetime_Thumb</fadetime>
+							<aspectratio align="center" aligny="top">scale</aspectratio>
+					<visible>Container.Content(seasons) + Skin.HasSetting(Text_Landscape_BannerFanart)</visible>
+					</control>
 					<visible>Control.IsVisible(544) + Skin.HasSetting(Text_Poster_BannerFanart)</visible>
-			</control>			
+			</control>
+			
 			</include>
 </includes>
