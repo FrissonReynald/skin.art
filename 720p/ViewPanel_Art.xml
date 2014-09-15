@@ -1353,6 +1353,14 @@
 				</control>
 				<control type="group">
 					<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
+					<control type="image">
+					<left>0</left>
+						<width>438</width>
+						<height>65</height>
+						<texture>frames/frame-nf.png</texture>
+						<colordiffuse>base_1</colordiffuse>
+						<include>VisibleFadeEffect</include>
+					</control>
 					<control type="label">
 						<left>5</left>
 						<top>6</top>
@@ -1361,7 +1369,34 @@
 					<label>[COLOR=Color4]$INFO[ListItem.Year,,  ][/COLOR] $INFO[ListItem.Label]</label>
 					<textcolor>Color4</textcolor>
 						<include>container_Title</include>						
-					</control>					
+					</control>	
+					<control type="fadelabel">
+					<description>Fade Movie info/Tagline</description>
+					<left>75</left>
+					<top>35</top>
+					<width>350</width>					
+					<label>$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
+                  	<textcolor>Color4</textcolor>	
+		            <visible>Container.Content(movies)</visible>
+					</control>
+					<control type="fadelabel">
+					<description>Fade Movie info/Tagline</description>
+					<left>75</left>
+					<top>35</top>
+					<width>415</width>					
+					<label>$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
+                 	<textcolor>Color4</textcolor>
+		            <visible>Container.Content(tvshows)</visible>
+					</control>
+					<control type="fadelabel">
+					<description>Fade Movie info/Tagline</description>
+					<left>75</left>
+					<top>35</top>
+					<width>350</width>				
+					<label>$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
+                 <textcolor>Color4</textcolor>
+		            <visible>Container.Content(sets)</visible>
+					</control>
 				</control>				
 			</focusedlayout>			
 		</control>		
@@ -1369,14 +1404,12 @@
 	<include name="viewTriPanel_Art-ContainerCommons">
 		<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 	</include>
-	
-	
 <!-- Panel Art Landscape + List Poster -->
 <include name="detail_PanelLandscapeList_Poster_Art">
 <control type="group">
 	<include>transition_Info</include>
 		<include>toggle_Menu</include>
-		<include>transition_Content</include>
+		<include>transition_Content</include>		
 	<control type="image">	
 		<top>125</top>
 			<left>515</left>
@@ -1411,6 +1444,41 @@
 			</control>
 			<visible>Skin.HasSetting(PanelArt_ListPosterTextBox)</visible>
 	</control>	
+	<control type="group">
+	<include>transition_Info</include>
+		<include>toggle_Menu</include>
+		<include>transition_Content</include>	
+	<control type="image">	
+		<top>270</top>
+			<left>519</left>
+				<width>700</width>
+							<height>43</height>
+		<texture background="true">frames/contentpanel.png</texture>		
+			<aspectratio>scale</aspectratio>
+		<visible>!IsEmpty(ListItem.Title)</visible>
+			<visible>Control.IsVisible(695)</visible>	
+	</control>	
+	<control type="label">					
+			<label>$VAR[gallery_Header]</label>
+			<top>275</top>
+			<left>530</left>			
+			<width>675</width>
+			<textcolor>Color3</textcolor>
+			<include>detail_Title</include>
+			<visible>Control.IsVisible(695)</visible>
+			</control>
+			<visible>Skin.HasSetting(PanelArt_ListPosterTagline) + !Skin.HasSetting(PanelArt_ListPosterTextBox)</visible>
+		</control>	
+				<control type="image">
+					<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+				<left>42%</left>
+				<top>685</top>
+						<texture colordiffuse="Color3">$VAR[status_List]</texture>
+						<include>status_List</include>
+						<visible>Control.IsVisible(695)</visible>
+					</control>
 						<control type="grouplist" id="100">
 				<include>transition_Info</include>
 			<include>toggle_Menu</include>
@@ -1421,8 +1489,7 @@
 				<height>40</height>
 				<itemgap>16</itemgap>
 				<orientation>horizontal</orientation>
-				<control type="image">
-				
+				<control type="image">				
 					<width>74</width>
 					<height>40</height>
 					<texture colordiffuse="Color11">$VAR[flag_Studio]</texture>
@@ -1610,8 +1677,6 @@
 		</control>
 		<visible>!Skin.HasSetting(PanelArt_ListPosterThumbs)</visible>	
 	</control>
-			
-			
     <control type="image">
 		<include>transition_Info</include>
 		<include>toggle_Menu</include>
@@ -1842,6 +1907,14 @@
 				</control>
 				<control type="group">
 					<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
+					<control type="image">
+					<left>0</left>
+						<width>438</width>
+						<height>74</height>
+						<texture>frames/frame-nf.png</texture>
+						<colordiffuse>base_1</colordiffuse>
+						<include>VisibleFadeEffect</include>
+					</control>	
 				<control type="image">
 				<description>Cover</description>
 				<left>0</left>
@@ -1850,8 +1923,8 @@
 				<height>73</height>				
 				<bordersize>5</bordersize>
 				<texture background="true">$VAR[thumb_Portrait]</texture>
-				<aspectratio>scale</aspectratio>
-			</control>	
+				<aspectratio>scale</aspectratio>			</control>	
+			
 			<control type="label">
 						<left>75</left>
 						<top>6</top>
@@ -1863,6 +1936,24 @@
 							<textcolor>Color4</textcolor>
 					<include>container_Title</include>
 					</control>	
+					<control type="fadelabel">
+					<description>Fade Movie info/Tagline</description>
+					<left>75</left>
+					<top>35</top>
+					<width>350</width>					
+					<label>$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
+                 	<textcolor>Color4</textcolor>	
+		            <visible>Container.Content(movies)</visible>
+					</control>
+					<control type="fadelabel">
+					<description>Fade Movie info/Tagline</description>
+					<left>75</left>
+					<top>35</top>
+					<width>350</width>					
+					<label>$INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
+                   	<textcolor>Color4</textcolor>	
+		            <visible>Container.Content(tvshows)</visible>
+					</control>					
 				</control>				
 			</focusedlayout>			
 		</control>		

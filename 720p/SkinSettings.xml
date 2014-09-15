@@ -604,19 +604,11 @@
 						<include>settings_Radiobutton</include>
 						<enable>System.HasAddon(script.cinema.experience)</enable>
 					</control>
-					<!--Video Extra-->
-					<control type="radiobutton" id="408">
-						<label>Disable Video Extras</label>
-						<onclick>Skin.ToggleSetting(Enable.videoextras)</onclick>						
-						<selected>Skin.HasSetting(Enable.videoextras)</selected>						
-						<include>settings_Radiobutton</include>
-						<enable>System.HasAddon(script.videoextras)</enable>
-					</control>
+					<!--Video Extra-->					
 					<control type="radiobutton" id="409">
-						<label>Disable Video Extras Overlays</label>
+						<label>Enable Video Extras Overlays</label>
 						<onclick>Skin.ToggleSetting(Enable.videoextrasOverlays)</onclick>
-						<selected>Skin.HasSetting(Enable.videoextrasOverlays)</selected>
-						<enable>!Skin.HasSetting(Enable.videoextras)</enable>
+						<selected>!Skin.HasSetting(Enable.videoextrasOverlays)</selected>						
 						<include>settings_Radiobutton</include>
 						<enable>System.HasAddon(script.videoextras)</enable>
 					</control>
@@ -625,7 +617,14 @@
 						<label>Enable  Metadata Actor</label>
 						<onclick>Skin.ToggleSetting(metadataactor.enable)</onclick>						
 						<selected>Skin.HasSetting(metadataactor.enable)</selected>						
-						<include>settings_Radiobutton</include>						
+						<include>settings_Radiobutton</include>							
+					</control>
+					<!--Library Editor-->
+					<control type="radiobutton" id="411">
+						<label>Enable  Library Editor</label>
+						<onclick>Skin.ToggleSetting(libraryeditor.enable)</onclick>						
+						<selected>Skin.HasSetting(libraryeditor.enable)</selected>						
+						<include>settings_Radiobutton</include>							
 					</control>
 					
 				</control>

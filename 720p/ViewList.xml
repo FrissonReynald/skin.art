@@ -1,20 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="view_List">
-		<control type="image">
-	<include>toggle_Menu</include>
-			<include>transition_Info</include>
-			<include>transition_Content</include>
-	        <left>18</left>
-		    <top>78</top>
-			<width>640</width>
-			<height>625</height>
-			<texture background="true">frames/contentpanel.png</texture>
-			  <animation condition="true" effect="Fade" start="80" end="80" time="0">Conditional</animation>					 
-				<visible>Control.IsVisible(50)</visible>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(addons)</visible>
-		
-			</control>
+	
 			<control type="image">
 	<include>toggle_Menu</include>
 			<include>transition_Info</include>
@@ -24,10 +11,24 @@
 			<width>610</width>
 			<height>627</height>
 			<texture background="true">frames/contentpanel.png</texture>
-			  <animation condition="true" effect="Fade" start="50" end="50" time="0">Conditional</animation>					 
+			  <animation condition="true" effect="Fade" start="50" end="85" time="0">Conditional</animation>					 
 				<visible>Control.IsVisible(50)</visible>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(addons)</visible>
-		</control>	
+		</control>
+	<control type="image">
+	<include>toggle_Menu</include>
+			<include>transition_Info</include>
+			<include>transition_Content</include>
+	        <left>18</left>
+		    <top>78</top>
+			<width>640</width>
+			<height>625</height>
+			<texture background="true">frames/contentpanel.png</texture>
+			  <animation condition="true" effect="Fade" start="80" end="55" time="0">Conditional</animation>					 
+				<visible>Control.IsVisible(50)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(addons)</visible>
+		
+			</control>		
 		<control type="list" id="50">		
 			<viewtype label="535">list</viewtype> 	
 			<left>30</left>

@@ -6,6 +6,7 @@
 	<onload condition="System.HasAddon(script.tvtunes) + Skin.HasSetting(tvtunes.enable) + !SubString(Window(Videos).Property(CinemaExperienceRunning),True)">RunScript(script.tvtunes,backend=True)</onload>
 	<onload condition="System.HasAddon(script.videoextras) + Skin.HasSetting(Enable.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
     <onload condition="System.HasAddon(script.metadata.actors) + Skin.HasSetting(metadataactor.enable)">RunScript(script.metadata.actors,backend)</onload> 
+	
 	<controls>	
 		<control type="group">	
 		<include>Animation_Window</include>	

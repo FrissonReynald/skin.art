@@ -152,6 +152,13 @@
 					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>
 					<visible>Control.IsVisible(592)</visible>	
 				</control>
+					<control type="image">
+					<top>188</top>
+						<left>15</left>
+						<texture colordiffuse="Color3">$VAR[status_List]</texture>
+						<include>status_List</include>
+						<visible>Control.IsVisible(592)</visible>	
+					</control>
 				<control type="label">				
 				        <top>180</top>
 						<left>50</left>
@@ -362,30 +369,37 @@
 					<height>49</height>
 					<aspectratio align="left">keep</aspectratio>
 					<texture>$VAR[flag_Studio]</texture>
-				</control>          				
+				</control>  
+				<control type="image">
+					 <top>193</top>
+						<left>100</left>
+						<texture colordiffuse="Color3">$VAR[status_List]</texture>
+						<include>status_List</include>
+						<visible>Control.IsVisible(62)</visible>	
+					</control>
 				<control type="label">				
 				        <top>185</top>
-						<left>110</left>
+						<left>130</left>
 						<label>$VAR[global_Title]</label>
-						<width>750</width>
+						<width>735</width>
 						<include>detail_Title</include>
 						<animation effect="zoom" start="140" end="130" time="0" condition="true">Conditional</animation>
 						<visible>Control.IsVisible(62)</visible>						
 					</control>					
 					<control type="label">
 					    <top>220</top>
-						<left>110</left>
+						<left>130</left>
 						<label>$VAR[global_Info]</label>
-						<width>600</width>
+						<width>585</width>
 						<include>detail_Sub</include>
 						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(62)</visible>
 					</control>		
 					<control type="label">					
 						<top>220</top>
-						<left>110</left>
+						<left>130</left>
 						<label>$VAR[global_Info.Addon]</label>
-						<width>600</width>
+						<width>585</width>
 						<include>detail_Sub</include>
 						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(62)</visible>
@@ -1041,30 +1055,37 @@
 					<height>49</height>
 					<aspectratio align="left">keep</aspectratio>
 					<texture>$VAR[flag_Studio]</texture>
-				</control>          				
+				</control>  
+				<control type="image">
+					 <top>190</top>
+						<left>100</left>
+						<texture colordiffuse="Color3">$VAR[status_List]</texture>
+						<include>status_List</include>
+						<visible>Control.IsVisible(622)</visible>	
+					</control>
 				<control type="label">				
 				        <top>180</top>
-						<left>110</left>
+						<left>130</left>
 						<label>$VAR[global_Title]</label>
-						<width>850</width>
+						<width>805</width>
 						<include>detail_Title</include>
 						<animation effect="zoom" start="140" end="130" time="0" condition="true">Conditional</animation>
 						<visible>Control.IsVisible(622)</visible>						
 					</control>					
 					<control type="label">
 					    <top>220</top>
-						<left>110</left>
+						<left>130</left>
 						<label>$VAR[global_Info]</label>
-						<width>650</width>
+						<width>610</width>
 						<include>detail_Sub</include>
 						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(622)</visible>
 					</control>		
 					<control type="label">					
 						<top>220</top>
-						<left>110</left>
+						<left>10</left>
 						<label>$VAR[global_Info.Addon]</label>
-						<width>650</width>
+						<width>610</width>
 						<include>detail_Sub</include>
 						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(622)</visible>
@@ -1625,30 +1646,37 @@
 					<height>49</height>
 					<aspectratio align="left">keep</aspectratio>
 					<texture>$VAR[flag_Studio]</texture>
-				</control>          				
+				</control>
+				<control type="image">
+					 <top>190</top>
+						<left>100</left>
+						<texture colordiffuse="Color3">$VAR[status_List]</texture>
+						<include>status_List</include>
+						<visible>Control.IsVisible(623)</visible>	
+					</control>				
 				<control type="label">				
 				        <top>180</top>
-						<left>110</left>
+						<left>130</left>
 						<label>$VAR[global_Title]</label>
-						<width>750</width>
+						<width>710</width>
 						<include>detail_Title</include>
 						<animation effect="zoom" start="140" end="130" time="0" condition="true">Conditional</animation>
 						<visible>Control.IsVisible(623)</visible>						
 					</control>					
 					<control type="label">
 					    <top>220</top>
-						<left>110</left>
+						<left>130</left>
 						<label>$VAR[global_Info]</label>
-						<width>650</width>
+						<width>610</width>
 						<include>detail_Sub</include>
 						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(623)</visible>
 					</control>		
 					<control type="label">					
 						<top>220</top>
-						<left>110</left>
+						<left>130</left>
 						<label>$VAR[global_Info.Addon]</label>
-						<width>650</width>
+						<width>610</width>
 						<include>detail_Sub</include>
 						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(623)</visible>

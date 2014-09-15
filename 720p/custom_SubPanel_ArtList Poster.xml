@@ -104,7 +104,16 @@
 		                <selected>Skin.HasSetting(PanelArt_ListPosterTextBox)</selected>
 						<include>menu_Button2</include>
 					<include>menu_RadioButton2</include>				
-					  </control>				
+					  </control>
+				<control type="radiobutton" id="153">					
+                        <label>Tagline</label>
+						<width>260</width>	
+		                <onclick>Skin.ToggleSetting(PanelArt_ListPosterTagline)</onclick>
+		                <selected>Skin.HasSetting(PanelArt_ListPosterTagline)</selected>
+						 <enable>!Skin.HasSetting(PanelArt_ListPosterTextBox)</enable>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>				
+					  </control>	  
                 <control type="radiobutton" id="155">
 	                <label>Landscape</label>
 					<width>260</width>	
