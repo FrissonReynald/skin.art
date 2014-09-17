@@ -151,4 +151,54 @@
 			</control>			
 		</control>
 	</include>
+	<include name="ContentPanelBackgroundsPVR_Guide_Alt">		
+		<control type="group">
+		<include>global_ListScroll</include>
+		<include>transition_Content</include>
+		<include>toggle_Menu</include>
+			<include>Window_OpenClose_Animation</include>		
+			<control type="group">				
+				<visible>Control.IsVisible(14) | Control.IsVisible(15) | Control.IsVisible(16) | Control.IsVisible(17)</visible>
+				<control type="image">
+					<left>28</left>
+					<top>80</top>
+					<width>1220</width>
+					<height>605</height>
+					<texture border="15">frames_PVR/ContentPanel.png</texture>
+				</control>				
+				<control type="image">
+					<left>25</left>
+					<top>682</top>
+					<width>1280</width>
+					<height>64</height>
+					<texture border="15">frames_PVR/ContentPanelMirror.png</texture>
+				</control>
+			</control>			
+		</control>
+	</include>
+	<include name="ContentPanelBackgroundsPVR_Guide_Record">		
+		<control type="group">
+		<include>global_ListScroll</include>
+		<include>transition_Content</include>
+		<include>toggle_Menu</include>
+			<include>Window_OpenClose_Animation</include>		
+			<control type="group">				
+				<visible>Control.IsVisible(13)</visible>
+				<control type="image">
+					<left>28</left>
+					<top>80</top>
+					<width>1225</width>
+					<height>605</height>
+					<texture border="15">frames_PVR/ContentPanel.png</texture>
+				</control>				
+				<control type="image">
+					<left>25</left>
+					<top>682</top>
+					<width>1280</width>
+					<height>64</height>
+					<texture border="15">frames_PVR/ContentPanelMirror.png</texture>
+				</control>
+			</control>			
+		</control>
+	</include>
 </includes>

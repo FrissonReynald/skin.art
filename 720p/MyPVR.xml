@@ -20,6 +20,8 @@
 		<include>PageControls</include>
 		<include>ContentPanelBackgroundsPVR</include>
 		<include>ContentPanelBackgroundsPVR_Guide</include>
+		<include>ContentPanelBackgroundsPVR_Guide_Alt</include>
+		<include>ContentPanelBackgroundsPVR_Guide_Record</include>
 		
 	<!--VIEWS-->
 		<control type="group" id="50">

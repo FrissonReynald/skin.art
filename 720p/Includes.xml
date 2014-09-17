@@ -556,13 +556,13 @@
 	<include name="pvr_Status">
 		<width>22</width>
 		<height>22</height>
-		<texture>$VAR[pvr_Status]</texture>
+		<texture>$VAR[pvr:Status]</texture>
 		<colordiffuse>Color3</colordiffuse>	
 	</include>
 	<include name="pvr_Status-fo">
 		<width>22</width>
 		<height>22</height>
-		<texture>$VAR[pvr_Status]</texture>
+		<texture>$VAR[pvr:Status]</texture>
 		<colordiffuse>Color4</colordiffuse>	
 	</include>
 	<!--watchedOverlayAlt-->
@@ -907,19 +907,7 @@
 			</control>
 			<control type="group">
 				<left>10</left>
-				<top>10</top>
-				<control type="image">
-					<width>192</width>
-					<height>114</height>
-					<include>art_Frame-nf</include>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
-				</control>
-				<control type="image">
-					<width>114</width>
-					<height>114</height>
-					<include>art_Frame-nf</include>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
-				</control>
+				<top>10</top>				
 				<control type="group">
 					<left>7</left>
 					<top>7</top>
@@ -931,14 +919,7 @@
 						<texture>$VAR[osd_Art]</texture>
 						<aspectratio align="center" aligny="center">scale</aspectratio>
 						<visible>!VideoPlayer.Content(LiveTV)</visible>
-					</control>
-					<control type="image">
-						<width>100</width>
-						<height>100</height>
-						<texture>$VAR[osd_Art]</texture>
-						<aspectratio align="center" aligny="center">scale</aspectratio>
-						<visible>!VideoPlayer.Content(LiveTV)</visible>
-					</control>
+					</control>					
 					<control type="image">
 						<width>90</width>
 						<height>90</height>
@@ -1020,14 +1001,8 @@
 			</control>
 			<control type="group">
 				<left>10</left>
-				<top>10</top>				
-				<control type="image">
-					<top>-150</top>
-						<width>170</width>
-						<height>300</height>
-					<include>art_Frame-nf</include>
-					<visible>VideoPlayer.Content(LiveTV)</visible>
-				</control>
+				<top>10</top>			
+				
 				<control type="group">
 					<left>7</left>
 					<top>7</top>
@@ -1047,6 +1022,13 @@
 						<texture>$VAR[osd_ArtAlt]</texture>
 						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<visible>!VideoPlayer.Content(LiveTV)</visible>
+					</control>
+					<control type="image">
+						<width>90</width>
+						<height>90</height>
+						<texture>$VAR[osd_Art]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
 					<control type="image">
 						<top>-150</top>
