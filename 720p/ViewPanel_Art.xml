@@ -972,18 +972,16 @@
 </include>
 	<include name="viewTriPanel_Art">
 	<control type="image">
-		<include>transition_Content</include>
-			<include>transition_Info</include>
-			<include>toggle_Menu</include>
-				<top>525</top>
-				<left>0</left>
-				<width>1280</width>
-				<height>250</height>
-			<texture border="5" colordiffuse="ff252525">coverflow/coverflow_frame.png</texture>
-				<animation condition="true" effect="Fade" start="100" end="80" time="0">Conditional</animation>					 
-			<aspectratio>stretch</aspectratio>
-			<visible>Control.IsVisible(694)</visible> 
-			</control>	
+			<left>0</left>
+			<top>100r</top>
+			<width>1280</width>
+			<height>100</height>
+			<texture>frames_PVR/floor.png</texture>
+			<animation effect="fade" time="250" condition="Window.Previous(Home)">WindowOpen</animation>
+			<animation effect="fade" time="250" condition="Window.Next(Home)">WindowClose</animation>
+			<colordiffuse>base_1</colordiffuse>
+			<visible>Control.IsVisible(694)</visible>
+		</control>
 	<control type="image">
 		<include>transition_Info</include>
 		<include>toggle_Menu</include>
@@ -1005,11 +1003,11 @@
 		<top>655</top>
 			<left>853</left>
 				<width>390</width>
-							<height>520</height>
-		<texture background="true" flipy="true">frames/contentpanel.png</texture>
+							<height>64</height>
+		<texture border="15">frames_PVR/ContentPanelMirror.png</texture>
 		<colordiffuse>base_2</colordiffuse>
 			<aspectratio>stretch</aspectratio>
-			<animation condition="true" effect="Fade" start="100" end="40" time="0">Conditional</animation>					 
+			<animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>					 
 		<visible>!IsEmpty(ListItem.Title)</visible>
 			<visible>Control.IsVisible(694)</visible>	
 	</control>
@@ -1059,11 +1057,11 @@
 		<include>toggle_Menu</include>
 		<include>transition_Content</include>
 		<top>683</top>
-		<left>470</left>
-		<width>390</width>
-		<height>568</height>
-		<texture background="true"flipy="true">frames/contentpanel.png</texture>
-		<animation condition="true" effect="Fade" start="100" end="30" time="0">Conditional</animation>					 
+		<left>465</left>
+		<width>394</width>
+		<height>64</height>
+		<texture border="15">frames_PVR/ContentPanelMirror.png</texture>
+		<animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>					 
 		<aspectratio>stretch</aspectratio>
 		<visible>Control.IsVisible(694)</visible>	
 		<visible>!IsEmpty(ListItem.Title)</visible>
@@ -1077,7 +1075,7 @@
 			<width>393</width>
 			<height>550</height>
 			<texture background="true"flipy="true">$VAR[thumb_Portrait]</texture>
-			<animation condition="true" effect="Fade" start="100" end="25" time="0">Conditional</animation>					 
+			<animation condition="true" effect="Fade" start="100" end="20" time="0">Conditional</animation>					 
 			<aspectratio aligny="top" align="right">stretch</aspectratio> 
 			<include>fadeinout</include>				
 			<visible>Control.IsVisible(694)</visible>
@@ -1142,12 +1140,12 @@
 		<include>transition_Info</include>
 		<include>toggle_Menu</include>
 		<include>transition_Content</include>
-			<top>699</top>
-			<left>25</left>
-			<width>450</width>
+			<top>700</top>
+			<left>23</left>
+			<width>453</width>
 			<height>610</height>
-		<texture background="true"flipy="true">frames/contentpanel.png</texture>
-		<animation condition="true" effect="Fade" start="100" end="65" time="0">Conditional</animation>		  	
+		<texture border="15">frames_PVR/ContentPanelMirror.png</texture>
+		<animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>		  	
 			<aspectratio>stretch</aspectratio>
 			<visible>Control.IsVisible(694)</visible>			
 	</control>	
@@ -1407,14 +1405,16 @@
 <!-- Panel Art Landscape + List Poster -->
 <include name="detail_PanelLandscapeList_Poster_Art">
 <control type="group">
+<top>-25</top>
+<left>-10</left>
 	<include>transition_Info</include>
 		<include>toggle_Menu</include>
 		<include>transition_Content</include>		
 	<control type="image">	
-		<top>125</top>
-			<left>515</left>
-				<width>705</width>
-							<height>178</height>
+		<top>128</top>
+			<left>525</left>
+				<width>700</width>
+							<height>180</height>
 		<texture background="true">frames/contentpanel.png</texture>
 		<colordiffuse>base_2</colordiffuse>
 			<aspectratio>stretch</aspectratio>
@@ -1425,7 +1425,7 @@
  			<control type="label">					
 			<label>$VAR[gallery_Header]</label>
 			<top>131</top>
-			<left>530</left>
+			<left>535</left>
 			<width>675</width>
 			<width>675</width>
 			<textcolor>Color3</textcolor>
@@ -1434,7 +1434,7 @@
 			</control>
 			<control type="textbox">
 			<top>155</top>
-			<left>530</left>
+			<left>535</left>
 			<width>675</width>
 			<height>130</height>
 			<align>justify</align>
@@ -1445,13 +1445,15 @@
 			<visible>Skin.HasSetting(PanelArt_ListPosterTextBox)</visible>
 	</control>	
 	<control type="group">
+	<top>-27</top>
+			<left>-9</left>
 	<include>transition_Info</include>
 		<include>toggle_Menu</include>
 		<include>transition_Content</include>	
 	<control type="image">	
 		<top>270</top>
-			<left>519</left>
-				<width>700</width>
+			<left>525</left>
+				<width>703</width>
 							<height>43</height>
 		<texture background="true">frames/contentpanel.png</texture>		
 			<aspectratio>scale</aspectratio>
@@ -1461,7 +1463,7 @@
 	<control type="label">					
 			<label>$VAR[gallery_Header]</label>
 			<top>275</top>
-			<left>530</left>			
+			<left>535</left>			
 			<width>675</width>
 			<textcolor>Color3</textcolor>
 			<include>detail_Title</include>
@@ -1529,47 +1531,45 @@
 </include>
 	<include name="viewPanelLandscapeList_Poster_Art">	
 	<control type="image">
-		<include>transition_Content</include>
-			<include>transition_Info</include>
-			<include>toggle_Menu</include>
-				<top>540</top>
-				<left>0</left>
-				<width>1280</width>
-				<height>250</height>
-			<texture border="5" colordiffuse="ff252525">coverflow/coverflow_frame.png</texture>
-				<animation condition="true" effect="Fade" start="100" end="80" time="0">Conditional</animation>					 
-			<aspectratio>stretch</aspectratio>
+			<left>0</left>
+			<top>100r</top>
+			<width>1280</width>
+			<height>100</height>
+			<texture>frames_PVR/floor.png</texture>
+			<animation effect="fade" time="250" condition="Window.Previous(Home)">WindowOpen</animation>
+			<animation effect="fade" time="250" condition="Window.Next(Home)">WindowClose</animation>
+			<colordiffuse>base_1</colordiffuse>
 			<visible>Control.IsVisible(695)</visible>
-			</control>
+		</control>
 	<control type="image">
 		<include>transition_Info</include>
 		<include>toggle_Menu</include>
 		<include>transition_Content</include>
-		<top>305</top>
-			<left>505</left>
-			<width>716</width>
+		<top>285</top>
+			<left>515</left>
+			<width>705</width>
 		<height>370</height>
 		<texture background="true">frames/contentpanel.png</texture>
-		<aspectratio>stretch</aspectratio>
-		<visible>Control.IsVisible(695)</visible>	
+		<aspectratio>stretch</aspectratio>		
 		<visible>!IsEmpty(ListItem.Title)</visible>
+		<visible>Control.IsVisible(695)</visible>
 	     </control>		
 			<control type="group">
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 	     <control type="image">			
-			<top>315</top>
-			<left>514</left>
-			<width>698</width>
-		<height>355</height>
+			<top>295</top>
+			<left>525</left>
+			<width>685</width>
+		<height>350</height>
 			<texture background="true">$VAR[thumb_Landscape]</texture>
 			<aspectratio aligny="top" align="right">stretch</aspectratio> 
 			<include>fadeinout</include>				
 			<visible>Control.IsVisible(695)</visible>
 			</control>
 			<control type="image">
-					<top>580</top>
+					<top>550</top>
 			<left>780</left>
 					<width>165</width>
 					<height>64</height>
@@ -1577,19 +1577,19 @@
 				<visible>Control.IsVisible(695) + Skin.HasSetting(PanelArt_ListPosterLogo)</visible>	
 				</control>  
 			<control type="image">		
-		<top>676</top>
-			<left>505</left>
-			<width>716</width>
-		<height>370</height>
-		<texture background="true">frames/contentpanel.png</texture>
-		<aspectratio>stretch</aspectratio>
-		<visible>Control.IsVisible(695)</visible>
+		<top>656</top>
+			<left>515</left>
+			<width>705</width>
+		<height>64</height>
+		<texture background="true">frames_PVR/contentpanelmirror.png</texture>
+		<aspectratio>stretch</aspectratio>		
 		<visible>!IsEmpty(ListItem.Title)</visible>
+		<visible>Control.IsVisible(695)</visible>
 	     </control>
 	     <control type="image">		
-			<top>678</top>
-			<left>514</left>
-			<width>700</width>
+			<top>660</top>
+			<left>525</left>
+			<width>683</width>
 			<height>384</height>
 			<texture background="true"flipy="true">$VAR[thumb_Landscape]</texture>
 			<animation condition="true" effect="Fade" start="100" end="20" time="0">Conditional</animation>					 
@@ -1603,7 +1603,7 @@
 	<include>transition_Info</include>
 		<include>toggle_Menu</include>
 		<include>transition_Content</include>		
-		<top>220</top>
+		<top>200</top>
 		<left>-525</left>	
 		<control type="image">	
 		 <fadetime>fadetime_Thumb</fadetime>
@@ -1651,7 +1651,7 @@
 	<include>transition_Info</include>
 		<include>toggle_Menu</include>
 		<include>transition_Content</include>
-		<top>405</top>
+		<top>390</top>
 		<left>-525</left>	
 		<control type="image">	
 		 <fadetime>fadetime_Thumb</fadetime>
@@ -1682,47 +1682,28 @@
 		<include>toggle_Menu</include>
 		<include>transition_Content</include>
 			<top>100</top>
-			<left>70</left>
+			<left>50</left>
 			<width>455</width>
 			<height>590</height>
 		<texture background="true">frames/contentpanel.png</texture>
 		<animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>		  	
 			<aspectratio>stretch</aspectratio>
 			<visible>Control.IsVisible(695)</visible>			
-	</control>
- <control type="image">
-		<include>transition_Info</include>
-		<include>toggle_Menu</include>
-		<include>transition_Content</include>
-			<top>690</top>
-			<left>70</left>
-			<width>455</width>
-			<height>100</height>
-		<texture background="true"flipy="true">frames/contentpanel.png</texture>
-		<animation condition="true" effect="Fade" start="100" end="58" time="0">Conditional</animation>	
-	  	<colordiffuse>base_1</colordiffuse>
-			<aspectratio>stretch</aspectratio>
-			<visible>Control.IsVisible(695)</visible>			
 	</control>	
-	<control type="image">
-			<include>transition_Info</include>
-			<include>toggle_Menu</include>
+	<control type="image">	
+<include>toggle_Menu</include>
 			<include>transition_Content</include>
-			<top>315</top>
-			<left>375</left>
-				<width>350</width>
-				<height>355</height>
-				<texture>frames/frame-panel-Art.png</texture>
-				<animation condition="true" effect="Fade" start="100" end="70" time="0">Conditional</animation>					 
-			  	<colordiffuse>base_2</colordiffuse>
-				<aspectratio>keep</aspectratio> 
-				<include>fadeinout</include>				
-				<visible>Control.IsVisible(695)</visible>
-				<visible>!IsEmpty(ListItem.Title)</visible>
-			</control>	
+			<include>transition_Info</include>		
+					<top>685</top>
+					<left>48</left>
+			<width>459</width>
+					<height>64</height>
+					<texture border="15">frames_PVR/ContentPanelMirror.png</texture>
+					<visible>Control.IsVisible(695)</visible>
+				</control>	
 		<control type="wraplist" id="695">		
 			<viewtype label="ART">List</viewtype>			
-			<left>80</left>
+			<left>60</left>
 			<top>130</top>
 			<width>600</width>
 			<height>525</height>
@@ -1730,7 +1711,7 @@
 			<onright>70</onright>
 			<onup>695</onup>
 			<ondown>695</ondown>
-			<focusposition>1</focusposition>
+			<focusposition>0</focusposition>
 			<movement>0</movement>
 			<pagecontrol>70</pagecontrol>
 			<orientation>vertical</orientation>

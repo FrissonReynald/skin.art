@@ -1,98 +1,282 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 <!--TV CHANNELS-->
-	<include name="view_TVChannels">
-		<control type="list" id="11">
+	<include name="view_TVChannels">	
+		<control type="list" id="11">		
 			<onup>11</onup>
 			<ondown>11</ondown>
 			<include>list_Channels</include>
 		</control>
+		<control type="group">	
+		<include>global_ListScroll</include>
+		<include>transition_Content</include>
+		<include>toggle_Menu</include>
+			<description>Small Media Window</description>
+			<left>530</left>
+			<top>95</top>
+			<visible>Control.IsVisible(11) | Control.IsVisible(12)</visible>
+			<include>VisibleFadeEffect</include>					
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>680</width>
+				<height>370</height>
+				<texture border="5">black.png</texture>
+			</control>
+			<control type="image">
+				<left>5</left>
+				<top>5</top>
+				<width>680</width>
+				<height>350</height>
+				<texture fallback="special://skin/backgrounds/defaults/livetv.jpg">$VAR[window:Background"]</texture>
+				<visible>!Player.HasVideo</visible>
+			</control>
+			<control type="videowindow">
+				<left>5</left>
+				<top>5</top>
+				<width>680</width>
+				<height>350</height>				
+				<visible>Player.HasVideo</visible>				
+			</control>
+			<control type="image">
+				<left>5</left>
+				<top>1</top>
+				<width>680</width>
+				<height>35</height>
+				<texture background="true">black.png</texture>
+				<colordiffuse>DDFFFFFF</colordiffuse>
+				<visible>Player.HasVideo</visible>
+			</control>
+			<control type="label">
+				<description>Current Video label</description>
+				<left>30</left>
+				<top>1</top>
+				<width>600</width>
+				<height>35</height>
+				<include>container_Title</include>
+				<align>center</align>
+				<aligny>center</aligny>
+				<label>$INFO[Player.Title]</label>
+				<visible>Player.HasVideo</visible>
+			</control>
+			<control type="grouplist">
+					<left>35</left>
+					<top>400</top>
+					<width>280</width>
+					<orientation>horizontal</orientation>
+					<align>left</align>
+					<control type="label">
+						<width min="0" max="265">auto</width>						
+						<label>$LOCALIZE[19126]:</label>
+						<textcolor>Color1</textcolor>
+				<include>container_Sub</include>
+					</control>
+					<control type="label">
+						<width min="0" max="265">auto</width>					
+						<label fallback="31001">$INFO[ListItem.StartTime]</label>
+						<textcolor>Color1</textcolor>
+				<include>container_Sub</include>
+					</control>
+				</control>
+				<control type="grouplist">
+					<left>35</left>
+					<top>420</top>
+					<width>285</width>
+					<orientation>horizontal</orientation>
+					<align>left</align>
+					<control type="label">
+						<width min="0" max="265">auto</width>						
+						<label>$LOCALIZE[19127]:</label>
+						<textcolor>Color1</textcolor>
+				<include>container_Sub</include>
+					</control>
+					<control type="label">
+						<width min="0" max="265">auto</width>					
+						<label fallback="31001">$INFO[ListItem.EndTime]</label>
+						<textcolor>Color1</textcolor>
+				<include>container_Sub</include>
+					</control>
+				</control>
+			<control type="group">
+			<top>540</top>
+			<left>235</left>			
+			<control type="label" id="1">
+				<left>-200</left>
+				<top>-180</top>
+				<width>550</width>
+				<align>left</align>
+				<label>$LOCALIZE[19030]: $INFO[ListItem.Title] . ($INFO[ListItem.Genre])</label>
+				<include>detail_Sub</include>
+				</control>				
+			<control type="label">	
+			<left>-200</left>
+				<top>-160</top>
+						<width>435</width>
+						<label>$LOCALIZE[19031]$INFO[ListItem.NextTitle,: ]</label>
+						<align>left</align>
+						<include>detail_Sub</include>
+						<visible>!IsEmpty(ListItem.NextTitle)</visible>						
+					</control>
+			<control type="textbox">
+			<left>-200</left>
+				<top>-85</top>
+				<width>600</width>
+				<height>118</height>
+				<align>justify</align>
+				<label fallback="416">$INFO[ListItem.Plot]</label>
+				<include>container_TextSmall</include>
+				<autoscroll time="2000" delay="3000" repeat="5000">true</autoscroll>
+			</control>				
+				</control>	
+		</control>
 	</include>
 <!--RADIO CHANNELS-->
 	<include name="view_RadioChannels">		
-		<control type="list" id="12">
+		<control type="list" id="12">		
 			<onup>12</onup>
 			<ondown>12</ondown>
 			<include>list_Channels</include>
 		</control>
 	</include>
-
-	<include name="list_Channels-commons">
+	<include name="list_Channels-commons">		
 		<control type="image">
-			<width>114</width>
-			<height>114</height>
-			<include>art_Frame-nf</include>
+			<left>5</left>
+					<width>438</width>
+					<height>70</height>
+			<texture border="15">frames_PVR/contentpanel-nf.png</texture>
+			 <animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>					 
 		</control>
 		<control type="group">
-			<left>7</left>
-			<top>7</top>
-			<control type="image">
-				<width>100</width>
-				<height>100</height>
-				<texture>thumbs/default_Square.png</texture>
-			</control>
+			<left>10</left>
+			<top>7</top>			
 			<control type="image">
 				<centerleft>50</centerleft>
-				<centertop>50</centertop>
-				<width>72</width>
-				<height>72</height>
+				<centertop>30</centertop>
+				<width>62</width>
+				<height>62</height>
 				<texture>LiveTV.png</texture>
 				<visible>IsEmpty(ListItem.Art(thumb))</visible>
 			</control>
-			<control type="image">
-				<width>100</width>
-				<height>100</height>
+			<control type="image">			
+				<width>60</width>
+				<height>60</height>
 				<texture>$INFO[ListItem.Art(thumb)]</texture>
+				<aspectratio align="center" aligny="center">keep</aspectratio>
 			</control>
 		</control>
 		<control type="group">
-			<left>130</left>
+			<left>100</left>
+			<top>0</top>
 			<control type="label">
-				<width>1048</width>
+				<width>325</width>
 				<label>$INFO[ListItem.ChannelNumber,,  ]$INFO[ListItem.ChannelName]</label>
 				<aligny>top</aligny>
-				<include>detail_Title</include>
+				<include>detail_Title_PVR</include>
 			</control>
 			<control type="label">
-				<top>16</top>
-				<width>1048</width>
-				<label>$INFO[ListItem.Title]$INFO[ListItem.StartTime, • , - ]$INFO[ListItem.EndTime]</label>
-				<textcolor>Color1</textcolor>
-				<include>container_Sub</include>
-			</control>
-			<control type="label">
-				<top>16</top>
-				<left>1050</left>
-				<width>700</width>
-				<label>$LOCALIZE[19031]$INFO[ListItem.NextTitle,: ]</label>
-				<align>right</align>
-				<textcolor>Color2</textcolor>
-				<selectedcolor>Color2</selectedcolor>
-				<include>container_Sub</include>
-				<visible>!IsEmpty(ListItem.NextTitle)</visible>
-			</control>
-			<control type="textbox">
-				<top>58</top>
-				<width>1050</width>
-				<height>56</height>
-				<label fallback="416">$INFO[ListItem.Plot]</label>
-				<include>container_TextSmall</include>
-			</control>
-		</control>
-		<control type="progress">
-			<left>130</left>
-			<top>55</top>
-			<width>1050</width>
-			<height>2</height>
-			<reveal>false</reveal>
-			<texturebg colordiffuse="Color3">pvr/progress.png</texturebg>
-			<lefttexture colordiffuse="Color2">-</lefttexture>
-			<midtexture colordiffuse="Selected">pvr/progress-nib.png</midtexture>
-			<righttexture colordiffuse="Color2">-</righttexture>
-			<info>ListItem.Progress</info>
-		</control>
+						<top>15</top>
+						<left>0</left>
+						<width>325</width>
+						<label>$LOCALIZE[19031]$INFO[ListItem.NextTitle,: ]</label>
+						<align>left</align>
+						<include>container_Sub</include>
+						<visible>!IsEmpty(ListItem.NextTitle)</visible>
+					</control>
+			<control type="progress">
+						<description>Progressbar</description>
+						<left>0</left>
+						<top>55</top>
+						<width>280</width>
+						<height>3</height>
+						<colordiffuse>75FFFFFF</colordiffuse>
+						<visible>ListItem.HasEpg</visible>
+						<info>ListItem.Progress</info>
+					</control>	
+			</control>	
 	</include>
 	<include name="list_Channels">
+		<left>50</left>
+		<top>100</top>
+		<width>450</width>
+		<height>560</height>
+		<onleft>6000</onleft>
+		<onright>70</onright>
+		<pagecontrol>70</pagecontrol>
+		<orientation>vertical</orientation>	
+		<include>global_ListScroll</include>
+		<include>transition_Content</include>
+		<include>toggle_Menu</include>
+		<itemlayout width="450" height="70">
+			<control type="group">
+				<include>list_Channels-commons</include>
+			</control>
+		</itemlayout>
+		<focusedlayout width="450" height="70">
+			<control type="group">
+				<visible>ControlGroup(6000).HasFocus()</visible>
+				<include>list_Channels-commons</include>
+			</control>
+			<control type="group">
+				<visible>!ControlGroup(6000).HasFocus()</visible>			
+				<control type="image">
+				<left>8</left>
+					<width>432</width>
+					<height>70</height>
+					<include>art_Frame-fo</include>
+				</control>
+				<control type="group">
+					<left>10</left>
+					<top>7</top>					
+					<control type="image">
+						<centerleft>50</centerleft>
+						<centertop>30</centertop>
+						<width>62</width>
+						<height>62</height>
+						<texture>LiveTV.png</texture>
+						<visible>IsEmpty(ListItem.Art(thumb))</visible>
+					</control>
+					<control type="image">
+						<width>60</width>
+						<height>60</height>
+						<texture>$INFO[ListItem.Art(thumb)]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
+					</control>
+				</control>
+				<control type="group">
+					<left>100</left>
+					<top>0</top>
+					<control type="label">					
+						<width>325</width>
+						<label>$INFO[ListItem.ChannelNumber,,  ]$INFO[ListItem.ChannelName]</label>
+						<aligny>top</aligny>
+						<textcolor>Color5</textcolor>
+						<include>detail_Title_PVR</include>
+					</control>
+					<control type="label">					
+						<top>15</top>
+						<left>0</left>
+						<width>325</width>
+						<label>$LOCALIZE[19031]$INFO[ListItem.NextTitle,: ]</label>
+						<align>left</align>
+						<include>container_Sub-focus</include>
+						<visible>!IsEmpty(ListItem.NextTitle)</visible>
+					</control>
+					<control type="progress">
+						<top>55</top>
+						<width>280</width>
+						<height>3</height>
+						<reveal>true</reveal>
+						<texturebg colordiffuse="ffffffff">pvr/progress.png</texturebg>
+						<lefttexture colordiffuse="Color2">-</lefttexture>
+						<midtexture colordiffuse="Selected">pvr/progress-nib.png</midtexture>
+						<righttexture colordiffuse="Color2">-</righttexture>
+						<info>ListItem.Progress</info>
+					</control>
+				</control>
+			</control>
+		</focusedlayout>
+	</include>
+	<include name="list_Channels_Radio">
 		<left>40</left>
 		<top>90</top>
 		<width>1500</width>
@@ -106,13 +290,13 @@
 		<include>toggle_Menu</include>
 		<itemlayout width="1210" height="124">
 			<control type="group">
-				<include>list_Channels-commons</include>
+				<include>list_Channels_Radio-commons</include>
 			</control>
 		</itemlayout>
 		<focusedlayout width="1210" height="124">
 			<control type="group">
 				<visible>ControlGroup(6000).HasFocus()</visible>
-				<include>list_Channels-commons</include>
+				<include>list_Channels_Radio-commons</include>
 			</control>
 			<control type="group">
 				<visible>!ControlGroup(6000).HasFocus()</visible>
@@ -179,7 +363,7 @@
 						<top>55</top>
 						<width>1050</width>
 						<height>2</height>
-						<reveal>false</reveal>
+						<reveal>true</reveal>
 						<texturebg colordiffuse="Color4">pvr/progress.png</texturebg>
 						<lefttexture colordiffuse="Color2">-</lefttexture>
 						<midtexture colordiffuse="Selected">pvr/progress-nib.png</midtexture>
@@ -190,7 +374,6 @@
 			</control>
 		</focusedlayout>
 	</include>
-
 <!--RECORDINGS-->
 	<include name="view_TV-recordings">
 		<control type="list" id="13">
@@ -375,12 +558,11 @@
 			</focusedlayout>
 		</control>
 	</include>
-
 <!--GUIDE CHANNELS VIEW-->
-	<include name="view_EPG-channels">
+	<include name="view_EPG-channels">	
 		<control type="group">
 			<left>39</left>
-			<include>transition_Content</include>
+			<include>transition_Content</include>			
 			<include>toggle_Menu</include>
 			<!--info-->
 			<control type="group">
@@ -510,7 +692,6 @@
 			</control>
 		</control>
 	</include>
-
 <!--GUIDE NOW/NEXT VIEW-->
 	<include name="view_EPG-now">
 		<control type="group">
@@ -621,7 +802,7 @@
 						<top>10</top>
 						<width>22</width>
 						<height>22</height>
-						<texture>$VAR[pvr_Status]</texture>
+						<texture>$VAR[pvr:Status]</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout width="1200" height="44">
@@ -661,14 +842,13 @@
 						<top>10</top>
 						<width>22</width>
 						<height>22</height>
-						<texture>$VAR[pvr_Status]</texture>
+						<texture>$VAR[pvr:Status]</texture>
 						<colordiffuse>Color4</colordiffuse>
 					</control>
 				</focusedlayout>
 			</control>
 		</control>
 	</include>
-
 <!--GUIDE TIMELINE-->
 	<include name="view_EPG-timeline-Commons">
 		<control type="label" id="1">
@@ -707,7 +887,7 @@
 			<include>global_Scrolltime</include>
 			<timeblocks>40</timeblocks>
 			<rulerunit>6</rulerunit>
-			<progresstexture border="2,58,20,18">pvr/epg_progress.png</progresstexture>
+			<progresstexture border="2,58,20,18" colordiffuse="aaffffff">frames_PVR/epg_progress.png</progresstexture>
 			<onback>6000</onback>
 			<onup>10</onup>
 			<ondown>10</ondown>
@@ -726,14 +906,7 @@
 					<textcolor>Color2</textcolor>
 				</control>
 			</rulerlayout>
-			<channellayout width="222" height="46">
-				<control type="image">
-					<width>220</width>
-					<height>46</height>
-					<bordersize>1</bordersize>
-					<texture>white.png</texture>
-					<colordiffuse>column3</colordiffuse>
-				</control>
+			<channellayout width="222" height="46">			
 				<control type="label" id="1">
 					<left>15</left>
 					<width>205</width>
@@ -802,7 +975,6 @@
 			</focusedlayout>
 		</control>
 	</include>
-
 <!--TIMERS VIEW-->
 	<include name="view_TV-timers">
 		<control type="group">
@@ -890,7 +1062,7 @@
 						<top>10</top>
 						<width>24</width>
 						<height>24</height>
-						<texture>pvr/status_none.png</texture>
+						<texture>pvr/status/none-nf.png</texture>
 						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 					</control>
 					<control type="image">
@@ -898,7 +1070,7 @@
 						<top>10</top>
 						<width>24</width>
 						<height>24</height>
-						<texture>pvr/status_recording.png</texture>
+						<texture>pvr/status/recording.png</texture>
 						<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 					</control>
 					<control type="image">
@@ -906,7 +1078,7 @@
 						<top>10</top>
 						<width>24</width>
 						<height>24</height>
-						<texture>pvr/status_enabled.png</texture>
+						<texture>pvr/status/enabled.png</texture>
 						<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
 					</control>
 				</itemlayout>
@@ -941,7 +1113,7 @@
 						<top>10</top>
 						<width>24</width>
 						<height>24</height>
-						<texture>pvr/status_none.png</texture>
+						<texture>pvr/status/none-fo.png</texture>
 						<colordiffuse>column2</colordiffuse>
 						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 					</control>
@@ -950,7 +1122,7 @@
 						<top>10</top>
 						<width>24</width>
 						<height>24</height>
-						<texture>pvr/status_recording.png</texture>
+						<texture>pvr/status/recording.png</texture>
 						<colordiffuse>column2</colordiffuse>
 						<visible>StringCompare(ListItem.Comment,$LOCALIZE[19162])</visible>
 					</control>
@@ -959,91 +1131,14 @@
 						<top>10</top>
 						<width>24</width>
 						<height>24</height>
-						<texture>pvr/status_enabled.png</texture>
+						<texture>pvr/status/enabled.png</texture>
 						<colordiffuse>column2</colordiffuse>
 						<visible>StringCompare(ListItem.Comment,$LOCALIZE[305])</visible>
 					</control>
 				</focusedlayout>
-				<!--testing content
-				<content>
-					<item>
-						<onclick>-</onclick>
-						<label>Bargain Hunt</label>
-						<thumb>special://home/addons/pvr.demo/data/bargain.jpg</thumb>
-						<property name="ChannelName">BBC1</property>
-						<property name="Date">07/05/2014</property>
-						<property name="StartDate">07/05/2014</property>
-						<property name="StartTime">21:30</property>
-						<property name="EndTime">22:15</property>
-						<property name="Comment">Comment</property>
-					</item>
-					<item>
-						<onclick>-</onclick>
-						<label>BBC News at One</label>
-						<thumb>special://home/addons/pvr.demo/data/news.jpg</thumb>
-						<property name="ChannelName">BBC1</property>
-						<property name="Date">07/05/2014</property>
-						<property name="Date">07/05/2014</property>
-						<property name="StartDate">07/05/2014</property>
-						<property name="StartTime">21:30</property>
-						<property name="EndTime">22:15</property>
-						<property name="Comment">Comment</property>
-					</item>
-					<item>
-						<onclick>-</onclick>
-						<label>BBC London News</label>
-						<thumb>special://home/addons/pvr.demo/data/london.jpg</thumb>
-						<property name="ChannelName">BBC1</property>
-						<property name="Date">07/05/2014</property>
-						<property name="Date">07/05/2014</property>
-						<property name="StartDate">07/05/2014</property>
-						<property name="Time">21:30</property>
-						<property name="StartTime">21:30</property>
-						<property name="EndTime">22:15</property>
-						<property name="Comment">Comment</property>
-					</item>
-					<item>
-						<onclick>-</onclick>
-						<label>Doctors</label>
-						<thumb>special://home/addons/pvr.demo/data/doctors.jpg</thumb>
-						<property name="ChannelName">BBC1</property>
-						<property name="Date">07/05/2014</property>
-						<property name="Date">07/05/2014</property>
-						<property name="StartDate">07/05/2014</property>
-						<property name="StartTime">21:30</property>
-						<property name="EndTime">22:15</property>
-						<property name="Comment">Comment</property>
-					</item>
-					<item>
-						<onclick>-</onclick>
-						<label>The Link</label>
-						<thumb>special://home/addons/pvr.demo/data/link.jpg</thumb>
-						<property name="ChannelName">BBC1</property>
-						<property name="Date">07/05/2014</property>
-						<property name="Date">07/05/2014</property>
-						<property name="StartDate">07/05/2014</property>
-						<property name="StartTime">21:30</property>
-						<property name="EndTime">22:15</property>
-						<property name="Comment">Comment</property>
-					</item>
-					<item>
-						<onclick>-</onclick>
-						<label>Escape to the Country</label>
-						<thumb>special://home/addons/pvr.demo/data/escape.jpg</thumb>
-						<property name="ChannelName">BBC1</property>
-						<property name="Date">07/05/2014</property>
-						<property name="Date">07/05/2014</property>
-						<property name="StartDate">07/05/2014</property>
-						<property name="StartTime">21:30</property>
-						<property name="EndTime">22:15</property>
-						<property name="Comment">Comment</property>
-					</item>
-				</content>
-				-->
 			</control>
 		</control>
 	</include>
-
 <!--SEARCH-->
 	<include name="view_TV-search">
 		<control type="group">
@@ -1153,7 +1248,7 @@
 						<top>10</top>
 						<width>22</width>
 						<height>22</height>
-						<texture>$VAR[pvr_Status]</texture>
+						<texture>$VAR[pvr:Status]</texture>
 						<visible>!IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 				</itemlayout>
@@ -1195,7 +1290,7 @@
 						<top>11</top>
 						<width>22</width>
 						<height>22</height>
-						<texture>$VAR[pvr_Status]</texture>
+						<texture>$VAR[pvr:Status]</texture>
 						<colordiffuse>Color4</colordiffuse>
 						<visible>!IsEmpty(ListItem.ChannelName)</visible>
 					</control>

@@ -109,7 +109,7 @@
 				<control type="group">
 					<height>44</height>
 					<control type="button" id="21">
-						<label>$LOCALIZE[31204] reFocus Glass</label>
+						<label>$LOCALIZE[31204] ART reFocus</label>
 						<onfocus>Skin.SetString(SkinSettings,Credits)</onfocus>
 						<onright>800</onright>
 						<onup>20</onup>

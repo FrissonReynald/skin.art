@@ -62,4 +62,93 @@
 			<visible>[![Window.IsActive(Pictures) + Control.IsVisible(531)] + !Window.IsActive(Visualisation)] + !Window.IsActive(Weather)</visible>
 		</control>
 	</include>
+	<include name="ContentPanelBackgroundsPVR">	
+		<control type="image">
+			<left>0</left>
+			<top>100r</top>
+			<width>1280</width>
+			<height>100</height>
+			<texture>frames_PVR/floor.png</texture>
+			<animation effect="fade" time="250" condition="Window.Previous(Home)">WindowOpen</animation>
+			<animation effect="fade" time="250" condition="Window.Next(Home)">WindowClose</animation>
+			<colordiffuse>base_1</colordiffuse> 
+			<visible>Control.IsVisible(11) | Control.IsVisible(12)</visible>
+		</control>
+		<control type="group">
+		<include>global_ListScroll</include>
+		<include>transition_Content</include>
+		<include>toggle_Menu</include>
+			<include>Window_OpenClose_Animation</include>		
+			<control type="group">				
+				<visible>Control.IsVisible(11) | Control.IsVisible(12)</visible>
+				<control type="image">
+					<left>50</left>
+					<top>85</top>
+					<width>450</width>
+					<height>600</height>
+					<texture border="15">frames_PVR/ContentPanel.png</texture>
+				</control>
+				<control type="image">
+					<left>50</left>
+					<top>682</top>
+					<width>450</width>
+					<height>64</height>
+					<texture border="15">frames_PVR/ContentPanelMirror.png</texture>
+				</control>
+				<control type="image">
+					<left>510</left>
+					<top>85</top>
+					<width>730</width>
+					<height>600</height>
+					<texture border="15">frames_PVR/ContentPanel.png</texture>
+				</control>
+				<control type="image">
+					<left>510</left>
+					<top>682</top>
+					<width>730</width>
+					<height>64</height>
+					<texture border="15">frames_PVR/ContentPanelMirror.png</texture>
+				</control>
+					<control type="label">
+					<description>Page Count Label</description>
+				<right>155</right>
+				<top>29.5r</top>
+				<width>500</width>
+				<height>20</height>				
+				<textcolor>grey</textcolor>
+				<scroll>false</scroll>
+				<align>right</align>
+				<aligny>center</aligny>
+				<label>([COLOR=ffffffff]$INFO[Container(11).NumItems][/COLOR])([COLOR=ffffffff] $LOCALIZE[19019][/COLOR]) - ([COLOR=ffffffff] $LOCALIZE[31024][/COLOR]) ([COLOR=ffffffff]$INFO[Container(11).CurrentPage]/$INFO[Container(11).NumPages][/COLOR])</label>
+				<include>Window_OpenClose_Animation</include>
+			</control>
+			</control>			
+		</control>
+	</include>
+	
+	<include name="ContentPanelBackgroundsPVR_Guide">		
+		<control type="group">
+		<include>global_ListScroll</include>
+		<include>transition_Content</include>
+		<include>toggle_Menu</include>
+			<include>Window_OpenClose_Animation</include>		
+			<control type="group">				
+				<visible>Control.IsVisible(10)</visible>
+				<control type="image">
+					<left>25</left>
+					<top>80</top>
+					<width>1280</width>
+					<height>605</height>
+					<texture border="15">frames_PVR/ContentPanel.png</texture>
+				</control>				
+				<control type="image">
+					<left>25</left>
+					<top>682</top>
+					<width>1280</width>
+					<height>64</height>
+					<texture border="15">frames_PVR/ContentPanelMirror.png</texture>
+				</control>
+			</control>			
+		</control>
+	</include>
 </includes>

@@ -212,6 +212,13 @@
 		<textcolor>Color1</textcolor>
 		<selectedcolor>Selected</selectedcolor>
 	</include>
+	<include name="detail_Title_PVR">
+		<height>28</height>
+		<aligny>center</aligny>
+		<font>semibold_Small-U</font>
+		<textcolor>Color1</textcolor>
+		<selectedcolor>Selected</selectedcolor>
+	</include>
 	<include name="detail_Title_ART">
 		<height>25</height>
 		<aligny>center</aligny>
@@ -911,7 +918,7 @@
 					<width>114</width>
 					<height>114</height>
 					<include>art_Frame-nf</include>
-					<visible>VideoPlayer.Content(LiveTV)</visible>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
 				</control>
 				<control type="group">
 					<left>7</left>
@@ -930,6 +937,13 @@
 						<height>100</height>
 						<texture>$VAR[osd_Art]</texture>
 						<aspectratio align="center" aligny="center">scale</aspectratio>
+						<visible>!VideoPlayer.Content(LiveTV)</visible>
+					</control>
+					<control type="image">
+						<width>90</width>
+						<height>90</height>
+						<texture>$VAR[osd_Art]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>
 						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
 					<control type="image">

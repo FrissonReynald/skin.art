@@ -11,7 +11,7 @@
 	<controls>
 		<control type="image" id="995">
 			<width>310</width>
-			<height>350</height>
+			<height>500</height>
 			<include>dialog_Menu</include>
 		</control>
 		<control type="image">
@@ -24,7 +24,7 @@
 			<left>4</left>
 			<top>18</top>
 			<width>302</width>
-			<height min="40" max="680">auto</height>
+			<height min="40" max="600">auto</height>
 			<itemgap>0</itemgap>
 			<control type="button" id="997">
 				<width>302</width>

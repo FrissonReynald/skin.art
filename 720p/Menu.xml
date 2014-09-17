@@ -216,7 +216,8 @@
 		<control type="button" id="219">
 			<label>$VAR[playing_Title]</label>
 			<onclick condition="Player.HasVideo">fullscreen</onclick>
-			<onclick condition="Player.HasAudio | !Player.HasMedia">$VAR[playlist_Type]</onclick>
+			<onclick condition="Player.HasAudio">ActivateWindow(musicplaylist)</onclick>
+			<onclick condition="!Player.HasMedia">$VAR[playlist_Type]</onclick>
 			<include>menu_Button</include>
 			<visible>StringCompare(Skin.String(menu.controls),fullscreen) + [Player.HasMedia | !Player.HasMedia + Skin.HasSetting(menu.playlist) + [[Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)] | [[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)]+ !StringCompare(Playlist.Length(music),0)]]]</visible>
 		</control>
@@ -236,14 +237,30 @@
 				<top>4</top>
 				<width>250</width>
 				<onback>50</onback>
-				<onleft>241</onleft>
+				<onleft>231</onleft>
 				<onright>50</onright>
 				<onup>218</onup>
 				<ondown>102</ondown>
 				<itemgap>10</itemgap>
 				<orientation>horizontal</orientation>
-				<!--previous-->
+				<!--channel down-->
 				<control type="button" id="232">
+					<texturefocus colordiffuse="Color1">player/sidebar/down-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/down-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>ChannelDown</onclick>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<!--channel up-->
+				<control type="button" id="233">
+					<texturefocus colordiffuse="Color1">player/sidebar/up-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/up-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>ChannelUp</onclick>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<!--previous-->
+				<control type="button" id="234">
 					<texturefocus colordiffuse="Color1">player/sidebar/prev-fo.png</texturefocus>
 					<texturenofocus colordiffuse="Color3">player/sidebar/prev-nf.png</texturenofocus>
 					<include>menu_ControlsButton</include>
@@ -251,7 +268,7 @@
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
 				</control>
 				<!--pause-->
-				<control type="togglebutton" id="233">
+				<control type="togglebutton" id="235">
 					<texturenofocus colordiffuse="Color3">player/sidebar/pause-nf.png</texturenofocus>
 					<texturefocus colordiffuse="Color1">player/sidebar/pause-fo.png</texturefocus>
 					<alttexturenofocus colordiffuse="Color3">player/sidebar/play-nf.png</alttexturenofocus>
@@ -263,22 +280,35 @@
 					<enable>Player.PauseEnabled</enable>
 				</control>
 				<!--stop-->
-				<control type="button" id="234">
+				<control type="button" id="236">
 					<texturefocus colordiffuse="Color1">player/sidebar/stop-fo.png</texturefocus>
 					<texturenofocus colordiffuse="Color3">player/sidebar/stop-nf.png</texturenofocus>
 					<include>menu_ControlsButton</include>
 					<onclick>PlayerControl(Stop)</onclick>
 				</control>
 				<!--next-->
-				<control type="button" id="235">
+				<control type="button" id="237">
 					<texturefocus colordiffuse="Color1">player/sidebar/next-fo.png</texturefocus>
 					<texturenofocus colordiffuse="Color3">player/sidebar/next-nf.png</texturenofocus>
 					<include>menu_ControlsButton</include>
 					<onclick>PlayerControl(Next)</onclick>
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
 				</control>
+				<!--record-->
+				<control type="togglebutton" id="238">
+					<texturefocus colordiffuse="Color1">player/sidebar/rec-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/rec-nf.png</texturenofocus>
+					<usealttexture>Player.Recording</usealttexture>
+					<alttexturefocus colordiffuse="Color1">player/sidebar/rec-fo.png</alttexturefocus>
+					<alttexturenofocus colordiffuse="Color3">player/sidebar/rec-fo.png</alttexturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Record)</onclick>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+					<enable>Player.CanRecord</enable>
+					<animation effect="fade" start="100" end="50" time="0" condition="!Player.CanRecord">Conditional</animation>
+				</control>
 				<!--fullscreen-->
-				<control type="button" id="240">
+				<control type="button" id="239">
 					<texturefocus colordiffuse="Color1">player/sidebar/fullscreen-fo.png</texturefocus>
 					<texturenofocus colordiffuse="Color3">player/sidebar/fullscreen-nf.png</texturenofocus>
 					<include>menu_ControlsButton</include>
@@ -286,7 +316,7 @@
 					<visible>Player.HasVideo</visible>
 				</control>
 				<!--playlist-->
-				<control type="button" id="241">
+				<control type="button" id="240">
 					<texturefocus colordiffuse="Color1">player/sidebar/playlist-fo.png</texturefocus>
 					<texturenofocus colordiffuse="Color3">player/sidebar/playlist-nf.png</texturenofocus>
 					<include>menu_ControlsButton</include>
