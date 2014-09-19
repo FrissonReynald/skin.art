@@ -1172,7 +1172,7 @@
 			<onright>70</onright>
 			<onup>694</onup>
 			<ondown>694</ondown>
-			<focusposition>1</focusposition>
+			<focusposition>0</focusposition>
 			<movement>0</movement>
 			<pagecontrol>70</pagecontrol>
 			<orientation>vertical</orientation>

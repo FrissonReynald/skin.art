@@ -739,7 +739,7 @@
 	</include>
 
 	<include name="osd_Seekbar">
-		<top>680</top>
+		<top>675</top>
 		<control type="group">
 			<control type="image">
 				<width>screen_Width</width>
@@ -782,11 +782,17 @@
 					<textcolor>Color3</textcolor>
 					<include>detail_Sub</include>
 				</control>
-				<control type="label">
+				<control type="fadelabel">
 					<right>20</right>
 					<width>200</width>
-					<label>$VAR[player_Duration]</label>
-					<align>right</align>
+					<visible>true</visible>
+					<scroll>false</scroll>
+					<scrollout>false</scrollout>
+					<pauseatend>5123</pauseatend>
+					 <loop>yes</loop>
+					<label>$INFO[Player.Duration(hh:mm:ss)]</label>
+					<label>$INFO[Player.TimeRemaining(hh:mm:ss)]</label>										
+					<align>right</align>					
 					<textcolor>Color3</textcolor>
 					<include>detail_Sub</include>
 				</control>
@@ -909,6 +915,26 @@
 				<texture border="15">player/contentpanel_Osd.png</texture>					
 				<colordiffuse>base_1</colordiffuse>
 			</control>
+			<control type="image">
+			<visible>!VideoPlayer.Content(livetv)</visible>
+					<left>-10</left>			
+			<top>81</top>
+				<width>1930</width>
+					<height>2</height>
+				
+					<texture>white.png</texture>
+					<colordiffuse>column3</colordiffuse>
+				</control>
+				<control type="image">
+				<visible>!VideoPlayer.Content(livetv)</visible>
+					<left>200</left>			
+			<top>140</top>
+				<width>1100</width>
+					<height>1</height>
+					
+					<texture>white.png</texture>
+					<colordiffuse>aaffffff</colordiffuse>
+				</control>
 			<control type="group">
 			<visible>!VideoPlayer.Content(livetv)</visible>
 				<left>10</left>
@@ -946,13 +972,35 @@
 				<control type="group">
 				<visible>!VideoPlayer.Content(LiveTV)</visible>
 					<left>0</left>
-					<top>0</top>					
+					<top>0</top>
 					<control type="image">
+					<top>80</top>
+					<left>2.5</left>
+						<width>180</width>
+						<height>168</height>
+						<texture>$VAR[osd_Art]</texture>
+						<aspectratio align="center" aligny="center">scale</aspectratio>											
+					</control>	
+					<control type="image">
+                        <left>13</left>
+                        <top>5</top>
+                        <width>165</width>
+                        <height>165</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">$INFO[Player.FolderPath]disc.png</texture>
+						<animation effect="fade" start="100" end="0" time="700" tween="cubic" easing="out" condition="Window.IsActive(videoosd)">Conditional</animation>
+						<animation effect="slide" start="0,0" end="0,-100" time="900" tween="cubic" easing="out" delay="800">WindowOpen</animation>
+						<animation effect="slide" start="0,100" end="0,0" time="900" tween="cubic" easing="out">WindowClose</animation>
+						<animation effect="rotate" end="-360" center="auto" time="4200" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+							<visible>!Skin.HasSetting(videoosdDiscart.poster)</visible>	
+						</control>
+					<control type="image">
+					<bottom>40</bottom>
 						<width>188</width>
 						<height>305</height>
 						<texture>$VAR[osd_ArtAlt]</texture>						
-						<aspectratio align="left" aligny="top">keep</aspectratio>						
-					</control>									
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>						
+					</control>					
 					<visible>Skin.HasSetting(videoosd.poster)</visible>				
 				</control>
 				<control type="group">
@@ -961,20 +1009,28 @@
 					<top>60</top>					
 					<control type="label">
 						<description>Title/Year</description>
-						<width min="10" max="790">auto</width>
+						<width min="10" max="890">auto</width>
 						<height>60</height>						
 						<label>[UPPERCASE]$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year, (,)][/UPPERCASE]</label>
 						<include>detail_Title</include>
 						<aligny>top</aligny>
 						<scroll>yes</scroll>
 					</control>
-					<control type="label">
+					<control type="fadelabel">
 					<top>22</top>
-						<description>Title/Year</description>
-						<width min="10" max="790">auto</width>
-						<height>60</height>						
-						<label>$VAR[player:Info]</label>
-						<include>detail_Sub</include>
+						<description>Info</description>
+						<width min="10" max="890">auto</width>
+						<height>60</height>	
+						<visible>true</visible>
+					<scroll>false</scroll>
+					<scrollout>false</scrollout>
+					<pauseatend>5123</pauseatend>
+					 <label>$INFO[VideoPlayer.Genre]$INFO[VideoPlayer.Studio, • ]$INFO[VideoPlayer.VideoResolution, • ,P]</label>
+					  <label>$LOCALIZE[20339]:$INFO[VideoPlayer.Director,   ,]</label>	
+					<label>$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , - ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]$INFO[VideoPlayer.Premiered, • ]</label>
+				  <label>$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, • ]</label>
+				
+				  <include>detail_Sub</include>
 						<aligny>top</aligny>
 						<scroll>yes</scroll>
 					</control>	
@@ -1087,6 +1143,16 @@
 				<texture border="15">player/contentpanel_Osd.png</texture>	
 				<colordiffuse>base_2</colordiffuse>				
 			</control>
+			<control type="image">
+			<visible>VideoPlayer.Content(livetv)</visible>
+					<left>-10</left>			
+			<top>0</top>
+				<width>1930</width>
+					<height>2</height>
+				
+					<texture>white.png</texture>
+					<colordiffuse>column3</colordiffuse>
+				</control>
 			<control type="group">	
 			<visible>VideoPlayer.Content(LiveTV)</visible>
 				<left>10</left>

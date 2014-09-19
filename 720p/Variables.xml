@@ -571,6 +571,11 @@
 		<value condition="Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)">ActivateWindow(videoplaylist)</value>
 		<value condition="[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] + !StringCompare(Playlist.Length(music),0)">ActivateWindow(musicplaylist)</value>
 	</variable>
+	<variable name="player:TimeRemaining">
+		<value condition="!VideoPlayer.Content(LiveTV)">$INFO[Player.TimeRemaining]</value>	
+		<value>$INFO[Player.StartTime(hh:mm:22)]</value>
+	</variable>
+	
 
 
 
@@ -611,7 +616,8 @@
 		<value>$INFO[Player.Art(poster)]</value>
 	</variable>
 	<variable name="osd_Art2">
-		<value condition="VideoPlayer.Content(movies)">$INFO[Player.Art(poster)]</value>
+		<value condition="VideoPlayer.Content(files) + SubString(Container.FolderPath,plugin://plugin.video.the.trailers)">$INFO[Player.Art(poster)]</value>
+		<value condition="!IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
 		</variable>
 	<variable name="osd_Art3">
 		<value condition="VideoPlayer.Content(episodes) + [[Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)]">$INFO[Player.Art(fanart)]</value>

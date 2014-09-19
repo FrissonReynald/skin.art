@@ -73,15 +73,16 @@
 			</control>
 			<control type="videowindow">
 				<include>screen_Dimensions</include>
+				<texture></texture>
 				<include>fadeinout</include>
 			</control>
 			<control type="group">
 			<control type="image">
 					 <top>0</top>	
 			<left>-25</left>
-				     <width>1920</width>
+				     <width>1000</width>
 				     <height>170</height>
-				     <texture background="true"colordiffuse="aa000000">frames/contentpanel.png</texture>
+				     <texture background="true"colordiffuse="ff000000">frames/contentpanel.png</texture>
 			</control>
 			
 			<control type="image">
@@ -120,9 +121,7 @@
 			<left>10</left>
 				<width>118</width>
 				<height>160</height>
-				<texture>$INFO[Player.Art(thumb)]</texture>
-				<bordertexture border="0">frames/frame-fo.png</bordertexture>
-				<bordersize>4</bordersize>
+				<texture>$INFO[Player.Art(thumb)]</texture>				
 				<aspectratio align="right">keep</aspectratio>
 				<visible>VideoPlayer.Content(LiveTV) + !VideoPlayer.Content(Movies) + !VideoPlayer.Content(Episodes)</visible>
 			</control>	
@@ -132,18 +131,19 @@
 				<control type="label">
 					<width>800</width>
 					<label>$INFO[VideoPlayer.Title]</label>
-					<font>bold_Title</font>				
+					<include>detail_Title</include>			
 				</control>
 				<control type="label">
 				<top>35</top>	
-					<width>880</width>					
-					<label>$VAR[osd_Info]</label>
+					<width>800</width>					
+					<label>$VAR[player:Info]</label>
+					<include>detail_Sub</include>
 					<scroll>true</scroll>
-					<font>semibold</font>					
+								
 				</control>
 				<control type="textbox">
 				<top>60</top>	
-					<width>880</width>	
+					<width>800</width>	
 					<height>82</height>
 					<align>justify</align>
 					<label>$INFO[VideoPlayer.Plot]</label>
@@ -159,7 +159,7 @@
 			<left>340</left>
 				     <width>950</width>
 				     <height>180</height>
-				     <texture background="true"colordiffuse="aa000000">frames/contentpanel.png</texture>
+				     <texture background="true"colordiffuse="ff000000">frames/contentpanel.png</texture>
 			</control>		
 		<top>20</top>
 			<control type="image">
@@ -211,15 +211,14 @@
 				<control type="label">
 					<width>550</width>
 					<label>$INFO[VideoPlayer.Title]</label>
-					<autoscroll>true</autoscroll>					
-					<font>bold_Title</font>				
+					<include>detail_Title</include>					
 				</control>
 				<control type="label">
 				<top>35</top>	
 					<width>550</width>					
-					<label>$VAR[osd_Info]</label>									
-					<scroll>true</scroll>
-					<font>semibold</font>				
+					<label>$VAR[player:Info]</label>
+					<include>detail_Sub</include>
+					<scroll>true</scroll>				
 				</control>
 				<control type="textbox">
 				<top>60</top>	
