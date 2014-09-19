@@ -849,8 +849,21 @@
 					<align>justify</align>
 					<label>$VAR[global_Plot]</label>
 					<include>detail_Text</include>
-					<visible>Control.IsVisible(694)</visible>
-						</control>					
+					<visible>Control.IsVisible(694) + !Container.Content(sets)</visible>
+						</control>
+				<control type="textbox">
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+				<top>208</top>
+				<left>875</left>
+				    <width>360</width>
+					<height>420</height>
+					<align>justify</align>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(694) + Container.Content(sets)</visible>
+						</control>			
 				<control type="image">
 				<include>transition_Info</include>
 			<include>toggle_Menu</include>
@@ -1342,9 +1355,8 @@
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
 					<pauseatend>5123</pauseatend>
-					<label>$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
-                   <label>$INFO[ListItem.Genre]</label>
-				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>	
+					<label>IMDB $INFO[ListItem.Rating]</label>
+                   <label>$INFO[Window(home).Property(Set.Movies.Runtime), , $LOCALIZE[31701]]$INFO[Window(home).Property(Set.Movies.Genre), • ]</label>			  	
 					<textcolor>ff000000</textcolor>	
 		            <visible>Container.Content(sets)</visible>
 					</control>

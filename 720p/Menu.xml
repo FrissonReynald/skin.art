@@ -908,6 +908,13 @@
 						<onclick>Container.SetViewMode(691)</onclick>
 						<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 					</control>
+						<!--ART-->
+					<control type="button" id="428">
+						<label>ART</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(694)</onclick>
+						<visible>Container.Content(sets)</visible>
+					</control>
 				</control>
 			</control>
 		</control>

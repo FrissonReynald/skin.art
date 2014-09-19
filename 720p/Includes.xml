@@ -895,203 +895,243 @@
 			<include>osd_Seekbar</include>
 		</control>
 	</include>
-
+<!--OSD Info -->
 	<include name="osd_Video">
-		<control type="group">			
-			<top>545</top>
+	
+		<control type="group">		
+			<top>415</top>
 			<control type="image">
-				<width>screen_Width</width>
-				<height>135</height>
-				<texture border="29">white.png</texture>
-				<colordiffuse>base_2</colordiffuse>
+			<visible>!VideoPlayer.Content(livetv)</visible>
+			<left>-10</left>			
+			<top>80</top>
+				<width>1930</width>
+				<height>190</height>
+				<texture border="15">player/contentpanel_Osd.png</texture>					
+				<colordiffuse>base_1</colordiffuse>
 			</control>
 			<control type="group">
+			<visible>!VideoPlayer.Content(livetv)</visible>
 				<left>10</left>
-				<top>10</top>				
-				<control type="group">
-					<left>7</left>
-					<top>7</top>
-					<width>178</width>
-					<height>100</height>
+				<top>10</top>
+					<control type="group">
+					
+					<top>80</top>
+					<width>190</width>
+					<height>170</height>
 					<control type="image">
-						<width>178</width>
-						<height>100</height>
+					<top>-6</top>
+					<left>-5</left>
+					<width>195</width>
+					<height>180</height>
+					<include>art_Frame-nf</include>					
+				</control>
+					<control type="image">
+					<top>3</top>
+					<left>2.5</left>
+						<width>180</width>
+						<height>168</height>
 						<texture>$VAR[osd_Art]</texture>
-						<aspectratio align="center" aligny="center">scale</aspectratio>
-						<visible>!VideoPlayer.Content(LiveTV)</visible>
+						<aspectratio align="center" aligny="center">scale</aspectratio>					
 					</control>					
 					<control type="image">
-						<width>90</width>
-						<height>90</height>
-						<texture>$VAR[osd_Art]</texture>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<visible>VideoPlayer.Content(LiveTV)</visible>
-					</control>
-					<control type="image">
 						<centerleft>50%</centerleft>
-						<width>128</width>
-						<height>96</height>
+						<top>40</top>
+						<width>138</width>
+						<height>106</height>
 						<texture>$VAR[osd_ClearLogo]</texture>
 						<aspectratio align="center" aligny="bottom">keep</aspectratio>
 					</control>
+					<visible>!Skin.HasSetting(videoosd.poster)</visible>
+				</control>	
+				<control type="group">
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+					<left>0</left>
+					<top>0</top>					
+					<control type="image">
+						<width>188</width>
+						<height>305</height>
+						<texture>$VAR[osd_ArtAlt]</texture>						
+						<aspectratio align="left" aligny="top">keep</aspectratio>						
+					</control>									
+					<visible>Skin.HasSetting(videoosd.poster)</visible>				
 				</control>
 				<control type="group">
-					<left>210</left>
-					<top>3</top>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+					<left>195</left>
+					<top>60</top>					
 					<control type="label">
-						<width>1050</width>
-						<label>$VAR[osd_Title]</label>
-						<include>osd_Title</include>
+						<description>Title/Year</description>
+						<width min="10" max="790">auto</width>
+						<height>60</height>						
+						<label>[UPPERCASE]$INFO[VideoPlayer.Title]$INFO[VideoPlayer.Year, (,)][/UPPERCASE]</label>
+						<include>detail_Title</include>
+						<aligny>top</aligny>
+						<scroll>yes</scroll>
 					</control>
 					<control type="label">
-						<top>25</top>
-						<width>1050</width>
-						<label>$VAR[osd_Info]</label>
-						<textcolor>Color2</textcolor>
-						<include>osd_Sub</include>
-						<visible>Player.HasVideo</visible>
-					</control>
-					<control type="textbox">
-						<top>55</top>
-						<width>1050</width>
-						<height>55</height>
-						<label>$VAR[player_Plot]</label>
-						<include>osd_Text</include>
-						<visible>Player.HasVideo</visible>
-					</control>
-				</control>
-				<control type="group">
-					<left>132</left>
-					<top>3</top>
-					<visible>VideoPlayer.Content(LiveTV)</visible>
-					<control type="label">
-						<width>1128</width>
-						<label>$VAR[osd_Title]</label>
-						<include>osd_Title</include>
-					</control>
-					<control type="label">
-						<top>28</top>
-						<width>1128</width>
-						<label>$VAR[osd_Info]</label>
+					<top>22</top>
+						<description>Title/Year</description>
+						<width min="10" max="790">auto</width>
+						<height>60</height>						
+						<label>$VAR[player:Info]</label>
 						<include>detail_Sub</include>
-						<visible>Player.HasVideo</visible>
+						<aligny>top</aligny>
+						<scroll>yes</scroll>
+					</control>	
+				</control>	
+				<control type="textbox">
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+					<description>Casting</description>
+					<bottom>55</bottom>
+					<left>400</left>					
+					<width>300</width>
+					<height>105</height>	
+					<label>$INFO[VideoPlayer.CastAndRole]</label>	
+					<autoscroll delay="8000" time="4000" repeat="15000">true</autoscroll>
+				</control>
+				<control type="group">
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+				<top>115</top>
+					<left>195</left>
+				<control type="group"id="1">
+				<visible>!VideoPlayer.Content(livetv)</visible>
+				<top>20</top>
+						<width>200</width>
+						<height>22</height>						
+						<control type="label">
+						<align>left</align>
+							<width>150</width>
+							<label>$LOCALIZE[21447] $INFO[VideoPlayer.AudioLanguage]</label>						
+							<include>autoscroll_Line</include>
+							<include>osd_Text</include>
+						</control>
+					</control>	
+					<control type="group" id="1">
+					<visible>!VideoPlayer.Content(livetv)</visible>
+					<top>40</top>
+						<width>200</width>
+						<height>22</height>											
+						<control type="label" id="1">
+						<align>left</align>						
+							<width>150</width>
+							<label>$LOCALIZE[287] : $INFO[VideoPlayer.SubtitlesLanguage]</label>
+						<include>autoscroll_Line</include>
+							<include>osd_Text</include>
+						</control>
 					</control>
-					<control type="textbox">
-						<top>55</top>
-						<width>1128</width>
-						<height>55</height>
+					<control type="group" id="1">
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+					<top>60</top>
+						<width>200</width>
+						<height>22</height>											
+						<control type="label" id="1">
+						<align>left</align>						
+							<width>150</width>							
+							<label>IMDB $INFO[VideoPlayer.Rating]</label>
+						<include>autoscroll_Line</include>
+							<include>osd_Text</include>
+						</control>
+					</control>
+					<control type="group" id="1">
+					<visible>!VideoPlayer.Content(livetv)</visible>
+					<top>80</top>
+						<width>200</width>
+						<height>22</height>											
+						<control type="label" id="1">
+						<align>left</align>						
+							<width>150</width>							
+							<label>$INFO[VideoPlayer.mpaa]</label>
+						<include>autoscroll_Line</include>
+							<include>osd_Text</include>
+						</control>
+					</control>				
+					<control type="group" id="1">
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+					<top>100</top>
+						<width>200</width>
+						<height>22</height>	
+					<control type="label">				
+						<width min="10" max="200">auto</width>
+						<height>26</height>						
+						<label>[UPPERCASE]$INFO[Player.Chapter]$INFO[Player.ChapterCount, / ]$INFO[Player.ChapterName, - ,][/UPPERCASE]</label>
+						<aligny>left</aligny>	
+						<include>osd_Text</include>
+					</control>
+					</control>
+				</control>	
+				<control type="group">
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+					<left>725</left>
+					<top>130</top>
+					<control type="textbox">						
+						<width>525</width>
+						<height>120</height>
+						<align>justify</align>
 						<label>$VAR[player_Plot]</label>
 						<include>osd_Text</include>
 						<visible>Player.HasVideo</visible>
 					</control>
-				</control>				
-			</control>
-			<visible>!Skin.HasSetting(videoosd.poster)</visible>
-		</control>
-		
+				</control>
+			</control>			
+		</control>		
+	<!--OSD Live TV -->	
 	
-		<control type="group">			
+	
+		<control type="group">	
+		<visible>VideoPlayer.Content(liveTV)</visible>
 			<top>545</top>
-			<control type="image">
-				<width>screen_Width</width>
-				<height>135</height>
-				<texture border="29">white.png</texture>
-				<colordiffuse>base_2</colordiffuse>
+			<control type="image">			
+				<height>150</height>
+				<left>-10</left>			
+				<width>1930</width>
+				<texture border="15">player/contentpanel_Osd.png</texture>	
+				<colordiffuse>base_2</colordiffuse>				
 			</control>
-			<control type="group">
+			<control type="group">	
+			<visible>VideoPlayer.Content(LiveTV)</visible>
 				<left>10</left>
 				<top>10</top>			
-				
 				<control type="group">
 					<left>7</left>
 					<top>7</top>
 					<width>178</width>
-					<height>100</height>
+					<height>100</height>				
 					<control type="image">
-						<width>170</width>
+						<width>100</width>
 						<height>100</height>
-						<texture>$VAR[osd_Art]</texture>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<visible>!VideoPlayer.Content(LiveTV)</visible>
-					</control>
-					<control type="image">					
-					<top>-150</top>
-						<width>170</width>
-						<height>300</height>
-						<texture>$VAR[osd_ArtAlt]</texture>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<visible>!VideoPlayer.Content(LiveTV)</visible>
-					</control>
-					<control type="image">
-						<width>90</width>
-						<height>90</height>
-						<texture>$VAR[osd_Art]</texture>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<visible>VideoPlayer.Content(LiveTV)</visible>
-					</control>
-					<control type="image">
-						<top>-150</top>
-						<width>170</width>
-						<height>300</height>
-						<texture>$VAR[osd_ArtAlt]</texture>
-						<aspectratio align="center" aligny="center">keep</aspectratio>
-						<visible>VideoPlayer.Content(LiveTV)</visible>
+						<texture>$VAR[player:Art]</texture>
+						<aspectratio align="center" aligny="center">keep</aspectratio>							
 					</control>					
-				</control>
-				<control type="group">
-					<left>210</left>
-					<top>3</top>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
-					<control type="label">
-						<width>1050</width>
-						<label>$VAR[osd_Title]</label>
-						<include>osd_Title</include>
-					</control>
-					<control type="label">
-						<top>25</top>
-						<width>1050</width>
-						<label>$VAR[osd_Info]</label>
-						<textcolor>Color2</textcolor>
-						<include>osd_Sub</include>
-						<visible>Player.HasVideo</visible>
-					</control>
-					<control type="textbox">
-						<top>55</top>
-						<width>1050</width>
-						<height>55</height>
-						<label>$VAR[player_Plot]</label>
-						<include>osd_Text</include>
-						<visible>Player.HasVideo</visible>
-					</control>
-				</control>
-				<control type="group">
+				</control>				
+				<control type="group">	
+				<visible>VideoPlayer.Content(LiveTV)</visible>
 					<left>132</left>
-					<top>3</top>
-					<visible>VideoPlayer.Content(LiveTV)</visible>
-					<control type="label">
+					<top>0</top>					
+					<control type="label">					
 						<width>1128</width>
-						<label>$VAR[osd_Title]</label>
-						<include>osd_Title</include>
+						<label>$VAR[player:Title]</label>
+						<include>detail_Title</include>
 					</control>
-					<control type="label">
-						<top>28</top>
+					<control type="label">	
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+						<top>25</top>
 						<width>1128</width>
-						<label>$VAR[osd_Info]</label>
+						<label>$VAR[player:Info]</label>
 						<include>detail_Sub</include>
 						<visible>Player.HasVideo</visible>
 					</control>
-					<control type="textbox">
-						<top>55</top>
-						<width>1128</width>
-						<height>55</height>
-						<label>$VAR[player_Plot]</label>
+					<control type="textbox">	
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+						<top>48</top>
+						<width>1120</width>
+						<height>70</height>
+						<align>justify</align>
+						<label>$VAR[player:Description]</label>
 						<include>osd_Text</include>
 						<visible>Player.HasVideo</visible>
 					</control>
-				</control>			
-			</control>
-			<visible>Skin.HasSetting(videoosd.poster)</visible>
+				</control>
+			</control>		
 		</control>		
 	</include>
 
