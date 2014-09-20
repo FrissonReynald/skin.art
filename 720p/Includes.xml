@@ -743,7 +743,7 @@
 		<control type="group">
 			<control type="image">
 				<width>screen_Width</width>
-				<height>40</height>
+				<height>50</height>
 				<texture>white.png</texture>
 				<colordiffuse>accent_1</colordiffuse>
 			</control>
@@ -928,7 +928,7 @@
 				<control type="image">
 				<visible>!VideoPlayer.Content(livetv)</visible>
 					<left>200</left>			
-			<top>140</top>
+			<top>138</top>
 				<width>1100</width>
 					<height>1</height>
 					
@@ -1029,7 +1029,6 @@
 					  <label>$LOCALIZE[20339]:$INFO[VideoPlayer.Director,   ,]</label>	
 					<label>$INFO[VideoPlayer.TVShowTitle,,: ]$INFO[VideoPlayer.Season,$LOCALIZE[20373] , - ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]$INFO[VideoPlayer.Premiered, • ]</label>
 				  <label>$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, • ]</label>
-				
 				  <include>detail_Sub</include>
 						<aligny>top</aligny>
 						<scroll>yes</scroll>
@@ -1056,8 +1055,8 @@
 						<height>22</height>						
 						<control type="label">
 						<align>left</align>
-							<width>150</width>
-							<label>$LOCALIZE[21447] $INFO[VideoPlayer.AudioLanguage]</label>						
+							<width>180</width>
+							<label>$LOCALIZE[21447] : $INFO[VideoPlayer.AudioLanguage]</label>						
 							<include>autoscroll_Line</include>
 							<include>osd_Text</include>
 						</control>
@@ -1069,7 +1068,7 @@
 						<height>22</height>											
 						<control type="label" id="1">
 						<align>left</align>						
-							<width>150</width>
+							<width>170</width>
 							<label>$LOCALIZE[287] : $INFO[VideoPlayer.SubtitlesLanguage]</label>
 						<include>autoscroll_Line</include>
 							<include>osd_Text</include>
@@ -1082,7 +1081,7 @@
 						<height>22</height>											
 						<control type="label" id="1">
 						<align>left</align>						
-							<width>150</width>							
+							<width>170</width>							
 							<label>IMDB $INFO[VideoPlayer.Rating]</label>
 						<include>autoscroll_Line</include>
 							<include>osd_Text</include>
@@ -1095,7 +1094,7 @@
 						<height>22</height>											
 						<control type="label" id="1">
 						<align>left</align>						
-							<width>150</width>							
+							<width>170</width>							
 							<label>$INFO[VideoPlayer.mpaa]</label>
 						<include>autoscroll_Line</include>
 							<include>osd_Text</include>

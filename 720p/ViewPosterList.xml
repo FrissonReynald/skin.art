@@ -474,11 +474,11 @@
 			<visible>Control.IsVisible(611)</visible>	
 		</control>
 		<control type="image">
-			<left>950</left>
-			<top>20</top>
+			<right>10</right>
+			<top>10</top>
 			<width>256</width>
 			<height>99</height>
-			<aspectratio align="center" aligny="top">keep</aspectratio>
+			<aspectratio align="right" aligny="top">keep</aspectratio>
 			<texture>$VAR[logo_clearart]</texture>
 			<visible>Control.IsVisible(611) + Skin.HasSetting(FanartListLogo.movies.enable)</visible>
 		</control>	
@@ -500,10 +500,10 @@
 			 <visible>Control.IsVisible(611)</visible>	
 		<control type="wraplist" id="611">		
 			<viewtype label="Poster & Fanart List">bigwrap</viewtype>			
-			<left>300</left>
-			<top>515</top>
-			<width>420</width>
-			<height>195</height>
+			<left>285</left>
+			<top>510</top>
+			<width>410</width>
+			<height>210</height>
 			<onleft>6000</onleft>
 			<onright>70</onright>
 			<onup>611</onup>
@@ -516,9 +516,9 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>		
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>			
-			<itemlayout condition="IsEmpty(Container.FolderPath)" width="420" height="40">
+			<itemlayout condition="IsEmpty(Container.FolderPath)" width="420" height="35">
 				<control type="label">
-					<left>5</left>
+					<left>3</left>
 					<width>350</width>
 					<label>$INFO[ListItem.Label]</label>
 					<include>container_Single</include>
@@ -533,26 +533,26 @@
 						<texture>frames/frame-fo.png</texture>
 					</control>
 					<control type="label">
-						<left>5</left>
-						<width>350</width>
+						<left>3</left>
+						<width>400</width>
 						<label>$INFO[ListItem.Label]</label>
 						<include>container_Single-focus</include>
 					</control>
 				</control>
 				<control type="label">
-					<left>5</left>
-					<width>350</width>
+					<left>3</left>
+					<width>400</width>
 					<label>$INFO[ListItem.Label]</label>
 					<include>container_Single</include>
 					<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 				</control>				
 			</focusedlayout>
-			<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)" width="420" height="40">
+			<itemlayout condition="Container.Content(movies) | Container.Content(sets) | Container.Content(tvshows) | Container.Content(seasons)" width="420" height="35">
 				<control type="label">
-					<left>5</left>
-					<top>6</top>
-					<width>350</width>
-					<height>27</height>
+					<left>3</left>
+					<top>0</top>
+					<width>400</width>
+					<height>24</height>
 					<label>$VAR[global_Title]</label>
 					<include>container_Title</include>
 				</control>
@@ -561,14 +561,16 @@
 				<control type="group">
 					<visible>![ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 					<control type="image">
-						<width>420</width>
-						<height>70</height>
+						<width>410</width>
+						<height>55</height>
 						<texture>frames/frame-fo.png</texture>
 					</control>
-					<control type="label">
+					<control type="fadelabel">
 						<left>5</left>
-						<top>6</top>
-						<width>350</width>
+						<top>2</top>
+						<width>400</width>
+						<scrollout>false</scrollout>
+						<pauseatend>2000</pauseatend>
 						<aligny>center</aligny>
 						<height>27</height>
 						<label>$VAR[global_Title]</label>
@@ -577,7 +579,7 @@
 					<control type="fadelabel">
 					<description>Fade Movie info/Tagline</description>
 					<left>5</left>
-					<top>35</top>
+					<top>28</top>
 					<width>400</width>
 					<visible>true</visible>
 					<scroll>false</scroll>
@@ -585,14 +587,14 @@
 					<pauseatend>5123</pauseatend>
 					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
                     <label>$INFO[ListItem.Genre]</label>
-				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>	
+				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,  ,]</label>	
 					<textcolor>ff000000</textcolor>	
 		            <visible>Container.Content(movies)</visible>
 					</control>
 					<control type="fadelabel">
 					<description>Fade Movie info/Tagline</description>
 					<left>5</left>
-					<top>35</top>
+					<top>28</top>
 					<width>400</width>
 					<visible>true</visible>
 					<scroll>false</scroll>
@@ -607,7 +609,7 @@
 					<control type="fadelabel">
 					<description>Fade Movie info/Tagline</description>
 					<left>5</left>
-					<top>35</top>
+					<top>28</top>
 					<width>400</width>
 					<visible>true</visible>
 					<scroll>false</scroll>
@@ -625,9 +627,9 @@
 					<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
 					<control type="label">
 						<left>5</left>
-						<top>6</top>
+						<top>2</top>
 						<width>350</width>
-						<height>30</height>
+						<height>27</height>
 						<label>$VAR[global_Title]</label>
 						<include>container_Title</include>
 					</control>					
@@ -641,7 +643,7 @@
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 	 <control type="group">
-		<left>40</left>
+		<left>20</left>
 		<top>355</top>			
 			<control type="image">		     	 		 	 
 				 <width>245</width>
@@ -695,7 +697,7 @@
 	<top>10</top>
 	<left>15</left>
 			<control type="group">
-					<left>212</left>
+					<left>214</left>
 					<top>325</top>
 					<include>status_Info</include>
 					<visible>Skin.HasSetting(overlay_statu.disable)</visible>
@@ -712,27 +714,27 @@
 					<visible>Control.IsVisible(611)</visible>
 				</control>
 			</control>
-	</control>
-    </control>
+			</control>
+		</control>
 	<!--info 1-->
 		<control type="group">
 		<visible>Control.IsVisible(611)</visible>
 			<top>10</top>	
 				<control type="image">	
-		<left>725</left>
+		<left>705</left>
 	<top>505</top>
-		<width>270</width>
-		<height>145</height>
+		<width>275</width>
+		<height>148</height>
 		<texture background="true">$VAR[view_Extra.Thumb2]</texture>
 		<aspectratio>scale</aspectratio>
 		<visible>!Container.Content(sets)</visible>
 		</control>
 			<control type="image">	
-		<left>1000</left>
+		<left>990</left>
 	<top>506</top>
-		<width>270</width>
-		<height>145</height>
-		<texture background="true">$VAR[view_Extra.Thumb4]</texture>
+		<width>275</width>
+		<height>148</height>
+		<texture background="true">$VAR[view_Extra.Thumb]</texture>
 		<aspectratio>scale</aspectratio>
 		<visible>!Container.Content(sets)</visible>
 		</control>
@@ -853,10 +855,11 @@
 		</control>	
 		<!--info 2-->
 		<control type="group">
-		        <left>725</left>
+		        <left>712</left>
 		        <top>506</top>
 				<control type="textbox">									
-					<width>530</width>
+					<width>535</width>
+					<aligny>top</aligny>
 					<align>justify</align>
 					<height max="160">auto</height>
 					<label>$VAR[global_Plot]</label>
