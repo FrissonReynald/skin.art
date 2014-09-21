@@ -877,8 +877,8 @@
 					<control type="button" id="423">
 						<label>Poster & Fanart List</label>
 						<include>menu_Button</include>
-						<onclick>Container.SetViewMode(61)</onclick>
-						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+						<onclick>Container.SetViewMode(611)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)] | Container.Content(seasons)+ !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
 					 	</control>
 					<!--Episode-->
 					<control type="button" id="424">
