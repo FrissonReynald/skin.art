@@ -95,61 +95,33 @@
 			<top>250</top>
 			<width>275</width>
 			<height min="40" max="720">auto</height>
-			<itemgap>0</itemgap>				
-					<control type="radiobutton" id="154">					
+			<itemgap>0</itemgap>	
+				<control type="radiobutton" id="154">					
+                        <label>Display Poster </label>
+						<width>260</width>	
+		                <onclick>Skin.ToggleSetting(StripFanartPoster.movies.enable)</onclick>
+		                <selected>Skin.HasSetting(StripFanartPoster.movies.enable)</selected>						
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+		            </control>
+					<control type="radiobutton" id="155">					
                         <label>Discart</label>
 						<width>260</width>	
 		                <onclick>Skin.ToggleSetting(StripFanartDiscart.movies.enable)</onclick>
 		                <selected>Skin.HasSetting(StripFanartDiscart.movies.enable)</selected>
+						<enable>Skin.HasSetting(StripFanartPoster.movies.enable)</enable>
 						<include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
 		            </control>
+					<control type="radiobutton" id="156">					
+                        <label>Logo</label>
+						<width>260</width>	
+		                <onclick>Skin.ToggleSetting(StripFanartLogo.movies.enable)</onclick>
+		                <selected>Skin.HasSetting(StripFanartLogo.movies.enable)</selected>
+							<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+		            </control>
 				
-				<!--info strip fanart -->
-                <control type="radiobutton" id="156"> 
-		           <label>Enable Info 1</label>	
-				   <width>260</width>	
-                   <onclick>Skin.ToggleSetting(stripfanartinfo1.enable)</onclick>
-                   <onclick condition="Skin.HasSetting(stripfanartinfo2.enable)">Skin.ToggleSetting(stripfanartinfo2.enable)</onclick>
-		           <onclick condition="Skin.HasSetting(stripfanartinfo3.enable)">Skin.ToggleSetting(stripfanartinfo3.enable)</onclick>
-                   <onclick condition="Skin.HasSetting(stripfanartinfo4.enable)">Skin.ToggleSetting(stripfanartinfo4.enable)</onclick>
-	                <selected>!Skin.HasSetting(stripfanartinfo1.enable)</selected> 
-				   <include>menu_Button2</include>
-					<include>menu_RadioButton2</include>
-                   </control> 
-                <control type="radiobutton" id="157">
-	               <label>Enable Info 2</label>
-				   <width>260</width>	
-                   <onclick>Skin.ToggleSetting(stripfanartinfo2.enable)</onclick>
-                   <onclick condition="!Skin.HasSetting(stripfanartinfo1.enable)">Skin.ToggleSetting(stripfanartinfo1.enable)</onclick>
-		           <onclick condition="Skin.HasSetting(stripfanartinfo3.enable)">Skin.ToggleSetting(stripfanartinfo3.enable)</onclick>
-                   <onclick condition="Skin.HasSetting(stripfanartinfo4.enable)">Skin.ToggleSetting(stripfanartinfo4.enable)</onclick>
-	             <selected>Skin.HasSetting(stripfanartinfo2.enable)</selected> 
-				<include>menu_Button2</include>
-					<include>menu_RadioButton2</include>
-                </control>
-	            <control type="radiobutton" id="158">
-	               <label>Enable Info 3</label>
-				   <width>260</width>	
-                   <onclick>Skin.ToggleSetting(stripfanartinfo3.enable)</onclick>
-                   <onclick condition="!Skin.HasSetting(stripfanartinfo1.enable)">Skin.ToggleSetting(stripfanartinfo1.enable)</onclick>
-                   <onclick condition="Skin.HasSetting(stripfanartinfo2.enable)">Skin.ToggleSetting(stripfanartinfo2.enable)</onclick>
-                   <onclick condition="Skin.HasSetting(stripfanartinfo4.enable)">Skin.ToggleSetting(stripfanartinfo4.enable)</onclick>
-		          <selected>Skin.HasSetting(stripfanartinfo3.enable)</selected> 
-				 <include>menu_Button2</include>
-					<include>menu_RadioButton2</include>
-                </control>
-		        <control type="radiobutton" id="159">
-	               <label>Enable Info 4</label>	
-				   <width>260</width>	
-                   <onclick>Skin.ToggleSetting(stripfanartinfo4.enable)</onclick>
-                   <onclick condition="!Skin.HasSetting(stripfanartinfo1.enable)">Skin.ToggleSetting(stripfanartinfo1.enable)</onclick>
-                   <onclick condition="Skin.HasSetting(stripfanartinfo2.enable)">Skin.ToggleSetting(stripfanartinfo2.enable)</onclick>
-                   <onclick condition="Skin.HasSetting(stripfanartinfo3.enable)">Skin.ToggleSetting(stripfanartinfo3.enable)</onclick>
-		           <selected>Skin.HasSetting(stripfanartinfo4.enable)</selected> 
-				  <include>menu_Button2</include>
-					<include>menu_RadioButton2</include>
-				</control>
 		</control>
 	</controls>
 </window>

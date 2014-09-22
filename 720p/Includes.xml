@@ -752,7 +752,7 @@
 				<top>5</top>
 				<!--cache progress-->
 				<control type="progress" id="12">
-					<width>1080</width>
+					<width>1075</width>
 					<height>32</height>
 					<info>Player.ProgressCache</info>
 					<texturebg colordiffuse="Color3">player/progress_Background.png</texturebg>
@@ -761,7 +761,7 @@
 					<righttexture>-</righttexture>
 				</control>
 				<control type="slider">
-					<width>1080</width>
+					<width>1075</width>
 					<height>32</height>
 					<sliderwidth>125</sliderwidth>
 					<sliderheight>32</sliderheight>
@@ -789,13 +789,12 @@
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
 					<pauseatend>5123</pauseatend>
-					 <loop>yes</loop>
-					<label>$INFO[Player.Duration(hh:mm:ss)]</label>
-					<label>$INFO[Player.TimeRemaining(hh:mm:ss)]</label>										
+					<label>$INFO[Player.Duration]</label>
+					<label>- $INFO[Player.TimeRemaining]</label>	
 					<align>right</align>					
 					<textcolor>Color3</textcolor>
-					<include>detail_Sub</include>
-				</control>
+					<include>detail_Sub</include>				
+				</control>				
 			</control>
 		</control>
 	</include>

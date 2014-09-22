@@ -108,13 +108,44 @@
 					<height>450</height>
 					<texture background="true">$VAR[thumb_Landscape]</texture>
 					<aspectratio align="center" aligny="top">scale</aspectratio>
-			</control>		
+			</control>
+			 <control type="image">
+					<top>270</top>
+				    <left>585</left>
+					<width>155</width>
+					<height>155</height>
+					<texture background="true">$VAR[Icon_Discart]</texture>					
+					<visible> Control.IsVisible(597)</visible>					
+					<visible>Skin.HasSetting(StripFanartDiscart.movies.enable)</visible>
+					</control>	
+			<control type="group">
+			<left>19</left>
+			<control type="image">
+					<top>242</top>
+				    <left>647</left>
+				    <width>148</width>
+				    <height>210</height>
+				   <texture background="true">black.png</texture>
+				    <aspectratio>scale</aspectratio>
+			    </control>
+			<control type="image">
+					<top>245</top>
+				    <left>650</left>
+				    <width>140</width>
+				    <height>200</height>
+				   <texture background="true">$VAR[thumb_Portrait]</texture>
+				    <aspectratio>scale</aspectratio>
+			    </control>
+				<visible>Skin.HasSetting(StripFanartPoster.movies.enable)</visible>
+				 </control>				
 			<control type="image">
 					<centerleft>410</centerleft>
-					<top>300</top>
-					<width>289</width>
-					<height>112</height>
+					<top>330</top>
+					<width>200</width>
+					<height>100</height>
 					<include>art_ClearLogo</include>
+					 <aspectratio>keep</aspectratio>
+					 <visible>Skin.HasSetting(StripFanartLogo.movies.enable)</visible>
 			</control>
 		</control>
 		<control type="group">
@@ -231,81 +262,7 @@
 				            <texture>$VAR[flag_Studio]</texture>				
 				            <visible>Control.IsVisible(597) | [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
 			        </control>
-					        <visible>!Skin.HasSetting(stripfanartinfo1.enable)</visible>
-				</control>						
-                <!--info strip fanart 2-->	
-				<control type="group">
-				<left>153</left>
-					<top>25</top>
-				<control type="image">
-					<left>30</left>
-					<top>340</top>
-					<width>155</width>
-					<height>155</height>
-					<texture background="true">$VAR[Icon_Discart]</texture>					
-					<visible> Control.IsVisible(597)</visible>					
-					<visible>Skin.HasSetting(StripFanartDiscart.movies.enable)</visible>
-					</control>
-				<control type="textbox">						
-					<top>155</top>
-					<width>290</width>
-					<align>justify</align>
-					<height max="142">auto</height>
-					<label>$VAR[global_Plot]</label>
-					<include>detail_Text</include>
-				</control>				
-				<control type="image">
-					<top>330</top>
-				    <left>115</left>
-				    <width>170</width>
-				    <height>230</height>
-				   <texture background="true">$VAR[thumb_Portrait]</texture>
-				    <aspectratio>stretch</aspectratio>
-			    </control>
-				<control type="image">			             	
-				    <left>-5</left>
-				    <top>515</top>
-				    <width>100</width>
-				    <height>70</height>
-				    <aspectratio align="left">keep</aspectratio>
-				    <texture>$VAR[flag_Studio]</texture>				
-				    <visible>Container.Content(movies)</visible>
-			        </control>
-					<visible>Skin.HasSetting(stripfanartinfo2.enable)</visible>	
-			    </control>				  
-				<!--info strip fanart 3-->					
-				<control type="group">
-				<left>153</left>
-				<top>25</top>
-				<control type="textbox">						
-					<top>155</top>					
-					<width>290</width>
-					<align>justify</align>
-					<height max="210">auto</height>
-					<label>$VAR[global_Plot]</label>
-					<include>detail_Text</include>
-				</control>					
-				<control type="image">
-				<top>403</top>				
-				<width>280</width>
-				<height>158</height>
-				<texture background="true">$VAR[view_Extra.Thumb3]</texture>
-				<aspectratio>stretch</aspectratio>
-				</control>
-					<visible>Skin.HasSetting(stripfanartinfo3.enable)</visible>	
-			    </control>
-				<!--info strip fanart 4-->					
-		<control type="group">
-				<control type="image">
-				<top>185</top>
-				<left>160</left>
-				<width>267</width>
-				<height>400</height>
-				<texture background="true">$VAR[thumb_Portrait]</texture>
-				<aspectratio>stretch</aspectratio>
-				</control>
-					<visible>Skin.HasSetting(stripfanartinfo4.enable)</visible>	
-		</control>				
+				</control>	
 		</control>
 </include>
 <include name="view_StripFanart">	

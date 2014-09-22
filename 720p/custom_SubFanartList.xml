@@ -131,7 +131,8 @@
                      <selected>Skin.HasSetting(Fanartlistinfo1.enable)</selected> 
 		            <include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
-                </control>
+				<visible>![Container.Content(seasons) | Container.Content(episodes)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+		        </control>
 	            <control type="radiobutton" id="156">
 	                <label>Info 2</label>
 					<width>260</width>	
@@ -140,7 +141,8 @@
                      <selected>!Skin.HasSetting(Fanartlistinfo2.enable)</selected> 					 
 		            <include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
-					 </control>	
+					<visible>![Container.Content(seasons) | Container.Content(episodes)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+		        </control>	
 		</control>
 	</controls>
 </window>

@@ -647,11 +647,11 @@
 		</control>
 		<control type="group">
 		<control type="image">
-			<left>-210</left>
-			<top>-520</top>
+			<right>15</right>
+			<top>-500</top>
 			<width>256</width>
 			<height>99</height>
-			<aspectratio align="center" aligny="top">keep</aspectratio>
+			<aspectratio align="right" aligny="top">keep</aspectratio>
 			<include>art_ClearLogo</include>			
 		</control>
 		<visible>Skin.HasSetting(logogallery.disable)</visible>

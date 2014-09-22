@@ -227,7 +227,7 @@
 		<top>540</top>
 		<width>320</width>
 		<height>170</height>
-		<texture background="true">$VAR[art:Logo2]</texture>
+		<texture>$VAR[logo_clearart]</texture>
 		<aspectratio>keep</aspectratio>	      			
 		</control>
 		<control type="image">
@@ -636,7 +636,7 @@
 		<top>540</top>
 		<width>320</width>
 		<height>170</height>
-		<texture background="true">$VAR[art:Logo2]</texture>
+		<texture>$VAR[logo_clearart]</texture>
 		<aspectratio>keep</aspectratio>	      			
 		</control>
 		<control type="image">

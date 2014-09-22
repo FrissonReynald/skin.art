@@ -465,8 +465,9 @@
 			<label>Setting</label>
 			<onclick>ActivateWindow(7040)</onclick>
 				<include>menu_Button</include>
-				<visible>Control.IsVisible(611)</visible>		
-		</control>
+				<visible>Control.IsVisible(611)</visible>
+        	<visible>![Container.Content(seasons) | Container.Content(episodes)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+			</control>
 		<!-- Episode Poster-->
 		<control type="button" id="326">
 			<label>Setting</label>
@@ -877,8 +878,8 @@
 					<control type="button" id="423">
 						<label>Poster & Fanart List</label>
 						<include>menu_Button</include>
-						<onclick>Container.SetViewMode(61)</onclick>
-						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+						<onclick>Container.SetViewMode(611)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(seasons)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
 					 	</control>
 					<!--Episode-->
 					<control type="button" id="424">
@@ -1397,7 +1398,7 @@
 				</control>
 				<control type="button" id="6">
 					<label>$LOCALIZE[31232]</label>
-					<onclick>Skin.Reset(fanart.weather.path)</onclick>
+			P		<onclick>Skin.Reset(fanart.weather.path)</onclick>
 					<onclick>Skin.SetPath(fanart.weather.path)</onclick>
 					<enable>Skin.HasSetting(fanart.weather)</enable>
 					<include>menu_Button</include>

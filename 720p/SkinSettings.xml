@@ -454,8 +454,15 @@
 						<enable>StringCompare(Skin.String(menu.controls),fullscreen)</enable>
 						<include>settings_Radiobutton</include>
 					</control>
-					<!--autoscroll descriptions-->
+					<!--Title Original-->
 					<control type="radiobutton" id="304">
+						<label>Prefer Original Title</label>
+						<onclick>Skin.ToggleSetting(titleoriginal)</onclick>
+						<selected>Skin.HasSetting(titleoriginal)</selected>
+						<include>settings_Radiobutton</include>
+					</control>
+					<!--autoscroll descriptions-->
+					<control type="radiobutton" id="305">
 						<label>$LOCALIZE[20189]</label>
 						<onclick>Skin.ToggleSetting(autoscroll.enable)</onclick>
 						<selected>Skin.HasSetting(autoscroll.enable)</selected>
@@ -674,7 +681,7 @@
 				<include>settings_Radiobutton</include>
 				</control>
 				<control type="radiobutton" id="506">
-				<label>Enable indicator "time remaining"</label>
+				<label>Enable indicator "time remaining" on Video SeekBar</label>
 				<onclick>Skin.ToggleSetting(TimeRemaining)</onclick>
 				<selected>Skin.HasSetting(TimeRemaining)</selected>
 				<include>settings_Radiobutton</include>

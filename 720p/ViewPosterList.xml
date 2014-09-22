@@ -498,7 +498,7 @@
 			    </control>
 			 </control>
 			 <visible>Control.IsVisible(611)</visible>	
-		<control type="wraplist" id="611">		
+		<control type="fixedlist" id="611">		
 			<viewtype label="Poster & Fanart List">bigwrap</viewtype>			
 			<left>285</left>
 			<top>510</top>
@@ -600,11 +600,11 @@
 					<scroll>false</scroll>
 					<scrollout>false</scrollout>
 					<pauseatend>5123</pauseatend>
-					<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[31701]] • $INFO[ListItem.mpaa] • IMDB $INFO[ListItem.Rating]</label>
-                    <label>$INFO[ListItem.Genre]</label>
-				   <label>$LOCALIZE[20339]:$INFO[ListItem.Director,   ,]</label>
-				   <textcolor>ff000000</textcolor>	
-		            <visible>Container.Content(tvshows)</visible>
+					<label>$INFO[ListItem.Premiered] • $INFO[ListItem.mpaa] • $INFO[ListItem.Rating]</label>
+                    <label>Total Episodes: $INFO[ListItem.Property(TotalEpisodes)] • Unwatched Episodes: $INFO[ListItem.Property(UnWatchedEpisodes)]</label>
+					<label>$INFO[ListItem.Genre]</label>
+				    <textcolor>ff000000</textcolor>	
+		            <visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 					</control>
 					<control type="fadelabel">
 					<description>Fade Movie info/Tagline</description>
@@ -621,7 +621,6 @@
 				   <textcolor>ff000000</textcolor>	
 		            <visible>Container.Content(sets)</visible>
 					</control>
-					
 				</control>
 				<control type="group">
 					<visible>[ControlGroup(6000).HasFocus | ControlGroup(4000).HasFocus]</visible>
@@ -864,18 +863,47 @@
 					<height max="160">auto</height>
 					<label>$VAR[global_Plot]</label>
 					<include>detail_Text</include>
-					<visible>Control.IsVisible(611) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					<visible>Control.IsVisible(611) + [Container.Content(movies)]</visible>
 				</control>
 				<visible>!Skin.HasSetting(Fanartlistinfo2.enable)</visible>
-		</control>		
+		</control>
+		<control type="group">
+		        <left>712</left>
+		        <top>500</top>
+				<control type="textbox">									
+					<width>535</width>
+					<aligny>top</aligny>
+					<align>justify</align>
+					<height max="209">auto</height>
+					<autoscroll delay="8000" time="2000" repeat="10000"></autoscroll>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(611) + [Container.Content(tvshows)]</visible>
+				</control>
+				<visible>!Skin.HasSetting(Fanartlistinfo2.enable)</visible>
+		</control>	
+		<control type="group">
+		        <left>712</left>
+		        <top>500</top>
+				<control type="textbox">									
+					<width>535</width>
+					<aligny>top</aligny>
+					<align>justify</align>
+					<height max="209">auto</height>
+					<autoscroll delay="8000" time="2000" repeat="10000"></autoscroll>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					</control>
+						<visible>Control.IsVisible(611) + [Container.Content(seasons)]</visible>			
+						</control>	
 		<control type="group">
 		        <left>725</left>
 		        <top>506</top>
 				<control type="textbox">									
 					<width>530</width>
 					<align>justify</align>
-					<height max="195">auto</height>
-					<label>$VAR[global_Plot]</label>
+					<height max="190">auto</height>
+					<label>$VAR[globalPlot]</label>
 					<include>detail_Text</include>
 					<visible>Control.IsVisible(611) + [Container.Content(sets)]</visible>
 				</control>
@@ -892,6 +920,7 @@
 					<width>76</width>
 					<height>44</height>
 					<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
+					<visible>Control.IsVisible(611) + [Container.Content(movies)]</visible>
 					<aspectratio align="center">keep</aspectratio>
 				</control>
 				<control type="image">
@@ -923,7 +952,7 @@
 					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
 				</control>				
 				<visible>Control.IsVisible(611)</visible>
-			</control>	
+			</control>
 </control>	
-	</include>
+</include>
 </includes>

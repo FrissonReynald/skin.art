@@ -8,7 +8,7 @@
 	<color name="base_333">ff8358aa</color><!--secondary overlay / menu color (home menu)-->	
 	<color name="base_4">eeb4a4b9</color><!--vignette2-->
 	<color name="colorrefocus">ff004160</color><!--color refocus-->
-	<color name="base_5">ff8358aa</color><!--main color menu horizontal-->
+	<color name="base_5">ff000000</color><!--main color menu horizontal-->
 	<color name="base_6">ee081e2b</color><!--main color menu vertical-->
 	<color name="base_7">aa8358aa</color><!--main color submenu vertical-->
 	<color name="accent_1">ff5c3d78</color><!--primary accent color (seekbar)-->

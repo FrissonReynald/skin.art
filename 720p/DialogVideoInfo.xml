@@ -624,7 +624,7 @@
 				</control>
 				<control type="image">
 					<width>86</width>
-					<height>50</height>
+					<height>45</height>
 					<texture>$VAR[flag_Studio]</texture>
 					<aspectratio align="center">keep</aspectratio>					
 					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>

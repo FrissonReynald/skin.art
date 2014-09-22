@@ -80,19 +80,19 @@
 					<visible>Control.IsVisible(69)</visible>
 				</control>	
 				<control type="group">
-						<top>670</top>
-						<left>350</left>						
+						<top>675</top>
+						<left>535</left>						
 						<visible>!SubString(ListItem.Icon,default)</visible>
 						<control type="label">
 						<align>right</align>
 						<aligny>right</aligny>
-							<width>900</width>
+							<width>700</width>
 							<label>$VAR[global_Info]</label>
 							<include>detail_Sub</include>
 							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
 						</control>
 						<control type="label">
-							<width>960</width>
+							<width>700</width>
 							<align>right</align>
 						<aligny>right</aligny>
 							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
@@ -193,16 +193,7 @@
 					<label>$VAR[global_Title]</label>
 					<textcolor>Color13</textcolor>
 					<include>detail_Title</include>
-					</control>
-					<control type="label">	
-						<left>0</left>
-						<top>215</top>
-						<width>330</width>
-						<label>$VAR[global_info_sup]</label>
-						<width>900</width>
-						<include>detail_Sub</include>						
-						<visible>Control.IsVisible(69) + Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
-					</control>					
+					</control>									
 				<control type="textbox">
 				<top>240</top>				
 				<left></left>

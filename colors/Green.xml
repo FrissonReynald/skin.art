@@ -7,7 +7,7 @@
 	<color name="base_33">ff0c402e</color><!--secondary overlay / menu color (home menu)-->
 	<color name="base_333">ff117647</color><!--secondary overlay / menu color (home menu)-->
 	<color name="base_4">ae117647</color><!--vignette2-->
-	<color name="base_5">ee117647</color><!--main color menu horizontal-->
+	<color name="base_5">ee000000</color><!--main color menu horizontal-->
 	<color name="base_6">ffffffff</color><!--main color menu vertical-->
 	<color name="base_7">ee117647</color><!--main color menu vertical-->
 	<color name="accent_1">ff0c402e</color><!--primary accent color (seekbar)-->
