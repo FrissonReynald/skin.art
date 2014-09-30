@@ -34,7 +34,7 @@
                 <randomize>true</randomize>
                 <fadetime>5</fadetime>					
                 <loop>yes</loop>                       
-                <visible>[!Control.IsVisible(53) + !Control.IsVisible(53) + !Control.IsVisible(532) + !Control.IsVisible(571) + !Control.IsVisible(591) + !Control.IsVisible(596) + !Control.IsVisible(611) + !SubString(Container.FolderPath,plugin://)] + Skin.HasSetting(fanart.extra) + !IsEmpty(ListItem.Title) + Skin.HasSetting(fanart.global) + !Container.Content(sets)</visible>
+                <visible>[!Control.IsVisible(53) + !Control.IsVisible(531) + !Control.IsVisible(532) + !Control.IsVisible(571) + !Control.IsVisible(591) + !Control.IsVisible(596) + !Control.IsVisible(611) + !Control.IsVisible(612) + !SubString(Container.FolderPath,plugin://)] + Skin.HasSetting(fanart.extra) + !IsEmpty(ListItem.Title) + Skin.HasSetting(fanart.global) + !Container.Content(sets)</visible>
                 <visible>[Control.IsVisible(50) + Control.IsVisible(67) + Control.IsVisible(51) + Control.IsVisible(52) + Control.IsVisible(521) + Control.IsVisible(522)]</visible>
                 
 			   </control>

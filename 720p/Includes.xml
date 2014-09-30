@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-
     <include file="script-skinshortcuts-includes.xml" />
     <include file="Defaults.xml" />
 	<include file="HomeMenu.xml" />
@@ -35,10 +34,6 @@
 	<include file="ViewPanel_Art.xml" /><!--(691)-(692)-(694)-->
 	<include file="ViewPanelStrip.xml" /><!--(693)-->
 	<include file="viewPoster_Handbone.xml" /><!--(535)-->(Strip Small 2)
-	
-	
-	
-
 <!--CONSTANTS-->
 	<constant name="screen_Width">1280</constant>
 	<constant name="screen_Height">720</constant>
@@ -60,9 +55,6 @@
 	<constant name="autoscroll_Time">2200</constant>
 	<constant name="autoscroll_Repeat">1000</constant>
 	<constant name="autoscroll_Speed">40</constant>
-
-	
-
 <!--GLOBAL-->	
 	<include name="TriggerButton">
 		<width>1</width>
@@ -77,7 +69,6 @@
 	<include name="global_Scrolltime">
 		<scrolltime tween="Quadratic" easing="Out">400</scrolltime>
 	</include>
-
 	<include name="autoscroll_Line">
 		<scroll>true</scroll>
 		<scrollspeed>autoscroll_Speed</scrollspeed>
@@ -91,7 +82,6 @@
 		<include>global_Sortletter</include>
 		<include>global_Itemcount</include>	
 	</include>
-
 	<include name="global_Clock">
 		<control type="group">
 			<include>toggle_Menu</include>
@@ -144,7 +134,6 @@
 			</control>
 		</control>
 	</include>
-
 	<include name="global_Sortletter">
 		<control type="label" id="9900">
 			<left>34</left>
@@ -159,7 +148,6 @@
 			<visible>Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
 		</control>
 	</include>		
-	
 	<include name="global_Itemcount">
 		<control type="label">
 			<left>35</left>
@@ -185,7 +173,7 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>navigation/left.png</texture>
-				<visible>[Control.IsVisible(50) | Control.IsVisible(51)  | Control.IsVisible(511) | Control.IsVisible(512) | Control.IsVisible(501) | Control.IsVisible(524) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(542) | Control.IsVisible(543) | Control.IsVisible(544) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572)  | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(575) | Control.IsVisible(576) | Control.IsVisible(577) | Control.IsVisible(578) | Control.IsVisible(579) | Control.IsVisible(591) | Control.IsVisible(61) | Control.IsVisible(611) | Control.IsVisible(622) | Control.IsVisible(63) | Control.IsVisible(631) | Control.IsVisible(632) | Control.IsVisible(67) | Control.IsVisible(68) | Control.IsVisible(692) | Control.IsVisible(695) | Control.IsVisible(694) | Window.IsActive(weather) | Window.IsActive(pvr) | Window.IsActive(600) | Window.IsActive(SettingsCategory.xml)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+				<visible>[Control.IsVisible(50) | Control.IsVisible(51)  | Control.IsVisible(511) | Control.IsVisible(512) | Control.IsVisible(501) | Control.IsVisible(524) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(542) | Control.IsVisible(543) | Control.IsVisible(544) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572)  | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(575) | Control.IsVisible(576) | Control.IsVisible(577) | Control.IsVisible(578) | Control.IsVisible(579) | Control.IsVisible(591) | Control.IsVisible(61) | Control.IsVisible(611) | Control.IsVisible(612) | Control.IsVisible(622) | Control.IsVisible(63) | Control.IsVisible(631) | Control.IsVisible(632) | Control.IsVisible(67) | Control.IsVisible(68) | Control.IsVisible(692) | Control.IsVisible(695) | Control.IsVisible(694) | Window.IsActive(weather) | Window.IsActive(pvr) | Window.IsActive(600) | Window.IsActive(SettingsCategory.xml)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 				<include>nav_IndicatorLeft</include>
 				<colordiffuse>Color1</colordiffuse>
 			</control>
@@ -193,24 +181,32 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>navigation/up.png</texture>
-				<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(53) | Control.IsVisible(535) | Control.IsVisible(581) | Control.IsVisible(59) | Control.IsVisible(592) | Control.IsVisible(593) | Control.IsVisible(594) | Control.IsVisible(595) | Control.IsVisible(596) | Control.IsVisible(597) | Control.IsVisible(60) | Control.IsVisible(62) | Control.IsVisible(621) | Control.IsVisible(69) | Control.IsVisible(691) | Control.IsVisible(693)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Window.IsActive(weather)</visible>
+				<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(53) | Control.IsVisible(535) | Control.IsVisible(5761) | Control.IsVisible(581) | Control.IsVisible(59) | Control.IsVisible(592) | Control.IsVisible(593) | Control.IsVisible(594) | Control.IsVisible(595) | Control.IsVisible(596) | Control.IsVisible(597) | Control.IsVisible(60) | Control.IsVisible(62) | Control.IsVisible(621) | Control.IsVisible(69) | Control.IsVisible(691) | Control.IsVisible(693)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Window.IsActive(weather)</visible>
 				<include>nav_IndicatorUp</include>
 				<colordiffuse>Color1</colordiffuse>
 			</control>
 		</control>
 	</include>
-
 <!--DETAILS-->
 	<include name="detail_Header">
 		<height>32</height>
-		<font>light_Header</font>
-	</include>
+		<font>light_Header</font>		
+		<selectedcolor>Selected</selectedcolor>
+		</include>
 	<include name="detail_Title">
 		<height>28</height>
 		<aligny>center</aligny>
 		<font>semibold_Big-U</font>
 		<textcolor>Color1</textcolor>
 		<selectedcolor>Selected</selectedcolor>
+		<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="2000">true</autoscroll>
+	
+		</include>
+	<include name="detail_Title_Huge">
+		<height>35</height>
+		<aligny>center</aligny>
+		<font>black_huge</font>
+		<textcolor>Color1</textcolor>		
 	</include>
 	<include name="detail_Title_PVR">
 		<height>28</height>
@@ -247,7 +243,6 @@
 		<texture>$VAR[global_Rating]</texture>
 		<aspectratio>keep</aspectratio>
 	</include>
-
 <!--CONTAINER-->
 	<include name="container_Title">
 		<height>40</height>
@@ -317,7 +312,6 @@
 		<selectedcolor>Selected</selectedcolor>
 		<scroll>false</scroll>
 	</include>
-
 <!--COLUMN STYLES-->
 	<include name="column_Header">
 		<height>20</height>
@@ -374,7 +368,6 @@
 		<height>42</height>
 		<texture colordiffuse="Color1">white.png</texture>
 	</include>
-
 <!--SETTINGS-->
 	<include name="settings_Menu">
 		<width>300</width>
@@ -442,7 +435,6 @@
 		<radioheight>25</radioheight>
 		<disabledcolor>Disabled</disabledcolor>
 	</include>
-
 <!--PAGECONTROLS-->
 	<include name="PageControls">
 		<!--vertical-->
@@ -464,13 +456,14 @@
 			<width>screen_Width</width>			
 			<onup condition="Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527)">52</onup>
 			<onup condition="Control.IsVisible(522)">522</onup>
-			<onup condition="Control.IsVisible(53) | Control.IsVisible(531) | Control.IsVisible(532)">53</onup>
+			<onup condition="Control.IsVisible(53) | Control.IsVisible(531) | Control.IsVisible(532) | Control.IsVisible(534)">53</onup>
 			<onup condition="Control.IsVisible(581)">581</onup>
 			<onup condition="Control.IsVisible(59)">59</onup>
 			<onup condition="Control.IsVisible(592)">592</onup>
 			<onup condition="Control.IsVisible(593)">593</onup>
 			<onup condition="Control.IsVisible(594)">594</onup>
 			<onup condition="Control.IsVisible(535) | Control.IsVisible(595)">535</onup>
+			<onup condition="Control.IsVisible(5761)">5761</onup>
 			<onup condition="Control.IsVisible(596)">596</onup>	
 			<onup condition="Control.IsVisible(597)">597</onup>	
 			<onup condition="Control.IsVisible(60)">60</onup>
@@ -478,10 +471,9 @@
 			<onup condition="Control.IsVisible(69) | Control.IsVisible(693) ">69</onup>
 			<onup condition="Control.IsVisible(691) | Control.IsVisible(692)">69</onup>
 			<orientation>horizontal</orientation>
-			<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(53) | Control.IsVisible(531) | Control.IsVisible(535) | Control.IsVisible(532) | Control.IsVisible(58) | Control.IsVisible(581) | Control.IsVisible(59) | Control.IsVisible(592) | Control.IsVisible(593) | Control.IsVisible(594) | Control.IsVisible(595) | Control.IsVisible(596) | Control.IsVisible(597) | Control.IsVisible(60) | Control.IsVisible(62) | Control.IsVisible(69)  | Control.IsVisible(691) | Control.IsVisible(693)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+			<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(53) | Control.IsVisible(531) | Control.IsVisible(534) | Control.IsVisible(535) | Control.IsVisible(532) | Control.IsVisible(5761) | Control.IsVisible(58) | Control.IsVisible(581) | Control.IsVisible(59) | Control.IsVisible(592) | Control.IsVisible(593) | Control.IsVisible(594) | Control.IsVisible(595) | Control.IsVisible(596) | Control.IsVisible(597) | Control.IsVisible(60) | Control.IsVisible(62) | Control.IsVisible(69)  | Control.IsVisible(691) | Control.IsVisible(693)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 		</control>
 	</include>	
-
 <!--ART-->
     <include name="art_ClearLogo">
 		<texture>$VAR[art_ClearLogo]</texture>
@@ -500,43 +492,29 @@
 		<texture border="0">frames/frame-fo.png</texture>
 		<aspectratio>stretch</aspectratio>
 	</include>
-
 	<include name="art_FanartExtra">
 		<texture>$VAR[extrafanart.path]</texture>
 		<visible>Skin.HasSetting(fanart.extra)</visible>
 		<aspectratio align="center" aligny="bottom">keep</aspectratio>
 	</include>
-	
 	<include name="art_ClearArt">
 		<texture>$VAR[art_ClearArt]</texture>
 		<aspectratio align="center" aligny="bottom">keep</aspectratio>
 	</include>
-	
-	
-	<include name="art_Discart">
-		<texture>$VAR[art_Discart]</texture>
-		<aspectratio align="center" aligny="bottom">keep</aspectratio>
-	</include>	
-	
-	
 	<include name="art_DefaultIcon">
 		<texture>$INFO[ListItem.ActualIcon]</texture>
 		<aspectratio>keep</aspectratio>
 		<visible>IsEmpty(ListItem.Art(thumb)) + ![Container.Content(actors) + !SubString(ListItem.Icon,DefaultFolderBack)]</visible>
 	</include>
-		
 	<include name="glass">
 		<texture>frames/Glass.png</texture>
         <visible>Skin.HasSetting(Enable.Glass)</visible>
       <aspectratio align="center" aligny="top">scale</aspectratio>	
 	</include>	
-	
-		<include name="art_Frame-white">
+	<include name="art_Frame-white">
 		<texture border="0">frames/frame-white.png</texture>		
 		<aspectratio>stretch</aspectratio>
 	</include>
-
-	
 <!--STATUS INDICATORS-->
 	<include name="status_List">
 		<right>15</right>
@@ -585,8 +563,6 @@
 		<aspectratio align="right">keep</aspectratio>
 	</include>
 	<!-- fin -->	
-	
-
 <!--NOTIFICATIONS-->
 	<include name="toast_Top">
 		<right>70</right>
@@ -619,7 +595,6 @@
 		<aspectratio>keep</aspectratio>
 		<include>transition_Toast</include>
 	</include>
-
 <!--PLAYER CONTROLS-->
 	<include name="player_Button">
 		<width>48</width>
@@ -721,7 +696,6 @@
 			</control>
 		</control>
 	</include>
-
 <!--OSD / SLIDESHOW-->
 	<include name="osd_Title">
 		<font>bold_Title</font>
@@ -737,7 +711,6 @@
 		<textcolor>Color3</textcolor>
 		<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="1000">Skin.HasSetting(autoscroll.enable)</autoscroll>
 	</include>
-
 	<include name="osd_Seekbar">
 		<top>675</top>
 		<control type="group">
@@ -782,23 +755,27 @@
 					<textcolor>Color3</textcolor>
 					<include>detail_Sub</include>
 				</control>
-				<control type="fadelabel">
+				<control type="label">
 					<right>20</right>
-					<width>200</width>
-					<visible>true</visible>
-					<scroll>false</scroll>
-					<scrollout>false</scrollout>
-					<pauseatend>5123</pauseatend>
-					<label>$INFO[Player.Duration]</label>
-					<label>- $INFO[Player.TimeRemaining]</label>	
+					<width>200</width>				
+					<label>$INFO[Player.Duration]</label>				
 					<align>right</align>					
 					<textcolor>Color3</textcolor>
-					<include>detail_Sub</include>				
-				</control>				
+					<include>detail_Sub</include>	
+					<visible>!Skin.HasSetting(TimeRemaining)</visible>
+				</control>
+				<control type="label">
+					<right>20</right>
+					<width>200</width>					
+					 <label>$INFO[Player.TimeRemaining,- ]</label>			
+					<align>right</align>					
+					<textcolor>Color3</textcolor>
+					<include>detail_Sub</include>
+					 <visible>Skin.HasSetting(TimeRemaining)</visible>
+				</control>	
 			</control>
 		</control>
 	</include>
-
 	<include name="osd_Music">
 		<control type="group">			
 			<top>450</top>
@@ -834,10 +811,9 @@
 						<animation effect="rotate" end="-360" center="auto" time="4200" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
 						<width>180</width>
 						<height>180</height>
-						<texture>$INFO[Player.FolderPath]cdart.png</texture>
+						<texture background="true" fallback="music_Cdart/vinyl.png">$INFO[Player.FolderPath]cdart.png</texture>						
 						<aspectratio>keep</aspectratio>
 					</control>
-					
 				<control type="group">
 					<left>7</left>
 					<top>7</top>
@@ -902,7 +878,6 @@
 	</include>
 <!--OSD Info -->
 	<include name="osd_Video">
-	
 		<control type="group">		
 			<top>415</top>
 			<control type="image">
@@ -920,7 +895,6 @@
 			<top>81</top>
 				<width>1930</width>
 					<height>2</height>
-				
 					<texture>white.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
@@ -930,7 +904,6 @@
 			<top>138</top>
 				<width>1100</width>
 					<height>1</height>
-					
 					<texture>white.png</texture>
 					<colordiffuse>aaffffff</colordiffuse>
 				</control>
@@ -939,7 +912,6 @@
 				<left>10</left>
 				<top>10</top>
 					<control type="group">
-					
 					<top>80</top>
 					<width>190</width>
 					<height>170</height>
@@ -1129,8 +1101,6 @@
 			</control>			
 		</control>		
 	<!--OSD Live TV -->	
-	
-	
 		<control type="group">	
 		<visible>VideoPlayer.Content(liveTV)</visible>
 			<top>545</top>
@@ -1147,7 +1117,6 @@
 			<top>0</top>
 				<width>1930</width>
 					<height>2</height>
-				
 					<texture>white.png</texture>
 					<colordiffuse>column3</colordiffuse>
 				</control>
@@ -1198,7 +1167,6 @@
 			</control>		
 		</control>		
 	</include>
-
 <!--WINDOW TITLES-->
 	<include name="windowTitle">
 		<left>59</left>
@@ -1209,8 +1177,7 @@
 		<textcolor>Color1</textcolor>
 		<include>transition_WindowTitle</include>
 		<include>toggle_Menu</include>
-		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(531)] +
- !Control.IsVisible(9900)</visible>
+		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(531)] + !Control.IsVisible(9900)</visible>
 		<animation effect="slide" end="-27" time="0" condition="Skin.HasSetting(global.kiosk)">Conditional</animation>
 	</include>
 	<include name="windowTitle_Video">

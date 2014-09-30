@@ -227,6 +227,21 @@
 			<aspectratio align="center" aligny="top">scale</aspectratio>
 			<visible>Control.IsVisible(62)</visible>	
 		</control>
+		<control type="group">	
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					</control>					
+				<visible>Control.IsVisible(62) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>	
 		<control type="image">
 		<top>50</top>
 			<width>1290</width>
@@ -251,6 +266,17 @@
 					<colordiffuse>base_2</colordiffuse>
 			         <visible>Control.IsVisible(62)</visible>					 
 			    </control>				
+			</control>
+			<control type="label" id="9900">
+			<left>34</left>
+			<top>14</top>
+			<width>950</width>
+			<aligny>center</aligny>
+			<font>light_Window</font>
+			<textcolor>Color1</textcolor>
+			<label>[B]$INFO[ListItem.SortLetter][/B]</label>			
+			<include>toggle_Menu</include>
+			<visible>Control.IsVisible(62) + Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
 			</control>
         <control type="panel" id="62">	
         <viewtype label="Wall">icon</viewtype> 
@@ -288,7 +314,7 @@
                     <width>70</width>
                     <height>110</height>
                     <texture>views\frame-Wall/white_diffuse_wall.png</texture>
-                    <colordiffuse>FFFFFFFF</colordiffuse>
+                    <colordiffuse>ccFFFFFF</colordiffuse>
                 </control>
                 <control type="image">
                     <posx>0</posx>
@@ -297,7 +323,7 @@
                     <height>110</height>
                     <aspectratio>stretch</aspectratio>
                     <texture fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
-                    <bordersize>1</bordersize>
+                    <bordersize>2</bordersize>
                     <colordiffuse>ff003366</colordiffuse>
                     <visible>stringcompare(ListItem.Label,..)</visible>
                 </control>
@@ -309,7 +335,7 @@
                     <aspectratio>stretch</aspectratio>
                     <texture fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
                     <bordersize>2</bordersize>
-                    <colordiffuse>60ffffff</colordiffuse>
+                    <colordiffuse>40ffffff</colordiffuse>
                     <visible>!stringcompare(ListItem.Label,..)</visible>
                 </control>
             </itemlayout>
@@ -890,6 +916,19 @@
 			<aspectratio align="center" aligny="top">scale</aspectratio>
 			<visible>Control.IsVisible(622)</visible>	
 		</control>
+		<control type="group">				
+				<control type="multiimage">
+				<include>screen_Dimensions</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>9000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					</control>					
+				<visible>Control.IsVisible(622) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>	
 		<control type="image">
 		<top>50</top>
 			<width>1290</width>
@@ -927,6 +966,17 @@
 			  <animation condition="true" effect="Fade" start="100" end="75" time="0">Conditional</animation>					 
 		  <visible>Control.IsVisible(622)</visible>	
 		</control>
+		<control type="label" id="9900">
+			<left>80</left>
+			<top>14</top>
+			<width>950</width>
+			<aligny>center</aligny>
+			<font>light_Window</font>
+			<textcolor>Color1</textcolor>
+			<label>[B]$INFO[ListItem.SortLetter][/B]</label>			
+			<include>toggle_Menu</include>
+			<visible>Control.IsVisible(622) + Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
+			</control>
         <control type="panel" id="622">		
         <viewtype label="Wall">icon</viewtype> 
             <top>0</top>
@@ -954,12 +1004,12 @@
                 <effect type="fade" start="100" end="0" time="500"/>
                 <effect type="zoom" start="100" end="200" center="auto" time="500"/>
             </animation>
-            <itemlayout width="70" height="110">
+            <itemlayout width="80" height="110">
             <include>viewIconWall4Portrait-ContainerCommons</include> 
 			<control type="image">
                     <posx>0</posx>
                     <posy>0</posy>
-                    <width>70</width>
+                    <width>80</width>
                     <height>110</height>
                     <texture>views\frame-Wall/white_diffuse_wall.png</texture>
                     <colordiffuse>FFFFFFFF</colordiffuse>
@@ -967,7 +1017,7 @@
                 <control type="image">
                     <posx>0</posx>
                     <posy>0</posy>
-                    <width>70</width>
+                    <width>80</width>
                     <height>110</height>
                     <aspectratio>stretch</aspectratio>
                     <texture fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
@@ -978,38 +1028,38 @@
                 <control type="image">
                     <posx>0</posx>
                     <posy>0</posy>
-                    <width>70</width>
+                    <width>80</width>
                     <height>110</height>
                     <aspectratio>stretch</aspectratio>
                     <texture fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
                     <bordersize>2</bordersize>
-                    <colordiffuse>60ffffff</colordiffuse>
+                    <colordiffuse>30ffffff</colordiffuse>
                     <visible>!stringcompare(ListItem.Label,..)</visible>
                 </control>
             </itemlayout>			
-            <focusedlayout width="150" height="120">
+            <focusedlayout width="80" height="110">
 			<control type="image">
-                        <posx>0</posx>
-                    <posy>25</posy>
-                        <width>70</width>
-                        <height>70</height>
+                        <posx>-3</posx>
+                    <posy>30</posy>
+                        <width>60</width>
+                        <height>60</height>
                         <aspectratio>keep</aspectratio>
                         <texture background="true">$VAR[Icon_Discart]</texture>
-                        <animation effect="slide" delay="1600" end="70,0" time="310" tween="quadratic">Focus</animation>
+                        <animation effect="slide" delay="1600" end="60,0" time="310" tween="quadratic">Focus</animation>
                         <animation effect="fade" start="100" end="50" time="50"easing="out">Unfocus</animation>
-                        <animation effect="zoom" start="70" end="160" center="auto" time="160" condition="Control.HasFocus(622)">Conditional</animation>
+                        <animation effect="zoom" start="70" end="150" center="auto" time="160" condition="Control.HasFocus(622)">Conditional</animation>
 					   <visible>[Container.Content(movies) | Container.Content(sets)] + Skin.HasSetting(Wall4Discart)</visible>
                         </control>
                 <control type="image">
-                    <posx>5</posx>
+                    <posx>0</posx>
                     <posy>0</posy>
                     <width>80</width>
-                    <height>120</height>
+                    <height>110</height>
                     <aspectratio>stretch</aspectratio>
                     <texture fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
                     <bordertexture>black.png</bordertexture>
                     <bordersize>0</bordersize>
-                    <animation effect="zoom" start="100" end="140" center="auto">Focus</animation>
+                    <animation effect="zoom" start="100" end="100" center="auto">Focus</animation>
                     <animation effect="slide" start="0,0" end="11,0" time="0" condition="Container.Column(0)">Conditional</animation>
                     <animation effect="slide" start="0,0" end="-11,0" time="0" condition="Container.Column(15)">Conditional</animation>
                     <animation effect="slide" start="0,0" end="0,17" time="0" condition="Container.Row(0)">Conditional</animation>
@@ -1019,18 +1069,18 @@
                 <control type="image">
                     <posx>0</posx>
                     <posy>0</posy>
-                    <width>70</width>
+                    <width>80</width>
                     <height>110</height>
                     <aspectratio>stretch</aspectratio>
                     <texture fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
                     <bordertexture>black.png</bordertexture>
                     <bordersize>0</bordersize>
-                    <animation effect="zoom" start="100" end="140" center="auto">Focus</animation>
-                    <animation effect="slide" start="0,0" end="11,0" time="0" condition="Container.Column(0)">Conditional</animation>
-                    <animation effect="slide" start="0,0" end="-11,0" time="0" condition="Container.Column(15)">Conditional</animation>
+                    <animation effect="zoom" start="100" end="100" center="auto">Focus</animation>
+                    <animation effect="slide" start="0,0" end="0,0" time="0" condition="Container.Column(0)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,0" time="0" condition="Container.Column(15)">Conditional</animation>
                     <animation effect="slide" start="0,0" end="0,17" time="0" condition="Container.Row(0)">Conditional</animation>
                     <animation effect="slide" start="0,0" end="0,-17" time="0" condition="Container.Row(5)">Conditional</animation>
-                    <visible>!stringcompare(ListItem.Label,..)</visible>
+                     <visible>!stringcompare(ListItem.Label,..)</visible>
                 </control>					
             <include>viewIconWallPortrait-ContainerCommons</include>
             </focusedlayout>
@@ -1093,7 +1143,7 @@
 				</control>
 			<control type="group">	
 			<top>-10</top>			
-		<control type="group">
+		<control type="group">		
 		<top>215</top>
 		<left>125</left>
 		<control type="image">
@@ -1101,7 +1151,7 @@
 		<top>88</top>
 		<width>488</width>
 		<height>335</height>
-			<texture background="true">frames/contentpanel.png</texture>
+			<texture background="true"border="30">frames/contentpanel.png</texture>
 			  <animation condition="true" effect="Fade" start="100" end="80" time="0">Conditional</animation>					 
 		<visible>!Container.Content(sets)</visible>
 		</control>
@@ -1110,7 +1160,7 @@
 		<top>88</top>
 		<width>488</width>
 		<height>335</height>
-			<texture background="true">frames/contentpanel.png</texture>
+			<texture background="true"border="30">frames/contentpanel.png</texture>
 			  <animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>					 
 		<visible>!Container.Content(sets)</visible>
 		</control>
@@ -1150,26 +1200,22 @@
 		<texture background="true">$VAR[view_Extra.Thumb4]</texture>
 		<aspectratio>scale</aspectratio>			
 		</control>	
-		<visible>!Skin.HasSetting(Wall4textMovies)</visible>	
+		<visible>Skin.HasSetting(Wall4ExtraThumbs)</visible>	
 	</control>
+	
 	<control type="group">
-		<top>205</top>
-		<left>138</left>
-		<control type="image">		
-		<top>105</top>
-					<left>512</left>
-				<width>350</width>
-				<height>325</height>
-				<texture>frames/frame-panel-Art.png</texture>
-				<aspectratio>keep</aspectratio>
-				<visible>!Container.Content(sets)</visible>
-				</control>
-						<control type="image">
+	 		<top>205</top>
+		<left>700</left>
+		 <animation type="Conditional" condition="Skin.HasSetting(Wall4ExtraThumbs)">
+				<effect type="Slide" start="0,0" end="-478,0"  delay="1000" time="700" tween="quadratic"/>
+			</animation>
+		
+		<control type="image">
 	       <left>15%</left>
 		<top>86</top>
 		<width>488</width>
 		<height>358</height>
-			<texture background="true">frames/contentpanel.png</texture>
+			<texture background="true"border="30">frames/contentpanel.png</texture>
 			  <animation condition="true" effect="Fade" start="100" end="50" time="0">Conditional</animation>					 
 		</control>
 		<control type="image">
@@ -1177,28 +1223,29 @@
 		<top>86</top>
 		<width>488</width>
 		<height>358</height>
-			<texture background="true">frames/contentpanel.png</texture>
+			<texture background="true"border="30">frames/contentpanel.png</texture>
 			  <animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>					 
 		</control>
 		<control type="label">	
-		  <left>195</left>
+		  <left>105</left>
 		<top>100</top>
 						<label>$VAR[gallery_Header]</label>
-						<width>440</width>
+						<width>445</width>
 						<textcolor>Color1</textcolor>
 						<include>detail_Title</include>
+						<scroll>true</scroll>
 						<visible>Control.IsVisible(622)</visible>
 					</control>
 		<control type="textbox">
-		<top>135</top>
-					<left>195</left>
-					<width>440</width>
+		<top>140</top>
+					<left>105</left>
+					<width>450</width>
 					<align>justify</align>
-					<height max="275">auto</height>
+					<height max="270">auto</height>
 					<label>$VAR[global_Plot]</label>					
 					<include>detail_Text</include>					
 				</control>
-		<visible>!Skin.HasSetting(Wall4textMovies) + !Container.Content(sets)</visible>	
+		<visible>Skin.HasSetting(Wall4textMovies) + !Container.Content(sets)</visible>	
 	</control>
 	
 	<!--Sets-->
@@ -1210,7 +1257,7 @@
 		<top>25</top>
 		<width>745</width>
 		<height>500</height>
-			<texture background="true">frames/contentpanel.png</texture>
+			<texture background="true" border="30">frames/contentpanel.png</texture>
 			  <animation condition="true" effect="Fade" start="100" end="50" time="0">Conditional</animation>					 
 		</control>
 		<control type="image">
@@ -1218,7 +1265,7 @@
 		<top>25</top>
 		<width>745</width>
 		<height>500</height>
-			<texture background="true">frames/contentpanel.png</texture>
+			<texture background="true"border="30">frames/contentpanel.png</texture>
 			  <animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>					 
 		</control>
 		<control type="label">	
@@ -1237,10 +1284,22 @@
 					<align>justify</align>
 					<height max="273">auto</height>
 					<label>$VAR[global_Plot]</label>					
-					<include>detail_Text</include>					
+					<include>detail_Text</include>	
+					<visible>Skin.HasSetting(Wall4DiscartSets)</visible>	
 				</control>
+				<control type="textbox">
+		<top>80</top>
+					<left>195</left>
+					<width>655</width>
+					<align>justify</align>
+					<height max="430">auto</height>
+					<label>$VAR[global_Plot]</label>					
+					<include>detail_Text</include>		
+					<visible>!Skin.HasSetting(Wall4DiscartSets)</visible>
+				</control>	
 		<visible>Control.IsVisible(622) + [Container.Content(sets)] + !Skin.HasSetting(Wall4textMoviesSets)</visible>	
-	</control>
+	</control>	
+	<!--Option SETS-->
 	<control type="grouplist" id="100">		
 				<left>535</left>
 				<top>515</top>
@@ -1313,6 +1372,7 @@
 						<texture background="true">$INFO[Window(home).Property(Set.Movie.11.Art(discart))]</texture>
 					</control>
 					<visible>Control.IsVisible(622) + [!Container.Content(movies) | !Container.Content(tvshows) | Container.Content(sets)] + !Skin.HasSetting(Wall4textMoviesSets)</visible>
+				<visible>Skin.HasSetting(Wall4DiscartSets)</visible>
 				</control>
 	<control type="image">
 					<left>900</left>
@@ -1358,6 +1418,21 @@
 			<aspectratio align="center" aligny="top">scale</aspectratio>
 			<visible>Control.IsVisible(623)</visible>	
 		</control>
+		<control type="group">	
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					</control>					
+				<visible>Control.IsVisible(623) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>	
 		<control type="image">
 		<top>50</top>
 			<width>1290</width>
@@ -1372,9 +1447,17 @@
 					<top>25</top>
 					<width>170</width>
 					<height>70</height>
-					<include>art_ClearLogo</include>	
-					  <visible>Control.IsVisible(623)</visible>	
-				</control>	
+					<texture>$VAR[Icon_ClearLogo]</texture>	
+					<visible>Control.IsVisible(623) + !Skin.HasSetting(clearartthumb.disable)</visible>	
+					  </control>
+					  <control type="image">
+					<left>1035</left>
+					<top>25</top>
+					<width>170</width>
+					<height>70</height>
+					<texture>$VAR[Icon_ClearArt]</texture>	
+					  <visible>Control.IsVisible(623) + Skin.HasSetting(clearartthumb.disable)</visible>	
+				</control>					
 		</control>		
 		 <control type="group">
 			<include>toggle_Menu</include>
@@ -1396,7 +1479,7 @@
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 				<left>15</left>
-				<top>655</top>
+				<top>650</top>
 				<itemgap>-50</itemgap>
 				<orientation>horizontal</orientation>				
 					<control type="image">					
@@ -1470,6 +1553,19 @@
 				 <aspectratio>stretch</aspectratio>			    
 			   <visible>Control.IsVisible(623)</visible> 			  		   
 			</control>
+			<control type="label" id="9900">
+			<left>34</left>
+			<top>14</top>
+			<width>950</width>
+			<aligny>center</aligny>
+			<font>light_Window</font>
+			<textcolor>Color1</textcolor>
+			<label>[B]$INFO[ListItem.SortLetter][/B]</label>			
+			<include>toggle_Menu</include>
+			<visible>Control.IsVisible(623) + Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
+	
+		</control>
+		
         <control type="wraplist" id="623">	
         <viewtype label="Wall">icon</viewtype> 
             <top>370</top>
@@ -1541,7 +1637,7 @@
                         <animation effect="slide" delay="1600" end="0,-100" time="300" tween="quadratic">Focus</animation>
                         <animation effect="slide" start="0,50" end="0" time="10" tween="quadratic" easing="in">Unfocus</animation>
                         <animation effect="zoom" start="70" end="200" center="auto" time="160" condition="Control.HasFocus(623)">Conditional</animation>
-                        <visible>Container.Content(movies) + Skin.HasSetting(Wall5DiscartMovies)</visible>
+                        <visible>Skin.HasSetting(Wall5DiscartMovies)</visible>
                         <bordersize>7</bordersize>
                     </control>
             <include>viewIconWall5Portrait-ContainerCommons</include>
@@ -1613,16 +1709,115 @@
 		<texture background="true">$VAR[view_Extra.Thumb3]</texture>
 		<aspectratio>scale</aspectratio>			
 		</control>
-		<visible>Control.IsVisible(623)</visible>	
+		<visible>Control.IsVisible(623) + !Skin.HasSetting(Wall5ExtraInfo)</visible>	
 		</control>	
+		<control type="group">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			 <left>30</left>
+				  <top>455</top>		
+                    <control type="grouplist"> 
+					 <top>30</top>
+                        <width>500</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="400">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20339]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="400">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Director]</label>
+                            <scroll>true</scroll>							
+                        </control>
+                    </control>
+                    <control type="grouplist"> 
+					 <top>60</top>
+                        <width>500</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="400">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20417]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="400">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Writer]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="grouplist"> 
+					 <top>90</top>
+                        <width>500</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="400">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[563]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="400">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Rating]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>                  
+                    <control type="grouplist">
+					 <top>120</top>
+                        <width>450</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="400">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[572]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="450">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Studio]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="grouplist">   
+                     <top>150</top>
+                        <width>450</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="400">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20074]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width>450</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Mpaa]</label>                           
+                            <scroll>true</scroll>
+                            <wrapmultiline>true</wrapmultiline>
+                        </control>
+                    </control>  
+					<visible>Control.IsVisible(623) + Skin.HasSetting(Wall5ExtraInfo) + !Container.Content(sets)</visible>	
+				 </control> 
 			<control type="textbox">
 				<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-				<top>490</top>
+				<top>483</top>
 					<left>775</left>
-				    <width>470</width>
-					<height>140</height>
+				    <width>479</width>
+					<height>159</height>
 					<align>justify</align>
 					<label>$VAR[global_Plot]</label>
 					<include>detail_Text</include>
@@ -1661,8 +1856,17 @@
 						<width>710</width>
 						<include>detail_Title</include>
 						<animation effect="zoom" start="140" end="130" time="0" condition="true">Conditional</animation>
-						<visible>Control.IsVisible(623)</visible>						
-					</control>					
+						<visible>Control.IsVisible(623) + !Container.Content(sets)</visible>						
+					</control>
+					<control type="label">				
+				        <top>180</top>
+						<left>40</left>
+						<label>$VAR[global_Title]</label>
+						<width>750</width>
+						<include>detail_Title</include>
+						<animation effect="zoom" start="140" end="130" time="0" condition="true">Conditional</animation>
+						<visible>Control.IsVisible(623) + Container.Content(sets)</visible>						
+					</control>	
 					<control type="label">
 					    <top>220</top>
 						<left>130</left>
@@ -1670,7 +1874,7 @@
 						<width>610</width>
 						<include>detail_Sub</include>
 						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
-						<visible>Control.IsVisible(623)</visible>
+						<visible>Control.IsVisible(623) + !Container.Content(sets)</visible>	
 					</control>		
 					<control type="label">					
 						<top>220</top>
@@ -1679,7 +1883,25 @@
 						<width>610</width>
 						<include>detail_Sub</include>
 						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
-						<visible>Control.IsVisible(623)</visible>
+						<visible>Control.IsVisible(623) + !Container.Content(sets)</visible>	
+					</control>
+					<control type="label">
+					    <top>220</top>
+						<left>40</left>
+						<label>$VAR[global_Info]</label>
+						<width>700</width>
+						<include>detail_Sub</include>
+						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+						<visible>Control.IsVisible(623) + Container.Content(sets)</visible>	
+					</control>		
+					<control type="label">					
+						<top>220</top>
+						<left>40</left>
+						<label>$VAR[global_Info.Addon]</label>
+						<width>700</width>
+						<include>detail_Sub</include>
+						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+						<visible>Control.IsVisible(623) + !Container.Content(sets)</visible>	
 					</control>	
 				</control>	
 			</control>

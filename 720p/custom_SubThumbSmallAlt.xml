@@ -96,16 +96,16 @@
 			<top>250</top>
 			<width>275</width>
 			<height min="40" max="720">auto</height>
-			<itemgap>0</itemgap>				
-					<control type="radiobutton" id="155">					
-                    <label>Panel Back</label>
-					<width>260</width>
-		            <onclick>Skin.ToggleSetting(Enable.panelback)</onclick>
-		            <selected>Skin.HasSetting(Enable.panelback)</selected>
-					<include>menu_Button2</include>
-					<include>menu_RadioButton2</include>					
-		            </control>
-					
+			<itemgap>0</itemgap>
+			<control type="radiobutton" id="151">					
+                        <label>Full Background</label>
+						<width>260</width>	
+		               <onclick>Skin.ToggleSetting(FullBackgroundIcon573)</onclick>
+		                <selected>Skin.HasSetting(FullBackgroundIcon573)</selected>					
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+				 </control>
+				
 <!--info thumbnail small 1-->
                 <control type="radiobutton" id="156"> 
 		          <label>Option 1</label>	

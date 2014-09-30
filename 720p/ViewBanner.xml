@@ -6,6 +6,7 @@
 		    <left>7</left>
 			<top>7</top>
 			<control type="image">	
+			<include>focus_slimBanner</include>
 				<width>558</width>
 				<height>103</height>
 				<texture background="true">thumbs/default_Banner.png</texture>
@@ -19,6 +20,7 @@
 				<include>art_DefaultIcon</include>
 			</control>
 			<control type="image">
+			<include>focus_slimBanner</include>
 				<centerleft>279</centerleft>
 				<centertop>51.5</centertop>
 				<texture background="true">$VAR[thumb_Banner]</texture>
@@ -345,7 +347,8 @@
 		<control type="group">
 			<left>7</left>
 			<top>7</top>
-			<control type="image">	
+			<control type="image">
+			<include>focus_slimBanner</include>
 				<width>590</width>
 				<height>109</height>
 				<texture background="true">thumbs/default_Banner.png</texture>
@@ -359,6 +362,7 @@
 				<include>art_DefaultIcon</include>
 			</control>
 			<control type="image">
+			<include>focus_slimBanner</include>
 				<width>590</width>
 				<height>109</height>
 				<texture background="true">$VAR[thumb_Banner]</texture>
@@ -487,6 +491,7 @@
 				<aspectratio>stretch</aspectratio>
 			</control>			
 			<control type="image">
+			
 				<width>250</width>
 				<height>50</height>
 				<texture background="true">$VAR[thumb_Banner]</texture>
@@ -514,9 +519,9 @@
 		<control type="panel" id="543">
 			<viewtype label="31110">bigwide</viewtype>
 			<left>60</left>
-			<top>105</top>
+			<top>100</top>
 			<width>945</width>
-			<height>445</height>
+			<height>477</height>
 			<onleft>6000</onleft>
 			<onright>70</onright>
 			<onup>543</onup>
@@ -548,9 +553,9 @@
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<left>825</left>
-			<top>105</top>
+			<top>100</top>
 				<width>425</width>
-				<height>593</height>
+				<height>598</height>
 				<texture background="true">$VAR[thumb_Portrait]</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
@@ -579,11 +584,11 @@
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 				<left>70</left>
-				<top>580</top>
+				<top>595</top>
 					<control type="group">
 					<control type="label">
 					<left>35</left>
-					<top>-9</top>
+					<top>-5</top>
 						<width>690</width>
 						<label>$VAR[global_Title]</label>
 						<include>detail_Title</include>
@@ -591,7 +596,7 @@
 					</control>
 					<control type="image">
 				<left>2</left>
-					<top>-8</top>
+					<top>-5</top>
 					<texture colordiffuse="Color3">$VAR[status_List]</texture>
 					<include>status_List</include>
 				</control>
@@ -620,7 +625,7 @@
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 				<left>65</left>
-				<bottom>25</bottom>
+				<bottom>15</bottom>
 				<width>900</width>
 				<height>50</height>
 				<itemgap>35</itemgap>
@@ -677,7 +682,8 @@
 		<control type="group">
 			<left>7</left>
 			<top>7</top>
-			<control type="image">	
+			<control type="image">
+			<include>focus_slimBanner</include>
 				<width>350</width>
 				<height>65</height>
 				<texture background="true">thumbs/default_Banner.png</texture>
@@ -690,6 +696,7 @@
 				<include>art_DefaultIcon</include>
 			</control>
 			<control type="image">
+			<include>focus_slimBanner</include>
 				<width>350</width>
 				<height>65</height>
 				<texture background="true">$VAR[thumb_Banner]</texture>

@@ -13,7 +13,7 @@
 				<imagepath fallback="special://skin/backgrounds/">$VAR[home_Background]</imagepath>
 				<include>home_Slideshow</include>
 				<visible>Skin.String(HomeBackground,multi) | [Player.HasAudio + Skin.HasSetting(home.nowplaying) + !Skin.HasSetting(artistslideshow.disable)]</visible>
-			</control>
+			</control>			
 			<control type="image">
 				<texture>overlays/vignette2.png</texture>
 				<include>screen_Dimensions</include>
@@ -462,7 +462,7 @@
 			<aspectratio align="center" aligny="top">scale</aspectratio>
 			<include>fadeinout</include>
 			<fadetime>fadetime_Fanart</fadetime>
-		</control>		
+		</control>
 		<control type="image">
 			<texture>overlays/vignette2.png</texture>			
 			<include>screen_Dimensions</include>
@@ -476,7 +476,7 @@
 			<include>screen_Dimensions</include>
 			<aspectratio>stretch</aspectratio>			
 			<visible>!Skin.HasSetting(overlaysglass)</visible>
-			</control>
+			</control>			
 		<control type="group">
 			<left>50</left>
 			<top>520</top>
@@ -484,7 +484,7 @@
 				<visible>!StringCompare(Container(9110).ListItem.Property(widgetName),$LOCALIZE[31032]) + !StringCompare(Container(9110).ListItem.Property(widgetName),$LOCALIZE[359])</visible>
 				<control type="image">
                         <left>-10</left>
-                        <top>-100</top>
+                        <top>-90</top>
                         <width>180</width>
                         <height>180</height>
                         <aspectratio>keep</aspectratio>
@@ -492,46 +492,160 @@
                         <animation effect="slide" delay="1600" end="0,-120" time="300" tween="quadratic">Focus</animation>
                         <animation effect="slide" start="140,0" end="0" time="150" tween="quadratic" easing="in">Unfocus</animation>
                          <visible></visible>
-                        <bordersize>7</bordersize>					
-                    </control>
+                        <bordersize>7</bordersize>
+						<visible>!Skin.HasSetting(DiscartWidget) + !Skin.HasSetting(PosterWidget)</visible>
+					  </control>
 				
 				<control type="image">
 				<left>-30</left>
-				<top>-110</top>
-					<width>213</width>
+				<bottom>20</bottom>
+					<width>215</width>
 				<height>300</height>
 					<texture background="true">$VAR[thumb_Portrait]</texture>
 					<bordertexture border="0">frames/frame-fo.png</bordertexture>
 					<bordersize>4</bordersize>
-					<aspectratio align="center" aligny="top">scale</aspectratio>
-				</control>
+					<aspectratio scalediffuse="true" align="center" aligny="bottom">keep</aspectratio>
+				<visible>!Skin.HasSetting(PosterWidget)</visible>
+				</control>					
+				 <control type="image">
+					<left>960</left>
+					<top>-525</top>
+					<width>200</width>
+					<height>120</height>
+					<aspectratio scalediffuse="true" align="right" aligny="bottom">keep</aspectratio>
+					<texture>$INFO[ListItem.Art(clearlogo)]</texture>
+					<visible>!Skin.HasSetting(LogoWidget)</visible>
+						</control>
 				<control type="group">
-					<left>220</left>
+				<top>20</top>
+				<left>220</left>				
+				<animation effect="slide" start="0,0" end="0,80" condition="Skin.HasSetting(noText)">Conditional</animation>
+		       
 					<control type="label">
 						<width>980</width>
 						<label>$VAR[widget_ItemTitle]</label>
-						<font>black_Title</font>
-					</control>
+						<font>black_huge</font>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff888888</shadowcolor>						
+					</control>					
 					<control type="label">
 						<top>30</top>		
 						<width>980</width>
 						<align>justify</align>
-						<label>$VAR[widget_ItemInfo]</label>
+						<label>$VAR[widget_ItemInfo]</label>						
 						<include>osd_Sub</include>
-					</control>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff888888</shadowcolor>
+					</control>					
 					<control type="textbox">
-				<top>60</top>
-				<width>950</width>
-				<height>105</height>
+					<animation effect="slide" start="0,0" end="0,100" condition="Skin.HasSetting(noText)">Conditional</animation>
+		
+				<top>58</top>
+				<width>970</width>
+				<height>80</height>
 				<align>justify</align>
-				<label>$VAR[widget_ItemDescription]</label>
+				<label>$VAR[widget_ItemDescription]</label>				
 				<font>condensed-U</font>
+				<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff888888</shadowcolor>
 				<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="10000">Skin.HasSetting(autoscroll.enable)</autoscroll>
 			</control>
+			<visible>!Skin.HasSetting(PosterWidget)</visible>
 				</control>
+				
+				<!--No Poster-->
+				<control type="group">
+				<animation effect="slide" start="0,0" end="0,80" condition="Skin.HasSetting(noText)">Conditional</animation>
+		        
+				<left>0</left>
+				<top>20</top>
+					<control type="label">
+						<width>1000</width>
+						<label>$VAR[widget_ItemTitle]</label>
+						<font>black_huge</font>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff888888</shadowcolor>						
+					</control>					
+					<control type="label">
+						<top>30</top>		
+						<width>1100</width>
+						<align>justify</align>
+						<label>$VAR[widget_ItemInfo]</label>						
+						<include>osd_Sub</include>
+						<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff888888</shadowcolor>
+					</control>
+					<control type="textbox">
+					<animation effect="slide" start="0,0" end="0,100" condition="Skin.HasSetting(noText)">Conditional</animation>
+				<top>58</top>
+				<width>1200</width>
+				<height>80</height>
+				<align>justify</align>
+				<label>$VAR[widget_ItemDescription]</label>				
+				<font>condensed-U</font>
+				<textcolor>ffffffff</textcolor>
+						<shadowcolor>ff888888</shadowcolor>
+				<autoscroll delay="autoscroll_Delay" time="autoscroll_Time" repeat="10000">Skin.HasSetting(autoscroll.enable)</autoscroll>
+			</control>
+			<visible>Skin.HasSetting(PosterWidget)</visible>
+				</control>
+				<control type="group">
+				<animation effect="slide" start="0,0" end="220,0" condition="!Skin.HasSetting(PosterWidget)">Conditional</animation>
+			   	<top>5</top>
+				<left>-255</left>
+					<control type="image">
+				<top>150</top>
+				<left>250</left>
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[ListItem.VideoResolution,flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>					
+				</control>
+				<control type="image">
+				<top>150</top>
+				<left>350</left>
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>					
+				</control>
+				<control type="image">
+				<top>150</top>
+				<left>450</left>				
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="image">
+				<top>150</top>
+				<left>550</left>
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					</control>	
+					<control type="image">
+				<top>155</top>
+				<left>635</left>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+					</control>
+				<control type="image">
+				 <top>155</top>
+				<left>750</left>
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
+					<aspectratio align="center">keep</aspectratio>				
+				</control>	
+					<visible>Skin.HasSetting(flag)</visible>
+				</control>				
 			</control>
 			<control type="group">
-				<visible>StringCompare(Container(9110).ListItem.Property(widgetName),$LOCALIZE[31032]) | StringCompare(Container(9110).ListItem.Property(widgetName),$LOCALIZE[359])</visible>
+				<visible>StringCompare(Container(9210).ListItem.Property(widgetName),$LOCALIZE[31032]) | StringCompare(Container(9210).ListItem.Property(widgetName),$LOCALIZE[359])</visible>
 				<control type="image">
 					<width>106</width>
 					<height>106</height>
@@ -548,7 +662,7 @@
 					<texture>$INFO[ListItem.ActualIcon]</texture>
 					<aspectratio align="center" aligny="center">keep</aspectratio>
 					<visible>IsEmpty(ListItem.Art(thumb))</visible>
-				</control>
+				</control>				 
 				<control type="group">
 					<left>130</left>
 					<control type="label">
@@ -571,7 +685,7 @@
 						<font>condensed-U</font>
 						<textcolor>Color3</textcolor>
 					</control>
-				</control>
+				</control>				
 			</control>
 		</control>
 	</include>

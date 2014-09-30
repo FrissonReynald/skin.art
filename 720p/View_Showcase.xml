@@ -2,6 +2,49 @@
 <!--thx guys -->
 <includes>
 	<include name="View_Showcase">	
+	<control type="group">
+	<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+	<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+		</control>
+		<control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<fadetime>fadetime_Fanart</fadetime>
+		</control>
+		<control type="group">				
+				<control type="multiimage">
+				<include>screen_Dimensions</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>9000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					</control>					
+				<visible>Control.IsVisible(527) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>	
+			 <control type="label" id="9900">
+			<left>34</left>
+			<top>14</top>
+			<width>950</width>
+			<aligny>center</aligny>
+			<font>light_Window</font>
+			<textcolor>Color1</textcolor>
+			<label>[B]$INFO[ListItem.SortLetter][/B]</label>			
+			<include>toggle_Menu</include>
+			<visible>Control.IsVisible(527) + Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
+			</control>		
+		
+			<visible>Control.IsVisible(527) + Skin.HasSetting(FullBackgroundShowcase)</visible>
+	</control>	
 	<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
@@ -103,12 +146,20 @@
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<visible>Control.IsVisible(527)</visible>
-				   <left>860</left>
+				   <left>823</left>
 				   <bottom>520</bottom>
 				   <width>900</width>
 				   <height>50</height>
 				   <itemgap>10</itemgap>
-				   <orientation>horizontal</orientation>				   		
+				   <orientation>horizontal</orientation>
+				     <control type="image">					
+					<width>32</width>
+            <height>32</height>
+			<texture background="true" diffuse="videoextras_overlay.png">$VAR[VideoextrasOverlay]</texture>
+			<visible>System.HasAddon(script.videoextras) + Window.IsVisible(Videos) + Container.Content(Movies) + !Skin.HasSetting(Enable.videoextrasOverlays)</visible>
+		<aspectratio align="center">keep</aspectratio>
+		<colordiffuse>FFFFFFFF</colordiffuse>	
+		</control>
 			<control type="image">				
 				   <width>80</width>
 				   <height>40</height>

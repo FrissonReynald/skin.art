@@ -59,6 +59,43 @@
 			</control>
 	</include>
 	<include name="view_IconPortrait">
+	<control type="group">
+				<include>global_ListScroll</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+			<visible>Control.IsVisible(57)</visible>
+		</control>
+			 <control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>Control.IsVisible(57)</visible>	
+		</control>
+		<control type="group">	
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					<visible>!Container.Content(sets)</visible>
+					</control>					
+				<visible>Control.IsVisible(57) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>
+			<visible>Control.IsVisible(57) + Skin.HasSetting(FullBackgroundIcon57)</visible>	
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+		</control>
 	<control type="image">	
 	<include>transition_Content</include>
 			<include>toggle_Menu</include>
@@ -193,44 +230,51 @@
 		</control>
 	</include>
 	<include name="view_IconPortraitSmall">
-	<control type="image">	
-	<include>transition_Content</include>
+	<control type="group">
+				<include>global_ListScroll</include>
 			<include>toggle_Menu</include>
-			<include>transition_Info</include>
-				<top>235</top>
-				<left>17</left>
-				<width>1280</width>
-				<height>475</height>
-               <texture background="true">frames/contentpanel.png</texture>
-			   <aspectratio>stretch</aspectratio>			    
-			   <visible>Control.IsVisible(571) + Skin.HasSetting(Enable.panelback)</visible> 
-			   <visible>!Skin.HasSetting(thumbnailinfo1.enable)</visible>			   
-			</control>			
-			<control type="image">	
 			<include>transition_Content</include>
-			<include>toggle_Menu</include>
-			<include>transition_Info</include>
-				<top>235</top>
-				<left>17</left>
+			<include>transition_Info</include>	
+			<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+			<visible>Control.IsVisible(571)</visible>
+		</control>
+			 <control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>Control.IsVisible(571)</visible>	
+		</control>
+		<control type="group">	
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					<visible>!Container.Content(sets)</visible>
+					</control>					
+				<visible>Control.IsVisible(571) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>
+			<visible>Control.IsVisible(571) + Skin.HasSetting(FullBackgroundIcon571)</visible>	
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+		</control>
+	<control type="image">		      
+				<top>135</top>
+				<left>19</left>
 				<width>1280</width>
-				<height>475</height>
-               <texture background="true">frames/contentpanel.png</texture>
-			   <aspectratio>stretch</aspectratio>
-			   <visible>Control.IsVisible(571) + Skin.HasSetting(Enable.panelback)</visible> 
-			   <visible>Skin.HasSetting(thumbnailinfo2.enable)</visible>	
-			</control>
-			<control type="image">	
-		<include>transition_Content</include>
-			<include>toggle_Menu</include>
-			<include>transition_Info</include>
-				<top>140</top>
-				<left>17</left>
-				<width>1280</width>
-				<height>90</height>
-               <texture background="true">frames/contentpanel.png</texture>
-			    <animation condition="true" effect="Fade" start="90" end="90" time="0">Conditional</animation>					 
-				 <aspectratio>stretch</aspectratio>			    
-			   <visible>Control.IsVisible(571) | Control.IsVisible(573)</visible> 			  		   
+				<height>570</height>
+              <texture background="true">frames/contentpanel.png</texture>  <aspectratio>stretch</aspectratio>
+			  <visible>Control.IsVisible(571)</visible>
+			
 			</control>	
 		<control type="panel" id="571">		
 			<viewtype label="31113">icon</viewtype>	
@@ -324,30 +368,51 @@
 		</control>
 	</include>
 	<include name="view_IconPortraitSmallAlt">
-	<control type="image">	
-	        <include>toggle_Menu</include>
-			<include>transition_Content</include>
-			<include>transition_Info</include>
-				<top>235</top>
-				<left>17</left>
-				<width>1280</width>
-				<height>475</height>
-              <texture background="true">frames/contentpanel.png</texture>  <aspectratio>stretch</aspectratio>
-			   <visible>Control.IsVisible(573) + Skin.HasSetting(Enable.panelback)</visible> 
-			   <visible>!Skin.HasSetting(thumbnailaltinfo1.enable)</visible>
-			</control>
-			<control type="image">
+	<control type="group">
+				<include>global_ListScroll</include>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
-			<include>transition_Info</include>
-				<top>235</top>
-				<left>17</left>
+			<include>transition_Info</include>	
+			<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+			<visible>Control.IsVisible(573)</visible>
+		</control>
+			 <control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>Control.IsVisible(573)</visible>	
+		</control>
+		<control type="group">	
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					<visible>!Container.Content(sets)</visible>
+					</control>						
+				<visible>Control.IsVisible(573) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>			
+			<visible>Control.IsVisible(573) + Skin.HasSetting(FullBackgroundIcon573)</visible>	
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+		</control>
+	<control type="image">		      
+				<top>135</top>
+				<left>19</left>
 				<width>1280</width>
-				<height>475</height>
-                <texture background="true">frames/contentpanel.png</texture>  <aspectratio>stretch</aspectratio>
-			   <visible>Control.IsVisible(573) + Skin.HasSetting(Enable.panelback)</visible> 
-			   <visible>Skin.HasSetting(thumbnailaltinfo2.enable)</visible>	
-			</control>			
+				<height>570</height>
+              <texture background="true">frames/contentpanel.png</texture>  <aspectratio>stretch</aspectratio>
+			  <visible>Control.IsVisible(573)</visible>
+		</control>			
 		<control type="panel" id="573">
 			<viewtype label="31113">icon</viewtype>
 			<include>animation_hoverslide</include>
@@ -387,6 +452,12 @@
 			<height>184</height>
 			<include>art_Frame-nf</include>
 		</control>
+		<control type="image">
+               <width>129</width>
+			<height>184</height>
+                <include>art_Frame-nf</include>				
+				<visible>Control.IsVisible(576) + Skin.HasSetting(FullBackgroundIcon576)</visible>	
+                </control>
 		<control type="group">
 			<left>7</left>
 			<top>7</top>
@@ -442,10 +513,48 @@
                 <width>128</width>
                 <height>185</height>
                 <include>art_Frame-nf</include>
-                </control>
+                </control>				
 		</control>
 	</include>
 	<include name="view_IconPortraitSmallOriginal">
+	<control type="group">
+				<include>global_ListScroll</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+			<visible>Control.IsVisible(576)</visible>
+		</control>
+			 <control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>Control.IsVisible(576)</visible>	
+		</control>
+		<control type="group">	
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					<visible>!Container.Content(sets)</visible>
+					</control>						
+				<visible>Control.IsVisible(576) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>
+			
+			<visible>Control.IsVisible(576) + Skin.HasSetting(FullBackgroundIcon576)</visible>	
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+		</control>
 	<control type="image">	
 	<include>transition_Content</include>
 			<include>toggle_Menu</include>
@@ -486,11 +595,236 @@
 					<width>129</width>
 					<height>184</height>
 					<include>art_Frame-fo</include>
+				</control>				
+				<include>view_IconPortraitSmallOriginal-ContainerCommons</include>				
+			</focusedlayout>
+		</control>
+	</include>
+	<!--Full Grid Original -->
+	<!--POSTERSMALL Original-->
+	<include name="view_IconPortraitSmallOriginalFull-ContainerCommons">
+		<control type="image">
+			<width>129</width>
+			<height>184</height>
+			<include>art_Frame-nf</include>
+		</control>
+		<control type="group">
+			<left>7</left>
+			<top>7</top>
+			<control type="image">	
+				<width>115</width>
+				<height>170</height>
+				<texture background="true">thumbs/default_Portrait.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<left>25</left>
+				<top>53</top>
+				<width>64</width>
+				<height>64</height>
+				<texture>$INFO[ListItem.ActualIcon]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>IsEmpty(ListItem.Thumb)</visible>
+			</control>
+			<control type="image">
+				<width>115</width>
+				<height>170</height>
+				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+					<left>0</left>
+					<top>140</top>
+					<width>32</width>
+            <height>32</height>
+			<texture background="true" colordiffuse="videoextras_overlay.png">$VAR[VideoextrasOverlay]</texture>
+			<visible>Control.IsVisible(5761) + System.HasAddon(script.videoextras) + Window.IsVisible(Videos) + Container.Content(Movies) + !Skin.HasSetting(Enable.videoextrasOverlays)</visible>
+		<colordiffuse>FFFFFFFF</colordiffuse>	
+		</control>
+			<control type="group">
+				<left>86.5</left>
+				<top>142</top>
+				<include>status_Info</include>
+				<visible>Skin.HasSetting(overlay_statu.disable)</visible>	
+			</control>
+			<control type="group">
+					<left>82</left>
+				<top>137</top>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<control type="image">
+						<info>ListItem.Overlay</info>
+					</control>
+				</control>
+			<control type="image">
+                <left>-8</left>
+                <top>-7</top>
+                <width>128</width>
+                <height>185</height>
+                <include>art_Frame-nf</include>
+                </control>
+		</control>
+	</include>
+	<include name="view_IconPortraitSmallOriginalFull">
+	<control type="group">
+				<include>global_ListScroll</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+			<visible>Control.IsVisible(5761)</visible>
+		</control>
+			 <control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>Control.IsVisible(5761)</visible>	
+		</control>
+		<control type="group">	
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					<visible>!Container.Content(sets)</visible>
+					</control>						
+				<visible>Control.IsVisible(5761) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>
+				<control type="image">	
+	<include>transition_Content</include>
+			<include>toggle_Menu</include>
+			<include>transition_Info</include>
+				<top>660</top>
+				<left>-10</left>
+				<width>1920</width>
+				<height>70</height>
+               <texture background="true">frames/contentpanel.png</texture>
+			   <animation condition="true" effect="Fade" start="70" end="70" time="0">Conditional</animation>					 
+			  <aspectratio>stretch</aspectratio>			    
+			   <visible>Control.IsVisible(5761)</visible> 			  		   
+			</control>	
+			
+			<visible>Control.IsVisible(5761) + Skin.HasSetting(FullBackgroundIcon5761)</visible>	
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+		</control>
+		<control type="panel" id="5761">		
+			<viewtype label="31113">icon</viewtype>	
+			<include>animation_hoverslide</include>
+			<left>25</left>
+			<top>90</top>
+			<width>1270</width>
+			<height>582</height>
+			<onleft>5761</onleft>
+			<onright>5761</onright>
+			<onup>6000</onup>
+			<ondown>71</ondown>
+			<pagecontrol>71</pagecontrol>
+			<preloaditems>4</preloaditems>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(actors)</visible>
+			<itemlayout width="139" height="194">
+				<include>view_IconPortraitSmallOriginal-ContainerCommons</include>
+			</itemlayout>											
+			<focusedlayout width="139" height="194">
+				<control type="image">
+					<width>129</width>
+					<height>184</height>
+					<include>art_Frame-fo</include>
 				</control>
 				<include>view_IconPortraitSmallOriginal-ContainerCommons</include>
 			</focusedlayout>
 		</control>
 	</include>
+	
+	<include name="detail_ThumbnailSmallOriginalFull">		
+		<control type="group">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<!--large grid-->
+			<control type="group">
+				<visible>Control.IsVisible(5761)</visible>
+				<!--flags-->
+				<control type="image">
+					<right>20</right>
+					<top>675</top>
+					<include>detail_StarRating</include>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>						
+				</control>
+				<control type="image">
+					<right>72</right>
+					<top>665</top>
+					<width>120</width>
+					<height>60</height>
+					<texture colordiffuse="Color11">$VAR[flag_Studio]</texture>
+					<aspectratio align="right" aligny="center">keep</aspectratio>
+					<visible>Content.Container(movies) + SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+				</control>
+				<control type="image">
+				   <right>1168</right>
+					<top>660</top>
+					<width>79</width>
+					<height>55</height>
+					<aspectratio align="left">keep</aspectratio>
+					<texture colordiffuse="Color11">$VAR[flag_Studio]</texture>
+					<visible>Control.IsVisible(5761)</visible>	
+				</control>
+				<control type="group">
+					<left>135</left>
+					<top>670</top>
+					<control type="label">
+					<top>-10</top>
+					<left>45</left>
+						<label>$VAR[global_Title]</label>
+						<width>895</width>
+						<include>detail_Title</include>
+						<visible>Control.IsVisible(5761)</visible>						
+					</control>
+					<control type="image">
+					<left>0</left>
+					<top>0</top>
+						<texture colordiffuse="Color2">$VAR[status_List]</texture>
+						<include>status_List</include>
+						<visible>Control.IsVisible(5761)</visible>	
+					</control>
+					<control type="label">
+					<left>45</left>
+						<top>20</top>
+						<label>$VAR[global_Info]</label>
+						<width>700</width>
+						<include>detail_Sub</include>
+						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+					</control>
+					<control type="label">
+					<left>45</left>
+						<top>20</top>
+						<label>$VAR[global_Info.Addon]</label>
+						<width>450</width>
+						<include>detail_Sub</include>
+						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+					</control>
+				</control>
+			</control>
+		</control>	
+	</include>
+	
+	
 	<include name="detail_ThumbnailsFull">		
 		<control type="group">
 			<include>transition_Content</include>

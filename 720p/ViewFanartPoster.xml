@@ -258,7 +258,7 @@
 					<width>150</width>
 					<height>150</height>
 					<texture background="true">$VAR[Icon_Discart]</texture>
-					<visible>Skin.HasSetting(PosterFanartDiscart.movies.enable)</visible>
+					<visible>Skin.HasSetting(PosterFanartDiscart.movies.enable) + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
 					<visible>Control.IsVisible(59)</visible>
 					<animation type="WindowOpen">
 					<effect type="slide" start="0,0" end="0,20" time="500" delay="500" tween="cubic" easing="out"/>
@@ -314,10 +314,10 @@
 			 <control type="image">
 				  <left>690</left>
 			    <top>80</top>
-			    <width>270</width>
-			    <height>160</height>
+			    <width>220</width>
+			    <height>120</height>
 				<texture background="true">$VAR[logo_clearart]</texture>
-				<aspectratio>stretch</aspectratio>	
+				<aspectratio>keep</aspectratio>	
 				<visible>Skin.HasSetting(LogoFanartPoster) + !Skin.HasSetting(FanartSupp)</visible>
 			</control>			
              <control type="image">
@@ -372,17 +372,17 @@
 				<height>40</height>
 				<aspectratio align="right">keep</aspectratio>
 				<texture>$VAR[flag_VideoType-fo]</texture>				
-			</control>
-			<control type="group">
+			</control>			
 				<control type="label">
 					<left>440</left>
 					<top>500</top>	
 					<label>$VAR[gallery_Header]</label>
-					<width>700</width>
+					<width>800</width>
 					<textcolor>Color1</textcolor>
-					<include>detail_Title</include>
+					<include>detail_Title</include>	
+						<scroll>true</scroll>
 			    </control>
-			</control>
+			
 				<control type="group">                 				
 					<left>435</left>
 					<top>270</top>					
@@ -496,7 +496,103 @@
 				   <height>120</height>
 				  <texture background="true">$VAR[logo_clearart]</texture>
 				   <visible>Control.IsVisible(591) + Skin.HasSetting(LandscapePoster.logo)</visible>
-				</control>				
+				</control>	
+				<control type="group">			
+			 <left>45</left>
+				  <top>455</top>		
+                    <control type="grouplist"> 
+					 <top>30</top>
+                        <width>400</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="320">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20339]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="320">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Director]</label>
+                            <scroll>true</scroll>							
+                        </control>
+                    </control>
+                    <control type="grouplist"> 
+					 <top>60</top>
+                        <width>500</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="320">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20417]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="320">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Writer]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="grouplist"> 
+					 <top>90</top>
+                        <width>500</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="320">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[563]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="320">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Rating]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>                  
+                    <control type="grouplist">
+					 <top>120</top>
+                        <width>450</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="320">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[572]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="320">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Studio]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="grouplist">   
+                     <top>150</top>
+                        <width>450</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="320">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20074]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width>450</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Mpaa]</label>                           
+                            <scroll>true</scroll>
+                            <wrapmultiline>true</wrapmultiline>
+                        </control>
+                    </control>  
+					<visible>Control.IsVisible(591) + !Skin.HasSetting(LandscapePoster.logo)</visible>	
+				 </control> 
 				<!--small Poster -->		
 				<control type="image">
 				   <top>400</top>
@@ -709,7 +805,7 @@
 				  <control type="label">
 						<label>$VAR[global_Title]</label>
 						<left>335</left>
-						<top>45</top>
+						<top>50</top>
 						<width>480</width>
 						<include>detail_Title</include>
 						<animation effect="zoom" start="150" end="150" time="0" condition="true">Conditional</animation>

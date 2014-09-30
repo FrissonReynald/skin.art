@@ -82,7 +82,13 @@
 					<control type="label">
 						<label>$INFO[ListItem.Label]</label>						
 						<width>750</width>
-						<include>detail_Title</include>						
+						<include>detail_Title</include>	
+						<visible>Window.IsActive(pictures)</visible>
+					</control>
+					<control type="label">
+						<label>$VAR[global_Title]</label>						
+						<width>750</width>
+						<include>detail_Title</include>							
 					</control>
 					<control type="label">
 						<left>772</left>
@@ -90,6 +96,23 @@
 						<width>750</width>
 						<include>detail_Title</include>
 						<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
+					<visible>Window.IsActive(pictures)</visible>
+					</control>
+					<control type="label">
+						<left>772</left>
+						<label>$INFO[Container(53).ListItem(1).Label]</label>
+						<width>750</width>
+						<include>detail_Title</include>
+						<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
+					<visible>!Skin.HasSetting(titleoriginal)</visible>
+					</control>
+					<control type="label">
+						<left>772</left>
+						<label>$INFO[Container(53).ListItem(1).OriginalTitle]</label>
+						<width>750</width>
+						<include>detail_Title</include>
+						<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
+					<visible>Skin.HasSetting(titleoriginal)</visible>
 					</control>
 				</control>
 			</control>
@@ -145,7 +168,7 @@
 							<top>300</top>
 							<width>289</width>
 							<height>112</height>
-							<include>art_ClearLogo</include>							
+							<include>art_ClearLogo</include>						
 						</control>
 						<control type="group">
 							<left>724</left>
@@ -203,7 +226,7 @@
 							<width>289</width>
 							<height>112</height>
 							<include>art_ClearLogo</include>
-							<animation effect="zoom" start="100" end="173" time="200" center="352,205" tween="Cubic" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)">Conditional</animation>
+							<visible>!Control.HasFocus(8000) + !IsEmpty(ListItem.Title)</visible>
 						</control>
 						<control type="group">
 							<left>724</left>
@@ -235,7 +258,7 @@
 				<height>442</height>
 				<aspectratio align="center">stretch</aspectratio>
 				<texture>frames/frame_Landscape-fo.png</texture>
-				 <colordiffuse>accent_5</colordiffuse>	
+				 <colordiffuse>black</colordiffuse>	
 				<animation type="Conditional" condition="Control.HasFocus(8000) + !IsEmpty(ListItem.Title)" reversible="true">
 					<effect type="zoom" time="200" center="640,330" start="100"  end="173" tween="Cubic" />
 					<effect type="Fade" time="200" start="100" end="0" tween="Cubic" />
@@ -413,10 +436,10 @@
 			<width>96</width>
 			<height>96</height>
 			<include>art_DefaultIcon</include>
-		</control>
+		</control>	
 	</include>
 	<include name="view_GalleryFullAlt">	
-		<control type="wraplist" id="532">		
+		<control type="wraplist" id="532">			
 			<viewtype label="$LOCALIZE[31111]">biginfo</viewtype>
 			<include>screen_Dimensions</include>
 			<onleft>532</onleft>
@@ -647,14 +670,25 @@
 		</control>
 		<control type="group">
 		<control type="image">
+		<animation effect="slide" start="0,0" end="-990,0" condition="!Skin.HasSetting(galleryInfo1.enable)">Conditional</animation>
 			<right>15</right>
 			<top>-500</top>
 			<width>256</width>
 			<height>99</height>
 			<aspectratio align="right" aligny="top">keep</aspectratio>
-			<include>art_ClearLogo</include>			
+			<texture>$VAR[Icon_ClearLogo]</texture>	
+			<visible>Skin.HasSetting(logogallery.disable) + !Skin.HasSetting(clearartthumb.disable)</visible>
 		</control>
-		<visible>Skin.HasSetting(logogallery.disable)</visible>
+		<control type="image">
+		<animation effect="slide" start="0,0" end="-990,0" condition="!Skin.HasSetting(galleryInfo1.enable)">Conditional</animation>
+			<right>15</right>
+			<top>-500</top>
+			<width>256</width>
+			<height>99</height>
+			<aspectratio align="right" aligny="top">keep</aspectratio>
+			<texture>$VAR[Icon_ClearArt]</texture>	
+			<visible>Skin.HasSetting(logogallery.disable) + Skin.HasSetting(clearartthumb.disable)</visible>
+		</control>		
 		</control>
 		<control type="group">	
 				<top>-430</top>
@@ -708,4 +742,365 @@
 			</control>
 		</control>
 	</include>
+	<!--fullscreen 3 layout-->
+	<include name="view_GalleryFullLogo-Commons">
+		 <control type="image">
+		<include>global_Scrolltime</include>
+			<texture background="true">view/frame-nf.png</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>			
+			<visible>Control.IsVisible(534)</visible>	
+		</control>
+	</include>
+	<include name="view_GalleryFullLogo">	
+	 <control type="group">
+				<include>global_Scrolltime</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+			<visible>Control.IsVisible(534)</visible>	
+		</control>	
+			 <control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[thumb_Landscape]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>			
+			<visible>Control.IsVisible(534)</visible>	
+		</control>
+		<control type="group">	
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					</control>					
+				<visible>Control.IsVisible(534) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>
+			<control type="image">
+			<centerleft>640</centerleft>
+			<centertop>360</centertop>
+			<width>96</width>
+			<height>96</height>
+			<include>art_DefaultIcon</include>
+			<visible>Control.IsVisible(534)</visible>	
+		</control>
+		 <control type="label" id="9900">
+			<left>34</left>
+			<top>14</top>
+			<width>950</width>
+			<aligny>center</aligny>
+			<font>light_Window</font>
+			<textcolor>Color1</textcolor>
+			<label>[B]$INFO[ListItem.SortLetter][/B]</label>			
+			<include>toggle_Menu</include>
+			<visible>Control.IsVisible(534) + Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
+			</control>
+				</control>	
+		<control type="wraplist" id="534">			
+			<viewtype label="$LOCALIZE[31111]">biginfo</viewtype>
+			<include>screen_Dimensions</include>
+			<onleft>534</onleft>
+			<onright>534</onright>
+			<onup>6000</onup>
+			<ondown condition="!Window.IsVisible(534) + Skin.HasSetting(DownPanel)">8000</ondown>
+			<ondown>71</ondown>
+			<preloaditems>2</preloaditems>
+			<pagecontrol>71</pagecontrol>
+			<include>toggle_Menu</include>
+			<include>global_Scrolltime</include>
+			<orientation>horizontal</orientation>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				<itemlayout height="screen_Height" width="screen_Width">
+				<include>view_GalleryFullLogo-Commons</include>			</itemlayout>
+			<focusedlayout height="screen_Height" width="screen_Width">			
+				<include>view_GalleryFullLogo-Commons</include>				
+				<include>PanelFocus</include>				
+			</focusedlayout>	
+		</control>
+		<control type="group">
+			<include>toggle_Menu</include>			
+			<include>transition_Info</include>
+			<include>transition_Content</include>
+			<include>fadeinout</include>
+			<visible>[[Control.IsVisible(534)] + !IsEmpty(ListItem.Title)</visible>				
+				<control type="group">
+				<control type="image">
+				<left>-40</left>
+				<bottom>0</bottom>
+				<width>1920</width>
+				<height>200</height>
+				<aspectratio align="center">stretch</aspectratio>
+				<texture border="5">coverflow/coverflow_frame.png</texture>
+				<colordiffuse>base_2</colordiffuse>			
+			<animation condition="true" effect="Fade" start="95" end="95" time="0">Conditional</animation>					 
+			</control>			
+			      </control>
+				 <control type="image">
+					<left>488</left>
+					<bottom>40</bottom>
+					<width>300</width>
+					<height>120</height>
+					<aspectratio scalediffuse="true" align="center" aligny="bottom">keep</aspectratio>
+					<include>art_ClearLogo</include>
+					<visible>Control.IsVisible(534) + !skin.HasSetting(GalleryLogo)</visible>
+				</control> 
+				<control type="label">	
+						<left>15%</left>
+						<bottom>60</bottom>
+						<width>900</width>
+						<align>center</align>
+							<aligny>center</aligny>		
+							<include>autoscroll_Line</include>
+							<label>$VAR[global_Title]</label>	
+							<include>detail_Title_Huge</include>
+							<visible>Control.IsVisible(534) + skin.HasSetting(GalleryLogo)</visible>
+							</control>
+				<control type="fadelabel">	
+				<left>280</left>
+					<bottom>12</bottom>
+					<visible>true</visible>
+					<scroll>false</scroll>
+					<scrollout>false</scrollout>
+					<pauseatend>5123</pauseatend>
+					<align>center</align>
+					<aligny>center</aligny>
+						<label>$VAR[gallery_Header]</label>
+						<label>$INFO[ListItem.Genre]</label>
+						<label>$LOCALIZE[20339]:$INFO[ListItem.Director,  ,]</label>				   
+						<width>720</width>
+						<textcolor>Color3</textcolor>
+						<include>detail_Title</include>						
+						 <visible>Container.Content(movies)</visible>
+					</control>
+				<control type="fadelabel">	
+					<left>240</left>
+					<bottom>12</bottom>
+					<visible>true</visible>
+					<scroll>false</scroll>
+					<scrollout>false</scrollout>
+					<pauseatend>5123</pauseatend>
+					<align>center</align>
+					<aligny>center</aligny>
+					<label>$INFO[ListItem.Genre]</label>
+					<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[global_EpisodeCount]$VAR[nextaired_Info, • ]</label>				   
+					<width min="700" max="800">auto</width>
+					<textcolor>Color3</textcolor>
+					<include>detail_Title</include>						
+					 <visible>Container.Content(tvshows)</visible>
+					</control>
+					<control type="grouplist" id="100">
+			<visible>Control.IsVisible(534)</visible>	
+				<left>35</left>
+				<bottom>15</bottom>
+				<width>900</width>
+				<height>55</height>
+				<itemgap>25</itemgap>
+				<orientation>horizontal</orientation>
+				<control type="image">
+					<width>96</width>
+					<height>64</height>
+					<texture colordiffuse="Color11">$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+					<width>96</width>
+					<height>64</height>
+					<texture colordiffuse="Color11">$INFO[ListItem.VideoResolution,flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)] + !IsEmpty(Listitem.VideoResolution)</visible>
+				</control>
+				</control>
+					<control type="grouplist" id="100">
+			<visible>Control.IsVisible(534)</visible>	
+				<left>1055</left>
+				<bottom>15</bottom>
+				<width>900</width>
+				<height>55</height>
+				<itemgap>25</itemgap>
+				<orientation>horizontal</orientation>
+				<control type="image">
+					<width>96</width>
+					<height>64</height>
+					<texture colordiffuse="Color11">$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>				
+			</control>
+					<control type="image">	
+					<top>660</top>
+					<left>1170</left>
+				<width>96</width>
+				<height>44</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[Listitem.AudioChannels,flags/audio/,.png]</texture>
+				<visible>!IsEmpty(Listitem.AudioChannels)</visible>
+				</control>
+		</control>		
+	</include>
+	<include name="PanelFocus">
+		<control type="group">
+		<include>Panel_Gallery</include>		
+		<visible>!Control.HasFocus(8000)</visible>
+		<control type="group">
+		<include>toggle_Menu</include>			
+			<include>transition_Info</include>
+			<include>transition_Content</include>
+			<include>fadeinout</include>
+			<visible>[[Control.IsVisible(534)] + !IsEmpty(ListItem.Title)</visible>
+		<left>90</left>
+		<top>100</top>
+		 <control type="image">			 
+			    <visible>!StringCompare(ListItem.Label,..)</visible>
+				<top>-15</top>
+				<left>-15</left>
+				    <width>1120</width>
+				     <height>330</height>				
+                    <texture background="true"border="30">frames/contentpanel.png</texture>
+					<aspectratio>stretch</aspectratio>	
+					 <animation condition="true" effect="Fade" start="70" end="70" time="0">Conditional</animation>					 
+					<visible>Control.IsVisible(534)</visible>
+					   </control>
+			<control type="image">
+							<width>532</width>
+							<height>295</height>
+							<texture background="true">$VAR[thumb_Landscape]</texture>
+							<fadetime>fadetime_Thumb</fadetime>
+							<aspectratio align="center" aligny="top">scale</aspectratio>
+							<visible>Control.IsVisible(534)  + !Skin.HasSetting(ExtraThumbs) + !Skin.HasSetting(GalleryPoster)</visible>
+						</control>				   
+		<control type="image">
+							<width>532</width>
+							<height>295</height>
+							<texture background="true">$VAR[view_Extra.Thumb2]</texture>
+							<fadetime>fadetime_Thumb</fadetime>
+							<aspectratio align="center" aligny="top">scale</aspectratio>
+							<visible>Control.IsVisible(534) + Skin.HasSetting(ExtraThumbs) + !Skin.HasSetting(GalleryPoster)</visible>
+						</control>	
+							  <control type="image">
+					 <left>50</left>
+					 <top>50</top>
+					<width>180</width>
+					<height>180</height>
+					<texture background="true">$VAR[Icon_Discart]</texture>
+					<visible>Skin.HasSetting(ListDiscart.movies.enable)</visible>					
+					 <animation effect="slide" delay="1600" end="100,0" time="300" tween="quadratic">Focus</animation>
+                        <animation effect="slide" start="100,0" end="0" time="150" tween="quadratic" easing="in">Unfocus</animation>
+                        <animation effect="zoom" start="70" end="100" center="auto" time="160" condition="Control.HasFocus(534)">Conditional</animation>
+					<visible>Control.IsVisible(534) + Skin.HasSetting(GalleryPoster)</visible>
+				  </control>
+					  <control type="image">
+			       <left>10</left>
+					<width>215</width>
+					<height>300</height>
+					<texture background="true">$VAR[thumb_Portrait]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+						<visible>Control.IsVisible(534) + Skin.HasSetting(GalleryPoster)</visible>
+				</control>	
+		<control type="textbox">
+		<left>560</left>
+					<width>530</width>
+					<align>justify</align>
+					<height max="190">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(534) + !Skin.HasSetting(GalleryPoster)</visible>
+				</control>
+			<control type="textbox">
+		<left>410</left>
+					<width>645</width>
+					<align>justify</align>
+					<height max="190">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(534)</visible>
+				<visible>Control.IsVisible(534) + Skin.HasSetting(GalleryPoster)</visible>
+				</control>	
+			</control>	
+			<control type="group">
+			<animation effect="slide" start="0,0" end="-150,0" condition="Skin.HasSetting(GalleryPoster)">Conditional</animation>
+			<include>toggle_Menu</include>			
+			<include>transition_Info</include>
+			<include>transition_Content</include>
+			<include>fadeinout</include>
+			<visible>[[Control.IsVisible(534)] + !IsEmpty(ListItem.Title)</visible>
+			 <left>650</left>
+				  <top>220</top>
+                    <control type="grouplist"> 					
+					 <top>85</top>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">						
+                            <width>400</width>
+							<top>2</top>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[563, ,] :</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="fadelabel">						
+						<animation effect="slide" start="0,0" end="-325,0" condition="Skin.HasSetting(GalleryPoster)">Conditional</animation>
+                        <animation effect="slide" start="0,0" end="-325,0" condition="!Skin.HasSetting(GalleryPoster)">Conditional</animation>
+						 <width min="50" max="450">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Rating]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>                  
+                    <control type="grouplist">
+					 <top>120</top>                       
+                        <orientation>horizontal</orientation>
+                        <itemgap>15</itemgap>
+                        <control type="label">
+                            <width>400</width>
+							<top>1</top>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[572, ,] :</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="fadelabel">
+						<animation effect="slide" start="0,0" end="-325,0" condition="Skin.HasSetting(GalleryPoster)">Conditional</animation>
+                        <animation effect="slide" start="0,0" end="-325,0" condition="!Skin.HasSetting(GalleryPoster)">Conditional</animation>
+                        <aligny>bottom</aligny>
+                        <label fallback="N/A">$INFO[ListItem.Studio]</label>
+                        <width>700</width>
+                        </control>
+                    </control>
+                    <control type="grouplist">   
+                     <top>155</top>
+                        <width>700</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>38</itemgap>
+                        <control type="label">
+						<top>2</top>
+                            <width min="50" max="400">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20074, ,] :</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="fadelabel">
+						<animation effect="slide" start="0,0" end="-325,0" condition="Skin.HasSetting(GalleryPoster)">Conditional</animation>
+                        <animation effect="slide" start="0,0" end="-325,0" condition="!Skin.HasSetting(GalleryPoster)">Conditional</animation>
+                           <width>700</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Mpaa]</label>                           
+                            <scroll>true</scroll>
+                            <wrapmultiline>true</wrapmultiline>
+                        </control>
+                    </control>
+					<visible>Control.IsVisible(534)</visible>
+				 </control>
+				 <visible>Skin.HasSetting(GalleryFullLogoInfo1)</visible>
+			 </control>			
+			 </include>
 </includes>

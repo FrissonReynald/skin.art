@@ -178,6 +178,12 @@
 						<enable>StringCompare(Skin.String(homemenu.type),vertical) | StringCompare(Skin.String(homemenu.type),horizontal)</enable>
 					    <include>settings_Radiobutton</include>
 				   </control>
+				    <control type="radiobutton" id="1060">
+					    <label>Enable CAPS Home Menu </label>
+					    <onclick>Skin.ToggleSetting(nocapsHome)</onclick>					   
+					    <selected>Skin.HasSetting(nocapsHome)</selected>
+						  <include>settings_Radiobutton</include>
+				   </control>
 					<!--widgets-->
 					<control type="radiobutton" id="107">
 						<label>$LOCALIZE[31211]</label>
@@ -728,11 +734,11 @@
 					<pagecontrol>70</pagecontrol>
 					<visible>Skin.String(SkinSettings,BackgroundOpacity)</visible>			
 			     <!--global fanart-->
-			        <control type="button" id="602">
+			        <control type="label" id="602">
 			            <label>[UPPERCASE]Choose combinations.Buttons enable or disable different backgrounds that create colors.( Refocus / Refocus Big or Conq )[/UPPERCASE]</label>
 						<onclick>noop</onclick>
 						<textcolor>Color2</textcolor>
-						<include>settings_Listbutton</include>
+						 <include>settings_Radiobutton</include>
 					</control>		
 					<control type="radiobutton" id="603">
 						<label>$LOCALIZE[31230]</label>
@@ -759,11 +765,79 @@
 					    <onclick>Skin.ToggleSetting(overlaysrefocus)</onclick>					    
 					    <selected>!Skin.HasSetting(overlaysglass)</selected>
 					    <include>settings_Radiobutton</include>
-				   </control>				  
-				  </control>				
-				
-							
-				
+				   </control>
+				   <!--><control type="radiobutton" id="612">
+					    <label>Base Color on Full Background</label>
+						<onclick>Skin.ToggleSetting(base_colorFull)</onclick>					    			    
+					    <selected>Skin.HasSetting(base_colorFull)</selected>
+					    <include>settings_Radiobutton</include>
+				   </control><!-->				   
+				  </control>
+			<!--Views-->		  
+			<control type="grouplist" id="700">
+					<width>850</width>
+					<height>598</height>
+					<onleft>9001</onleft>
+					<onright>70</onright>
+					<onup>700</onup>
+					<ondown>700</ondown>
+					<itemgap>2</itemgap>
+					<pagecontrol>70</pagecontrol>
+					<visible>Skin.String(SkinSettings,Viewsdisplays)</visible>
+					 <control type="label" id="701">
+			            <label>-- OPTIONS WIDGETS --</label>
+						<onclick>noop</onclick>
+						 <font>normal</font>
+						<textcolor>Color1</textcolor>
+						<include>settings_Radiobutton</include>
+					</control>	
+					 <control type="radiobutton" id="702">
+					    <label>Disable Poster Widget</label>
+						<onclick>Skin.ToggleSetting(PosterWidget)</onclick>					   				    
+					    <selected>Skin.HasSetting(PosterWidget)</selected>
+						
+					    <include>settings_Radiobutton</include>
+				   </control>
+				    <control type="radiobutton" id="704">
+					    <label>Disable Discart Widget</label>
+						<onclick>Skin.ToggleSetting(DiscartWidget)</onclick>					   				    
+					    <selected>Skin.HasSetting(DiscartWidget)</selected>
+						<enable>!Skin.HasSetting(PosterWidget)</enable>
+					    <include>settings_Radiobutton</include>
+				   </control>
+				<control type="radiobutton" id="705">
+					    <label>Disable Logo Widget</label>
+						<onclick>Skin.ToggleSetting(LogoWidget)</onclick>					   				    
+					    <selected>Skin.HasSetting(LogoWidget)</selected>						
+					    <include>settings_Radiobutton</include>
+				   </control>					  				   
+				   <control type="radiobutton" id="709">
+					    <label>Disable Plot  Widget</label>
+						<onclick>Skin.ToggleSetting(noText)</onclick>					   				    
+					    <selected>Skin.HasSetting(noText)</selected>
+					    <include>settings_Radiobutton</include>
+				   </control>
+				   <control type="radiobutton" id="710">
+					    <label>Enable Flag For Movies Widgets</label>
+						<onclick>Skin.ToggleSetting(flag)</onclick>					   				    
+					    <selected>Skin.HasSetting(flag)</selected>						
+					    <include>settings_Radiobutton</include>
+				   </control>
+				   
+				   <control type="Label" id="720">
+			            <label>-- OPTIONS VIEWS --</label>
+						<onclick>noop</onclick>
+						 <font>normal</font>
+						<textcolor>Color1</textcolor>
+						<include>settings_Radiobutton</include>
+					</control>	
+				    <control type="radiobutton" id="721">
+					    <label>Disable Animation Focus Banner</label>
+						<onclick>Skin.ToggleSetting(Focus_Banner)</onclick>					   				    
+					    <selected>Skin.HasSetting(Focus_Banner)</selected>
+					    <include>settings_Radiobutton</include>
+				   </control>
+			 </control>		
 			<!--SKIN CREDITS-->			
 				<control type="grouplist" id="800">
 					<width>850</width>
@@ -793,7 +867,7 @@
 						<include>settings_Listbutton</include>
 					</control>
 					<control type="button" id="804">
-						<label>Reynald ( Update ART 1.0.0 Gotham 13.x )</label>
+						<label>Reynald ( Update ART 1.1.0 Gotham 13.x )</label>
 						<onclick>noop</onclick> 
 						<include>settings_Listbutton</include>
 					</control>					

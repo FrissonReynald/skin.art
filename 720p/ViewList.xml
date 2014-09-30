@@ -1,7 +1,52 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="view_List">
-	
+	<control type="group">
+				<include>global_ListScroll</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+			<visible>Control.IsVisible(50)</visible>
+		</control>
+			 <control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>Control.IsVisible(50)</visible>	
+		</control>
+		<control type="group">	
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					<visible>!Container.Content(sets)</visible>
+					</control>					
+				<visible>Control.IsVisible(50) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>
+			<visible>Control.IsVisible(50) + Skin.HasSetting(FullBackgroundList)</visible>	
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+		</control>
+		<!--** ** ** **  Background Color for all views ** ** ** **-->
+		<control type="image">
+			<aspectratio>scale</aspectratio>
+			<include>screen_Dimensions</include>
+			<texture background="true">overlays/base_color.png</texture>
+			<animation effect="fade" start="100" end="70" condition="Skin.HasSetting(base_color.40opacity.enable)">Conditional</animation>
+			<colordiffuse>base_1</colordiffuse> 
+			<visible>Control.IsVisible(50) + Skin.HasSetting(base_colorFull)</visible>
+			</control>
 			<control type="image">
 	<include>toggle_Menu</include>
 			<include>transition_Info</include>
@@ -11,9 +56,10 @@
 			<width>610</width>
 			<height>627</height>
 			<texture background="true">frames/contentpanel.png</texture>
-			  <animation condition="true" effect="Fade" start="50" end="85" time="0">Conditional</animation>					 
+			  <animation condition="true" effect="Fade" start="50" end="55" time="0">Conditional</animation>					 
 				<visible>Control.IsVisible(50)</visible>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(addons)</visible>
+		<visible>!IsEmpty(ListItem.Thumb)</visible>
 		</control>
 	<control type="image">
 	<include>toggle_Menu</include>
@@ -24,7 +70,7 @@
 			<width>640</width>
 			<height>625</height>
 			<texture background="true">frames/contentpanel.png</texture>
-			  <animation condition="true" effect="Fade" start="80" end="55" time="0">Conditional</animation>					 
+			  <animation condition="true" effect="Fade" start="80" end="40" time="0">Conditional</animation>					 
 				<visible>Control.IsVisible(50)</visible>
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(addons)</visible>
 		
@@ -83,7 +129,7 @@
 			<width>620</width>
 						<height>60</height>
 			<texture background="true">frames/contentpanel.png</texture>
-			  <animation condition="true" effect="Fade" start="25" end="25" time="0">Conditional</animation>					 
+			  <animation condition="true" effect="Fade" start="50" end="50" time="0">Conditional</animation>					 
 				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets) | Container.Content(albums) | Container.Content(songs) | Container.Content(artists) | Container.Content(addons)</visible>
 		
 				</control>
@@ -161,6 +207,43 @@
 		</control>
 	</include>
 	<include name="view_ListSmall">	
+	<control type="group">
+				<include>global_ListScroll</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+			<visible>Control.IsVisible(67)</visible>
+		</control>
+			 <control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>Control.IsVisible(67)</visible>	
+		</control>
+		<control type="group">	
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					<visible>!Container.Content(sets)</visible>
+					</control>					
+				<visible>Control.IsVisible(67) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>
+			<visible>Control.IsVisible(67) + Skin.HasSetting(FullBackgroundListSmall)</visible>	
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+		</control>
 	<control type="image">
 	<include>toggle_Menu</include>
 			<include>transition_Info</include>
@@ -171,7 +254,7 @@
 			<height>635</height>
 			<texture background="true">frames/contentpanel.png</texture>
 			  <animation condition="true" effect="Fade" start="80" end="80" time="0">Conditional</animation>					 
-				<visible>Control.IsVisible(67)</visible>
+				<visible>Control.IsVisible(67)</visible>				
 			</control>
 				<control type="image">
 	<include>toggle_Menu</include>
@@ -180,10 +263,11 @@
 	         <left>652</left>
 		    <top>78</top>
 			<width>610</width>
-			<height>630</height>
+			<height>635</height>
 			<texture background="true">frames/contentpanel.png</texture>
 			  <animation condition="true" effect="Fade" start="50" end="50" time="0">Conditional</animation>					 
 				<visible>Control.IsVisible(67)</visible>
+				<visible>!IsEmpty(ListItem.Thumb)</visible>
 			</control>	
 		<control type="list" id="67">		
 			<viewtype label="$LOCALIZE[535] Small">list</viewtype> 	
@@ -194,8 +278,8 @@
 			<onup>67</onup>
 			<ondown>67</ondown>
 			<onleft>6000</onleft>
-			<onright condition="!Window.IsActive(videoplaylist) | [Window.IsActive(videoplaylist) + !Player.HasVideo]">70</onright>
-			<onright condition="Window.IsActive(videoplaylist) + Player.HasVideo">99</onright>
+			<onright condition="!Window.IsVisible(67)">8000</onright>
+			<onright condition="Window.IsVisible(67)">70</onright>
 			<pagecontrol>70</pagecontrol>
 			<preloaditems>2</preloaditems>
 			<include>toggle_Menu</include>
@@ -401,6 +485,44 @@
 	</include>
 <!--BIG LIST-->
 	<include name="view_BigList">
+	<control type="group">
+				<include>global_ListScroll</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>	
+			<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+			<visible>Control.IsVisible(51)</visible>
+		</control>
+			 <control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>Control.IsVisible(51)</visible>	
+		</control>
+		<control type="group">	
+				<control type="multiimage">	
+				 <fadetime>fadetime_Fanart</fadetime>
+				<include>screen_Dimensions</include>
+				<include>fadeinout</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>7000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					<visible>!Container.Content(sets)</visible>
+					</control>					
+				<visible>Control.IsVisible(1) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>
+			<visible>Control.IsVisible(51) + Skin.HasSetting(FullBackgroundBigList)</visible>	
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+		</control>		
+		
 		<control type="group">
 			<include>transition_Content</include>
 			<include>transition_Info</include>

@@ -73,9 +73,10 @@
 		</animation>
 	</include>
 	<include name="focus_slimBanner">
-	<animation type="Focus" reversible="false">
+	<animation type="Focus" reversible="false" condition="!Skin.HasSetting(Focus_Banner)">
 <effect type="zoom" center="180,50" start="80" end="100" time="250" tween="Cubic" easing="out" />
 <effect type="fade" start="0" end="100" time="250" />
+
 </animation>
 	</include>
 	<include name="focus_SlideWide">
@@ -330,4 +331,14 @@
 			<effect type="fade" start="100" end="0" time="250" tween="Quadratic" easing="Out" />
 		</animation>
 	</include>
+	<include name="Panel_Gallery">
+	 <animation effect="slide" start="0,-500" end="0" delay="1500"  time="1200" easing="inout" tween="cubic">Focus</animation>
+     <animation effect="slide" start="0,0" end="0,300" delay="1500"  time="900" easing="inout" tween="cubic">Unfocus</animation>
+                        <animation effect="fade" start="0" end="100" time="300" tween="Quadratic" easing="Out" condition="Control.HasFocus(534)">Conditional</animation>
+        </include>
+		<include name="Panel_Strip">
+	 <animation effect="slide" start="0,0" end="0,-350" delay="2000"  time="700" easing="inout" tween="cubic">Focus</animation>
+                         <animation effect="fade" start="0" end="100" time="450" tween="Quadratic" easing="Out" condition="Control.HasFocus(534)">Conditional</animation>
+        </include>
+			 
 </includes>

@@ -97,7 +97,14 @@
 			<width>275</width>
 			<height min="40" max="720">auto</height>
 			<itemgap>0</itemgap>		
-			
+			<control type="radiobutton" id="151">					
+                        <label>Full Background</label>
+						<width>260</width>	
+		               <onclick>Skin.ToggleSetting(FullBackgroundFanartList)</onclick>
+		                <selected>Skin.HasSetting(FullBackgroundFanartList)</selected>					
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+						  </control>
 				<control type="radiobutton" id="152">					
                         <label>Discart</label>
 						<width>260</width>	
@@ -113,16 +120,8 @@
 		                <selected>Skin.HasSetting(FanartListLogo.movies.enable)</selected>
 						<include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
-					  </control>	  
-				<control type="radiobutton" id="154">					
-                        <label>Flag</label>
-						<width>260</width>	
-		                <onclick>Skin.ToggleSetting(FanartListFlag.enable)</onclick>
-		                <selected>Skin.HasSetting(FanartListFlag.enable)</selected>
-						<include>menu_Button2</include>
-					<include>menu_RadioButton2</include>
-					<visible>Control.IsVisible(611)</visible>
-					  </control>	
+					  </control>	 
+					
                 <control type="radiobutton" id="155">
 	                <label>Info 1</label>
 					<width>260</width>	

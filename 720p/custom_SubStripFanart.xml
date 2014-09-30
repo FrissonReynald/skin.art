@@ -121,6 +121,14 @@
 							<include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
 		            </control>
+					<control type="radiobutton" id="157">					
+                        <label>Extra Thumbs</label>
+						<width>260</width>	
+		                <onclick>Skin.ToggleSetting(StripFanartExtraThumb)</onclick>
+		                <selected>Skin.HasSetting(StripFanartExtraThumb)</selected>
+							<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+		            </control>
 				
 		</control>
 	</controls>

@@ -2,7 +2,7 @@
 <window>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
-	<views>50,51,511,512,52,521,522,525,526,527,53,531,532,534,535,54,541,542,543,544,57,571,572,573,574,575,576,577,578,579,581,59,591,592,593,594,595,596,597,60,61,611,62,621,622,623,63,631,67,69,691,692,693,694,695</views>
+	<views>50,51,511,512,52,521,522,525,526,527,53,531,532,534,535,54,541,542,543,544,57,571,572,573,574,575,576,5761,577,578,579,581,59,591,592,593,594,595,596,597,60,61,611,612,62,621,622,623,63,631,67,69,691,692,693,694,695</views>
 	<onload condition="System.HasAddon(script.tv.show.next.aired) + !Skin.HasSetting(nextaired.disable)">XBMC.RunScript(script.tv.show.next.aired,backend=True)</onload>
 	<onload condition="System.HasAddon(script.tvtunes) + Skin.HasSetting(tvtunes.enable)">XBMC.RunScript(script.tvtunes,backend=True)</onload>
 	<onload condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,backend)</onload> 
@@ -35,7 +35,8 @@
 		<include>View_Showcase</include><!--527-->
 		<include>view_Gallery</include><!--53-->
 		<include>view_GalleryFull</include><!--531-->
-		<include>view_GalleryFullAlt</include><!--532-->	
+		<include>view_GalleryFullAlt</include><!--532-->
+		<include>view_GalleryFullLogo</include><!--534--(Handbone)-->
 		<include>view_Banner</include><!--54-->
 		<include>view_BigBanner</include><!--541-->	
 		<include>view_SmallBanner</include><!--541-->
@@ -46,7 +47,8 @@
 		<include>view_IconPortraitSmallAlt</include><!--573-->	
 		<include>view_IconSquareSmall</include><!--574-->
 		<include>view_IconWide</include><!--575-->
-		<include>view_IconPortraitSmallOriginal</include><!--576-->		
+		<include>view_IconPortraitSmallOriginal</include><!--576-->	
+		<include>view_IconPortraitSmallOriginalFull</include><!--5761-->	
 		<include>view_IconWideSmall</include><!--577-->	
 		<include>view_IconPortraitFull</include><!--578-->		
 		<include>view_Icon2PortraitSmall</include><!--581(strip)-->		
@@ -75,7 +77,8 @@
 		<include>viewTriPanel_Art</include><!--694-->
 		<include>viewPanelLandscapeList_Poster_Art</include><!--695-->
 		<include>viewPoster_Handbone</include><!--535-->
-		<include>view_FanartList_Handbone</include><!--535-->
+		<include>view_FanartList_Handbone</include><!--611-->
+		<include>view_Poster_ListRight</include><!--612-->
 	<!--detail includes-->
 		<include>detail_ListMusic</include>
 		<include>detail_BigList2</include>
@@ -103,6 +106,7 @@
 		<include>detail_Episode</include>
 		<include>detail_EpisodeLandscape</include>		
 		<include>detail_ThumbnailsSmall</include>
+		<include>detail_ThumbnailSmallOriginalFull</include>
 		<include>detail_MovieSet</include>
 		<include>detail_PanelTextbox</include>		
 		<include>detail_Panel_Art</include>
@@ -111,6 +115,7 @@
 		<include>detail_PanelLandscapeList_Poster_Art</include>
 		<include>detail_PanelStrip</include>
 		<include>detail_Poster_Handbone</include>
+		<include>detail_Poster_ListRight</include>
 		<include>detail_FanartList_Handbone</include>		
 	
 	<!--list (50)-->
@@ -197,17 +202,7 @@
 				<control type="group">
 						<left>-80</left>
 						<top>7</top>
-						<control type="image">	
-						    <left>-15</left>
-						    <top>8</top>
-							<width>431</width>
-							<height>634</height>
-							<texture>frames/frame-landscape-back-alt.png</texture>
-							<animation type="Conditional" condition="!Skin.HasSetting(ListDiscart.movies.enable)" reversible="false">
-				<effect type="Slide"  center="auto" start="0,0" end="80,0" easing="Out" tween="Cubic"/>
-			</animation>	
-			<visible>Control.IsVisible(50)</visible>
-							</control>
+					
 							  <control type="image">
 					<left>300</left>
 					<top>200</top>
@@ -221,34 +216,14 @@
 					<effect type="slide" start="-50,0" end="0,0" time="980" delay="750" tween="sine" easing="out"/>
 					</animation>
 				  </control>
-						<control type="image">	
-							<width>406</width>
-							<height>600</height>
-							<texture background="true">thumbs/default_Portrait.png</texture>
-							<aspectratio>stretch</aspectratio>
-							<fadetime>fadetime_Thumb</fadetime>
-							<animation type="Conditional" condition="!Skin.HasSetting(ListDiscart.movies.enable)" reversible="false">
-				<effect type="Slide"  center="auto" start="0,0" end="80,0" easing="Out" tween="Cubic"/>
-			</animation>	
-			<visible>Control.IsVisible(50)</visible>
-						</control>
+					
+					
 						<control type="image">
-							<left>139</left>
-							<top>236</top>
-							<width>128</width>
-							<height>128</height>
-							<include>art_DefaultIcon</include>
-							<fadetime>fadetime_Thumb</fadetime>
-							<animation type="Conditional" condition="!Skin.HasSetting(ListDiscart.movies.enable)" reversible="false">
-				<effect type="Slide"  center="auto" start="0,0" end="80,0" easing="Out" tween="Cubic"/>
-			</animation>	
-						<visible>Control.IsVisible(50)</visible>
-						</control>
-						<control type="image">
-							<width>406</width>
+							<top>4</top>
+							<width>425</width>
 							<height>600</height>
 							<texture background="true">$VAR[thumb_Portrait]</texture>
-							<aspectratio align="center" aligny="center">scale</aspectratio>
+							<aspectratio align="center" aligny="center">stretch</aspectratio>
 							<fadetime>fadetime_Thumb</fadetime>
 							<animation type="Conditional" condition="!Skin.HasSetting(ListDiscart.movies.enable)" reversible="false">
 				<effect type="Slide"  center="auto" start="0,0" end="80,0" easing="Out" tween="Cubic"/>
@@ -462,11 +437,11 @@
 			<!--portrait-->
 			<control type="grouplist" id="100">
 			<visible>Control.IsVisible(67)</visible>	
-				<left>-50</left>
+				<left>-70</left>
 				<bottom>20</bottom>
 				<width>900</width>
 				<height>64</height>
-				<itemgap>13</itemgap>
+				<itemgap>25</itemgap>
 				<orientation>horizontal</orientation>
 				<control type="image">
 				<width>96</width>
@@ -519,19 +494,64 @@
 				<control type="group">
 						<left>-80</left>
 						<top>7</top>
-						<control type="image">	
-						    <left>-15</left>
-						    <top>8</top>
-							<width>431</width>
-							<height>634</height>
-							<texture>frames/frame-landscape-back-alt.png</texture>
-							<animation type="Conditional" condition="!Skin.HasSetting(ListSmallDiscart.movies.enable)" reversible="false">
-				<effect type="Slide"  center="auto" start="0,0" end="80,0" easing="Out" tween="Cubic"/>
-			</animation>	
-							</control>
+					 
+				<control type="textbox">
+				  <top>5</top>									
+				<left>20</left>
+				<width>550</width>
+				<align>justify</align>
+				<height max="265">auto</height>
+				<label>$VAR[global_Plot]</label>
+				<include>detail_Text</include>
+				<aspectratio>stretch</aspectratio>			     
+           <visible>Control.HasFocus(8000)</visible>
+				</control> 
+				
+			<control type="grouplist" id="100">
+				<left>25</left>
+				<bottom>190</bottom>
+				<width>900</width>
+				<height>150</height>
+				<itemgap>15</itemgap>
+				<orientation>horizontal</orientation>
+			 <visible>Control.HasFocus(8000)</visible>
+			<control type="image">
+					<width>250</width>
+				<height>180</height>
+					<texture background="true">$VAR[view_Extra.Thumb]</texture>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>			
+			<control type="image">			
+					<width>250</width>
+				<height>180</height>
+					<texture background="true">$VAR[view_Extra.Thumb2]</texture>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>	
+			</control>	
+			<control type="grouplist" id="100">
+				<left>25</left>
+				<bottom>25</bottom>
+				<width>900</width>
+				<height>150</height>
+				<itemgap>15</itemgap>
+				<orientation>horizontal</orientation>
+			 <visible>Control.HasFocus(8000)</visible>
+			<control type="image">			
+				<width>250</width>
+				<height>180</height>
+					<texture background="true">$VAR[view_Extra.Thumb3]</texture>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+				<width>250</width>
+				<height>180</height>
+					<texture background="true">$VAR[view_Extra.Thumb4]</texture>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>			
+				</control>		
 							  <control type="image">
 					<left>300</left>
-					<top>200</top>
+					<top>202</top>
 					<width>250</width>
 					<height>250</height>
 					<texture background="true">$VAR[Icon_Discart]</texture>
@@ -541,37 +561,22 @@
 					<effect type="fade" start="0" end="150" time="500" delay="800" tween="sine" easing="out"/>
 					<effect type="slide" start="-50,0" end="0,0" time="980" delay="750" tween="sine" easing="out"/>
 					</animation>
+				<visible>!Control.HasFocus(8000)</visible>
 				  </control>
-						<control type="image">	
-							<width>406</width>
-							<height>600</height>
-							<texture background="true">thumbs/default_Portrait.png</texture>
-							<aspectratio>stretch</aspectratio>
-							<fadetime>fadetime_Thumb</fadetime>
-							<animation type="Conditional" condition="!Skin.HasSetting(ListSmallDiscart.movies.enable)" reversible="false">
-				<effect type="Slide"  center="auto" start="0,0" end="80,0" easing="Out" tween="Cubic"/>
-			</animation>	
-						</control>
+						
+					
+						
 						<control type="image">
-							<left>139</left>
-							<top>236</top>
-							<width>128</width>
-							<height>128</height>
-							<include>art_DefaultIcon</include>
-							<fadetime>fadetime_Thumb</fadetime>
-							<animation type="Conditional" condition="!Skin.HasSetting(ListSmallDiscart.movies.enable)" reversible="false">
-				<effect type="Slide"  center="auto" start="0,0" end="80,0" easing="Out" tween="Cubic"/>
-			</animation>	
-						</control>
-						<control type="image">
-							<width>406</width>
-							<height>600</height>
+						<top>4</top>
+							<width>425</width>
+							<height>610</height>
 							<texture background="true">$VAR[thumb_Portrait]</texture>
-							<aspectratio align="center" aligny="center">scale</aspectratio>
+							<aspectratio align="center" aligny="center">stretch</aspectratio>
 							<fadetime>fadetime_Thumb</fadetime>
 							<animation type="Conditional" condition="!Skin.HasSetting(ListSmallDiscart.movies.enable)" reversible="false">
 				<effect type="Slide"  center="auto" start="0,0" end="80,0" easing="Out" tween="Cubic"/>
 			</animation>	
+			<visible>!Control.HasFocus(8000)</visible>
 						</control>						
 			            <control type="image">
 			                <left>370</left>
@@ -584,6 +589,7 @@
 							<animation type="Conditional" condition="!Skin.HasSetting(ListSmallDiscart.movies.enable)" reversible="false">
 				<effect type="Slide"  center="auto" start="0,0" end="80,0" easing="Out" tween="Cubic"/>
 			</animation>
+			<visible>!Control.HasFocus(8000)</visible>
 		                </control>									
 				</control>
 				  <control type="group">

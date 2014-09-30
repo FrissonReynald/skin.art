@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 <include name="detail_StripFanart">
 <control type="group">
@@ -73,11 +73,12 @@
 				</control>
 					<visible>Skin.HasSetting(stripfanartinfo3.enable)</visible>	
 			    </control>
-		</control>
-</include>
+		</control>		
+	</include>
 <include name="viewStripFanartPoster-ContainerCommons">
 		<centerleft>50%</centerleft>		
 		<visible>Control.IsVisible(597) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)</visible>
+		
 		<control type="group">				
 			<control type="image">
 				<posx>135</posx>
@@ -92,9 +93,10 @@
 				 <top>135</top>
 			<control type="image">
 					<width>815</width>
-					<height>450</height>
+					<height>455</height>
 					<texture background="true">thumbs/default_Landscape.png</texture>
 					<aspectratio align="center">stretch</aspectratio>
+					<visible>!Skin.HasSetting(StripFanartExtraThumb)</visible>
 			</control>
 			<control type="image">
 					<left>370</left>
@@ -105,9 +107,41 @@
 			</control>		
 			<control type="image">
 					<width>815</width>
-					<height>450</height>
+					<height>455</height>
 					<texture background="true">$VAR[thumb_Landscape]</texture>
 					<aspectratio align="center" aligny="top">scale</aspectratio>
+					<visible>!Skin.HasSetting(StripFanartExtraThumb)</visible>
+			</control>				
+			<control type="group">
+			<control type="image">
+					<width>405</width>
+				<height>225</height>
+					<texture background="true">$VAR[view_Extra.Thumb]</texture>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>			
+			<control type="image">
+			<left>410</left>
+					<width>405</width>
+				<height>225</height>
+					<texture background="true">$VAR[view_Extra.Thumb2]</texture>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>	
+			<control type="image">
+			<left>410</left>
+			<top>230</top>
+					<width>405</width>
+				<height>225</height>
+					<texture background="true">$VAR[view_Extra.Thumb3]</texture>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">			
+			<top>230</top>
+					<width>405</width>
+				<height>225</height>
+					<texture background="true">$VAR[view_Extra.Thumb4]</texture>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>
+			<visible>Skin.HasSetting(StripFanartExtraThumb)</visible>
 			</control>
 			 <control type="image">
 					<top>270</top>
@@ -166,22 +200,16 @@
 				<control type="image">
 					<info>ListItem.Overlay</info>
 				</control>
-			</control>
+			</control>			
 				<control type="label">
-					<label>$INFO[ListItem.Label]</label>
+					<label>$VAR[global_Title]</label>	
 					<left>180</left>
 					<top>-195</top>
 					<align>right</align>
 					<width>600</width>
 					<include>detail_Title</include>
-				</control>
-				<control type="label">
-						<left>772</left>
-						<label>$INFO[Container(597).ListItem(1).Label]</label>
-						<width>770</width>
-						<include>detail_Title</include>
-						<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
-				</control>
+				</control>			
+					
 				<control type="label">
 			            <left>180</left>
 						<top>290</top>
@@ -252,7 +280,7 @@
 							<label>$VAR[global_Plot]</label>
 							<include>detail_Text</include>	
 					<visible>!SubString(ListItem.Icon,default)</visible>
-					</control>					
+					</control>						
 					<control type="image">			             	
 				            <left>-5</left>
 				            <top>515</top>
@@ -265,7 +293,62 @@
 				</control>	
 		</control>
 </include>
-<include name="view_StripFanart">	
+<include name="view_StripFanart">
+<control type="group">
+<include>transition_Info</include>
+			<include>toggle_Menu</include>		
+<!--Label-->	
+<control type="label">
+					<label>$INFO[ListItem(-1).Label]</label>	
+					 <left>85</left>
+				            <top>100</top>
+					<width>425</width>
+					<align>left</align>
+					<include>detail_Title</include>
+					 <visible>Control.IsVisible(597) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			  <animation effect="fade" start="100" end="25" time="0" condition="true">Conditional</animation>
+			
+				</control>
+				<control type="label">
+					<label>$INFO[ListItem(1).Label]</label>	
+					 <left>775</left>
+				            <top>100</top>
+					<width>425</width>
+					<align>right</align>
+					<include>detail_Title</include>
+					 <visible>Control.IsVisible(597) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			  <animation effect="fade" start="100" end="25" time="0" condition="true">Conditional</animation>
+				</control>	
+	<visible>!Skin.HasSetting(titleoriginal)</visible>			
+			</control>	
+<!--Label original-->
+<control type="group">
+<include>transition_Info</include>
+			<include>toggle_Menu</include>		
+                    <control type="label">
+					<label>$INFO[ListItem(-1).OriginalTitle]</label>	
+					 <left>85</left>
+				            <top>100</top>
+					<width>425</width>
+					<align>left</align>
+					<include>detail_Title</include>
+					 <visible>Control.IsVisible(597) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			  <animation effect="fade" start="100" end="25" time="0" condition="true">Conditional</animation>
+			
+				</control>
+				<control type="label">
+					<label>$INFO[ListItem(1).OriginalTitle]</label>
+					 <left>775</left>
+				            <top>100</top>
+					<width>425</width>
+					<align>right</align>
+					<include>detail_Title</include>
+					 <visible>Control.IsVisible(597) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			  <animation effect="fade" start="100" end="25" time="0" condition="true">Conditional</animation>
+				</control>	
+				<visible>Skin.HasSetting(titleoriginal)</visible>
+				
+			</control>					
 		<control type="fixedlist" id="597">		
 			<viewtype label="Strip">wrap</viewtype>			
 			<left>-70</left>
@@ -286,12 +369,14 @@
 			<preloaditems>0</preloaditems>
 			<focusposition>0</focusposition>			
 			<include>BannerListInfoAnimation</include>			
-			<itemlayout width="1280">
+			<itemlayout width="1280">			
 			<include>viewStripFanartPoster-ContainerCommons</include>
 			</itemlayout>
-			<focusedlayout width="1280">		
-			<include>viewStripFanartPoster-ContainerCommons</include>			
+			<focusedlayout width="1280">				
+			<include>viewStripFanartPoster-ContainerCommons</include>	
+			
 			</focusedlayout>
 		</control>		
 </include>
+
 </includes>

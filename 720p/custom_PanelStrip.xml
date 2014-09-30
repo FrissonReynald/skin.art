@@ -88,7 +88,6 @@
 					    <font>normal</font>
 				        <textcolor>ff000000</textcolor>					   
 					</control>						
-				
 		<control type="grouplist" id="149">
 		<onleft>back</onleft>
 		<onright>back</onright>
@@ -97,6 +96,14 @@
 			<width>275</width>
 			<height min="40" max="720">auto</height>
 			<itemgap>0</itemgap>
+			<control type="radiobutton" id="152">					
+                        <label>Full Background</label>
+						<width>260</width>	
+		               <onclick>Skin.ToggleSetting(FullBackground)</onclick>
+		                <selected>Skin.HasSetting(FullBackground)</selected>					
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+						  </control>
 					<control type="radiobutton" id="153">
 		               <label>Extra Thumb</label>
 					   <width>260</width>
@@ -107,7 +114,6 @@
 					<include>menu_RadioButton2</include>
 					<visible>![Container.Content(episodes) | Container.Content(seasons)]</visible>
 		            </control>
-				
 				 <control type="radiobutton" id="154">					
 					<label>Text Box</label>
 					<width>260</width>	
@@ -126,8 +132,16 @@
 						<include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
 						<visible>![Container.Content(tvshows) | Container.Content(episodes) | Container.Content(seasons)]</visible>
-			
 		            </control>
+					 <control type="radiobutton" id="156">					
+                        <label>Plot</label>
+						<width>260</width>	
+		               <onclick>Skin.ToggleSetting(PlotTextPanelStripFocus)</onclick>
+		                <selected>Skin.HasSetting(PlotTextPanelStripFocus)</selected>
+						<enable>Skin.HasSetting(Landscape_PanelStrip)</enable>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+						  </control>
 		</control>
 	</controls>
 </window>

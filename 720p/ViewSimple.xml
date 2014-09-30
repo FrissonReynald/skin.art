@@ -74,6 +74,20 @@
 					  <include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
+					   <posx>340</posx>
+                        <posy>205</posy>
+					<width>32</width>
+            <height>32</height>
+			<texture background="true" diffuse="videoextras_overlay.png">$VAR[VideoextrasOverlay]</texture>
+			<visible>System.HasAddon(script.videoextras) + Window.IsVisible(Videos) + Container.Content(Movies) + !Skin.HasSetting(Enable.videoextrasOverlays)</visible>
+		<aspectratio align="center">keep</aspectratio>
+		<colordiffuse>FFFFFFFF</colordiffuse>
+		<visible>Control.IsVisible(595) + !Control.HasFocus(8000)</visible>		
+		</control>
+				      <control type="image">
+					  <include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
 				<left>380</left>
 				<top>575</top>
 				   	<width>1020</width>
@@ -138,6 +152,49 @@
 </include>
 <!--PORTRAIT-->
 	<include name="view_SimplePoster">	
+	<control type="group">
+	<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+	<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+		</control>
+		<control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<fadetime>fadetime_Fanart</fadetime>
+		</control>
+		<control type="group">				
+				<control type="multiimage">
+				<include>screen_Dimensions</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>9000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					</control>					
+				<visible>Control.IsVisible(595) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>	
+			 <control type="label" id="9900">
+			<left>34</left>
+			<top>14</top>
+			<width>950</width>
+			<aligny>center</aligny>
+			<font>light_Window</font>
+			<textcolor>Color1</textcolor>
+			<label>[B]$INFO[ListItem.SortLetter][/B]</label>			
+			<include>toggle_Menu</include>
+			<visible>Control.IsVisible(595) + Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
+			</control>		
+		
+			<visible>Control.IsVisible(595) + Skin.HasSetting(FullBackgroundSimple)</visible>
+	</control>	
 		<control type="fixedlist" id="595">		
 			<viewtype label="31112">wrap</viewtype>			
 			 <posx>0</posx>
@@ -157,8 +214,8 @@
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
-			<itemlayout height="325" width="225">
-			<include>viewSimplePoster-ContainerCommons</include>
+			<itemlayout height="325" width="225">			
+			<include>viewSimplePoster-ContainerCommons</include>			
 			<control type="image">
                         <visible>!StringCompare(ListItem.Label,..)</visible>
                         <posx>75</posx>
@@ -177,119 +234,57 @@
                         <texture background="true">$VAR[thumb_Portrait]</texture>
 						 <aspectratio aligny="top" scalediffuse="false">stretch</aspectratio>
                     </control>
+					<control type="image">
+					 <animation condition="true" effect="Fade" start="50" end="50" time="0">Conditional</animation>					 
+		  
+                        <posx>75</posx>
+                        <posy>150</posy>
+                        <width>205</width>
+                        <height>315</height>                      
+                        <texture background="true">white.png</texture>
+						 <aspectratio aligny="top" scalediffuse="false">stretch</aspectratio>
+						 <visible>Skin.HasSetting(MaskSimple)</visible>
+                    </control>
+					  <control type="image">	
+					   <posx>250</posx>
+                        <posy>150</posy>
+					<width>32</width>
+            <height>32</height>
+			<texture background="true" diffuse="videoextras_overlay.png">$VAR[VideoextrasOverlay]</texture>
+			<visible>System.HasAddon(script.videoextras) + Window.IsVisible(Videos) + Container.Content(Movies) + !Skin.HasSetting(Enable.videoextrasOverlays)</visible>
+		<aspectratio align="center">keep</aspectratio>
+		<colordiffuse>FFFFFFFF</colordiffuse>
+		<visible>Control.IsVisible(595) + !Control.HasFocus(8000)</visible>		
+		</control>
 			</itemlayout>
 			<focusedlayout height="445" width="310">					
 			<include>viewSimplePoster-ContainerCommons</include> 
-			<control type="group">		              
+			<control type="group">	
+			 <animation effect="slide" delay="1390" end="-900,0" time="890" tween="quadratic">Focus</animation>
+           <animation effect="slide" start="1000,0" end="0" time="20" tween="quadratic" easing="in">Unfocus</animation>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			   <control type="image">
-				 <animation effect="slide" delay="2390" end="-900,0" time="890" tween="quadratic">Focus</animation>
-           <animation effect="slide" start="1000,0" end="0" time="20" tween="quadratic" easing="in">Unfocus</animation>
-				   <top>140</top>									
+						   <top>140</top>									
 				<left>1280</left>
 				    <width>920</width>
 				     <height>330</height>				
-                    <texture background="true">frames/contentpanel.png</texture>
+                    <texture background="true"border="30">frames/contentpanel.png</texture>
 					<aspectratio>stretch</aspectratio>						        
-					   </control>
-			    <control type="image">
-				 <animation effect="slide" delay="2390" end="-900,0" time="890" tween="quadratic">Focus</animation>
-           <animation effect="slide" start="1000,0" end="0" time="20" tween="quadratic" easing="in">Unfocus</animation>
-				   <top>140</top>									
-				<left>1280</left>
-				    <width>920</width>
-				     <height>330</height>				
-                    <texture background="true">frames/contentpanel.png</texture>
-					<aspectratio>stretch</aspectratio>						        
-					   </control>	
+					   </control>			    
 					<control type="textbox">
-					 <animation effect="slide" delay="2400" end="-890,0" time="900" tween="quadratic">Focus</animation>
-           <animation effect="slide" start="1000,0" end="0" time="20" tween="quadratic" easing="in">Unfocus</animation>
-				  <top>160</top>									
+				<top>160</top>									
 				<left>1290</left>
-				<width>750</width>
+				<width>850</width>
 				<align>justify</align>
-				<height max="250">auto</height>
+				<height max="248">auto</height>
 				<label>$VAR[global_Plot]</label>
 				<include>detail_Text</include>				 
-				</control> 
-				<control type="image">
-				 <animation effect="slide" delay="2400" end="-890,0" time="900" tween="quadratic">Focus</animation>
-           <animation effect="slide" start="1000,0" end="0" time="20" tween="quadratic" easing="in">Unfocus</animation>
-				 <top>420</top>									
-				<left>1290</left>
-					<width>86</width>
-					<height>50</height>
-					<texture>$INFO[ListItem.VideoResolution,flags/video/resolution/,.png]</texture>
-					<aspectratio align="center">keep</aspectratio>
-					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
-				</control>
-				<control type="image">
-				 <animation effect="slide" delay="2400" end="-780,0" time="900" tween="quadratic">Focus</animation>
-           <animation effect="slide" start="1000,0" end="0" time="20" tween="quadratic" easing="in">Unfocus</animation>
-				 <top>420</top>									
-				<left>1290</left>
-					<width>86</width>
-					<height>50</height>
-				<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
-					<aspectratio align="center">keep</aspectratio>
-					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
-				</control>
-				<control type="image">
-				 <animation effect="slide" delay="2400" end="-670,0" time="900" tween="quadratic">Focus</animation>
-           <animation effect="slide" start="1000,0" end="0" time="20" tween="quadratic" easing="in">Unfocus</animation>
-				 <top>420</top>									
-				<left>1290</left>
-					<width>86</width>
-					<height>50</height>
-				<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
-					<aspectratio align="center">keep</aspectratio>
-					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
-				</control>
-				<control type="image">
-				 <animation effect="slide" delay="2400" end="-550,0" time="900" tween="quadratic">Focus</animation>
-           <animation effect="slide" start="1000,0" end="0" time="20" tween="quadratic" easing="in">Unfocus</animation>
-				 <top>420</top>									
-				<left>1290</left>
-					<width>86</width>
-					<height>50</height>
-				<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
-					<aspectratio align="center">keep</aspectratio>
-					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
-				</control>
-				<control type="image">
-				 <animation effect="slide" delay="2400" end="-450,0" time="900" tween="quadratic">Focus</animation>
-           <animation effect="slide" start="1000,0" end="0" time="20" tween="quadratic" easing="in">Unfocus</animation>
-				 <top>420</top>									
-				<left>1290</left>
-					<width>86</width>
-					<height>50</height>
-				<texture>$VAR[flag_Studio]</texture>
-					<aspectratio align="center">keep</aspectratio>					
-					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
-				</control>
-				 <visible>Control.IsVisible(595) + !Skin.HasSetting(SimplePoster.AutoInfo) + Skin.HasSetting(SimplePoster.noInfo)</visible>				         
-			    </control>
-				<control type="group">	              
-			    <control type="image">				
-				   <top>140</top>									
-				<left>370</left>
-				    <width>920</width>
-				     <height>330</height>				
-                    <texture background="true">frames/contentpanel.png</texture>
-					<aspectratio>stretch</aspectratio>						        
-					   </control>	
-					<control type="textbox">
-				  <top>160</top>									
-				<left>390</left>
-				<width>750</width>
-				<align>justify</align>
-				<height max="250">auto</height>
-				<label>$VAR[global_Plot]</label>
-				<include>detail_Text</include>				 
-				</control> 
+				</control>	
+				<control type="group">
+				<left>920</left>
+				 <top>-6</top>	
 				<control type="image">
 				 <top>420</top>									
 				<left>390</left>
@@ -335,6 +330,76 @@
 					<aspectratio align="center">keep</aspectratio>					
 					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
 				</control>
+				</control>
+				 <visible>Control.IsVisible(595) + !Skin.HasSetting(SimplePoster.Info) + Skin.HasSetting(SimplePoster.noInfo)</visible>				         
+			
+			</control>	
+				<control type="group">	              
+			    <control type="image">				
+				   <top>140</top>									
+				<left>370</left>
+				    <width>920</width>
+				     <height>330</height>				
+                    <texture background="true">frames/contentpanel.png</texture>
+					<aspectratio>stretch</aspectratio>						        
+					   </control>	
+					<control type="textbox">
+				  <top>160</top>									
+				<left>390</left>
+				<width>850</width>
+				<align>justify</align>
+				<height max="248">auto</height>
+				<label>$VAR[global_Plot]</label>
+				<include>detail_Text</include>				 
+				</control> 
+				<control type="group">				
+				 <top>-6</top>	
+				<control type="image">
+				 <top>420</top>									
+				<left>390</left>
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[ListItem.VideoResolution,flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
+				</control>
+				<control type="image">
+				 <top>420</top>									
+				<left>490</left>
+					<width>86</width>
+					<height>50</height>
+				<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+				 <top>420</top>									
+				<left>600</left>
+					<width>86</width>
+					<height>50</height>
+				<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				<control type="image">
+				 <top>420</top>									
+				<left>720</left>
+					<width>86</width>
+					<height>50</height>
+				<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
+				</control>
+				<control type="image">
+				 <top>420</top>									
+				<left>840</left>
+					<width>86</width>
+					<height>50</height>
+				<texture>$VAR[flag_Studio]</texture>
+					<aspectratio align="center">keep</aspectratio>					
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
+				</control>
+				</control>	
 				 <visible>Control.IsVisible(595) + Skin.HasSetting(SimplePoster.Info) + Skin.HasSetting(SimplePoster.noInfo)</visible>				         
 			    </control>	
                 </focusedlayout>		
@@ -361,5 +426,6 @@
                         <texture background="true">$VAR[thumb_Portrait]</texture>
 						 <aspectratio aligny="top" scalediffuse="false">stretch</aspectratio>
                     </control>
+					
 	</include>
 </includes>

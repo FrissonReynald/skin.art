@@ -10,7 +10,7 @@
 		<left>0</left>
 		<top>183</top>
 		<width>1279</width>
-			<height>70</height>
+			<height>75</height>
 			<texture background="true">frames/contentpanel.png</texture> 
 			 <animation condition="true" effect="Fade" start="90" end="90" time="0">Conditional</animation>					 
 			
@@ -22,9 +22,9 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 		<left>0</left>
-		<top>573</top>
+		<top>570</top>
 		<width>1279</width>
-			<height>100</height>
+			<height>102</height>
 			<texture background="true">frames/contentpanel.png</texture> 
 			 <animation condition="true" effect="Fade" start="90" end="90" time="0">Conditional</animation>					 
 			
@@ -40,7 +40,7 @@
 		<width>1279</width>
 			<height>325</height>
 			<texture background="true">frames/contentpanel.png</texture> 
-			 <animation condition="true" effect="Fade" start="70" end="70" time="0">Conditional</animation>					 
+			 <animation condition="true" effect="Fade" start="80" end="80" time="0">Conditional</animation>					 
 			
 			<aspectratio>stretch</aspectratio>
 			<visible>Control.IsVisible(68)</visible>	
@@ -84,15 +84,49 @@
 					<visible>Skin.HasSetting(tracklist) + Container.Content(albums) </visible>
 				</control>				
 				<control type="group">				
-				 <control type="image">
-				    <left>25</left>
-				    <top>254</top>
-					<width>353</width>
-					<height>315</height>
-					<texture>$VAR[thumb_Square]</texture>
-					<aspectratio>scale</aspectratio>	
+				<control type="image">
+				    <left>0</left>
+				    <top>255</top>
+					<width>385</width>
+					<height>313</height>
+					<texture>frames/frame-fo.png</texture>
+					<colordiffuse>base_1</colordiffuse>
+					<aspectratio>stretch</aspectratio>	
 					<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
-				</control>				
+				</control>	
+				<control type="image">
+				    <left>8</left>
+				    <top>230</top>
+					<width>365</width>
+					<height>360</height>
+					<texture border="30">frames/frame-landscape-back-alt.png</texture>
+					<colordiffuse>base_1</colordiffuse>
+					<aspectratio>stretch</aspectratio>	
+					<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<control type="image">
+						<left>68</left>
+						<top>260</top>
+						<description>Cd Disc</description>
+						<animation effect="fade" start="100" end="0" time="750" tween="cubic" easing="out" condition="Window.IsActive(musicosd)">Conditional</animation>
+						<animation effect="slide" start="0,0" end="0,-130" time="900" tween="cubic" easing="out" delay="800">WindowOpen</animation>
+						<animation effect="slide" start="0,-130" end="0" time="900" tween="cubic" easing="out">WindowClose</animation>
+						<width>245</width>
+						<height>245</height>
+						<texture background="true">music_Cdart/vinyl.png</texture>						
+						<aspectratio>keep</aspectratio>
+						<visible>Skin.HasSetting(vinyl) + !Skin.HasSetting(tracklist)</visible>
+						<visible>!IsEmpty(ListItem.Title)</visible>
+					</control>
+				 <control type="image">
+				    <left>33</left>
+				    <top>255</top>
+					<width>317</width>
+					<height>317</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture  diffuse="view/cdcover_mask2.png" background="false">$VAR[thumb_Square]</texture>
+					<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				</control>					
 				<!-- logo -->	
 				<control type="image">
 					<left>50</left>
@@ -130,7 +164,7 @@
 					<align>justify</align>
 						<label>$VAR[Tracklist_Info]</label>						
 						<include>detail_Text</include>
-						<visible>Skin.HasSetting(tracklist) + Container.Content(albums)</visible>
+						<visible>Skin.HasSetting(tracklist) + Container.Content(albums)</visible>					
 					</control>	
 			</control>				
 			

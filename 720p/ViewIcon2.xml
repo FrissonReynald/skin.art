@@ -64,6 +64,16 @@
 		</control>
 	</include>
 	<include name="view_Icon2PortraitSmall">
+	   <control type="image">
+					 <left>-25</left>
+					<bottom>0</bottom>
+				      <width>1920</width>
+				     <height>120</height>
+				      <texture background="true" border="30">frames/contentpanel.png</texture>
+					   <animation condition="true" effect="Fade" start="50" end="50" time="0">Conditional</animation>					 
+					 <visible>Control.IsVisible(581)</visible> 
+					 <visible>!IsEmpty(ListItem.Title)</visible>
+					 </control>	
 	<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
 	    <control type="image">
 		 <include>transition_Content</include>
@@ -76,12 +86,12 @@
                <texture background="true" colordiffuse="170FFFFFF">frames/strip.png</texture>			   				   
 			   <aspectratio>stretch</aspectratio>
 			   <visible>Control.IsVisible(581)</visible> 
+			   <visible>!IsEmpty(ListItem.Title)</visible>
 			</control>				
-			
 		<control type="fixedlist" id="581">		 
 			<viewtype label="Strip">StripsmallPoster 2</viewtype>			
             <hitrect x="0" y="-10" w="1280" h="190"/>
-			<left>25</left>
+			<left>15</left>
             <top>450</top>
             <width>1272</width>
             <height>300</height>
@@ -92,17 +102,17 @@
             <onright>581</onright>
             <pagecontrol>71</pagecontrol>
             <preloaditems>2</preloaditems>
-			<focusposition>1</focusposition>
+			<focusposition>0</focusposition>
             <orientation>horizontal</orientation>
             <include>global_Scrolltime</include>
             <include>transition_Content</include>
             <include>toggle_Menu</include>
             <include>transition_Info</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
-			<itemlayout width="135" height="160">
+			<itemlayout width="130" height="160">
 				<include>view_Icon2PortraitSmall-ContainerCommons</include>
 			</itemlayout>											
-			<focusedlayout width="135" height="160">
+			<focusedlayout width="130" height="160">
 				<control type="image">
 				 <left>2</left>			       
 				<width>125</width>
@@ -113,21 +123,20 @@
 			</focusedlayout>
 		</control>		
 	</include>
-
 	<include name="detail_Strip">
 	 <control type="image">
 	 <include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
-					 <left>45</left>
-					<top>100</top>
+					 <left>15</left>
+					<top>95</top>
 				      <width>545</width>
-				     <height>330</height>
-				      <texture background="true">frames/contentpanel.png</texture>
+				     <height>340</height>
+				      <texture background="true" border="30">frames/contentpanel.png</texture>
 					   <animation condition="true" effect="Fade" start="60" end="60" time="0">Conditional</animation>					 
-				  
 					 <visible>Control.IsVisible(581)</visible> 
 					  <visible>Skin.HasSetting(stripsmallinfo2.enable)</visible>	
+					  <visible>!IsEmpty(ListItem.Title)</visible>
 					 </control>	
 <control type="group">
 <control type="image">       
@@ -148,7 +157,6 @@
 						<width>625</width>
 						<include>detail_Title</include>							
 					</control>
-				
 		<visible>Control.IsVisible(581) + Control.HasFocus(8000)</visible>
 		</control>
 		<control type="group">		
@@ -158,83 +166,172 @@
 			<!--small grid info 1-->
 			<control type="group">
 			<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
-		
-			<left>20</left>
+			<left>15</left>
 					<top>100</top>
-			<control type="group">			
-				<control type="image">
-					 <left>-350</left>
-					<top>-35</top>
-				     <width>640</width>
-				     <height>450</height>
-				     <texture background="true">frames/Landscape-overlays.png</texture>
-				     <aspectratio>scale</aspectratio>
-					 <colordiffuse>accent_5</colordiffuse>					 
-			      </control>
-				  <control type="image">
-					 <left>-140</left>
-					<top>-35</top>
-				     <width>640</width>
-				     <height>450</height>
-				     <texture background="true">frames/Landscape-overlays.png</texture>
-				     <aspectratio>scale</aspectratio>
-					 <colordiffuse>accent_5</colordiffuse>					 
-			      </control>
-				<control type="image">
-					 <left>-205</left>
-					<top>10</top>
-				     <width>550</width>
-				     <height>315</height>
-				     <texture background="true">frames/Landscape-diffuse.png</texture>
-					 <animation condition="true" effect="Fade" start="50" end="50" time="0">Conditional</animation>					 
-				     <aspectratio>scale</aspectratio>					 
-					 <colordiffuse>base_2</colordiffuse>
-			      </control>				  
-					<control type="image">
-					 <left>-240</left>
-					<top>10</top>
-				     <width>630</width>
-				     <height>315</height>					 
+			<control type="group">	
+		<control type="image">
+					 <left>305</left>
+					<top>0</top>
+				     <width>635</width>
+				     <height>330</height>					 
 				     <texture background="true">$VAR[thumb_Landscape]</texture>					 
-				     <aspectratio>keep</aspectratio>									 
+				     <aspectratio align="center" aligny="top">scale</aspectratio>								 
 					 <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
-			      </control>				   
-				  <control type="image">
-					 <left>-650</left>
-					<top>10</top>
-				     <width>395</width>
-				     <height>315</height>
-				     <texture background="true">frames/contentpanel.png</texture>
-					 <animation condition="true" effect="Fade" start="60" end="60" time="0">Conditional</animation>					 
-				     <aspectratio>scale</aspectratio>					
-			      </control>
-				  <left>755</left>
-				 <include>fadeinout</include>
-				  <control type="group">
-				  <visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
-				  <control type="textbox">
-				  <top>12</top>
-			        <left>-634</left>
-					<width>365</width>
-					<height>300</height>
-                    <align>justify</align> 					
+			    <visible>!IsEmpty(ListItem.Title)</visible>
+				</control> 
+				  <control type="group">	
+				  	<control type="multiimage">
+				 <left>305</left>
+					<top>0</top>
+				     <width>635</width>
+				     <height>330</height>	
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>9000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>								
+					</control>
+					<visible>Control.IsVisible(581) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>
+				   <control type="image">
+					 <left>0</left>
+					<top>-8</top>
+				      <width>290</width>
+				     <height>345</height>
+				      <texture background="true" border="30">frames/contentpanel.png</texture>
+					   <animation condition="true" effect="Fade" start="60" end="60" time="0">Conditional</animation>					 
+					 <visible>Control.IsVisible(581)</visible> 
+					 <visible>!IsEmpty(ListItem.Title)</visible>
+					 </control>
+					 <control type="textbox">
+				  <top>0</top>
+			        <left>15</left>
+					<width>260</width>
+					<height>325</height>
+					 <align>justify</align> 	
 					<textcolor>Color1</textcolor>
 					<label>$VAR[global_Plot]</label>
-							<include>detail_Text</include>	
-					<visible>!SubString(ListItem.Icon,default)</visible>
-					</control>	
-					</control>	
-				  <control type="image">
-				  <left>-50</left>
-				  <top>120</top>
-				  <width>260</width>
-				  <height>160</height>
-				  <include>art_ClearLogo</include>
+					<include>detail_Text</include>	
+					</control>
+					   <control type="image">
+					 <left>955</left>
+					<top>-8</top>
+				      <width>290</width>
+				     <height>345</height>
+				      <texture background="true" border="30">frames/contentpanel.png</texture>
+					   <animation condition="true" effect="Fade" start="60" end="60" time="0">Conditional</animation>					 
+					 <visible>Control.IsVisible(581)</visible>
+					 <visible>!IsEmpty(ListItem.Title)</visible>
+					 </control>	
+					 <control type="group">
+					 <visible>!IsEmpty(ListItem.Title)</visible>
+			 <left>968</left>
+				  <top>-15</top>		
+                    <control type="grouplist"> 
+					 <top>30</top>
+                        <width>265</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="260">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20339]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="260">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Director]</label>
+                            <scroll>true</scroll>							
+                        </control>
+                    </control>
+                    <control type="grouplist"> 
+					 <top>60</top>
+                        <width>265</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                             <width min="50" max="260">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20417]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="260">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Writer]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="grouplist"> 
+					 <top>90</top>
+                        <width>265</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="260">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[563]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="260">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Rating]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>                  
+                    <control type="grouplist">
+					 <top>120</top>
+                        <width>265</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="260">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[572]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="260">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Studio]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="grouplist">   
+                     <top>150</top>
+                        <width>265</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                             <width min="50" max="260">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20074]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width>265</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Mpaa]</label>                           
+                            <scroll>true</scroll>
+                            <wrapmultiline>true</wrapmultiline>
+                        </control>
+                    </control>  
+					 <control type="image">
+				  <left>25</left>
+				  <top>185</top>
+				  <width>200</width>
+				  <height>125</height>
+				 <texture background="true">$VAR[art_ClearLogo]</texture>
+				  <aspectratio>keep</aspectratio>									 
 				  </control>
+				 </control> 
 				  <visible>!Skin.HasSetting(stripsmallinfo1.enable)</visible>	
-				  </control>				  
+				 </control>  
 				  <!--fin str^p smal info 1-->
-				  
 				  <!--small grid info 2-->
 			<control type="group">
 			<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
@@ -248,7 +345,8 @@
 				     <height>450</height>
 				     <texture background="true">frames/Landscape-overlays.png</texture>
 				     <aspectratio>scale</aspectratio>
-					 <colordiffuse>accent_5</colordiffuse>					 
+					 <colordiffuse>accent_5</colordiffuse>	
+					 <visible>!IsEmpty(ListItem.Title)</visible>
 			      </control>
 				  <control type="image">
 					 <left>-140</left>
@@ -257,7 +355,8 @@
 				     <height>450</height>
 				     <texture background="true">frames/Landscape-overlays.png</texture>
 				     <aspectratio>scale</aspectratio>
-					 <colordiffuse>accent_5</colordiffuse>					 
+					 <colordiffuse>accent_5</colordiffuse>	
+					 <visible>!IsEmpty(ListItem.Title)</visible>
 			      </control>
 				<control type="image">
 					 <left>-240</left>
@@ -268,6 +367,7 @@
 					 <animation condition="true" effect="Fade" start="50" end="50" time="0">Conditional</animation>					 
 				     <aspectratio>scale</aspectratio>					 
 					 <colordiffuse>base_2</colordiffuse>
+					 <visible>!IsEmpty(ListItem.Title)</visible>
 			      </control>				  
 					<control type="image">
 					 <left>-240</left>
@@ -277,36 +377,43 @@
 				     <texture background="true">$VAR[thumb_Landscape]</texture>					 
 				     <aspectratio>scale</aspectratio>									 
 					 <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
-			      </control>  
+			      </control> 
+				    <control type="group">	
+				  	<control type="multiimage">
+				  <left>-240</left>
+					<top>7</top>
+				     <width>630</width>
+				     <height>323</height>	
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>9000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>								
+					</control>
+					<visible>Control.IsVisible(581) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>
 				  <left>755</left>
 				  <include>fadeinout</include>
 			<control type="image">
-				<left>-510</left>
+				<left>-540</left>
 				<top>8</top>
 				<width>250</width>
 				<height>141</height>
 				<texture background="true">$VAR[thumb_Landscape]</texture>
 				<aspectratio>scale</aspectratio>				
 			</control>	  
-				 
    <control type="image">
-				<left>-510</left>
+				<left>-540</left>
 				<top>8</top>
 				<width>250</width>
 				<height>141</height>
 				<texture background="true">$VAR[view_Extra.Thumb]</texture>
 				<aspectratio>scale</aspectratio>				
 			</control>
-			  <control type="image">
-				<left>-735</left>
-				<top>8</top>
-				<width>180</width>
-				<height>150</height>
-				<texture background="true">$VAR[logo_clearart]</texture>
-				<aspectratio>keep</aspectratio>				
-			</control>
 			       <control type="image">
-				<left>-780</left>
+				<left>-800</left>
 				<top>8</top>
 				<width>250</width>
 				<height>141</height>
@@ -315,7 +422,7 @@
 			</control>			
 			<control type="textbox" id="4">
 				  <top>160</top>
-			        <left>-780</left>
+			        <left>-800</left>
 					<width>510</width>
 					<height>158</height>
 					 <align>justify</align> 	
@@ -324,7 +431,6 @@
 					<include>detail_Text</include>	
 					<visible>!SubString(ListItem.Icon,default)</visible>
 					</control>
-			
 				  <control type="image">
 				  <left>-50</left>
 				  <top>120</top>
@@ -344,7 +450,6 @@
 						<include>detail_Sub</include>
 						<visible>Container.Content(movies) | Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
 					</control>									
-														
 					<left>770</left>
 				    <top>93</top>
 					<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
@@ -357,7 +462,6 @@
 						<include>detail_Sub</include>
 						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
 					</control>
-				
 				<control type="group">				
 					<control type="label">
 					<label>$VAR[global_Title]</label>
@@ -370,9 +474,9 @@
 				</control>
 				<control type="group">
 				<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
-				 <left>790</left>				
+				 <left>850</left>				
 					<control type="image">
-				    <top>560</top>
+				    <top>565</top>
 				    <left>5</left>
 					<bottom>40</bottom>
 					<width>70</width>
@@ -436,7 +540,7 @@
 						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 						<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>	</control>
 					<control type="image">
-					    <left>1100</left>
+					    <left>1155</left>
 					    <top>635</top>
 						<width>100</width>
 						<height>34</height>

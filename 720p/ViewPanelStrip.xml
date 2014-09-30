@@ -30,10 +30,10 @@
 			<visible>Control.IsVisible(693)</visible>			
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | !Control.HasFocus(8000)</visible>
 			<control type="image">
-			<top>659</top>			
+			<top>658</top>			
 			<width>screen_Dimension</width>
-			<height>58</height>
-				<texture border="5">view/background_panel_Art.png</texture>	
+			<height>60</height>
+				<texture border="5">white.png</texture>		
 			<visible>Control.IsVisible(693) + !Control.HasFocus(8000)</visible>
 			</control>	
 			<control type="label">
@@ -97,10 +97,53 @@
 				<visible>Control.IsVisible(693)</visible>
 			</control>			
 		</control>
-		
 </include>
 <!--PORTRAIT-->
-	<include name="viewPanelStrip">	
+	<include name="viewPanelStrip">
+	<control type="group">
+	<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+	<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">thumbs/default_Landscape.png</texture>
+			<aspectratio align="center">scale</aspectratio>
+		</control>
+		<control type="image">
+			 <fadetime>fadetime_Fanart</fadetime>
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<fadetime>fadetime_Fanart</fadetime>
+		</control>
+		<control type="group">				
+				<control type="multiimage">
+				<include>screen_Dimensions</include>
+				<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+					<aspectratio align="center" aligny="top">scale</aspectratio>								
+				<timeperimage>9000</timeperimage>				 
+                    <randomize>true</randomize> 
+                    <loop>yes</loop>
+					</control>					
+				<visible>Control.IsVisible(693) + Skin.HasSetting(gallery.extrafanart)</visible>
+				<visible>!Container().Scrolling</visible>
+            <animation effect="fade" start="0" end="100" time="800" delay="2500">Visible</animation>
+				</control>	
+			 <control type="label" id="9900">
+			<left>34</left>
+			<top>14</top>
+			<width>950</width>
+			<aligny>center</aligny>
+			<font>light_Window</font>
+			<textcolor>Color1</textcolor>
+			<label>[B]$INFO[ListItem.SortLetter][/B]</label>			
+			<include>toggle_Menu</include>
+			<visible>Control.IsVisible(693) + Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
+			</control>
+				
+		
+			<visible>Control.IsVisible(693) + Skin.HasSetting(FullBackground)</visible>
+	</control>
 		<control type="fixedlist" id="693">		
 			<viewtype label="Panel">wrap</viewtype>			
 			<left>5</left>
@@ -122,13 +165,42 @@
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 		<itemlayout width="220" height="300">			
 			<include>viewPanelStrip-ContainerCommons</include>
-			
 			</itemlayout>
-			<focusedlayout width="850" height="300">	
-				<control type="image">				
+			<focusedlayout width="850" height="300">
+			<!--Plot Option-->			
+			<control type="group">
+			<left>-80</left>
+		<include>Panel_Strip</include>		
+		<visible>!Control.HasFocus(8000)</visible>
+		<control type="group">		
+			<include>fadeinout</include>
+			<visible>[[Control.IsVisible(693)] + !IsEmpty(ListItem.Title)</visible>
+		<left>90</left>
+		<top>100</top>
+		 <control type="image">			 
+			    <visible>!StringCompare(ListItem.Label,..)</visible>				
+				    <width>825</width>
+				     <height>330</height>				
+                    <texture background="true"border="35">frames/contentpanel.png</texture>
+					<aspectratio>stretch</aspectratio>	
+					 <animation condition="true" effect="Fade" start="85" end="85" time="0">Conditional</animation>					 
+		 </control>	
+		<control type="textbox">	
+		<left>25</left>
+		<top>20</top>
+					<width>780</width>
+					<align>justify</align>
+					<height max="190">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+				</control>		
+			</control>
+			<visible>Skin.HasSetting(PlotTextPanelStripFocus) + !Skin.HasSetting(TextBox_PanelStrip)</visible>
+			 </control>				
+			<control type="image">				
 					<width>840</width>
 					<height>308</height>
-					<include>art_Frame-fo</include>	
+					<texture>white.png</texture>	
 			</control>
 			<control type="group">
 			<control type="image">	
@@ -136,10 +208,9 @@
 					<width>840</width>
 					<height>357</height>
 						<aspectratio scalediffuse="true">scale</aspectratio>
-					<texture>frames/frame-fo.png</texture>
+					<texture>white.png</texture>	
 				<visible>Skin.HasSetting(Landscape_PanelStrip)</visible>	
 				</control>
-			
 			<control type="image">	
 			<top>43</top>
 					<width>840</width>
@@ -148,9 +219,7 @@
 					<texture>$VAR[view_Extra.Thumb2]</texture>
 				<visible>Skin.HasSetting(Landscape_PanelStrip)</visible>	
 				</control>
-			</control>	
-		
-			
+			</control>
 			<control type="image">			
 			<width>840</width>
 			<height>45</height>
@@ -165,6 +234,7 @@
 			<aspectratio>stretch</aspectratio>
 			<visible>Control.IsVisible(693)</visible>
 			</control>		
+			<control type="group">
 				<control type="image">
                         <left>20</left>
                         <top>20</top>
@@ -173,20 +243,32 @@
                         <aspectratio>keep</aspectratio>
                         <texture background="true">$VAR[Icon_Discart]</texture>
                         <animation effect="slide" delay="1600" end="0,-100" time="300" tween="quadratic">Focus</animation>
-                        <animation effect="slide" start="0,100" end="0" time="150" tween="quadratic" easing="in">Unfocus</animation>
-                        <animation effect="zoom" start="70" end="200" center="auto" time="160" condition="Control.HasFocus(52)">Conditional</animation>
+                         <animation effect="zoom" start="70" end="100" center="auto" time="160" condition="Control.HasFocus(693)">Conditional</animation>
                                  <bordersize>7</bordersize>
-						<visible>Skin.HasSetting(Discart_PanelStrip)</visible>			 
+							<visible>!Skin.HasSetting(PlotTextPanelStripFocus) | [Skin.HasSetting(TextBox_PanelStrip)]</visible>
+						  </control>
+					<control type="image">
+                        <left>20</left>
+                        <top>55</top>
+                        <width>180</width>
+                        <height>180</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">$VAR[Icon_Discart]</texture>
+                        <animation effect="slide" delay="1600" end="100,0" time="300" tween="quadratic">Focus</animation>
+                        <animation effect="zoom" start="70" end="100" center="auto" time="160" condition="Control.HasFocus(693)">Conditional</animation>
+                                 <bordersize>7</bordersize>
+						<visible>Skin.HasSetting(PlotTextPanelStripFocus) + Skin.HasSetting(Landscape_PanelStrip) + !Skin.HasSetting(TextBox_PanelStrip)</visible>			 
                     </control>
+						<visible>Skin.HasSetting(Discart_PanelStrip)</visible>	                  
+					</control>
 			<control type="label">
 				<left>210</left>
 			<top>11</top>
 						<label>$VAR[global_Title]</label>
 						<width>625</width>
 						<include>detail_Title</include>						
-					</control>
-			<control type="group">
-			
+					</control>				
+			<control type="group">			
 			<control type="textbox" id="4">
 		               <top>50</top>
 						<left>210</left>
@@ -199,11 +281,10 @@
 						<visible>!SubString(ListItem.Icon,default)</visible>
 						</control>
 					<visible>Skin.HasSetting(TextBox_PanelStrip)</visible>		
-			</control>	
+			</control>			
 			<include>viewPanelStrip-ContainerCommons</include>
-				
-			</focusedlayout>
 			
+			</focusedlayout>			
 		</control>
 	</include>
 	<include name="viewPanelStrip-ContainerCommons">	

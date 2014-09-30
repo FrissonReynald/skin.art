@@ -1,26 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<onunload>ClearProperty(MenuOpen)</onunload>
 	<controls>
-
 	<!--trigger button-->
 		<control type="button" id="50">
 			<label>SHOULD NOT SEE ME</label>
 			<onleft>SetFocus(6000)</onleft>
 			<visible allowhiddenfocus="true">false</visible>
 		</control>
-
 	<!--backgrounds-->
 		<include>global_Background</include>
-
 	<!--weather images-->
 		<control type="multiimage" id="1">
 			<include>screen_Dimensions</include>
 			<aspectratio>scale</aspectratio>
 			<imagepath background="true">$INFO[Skin.String(fanart.weather.path)]/$INFO[Weather.FanartCode]</imagepath>
-			<timeperimage>10000</timeperimage>
+			<timeperimage>8500</timeperimage>
 			<fadetime>850</fadetime>
 			<randomize>true</randomize>
 			<loop>yes</loop>
@@ -28,12 +25,10 @@
 			<include>toggle_Menu</include>
 			<visible>Skin.HasSetting(fanart.weather) + !IsEmpty(Skin.String(fanart.weather.path))</visible>
 		</control>
-
 	<!--global includes-->
 		<include>global_MenuGuide</include>
 		<include>windowTitle_Weather</include>
 		<include>global_Itemcount</include>
-	
 	<!--content-->
 		<control type="group">
 			<left>55</left>
@@ -51,16 +46,7 @@
 					<height>344</height>
 					<texture>white.png</texture>
 					<colordiffuse>column3</colordiffuse>
-				</control>
-				<control type="image">
-		        <top>-6</top>
-				<left>-6</left>
-				<width>240</width>
-				<height>358</height>
-				<texture>frames/Glass.png</texture>
-		           <visible>Skin.HasSetting(Enable.Glassweather)</visible>
-				<aspectratio align="center" aligny="top">stretch</aspectratio>             
-            </control>
+				</control>				
 				<control type="group">
 					<left>10</left>
 					<top>10</top>
@@ -84,18 +70,18 @@
 						<height>72</height>
 						<texture colordiffuse="weather">$INFO[Window.Property(Current.FanartCode),weather/,.png]</texture>
 						<aspectratio align="center">keep</aspectratio>
-						
 					</control>
-					<control type="grouplist">
-						<top>160</top>
-						<orientation>vertical</orientation>
-						<itemgap>0</itemgap>
-						<control type="label">
-							<label>$LOCALIZE[402]: $INFO[Window(Weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
+					<control type="label">
+					<top>160</top>
+							<label>$INFO[Window.Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
 							<width>210</width>
-							<font>regular</font>
+							<font>black_huge</font>
 							<align>center</align>
 						</control>
+					<control type="grouplist">
+						<top>200</top>
+						<orientation>vertical</orientation>
+						<itemgap>0</itemgap>						
 						<control type="label">
 							<label>$LOCALIZE[405]: $INFO[Window(Weather).Property(Current.DewPoint)]</label>
 							<width>210</width>
@@ -136,16 +122,7 @@
 					<height>344</height>
 					<texture>white.png</texture>
 					<colordiffuse>column3</colordiffuse>
-				</control>
-				<control type="image">
-		        <top>-6</top>
-				<left>-6</left>
-				<width>240</width>
-				<height>358</height>
-				<texture>frames/Glass.png</texture>
-		           <visible>Skin.HasSetting(Enable.Glassweather)</visible>
-				<aspectratio align="center" aligny="top">stretch</aspectratio>             
-            </control>
+				</control>				
 				<control type="group">
 					<left>10</left>
 					<top>10</top>
@@ -191,16 +168,7 @@
 					<height>344</height>
 					<texture>white.png</texture>
 					<colordiffuse>column3</colordiffuse>
-				</control>
-				<control type="image">
-		        <top>-6</top>
-				<left>-6</left>
-				<width>240</width>
-				<height>358</height>
-				<texture>frames/Glass.png</texture>
-		           <visible>Skin.HasSetting(Enable.Glassweather)</visible>
-				<aspectratio align="center" aligny="top">stretch</aspectratio>             
-            </control>
+				</control>				
 				<control type="group">
 					<left>10</left>
 					<top>10</top>
@@ -246,16 +214,7 @@
 					<height>344</height>
 					<texture>white.png</texture>
 					<colordiffuse>column3</colordiffuse>
-				</control>
-				<control type="image">
-		        <top>-6</top>
-				<left>-6</left>
-				<width>240</width>
-				<height>358</height>
-				<texture>frames/Glass.png</texture>
-		           <visible>Skin.HasSetting(Enable.Glassweather)</visible>
-				<aspectratio align="center" aligny="top">stretch</aspectratio>             
-            </control>
+				</control>				
 				<control type="group">
 					<left>10</left>
 					<top>10</top>
@@ -301,16 +260,7 @@
 					<height>344</height>
 					<texture>white.png</texture>
 					<colordiffuse>column3</colordiffuse>
-				</control>
-				<control type="image">
-		        <top>-6</top>
-				<left>-6</left>
-				<width>240</width>
-				<height>358</height>
-				<texture>frames/Glass.png</texture>
-		           <visible>Skin.HasSetting(Enable.Glassweather)</visible>
-				<aspectratio align="center" aligny="top">stretch</aspectratio>             
-            </control>
+				</control>				
 				<control type="group">
 					<left>10</left>
 					<top>10</top>
@@ -345,8 +295,598 @@
 					</control>
 				</control>
 			</control>
+			<visible>!Skin.HasSetting(more.weather)</visible>
+		</control>
+		<!--MORE-->
+		<control type="group">
+			<left>55</left>
+			<top>100</top>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<!--current-->
+			<control type="group" id="5000">
+			<visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
+				<onleft>6000</onleft>
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="85" time="300"/>
+				</animation>
+				<control type="image">
+					<width>229</width>
+					<height>344</height>
+					<texture>white.png</texture>
+					<colordiffuse>column3</colordiffuse>					
+				</control>			
+				<control type="group">
+					<left>10</left>
+					<top>10</top>
+					<control type="label">
+						<width>210</width>
+						<label>$LOCALIZE[31605]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="label">
+						<top>30</top>
+						<width>210</width>
+						<label>$INFO[Weather.Conditions]</label>
+						<font>regular</font>
+						<align>center</align>
+					</control>
+					<control type="image">
+						<top>75</top>
+						<width>210</width>
+						<height>72</height>
+						<texture colordiffuse="weather">$INFO[Window.Property(Current.FanartCode),weather/,.png]</texture>
+						<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="label">
+					<top>160</top>
+							<label>$INFO[Window.Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
+							<width>210</width>
+							<font>black_huge</font>
+							<align>center</align>
+						</control>
+					<control type="grouplist">
+					<visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
+						<top>200</top>
+						<orientation>vertical</orientation>
+						<itemgap>0</itemgap>						
+						<control type="label">
+							<label>$LOCALIZE[405]: $INFO[Window(Weather).Property(Current.DewPoint)]</label>
+							<width>210</width>
+							<font>regular</font>
+							<align>center</align>
+						</control>						
+						<control type="label">
+							<label>$LOCALIZE[406]: $INFO[Window(Weather).Property(Current.Humidity)]</label>
+							<width>210</width>
+							<font>regular</font>
+							<align>center</align>
+						</control>
+						<control type="label">
+							<label>$LOCALIZE[403]: $INFO[Window(Weather).Property(Current.UVIndex)]</label>
+							<width>210</width>
+							<font>regular</font>
+							<align>center</align>
+						</control>
+						<control type="label">
+							<label>$LOCALIZE[404]: $INFO[Window(Weather).Property(Current.Wind)]</label>
+							<width>210</width>
+							<font>regular</font>
+							<align>center</align>
+							<aligny>top</aligny>
+							<wrapmultiline>true</wrapmultiline>
+						</control>
+					</control>
+				</control>
+			</control>
+			<!--today day 1-->
+			<control type="group">
+			<visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
+				<left>235</left>
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="85" time="300" delay="100"/>
+				</animation>
+				<control type="image">
+					<width>229</width>
+					<height>344</height>
+					<texture>white.png</texture>
+					<colordiffuse>column3</colordiffuse>
+				</control>				
+				<control type="group">
+					<left>10</left>
+					<top>10</top>
+					<control type="label">
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.1.LongDay)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="label">
+					<top>25</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.1.ShortDate)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="textbox">
+						<top>45</top>
+						<width>210</width>
+						<height>65</height>
+						<label>$INFO[Window.Property(Daily.1.Outlook)]</label>
+						<font>regular</font>
+						<align>center</align>
+					</control>
+					<control type="image">
+						<top>115</top>
+						<width>210</width>
+						<height>128</height>
+							<texture colordiffuse="weather">$INFO[Window.Property(Daily.1.FanartCode),weather/,.png]</texture><aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>260</top>
+						<width>210</width>
+							<label>$INFO[Window.Property(Daily.1.HighTemperature),, / ]$INFO[Window.Property(Daily.1.LowTemperature)]</label>
+						<font>semibold</font>
+						<align>center</align>
+					</control>
+				</control>
+			</control>
+			<!--day 2-->
+			<control type="group">
+			<visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
+				<left>470</left>
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="85" time="300" delay="200"/>
+				</animation>
+				<control type="image">
+					<width>229</width>
+					<height>344</height>
+					<texture>white.png</texture>
+					<colordiffuse>column3</colordiffuse>
+				</control>			
+				<control type="group">
+					<left>10</left>
+					<top>10</top>
+					<control type="label">
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.2.LongDay)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="label">
+					<top>25</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.2.ShortDate)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="textbox">
+						<top>45</top>
+						<width>210</width>
+						<height>65</height>
+						<label>$INFO[Window.Property(Daily.2.Outlook)]</label>
+						<font>regular</font>
+						<align>center</align>
+					</control>					
+					<control type="image">
+						<top>115</top>
+						<width>210</width>
+						<height>128</height>
+							<texture colordiffuse="weather">$INFO[Window.Property(Daily.2.FanartCode),weather/,.png]</texture>
+						<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>260</top>
+						<width>210</width>
+							<label>$INFO[Window.Property(Daily.2.HighTemperature),, / ]$INFO[Window.Property(Daily.2.LowTemperature)]</label>
+				<font>semibold</font>
+						<align>center</align>
+					</control>
+				</control>
+			</control>
+			<!--day 3-->
+			<control type="group">
+			<visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
+				<left>705</left>
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="85" time="300" delay="300"/>
+				</animation>
+				<control type="image">
+					<width>229</width>
+					<height>344</height>
+					<texture>white.png</texture>
+					<colordiffuse>column3</colordiffuse>
+				</control>				
+				<control type="group">
+					<left>10</left>
+					<top>10</top>
+					<control type="label">
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.3.LongDay)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="label">
+					<top>25</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.3.ShortDate)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="textbox">
+						<top>45</top>
+						<width>210</width>
+						<height>65</height>
+						<label>$INFO[Window.Property(Daily.3.Outlook)]</label>
+						<font>regular</font>
+						<align>center</align>
+					</control>
+					<control type="image">
+						<top>115</top>
+						<width>210</width>
+						<height>128</height>
+						<texture colordiffuse="weather">$INFO[Window.Property(Daily.3.FanartCode),weather/,.png]</texture>
+							<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>260</top>
+						<width>210</width>
+							<label>$INFO[Window.Property(Daily.3.HighTemperature),, / ]$INFO[Window.Property(Daily.3.LowTemperature)]</label>
+					<font>semibold</font>
+						<align>center</align>
+					</control>
+				</control>
+			</control>
+			<!--day 4-->
+			<control type="group">
+			<visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
+				<left>940</left>
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="85" time="300" delay="400"/>
+				</animation>
+				<control type="image">
+					<width>229</width>
+					<height>344</height>
+					<texture>white.png</texture>
+					<colordiffuse>column3</colordiffuse>
+				</control>				
+				<control type="group">
+					<left>10</left>
+					<top>10</top>
+					<control type="label">
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.4.LongDay)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="label">
+					<top>25</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.4.ShortDate)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="textbox">
+						<top>45</top>
+						<width>210</width>
+						<height>65</height>
+						<label>$INFO[Window.Property(Daily.4.Outlook)]</label>
+						<font>regular</font>
+						<align>center</align>
+					</control>				
+					<control type="image">
+						<top>115</top>
+						<width>210</width>
+						<height>128</height>
+						<texture colordiffuse="weather">$INFO[Window.Property(Daily.4.FanartCode),weather/,.png]</texture>
+							<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>260</top>
+						<width>210</width>
+							<label>$INFO[Window.Property(Daily.4.HighTemperature),, / ]$INFO[Window.Property(Daily.4.LowTemperature)]</label>
+					<font>semibold</font>
+						<align>center</align>
+					</control>
+				</control>
+			</control>
+			<!--Day 5-->
+			<control type="group">
+			<visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
+				<left>0</left>
+				<top>350</top>
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="85" time="300" delay="400"/>
+				</animation>
+				<control type="image">
+					<width>229</width>
+					<height>255</height>
+					<texture>white.png</texture>
+					<colordiffuse>column3</colordiffuse>
+				</control>				
+				<control type="group">				
+					<left>10</left>
+					<top>10</top>
+					<control type="label">
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.5.LongDay)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="label">
+					<top>25</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.5.ShortDate)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="textbox">
+						<top>45</top>
+						<width>210</width>
+						<height>65</height>
+						<label>$INFO[Window.Property(Daily.5.Outlook)]</label>
+						<font>regular</font>
+						<align>center</align>
+					</control>
+					<control type="image">
+						<top>100</top>
+						<left>53</left>
+						<width>100</width>
+						<height>60</height>
+							<texture colordiffuse="weather">$INFO[Window.Property(Daily.5.FanartCode),weather/,.png]</texture>
+							<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>200</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.5.HighTemperature),, / ]$INFO[Window.Property(Daily.5.LowTemperature)]</label>
+					<font>semibold</font>
+						<align>center</align>
+					</control>
+				</control>
+			</control>
+			<!--Day 6-->
+			<control type="group">
+			<visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
+				<left>235</left>
+				<top>350</top>
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="85" time="300" delay="400"/>
+				</animation>
+				<control type="image">
+					<width>229</width>
+					<height>255</height>
+					<texture>white.png</texture>
+					<colordiffuse>column3</colordiffuse>
+				</control>				
+				<control type="group">				
+					<left>10</left>
+					<top>10</top>
+					<control type="label">
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.6.LongDay)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="label">
+					<top>25</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.6.ShortDate)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="textbox">
+						<top>45</top>
+						<width>210</width>
+						<height>65</height>
+						<label>$INFO[Window.Property(Daily.6.Outlook)]</label>
+						<font>regular</font>
+						<align>center</align>
+					</control>
+					<control type="image">
+						<top>100</top>
+						<left>53</left>
+						<width>100</width>
+						<height>60</height>
+							<texture colordiffuse="weather">$INFO[Window.Property(Daily.6.FanartCode),weather/,.png]</texture>
+							<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>200</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.6.HighTemperature),, / ]$INFO[Window.Property(Daily.6.LowTemperature)]</label>
+					<font>semibold</font>
+						<align>center</align>
+					</control>
+				</control>
+			</control>
+			<!--Day 7-->
+			<control type="group">
+			<visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
+				<left>470</left>
+				<top>350</top>
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="85" time="300" delay="400"/>
+				</animation>
+				<control type="image">
+					<width>229</width>
+					<height>255</height>
+					<texture>white.png</texture>
+					<colordiffuse>column3</colordiffuse>
+				</control>				
+				<control type="group">				
+					<left>10</left>
+					<top>10</top>
+					<control type="label">
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.7.LongDay)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="label">
+					<top>25</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.7.ShortDate)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="textbox">
+						<top>45</top>
+						<width>210</width>
+						<height>65</height>
+						<label>$INFO[Window.Property(Daily.7.Outlook)]</label>
+						<font>regular</font>
+						<align>center</align>
+					</control>
+					<control type="image">
+						<top>100</top>
+						<left>53</left>
+						<width>100</width>
+						<height>60</height>
+							<texture colordiffuse="weather">$INFO[Window.Property(Daily.7.FanartCode),weather/,.png]</texture>
+							<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>200</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.7.HighTemperature),, / ]$INFO[Window.Property(Daily.7.LowTemperature)]</label>
+					<font>semibold</font>
+						<align>center</align>
+					</control>
+				</control>
+			</control>
+			<!--Day 8-->
+			<control type="group">
+			<visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
+				<left>705</left>
+				<top>350</top>
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="85" time="300" delay="400"/>
+				</animation>
+				<control type="image">
+					<width>229</width>
+					<height>255</height>
+					<texture>white.png</texture>
+					<colordiffuse>column3</colordiffuse>
+				</control>				
+				<control type="group">				
+					<left>10</left>
+					<top>10</top>
+					<control type="label">
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.8.LongDay)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="label">
+					<top>25</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.8.ShortDate)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="textbox">
+						<top>45</top>
+						<width>210</width>
+						<height>65</height>
+						<label>$INFO[Window.Property(Daily.8.Outlook)]</label>
+						<font>regular</font>
+						<align>center</align>
+					</control>
+					<control type="image">
+						<top>100</top>
+						<left>53</left>
+						<width>100</width>
+						<height>60</height>
+							<texture colordiffuse="weather">$INFO[Window.Property(Daily.8.FanartCode),weather/,.png]</texture>
+							<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>200</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.8.HighTemperature),, /]$INFO[Window.Property(Daily.8.LowTemperature)]</label>
+					<font>semibold</font>
+						<align>center</align>
+					</control>
+				</control>
+			</control>
+			<!--Day 9-->
+			<control type="group">
+			<visible>!IsEmpty(Window.Property(Daily.IsFetched))</visible>
+				<left>940</left>
+				<top>350</top>
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="85" time="300" delay="400"/>
+				</animation>
+				<control type="image">
+					<width>229</width>
+					<height>255</height>
+					<texture>white.png</texture>
+					<colordiffuse>column3</colordiffuse>
+				</control>				
+				<control type="group">				
+					<left>10</left>
+					<top>10</top>
+					<control type="label">
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.9.LongDay)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="label">
+					<top>25</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.9.ShortDate)]</label>
+						<font>semibold-U</font>
+						<align>center</align>
+						<textcolor>Color1</textcolor>
+					</control>
+					<control type="textbox">
+						<top>45</top>
+						<width>210</width>
+						<height>65</height>
+						<label>$INFO[Window.Property(Daily.9.Outlook)]</label>
+						<font>regular</font>
+						<align>center</align>
+					</control>
+					<control type="image">
+						<top>100</top>
+						<left>53</left>
+						<width>100</width>
+						<height>60</height>
+							<texture colordiffuse="weather">$INFO[Window.Property(Daily.9.FanartCode),weather/,.png]</texture>
+							<aspectratio align="center">keep</aspectratio>
+					</control>
+					<control type="label">
+						<top>200</top>
+						<width>210</width>
+						<label>$INFO[Window.Property(Daily.9.HighTemperature),, /]$INFO[Window.Property(Daily.9.LowTemperature)]</label>
+					<font>semibold</font>
+						<align>center</align>
+					</control>
+				</control>
+			</control>
+			<visible>Skin.HasSetting(more.weather)</visible>
 		</control>	
-
 	<!--menu-->
 	<include>menu_Weather</include>
 	</controls>

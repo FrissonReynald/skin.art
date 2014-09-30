@@ -105,7 +105,7 @@
 					<include>menu_RadioButton2</include>
 		            </control>
 					 <control type="radiobutton" id="157">					
-                        <label>HIdden Info</label>
+                        <label>Info Plot</label>
 						<width>260</width>	
 		                 <onclick>Skin.ToggleSetting(Wall4textMovies)</onclick>
 		                <selected>Skin.HasSetting(Wall4textMovies)</selected>
@@ -114,6 +114,15 @@
 					<visible>!Container.Content(sets)</visible>
 		            </control>
 					 <control type="radiobutton" id="158">					
+                        <label>Info Extra Thumbs</label>
+						<width>260</width>	
+		                 <onclick>Skin.ToggleSetting(Wall4ExtraThumbs)</onclick>
+		                <selected>Skin.HasSetting(Wall4ExtraThumbs)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>!Container.Content(sets)</visible>
+		            </control>
+					 <control type="radiobutton" id="159">					
                         <label>HIdden Info</label>
 						<width>260</width>	
 		                 <onclick>Skin.ToggleSetting(Wall4textMoviesSets)</onclick>
@@ -122,7 +131,7 @@
 					<include>menu_RadioButton2</include>
 					<visible>Container.Content(sets)</visible>
 		            </control>
-					 <control type="radiobutton" id="159">					
+					 <control type="radiobutton" id="160">					
                         <label>Logo</label>
 						<width>260</width>	
 		                 <onclick>Skin.ToggleSetting(Wall4Logo)</onclick>
@@ -131,11 +140,20 @@
 					<include>menu_RadioButton2</include>
 					<visible>!Container.Content(sets)</visible>
 		            </control>
-					 <control type="radiobutton" id="160">					
+					 <control type="radiobutton" id="161">					
                         <label>Logo</label>
 						<width>260</width>	
 		                 <onclick>Skin.ToggleSetting(Wall4LogoSets)</onclick>
 		                <selected>Skin.HasSetting(Wall4LogoSets)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>Container.Content(sets)</visible>
+		            </control>
+					<control type="radiobutton" id="162">					
+                        <label>Discart Sets</label>
+						<width>260</width>	
+		                 <onclick>Skin.ToggleSetting(Wall4DiscartSets)</onclick>
+		                <selected>Skin.HasSetting(Wall4DiscartSets)</selected>
 						<include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
 					<visible>Container.Content(sets)</visible>

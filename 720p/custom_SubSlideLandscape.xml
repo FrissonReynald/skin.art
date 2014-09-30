@@ -12,7 +12,7 @@
 	<zorder>1</zorder>
 	<controls>	
 	<control type="image" id="149">
-			<width>270</width>
+			<width>285</width>
 			<height>80</height>
 			<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
 			<colordiffuse>base_2</colordiffuse>
@@ -26,7 +26,7 @@
 		<control type="image">
 			<left>0</left>
 			<top>60</top>
-			<width>270</width>
+			<width>285</width>
 			<height>720</height>
 			<include>dialog_Menu</include>
 			<colordiffuse></colordiffuse>
@@ -34,7 +34,7 @@
 		<control type="image" id="1490">
 	<top>185</top>
 	<left>0</left>
-			<width>270</width>
+			<width>285</width>
 			<height>20</height>
 			<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
 			<colordiffuse>Color3</colordiffuse>
@@ -92,17 +92,53 @@
 		<onright>back</onright>
 			<left>5</left>
 			<top>250</top>
-			<width>275</width>
+			<width>285</width>
 			<height min="40" max="720">auto</height>
 			<itemgap>0</itemgap>
+			<control type="radiobutton" id="152">					
+                        <label>Full Background</label>
+						<width>280</width>	
+		               <onclick>Skin.ToggleSetting(FullBackgroundSlideLandscape)</onclick>
+		                <selected>Skin.HasSetting(FullBackgroundSlideLandscape)</selected>					
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+						  </control>
 				<control type="radiobutton" id="156">
 		               <label>Hidden informations</label>
-					   <width>260</width>	
+					   <width>280</width>	
 		               <onclick>Skin.ToggleSetting(SlideLandscapeInfo)</onclick>
 		                <selected>Skin.HasSetting(SlideLandscapeInfo)</selected>
 						<include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
 		            </control>
+				<control type="radiobutton" id="157">
+		               <label>Prefer Landscape round</label>
+					   <width>280</width>	
+		               <onclick>Skin.ToggleSetting(square521_rounded)</onclick>
+		                <selected>Skin.HasSetting(square521_rounded)</selected>
+						<wrapmultilign>true</wrapmultilign>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>					
+		            </control>
+				<control type="radiobutton" id="158">
+		               <label>Add Mask Landscape</label>
+					   <width>280</width>	
+		               <onclick>Skin.ToggleSetting(MaskLandscape)</onclick>
+		                <selected>Skin.HasSetting(MaskLandscape)</selected>
+						<wrapmultilign>true</wrapmultilign>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>					
+		            </control>
+					<control type="radiobutton" id="160">
+		               <label>Use Zoom Landscape</label>
+					   <width>280</width>	
+		               <onclick>Skin.ToggleSetting(useZoomLandscape)</onclick>
+		                <selected>Skin.HasSetting(useZoomLandscape)</selected>
+						 <enable>Skin.HasSetting(SlideLandscapeInfo)</enable>
+						<wrapmultilign>true</wrapmultilign>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>					
+		            </control>	
 		</control>
 	</controls>
 </window>
