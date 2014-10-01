@@ -133,6 +133,12 @@
 			<style>uppercase</style>
 		</font>
 		<font>
+			<name>black_Title_Lowercase</name>
+			<filename>Default/Black.ttf</filename>
+			<size>30</size>
+			<style>Lowercase</style>
+		</font>
+		<font>
 			<name>black_Huge</name>
 			<filename>Default/Black.ttf</filename>
 			<size>36</size>
@@ -174,8 +180,8 @@
 			<name>light_Window</name>
 			<filename>Default/Light.ttf</filename>
 			<size>48</size>
-			<style>lowercase</style>
-		</font>
+			<style>lowercase</style>			
+		</font>		
 
 		<!--confluence fonts for add-on compatibility-->
 		<font>
@@ -384,6 +390,13 @@
 			<size>36</size>
 			<style>uppercase</style>
 		</font>
+		<font>
+			<name>black_Huge2</name>
+			<filename>Arial.ttf</filename>
+			<size>28</size>
+			<style>uppercase</style>
+		</font>
+		
 		
 		<!--light-->
 		<font>
@@ -487,8 +500,8 @@
 		<font>
 			<name>font24_title</name>
 			<filename>Arial.ttf</filename>
-			<size>24</size>
-		</font>
+			<size>24</size>		
+		</font>		
 		<font>
 			<name>font28_title</name>
 			<filename>Arial.ttf</filename>

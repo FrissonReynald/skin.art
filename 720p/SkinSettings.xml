@@ -96,7 +96,7 @@
 			<control type="group">
 				<height>44</height>
 				<control type="button" id="20">
-					<label>Other Views Extra </label>
+					<label>Extra</label>
 					<onfocus>Skin.SetString(SkinSettings,Viewsdisplays)</onfocus>
 					<onright>700</onright>
 					<onup>19</onup>
@@ -177,13 +177,7 @@
 					    <selected>Skin.HasSetting(opacitymenu.disable)</selected>
 						<enable>StringCompare(Skin.String(homemenu.type),vertical) | StringCompare(Skin.String(homemenu.type),horizontal)</enable>
 					    <include>settings_Radiobutton</include>
-				   </control>
-				    <control type="radiobutton" id="1060">
-					    <label>Enable CAPS Home Menu </label>
-					    <onclick>Skin.ToggleSetting(nocapsHome)</onclick>					   
-					    <selected>Skin.HasSetting(nocapsHome)</selected>
-						  <include>settings_Radiobutton</include>
-				   </control>
+				   </control>				  
 					<!--widgets-->
 					<control type="radiobutton" id="107">
 						<label>$LOCALIZE[31211]</label>
@@ -850,7 +844,37 @@
 					    <selected>Skin.HasSetting(TitleWindowsHidden)</selected>
 					    <include>settings_Radiobutton</include>
 				   </control>
-				   
+				   <control type="radiobutton" id="7311">
+					    <label>Disable Menu Guide</label>
+						<onclick>Skin.ToggleSetting(MenuGuide)</onclick>					   				    
+					    <selected>Skin.HasSetting(MenuGuide)</selected>
+					    <include>settings_Radiobutton</include>
+				   </control>
+				    <control type="Label" id="732">
+			            <label>-- OPTIONS HOME MENU --</label>
+						<onclick>noop</onclick>
+						 <font>normal</font>
+						<textcolor>Color1</textcolor>
+						<include>settings_Radiobutton</include>
+					</control>	
+				   <control type="radiobutton" id="733">
+					    <label>Prefer Black_Huge Font for window Title</label>
+						<onclick>Skin.ToggleSetting(BlackFontTitle)</onclick>					   				    
+					    <selected>Skin.HasSetting(BlackFontTitle)</selected>
+					    <include>settings_Radiobutton</include>
+				   </control>
+				     <control type="radiobutton" id="734">
+					    <label>Enable CAPS Home Menu </label>
+					    <onclick>Skin.ToggleSetting(nocapsHome)</onclick>					   
+					    <selected>Skin.HasSetting(nocapsHome)</selected>
+						  <include>settings_Radiobutton</include>
+				   </control>
+				   <control type="radiobutton" id="735">
+					    <label>Prefer Black_Huge Font for Home Menu</label>
+						<onclick>Skin.ToggleSetting(homeBlackHugeFont)</onclick>					   				    
+					    <selected>Skin.HasSetting(homeBlackHugeFont)</selected>
+					    <include>settings_Radiobutton</include>
+				   </control>
 			 </control>		
 			<!--SKIN CREDITS-->			
 				<control type="grouplist" id="800">

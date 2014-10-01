@@ -83,7 +83,7 @@
 							<font>condensed_Home</font>
 							<textcolor>Color3</textcolor>
 							<label>$INFO[ListItem.Label]</label>
-							<visible>Skin.HasSetting(nocapsHome)</visible>
+							<visible>Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
 						</control>
 						<control type="label">
 							<width>280</width>
@@ -91,7 +91,23 @@
 							<font>condensed_Home_Nocaps</font>
 							<textcolor>Color3</textcolor>
 							<label>$INFO[ListItem.Label]</label>
-							<visible>!Skin.HasSetting(nocapsHome)</visible>
+							<visible>!Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
+						</control>
+						<control type="label">
+							<width>280</width>
+							<height>46</height>
+							<font>black_Title</font>
+							<textcolor>Color3</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>Skin.HasSetting(nocapsHome) + Skin.HasSetting(homeBlackHugeFont)</visible>
+						</control>
+						<control type="label">
+							<width>280</width>
+							<height>46</height>
+							<font>black_Title_Lowercase</font>
+							<textcolor>Color3</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<visible>!Skin.HasSetting(nocapsHome) + Skin.HasSetting(homeBlackHugeFont)</visible>
 						</control>
 						<control type="label">
 							<right>5</right>
@@ -135,7 +151,7 @@
 							<font>condensed_Home</font>						
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>Color3</textcolor>
-							<visible>Skin.HasSetting(nocapsHome)</visible>
+							<visible>Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
 						</control>	
 						<control type="label">
 							<height>46</height>
@@ -143,7 +159,23 @@
 							<font>condensed_Home_Nocaps</font>						
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>Color3</textcolor>
-							<visible>!Skin.HasSetting(nocapsHome)</visible>
+							<visible>!Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
+						</control>
+						<control type="label">
+							<height>46</height>
+							<width>280</width>
+							<font>black_Title</font>						
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>Color3</textcolor>
+							<visible>Skin.HasSetting(nocapsHome) + Skin.HasSetting(homeBlackHugeFont)</visible>
+						</control>
+						<control type="label">
+							<height>46</height>
+							<width>280</width>
+							<font>black_Title_Lowercase</font>						
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>Color3</textcolor>
+							<visible>!Skin.HasSetting(nocapsHome) + Skin.HasSetting(homeBlackHugeFont)</visible>
 						</control>
 						<control type="label">
 							<right>5</right>
@@ -224,7 +256,7 @@
 							<font>condensed_Home</font>
 							<align>center</align>
 							<textcolor>Color3</textcolor>
-							<visible>Control.HasFocus(9110) + Skin.HasSetting(nocapsHome)</visible>
+							<visible>Control.HasFocus(9110) + Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
 							 <animation effect="fade" start="0" end="100" delay="100" time="300" condition="Control.HasFocus(9110)">conditional</animation>
    					      	</control>
 						<control type="label">
@@ -235,7 +267,18 @@
 							<font>condensed_Home_Nocaps</font>
 							<align>center</align>
 							<textcolor>Color3</textcolor>
-							<visible>Control.HasFocus(9110) + !Skin.HasSetting(nocapsHome)</visible>
+							<visible>Control.HasFocus(9110) + !Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
+								 <animation effect="fade" start="0" end="100" delay="100" time="300" condition="Control.HasFocus(9110)">conditional</animation>
+						</control>
+						<control type="label">
+							<left>118</left>
+							<width>236</width>
+							<height>60</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>black_huge</font>
+							<align>center</align>
+							<textcolor>Color3</textcolor>
+							<visible>Control.HasFocus(9110) + Skin.HasSetting(homeBlackHugeFont)</visible>
 								 <animation effect="fade" start="0" end="100" delay="100" time="300" condition="Control.HasFocus(9110)">conditional</animation>
 						</control>
 					</itemlayout>
@@ -259,7 +302,7 @@
 								<font>condensed_Home</font>
 								<align>center</align>
 								<textcolor>Color3</textcolor>
-									<visible>Skin.HasSetting(nocapsHome)</visible>
+							<visible>Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
 							</control>
 							<control type="label">							    
 								<left>118</left>
@@ -269,7 +312,17 @@
 								<font>condensed_Home_Nocaps</font>
 								<align>center</align>
 								<textcolor>Color3</textcolor>
-									<visible>!Skin.HasSetting(nocapsHome)</visible>
+									<visible>!Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
+							</control>
+							<control type="label">							    
+								<left>118</left>
+								<width>236</width>
+								<height>60</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>black_huge</font>
+								<align>center</align>
+								<textcolor>Color3</textcolor>
+								<visible>Skin.HasSetting(homeBlackHugeFont)</visible>					
 							</control>
 						</control>
 						<control type="group">	
@@ -291,7 +344,7 @@
 								<font>condensed_Home</font>
 								<align>center</align>
 								<textcolor>Color3</textcolor>	
-								<visible>Skin.HasSetting(nocapsHome)</visible>								
+								<visible>Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>								
 							</control>
 							<control type="label">							    
 								<left>118</left>
@@ -301,7 +354,17 @@
 								<font>condensed_Home_Nocaps</font>
 								<align>center</align>
 								<textcolor>Color3</textcolor>
-									<visible>!Skin.HasSetting(nocapsHome)</visible>
+							<visible>!Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
+							</control>
+							<control type="label">							    
+								<left>118</left>
+								<width>236</width>
+								<height>60</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>black_Huge</font>
+								<align>center</align>
+								<textcolor>Color3</textcolor>
+							<visible>Skin.HasSetting(homeBlackHugeFont)</visible>
 							</control>
 						</control>
 					</focusedlayout>
@@ -356,7 +419,7 @@
 							<font>condensed_HomeSub</font>
 							<align>center</align>
 							<textcolor>Color3</textcolor>
-							<visible>Skin.HasSetting(nocapsHome)</visible>
+							<visible>Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
 						</control>
 						<control type="label">
 							<left>118</left>
@@ -366,7 +429,17 @@
 							<font>condensed_HomeSub_Nocaps</font>
 							<align>center</align>
 							<textcolor>Color3</textcolor>
-							<visible>!Skin.HasSetting(nocapsHome)</visible>
+							<visible>!Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
+						</control>
+						<control type="label">
+							<left>118</left>
+							<width>199</width>
+							<height>40</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>regular_Bigger</font>
+							<align>center</align>
+							<textcolor>Color3</textcolor>
+							<visible>Skin.HasSetting(homeBlackHugeFont)</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout width="238" height="55">
@@ -389,7 +462,7 @@
 								<font>condensed_HomeSub</font>
 								<align>center</align>
 								<textcolor>base_8</textcolor>
-								<visible>Skin.HasSetting(nocapsHome)</visible>
+								<visible>Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
 							</control>
 							<control type="label">							
 								<left>118</left>
@@ -399,7 +472,17 @@
 								<font>condensed_HomeSub_Nocaps</font>
 								<align>center</align>
 								<textcolor>base_8</textcolor>
-								<visible>!Skin.HasSetting(nocapsHome)</visible>
+								<visible>!Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
+							</control>
+							<control type="label">							
+								<left>118</left>
+								<width>199</width>
+								<height>40</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>regular_Bigger</font>
+								<align>center</align>
+								<textcolor>base_8</textcolor>
+									<visible>Skin.HasSetting(homeBlackHugeFont)</visible>
 							</control>
 						</control>
 						<control type="group">
@@ -421,7 +504,7 @@
 								<font>condensed_HomeSub</font>
 								<align>center</align>
 								<textcolor>Color3</textcolor>
-								<visible>Skin.HasSetting(nocapsHome)</visible>
+								<visible>Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
 							</control>
 							<control type="label">							
 								<left>118</left>
@@ -431,7 +514,17 @@
 								<font>condensed_HomeSub_Nocaps</font>
 								<align>center</align>
 								<textcolor>Color3</textcolor>
-								<visible>!Skin.HasSetting(nocapsHome)</visible>
+								<visible>!Skin.HasSetting(nocapsHome) + !Skin.HasSetting(homeBlackHugeFont)</visible>
+							</control>
+							<control type="label">							
+								<left>118</left>
+								<width>199</width>
+								<height>40</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>regular_Bigger</font>
+								<align>center</align>
+								<textcolor>Color3</textcolor>
+									<visible>Skin.HasSetting(homeBlackHugeFont)</visible>
 							</control>
 						</control>
 					</focusedlayout>

@@ -101,9 +101,10 @@
 				<texture>$VAR[toast_Icon]</texture>
 				<visible>!Player.Muted + IntegerGreaterThan(Player.Volume,0)</visible>
 			</control>
-		</control>
+			<visible>!Control.IsVisible(578)</visible>
+			</control>		
 	</include>
-	<include name="clock">
+	<include name="clock">	
 		<control type="group">
 			<visible>![Library.IsScanningVideo | Library.IsScanningMusic | Window.IsActive(infodialog) | Control.HasFocus(9210)]</visible>
 			<control type="label">
@@ -131,7 +132,7 @@
 					<include>toast_Icon</include>
 					<texture>$VAR[toast_Icon]</texture>
 				</control>
-			</control>
+			</control>			
 		</control>
 	</include>
 	<include name="global_Sortletter">
@@ -146,11 +147,13 @@
 			<include>transition_WindowTitle</include>
 			<include>toggle_Menu</include>
 			<visible>Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
+		<visible>!Control.IsVisible(578)</visible>	
 		</control>
 	</include>		
-	<include name="global_Itemcount">
+	<include name="global_Itemcount">	
 		<control type="label">
-			<left>35</left>
+		<animation effect="slide" end="-27" time="0" condition="Skin.HasSetting(global.kiosk)">Conditional</animation>
+			<left>60</left>
 			<top>53</top>
 			<width>500</width>
 			<label>$VAR[global_Itemcount]</label>
@@ -159,11 +162,13 @@
 			<include>transition_WindowTitle</include>
 			<include>toggle_Menu</include>
 			<visible>!Control.IsVisible(531)</visible>
+			<visible>!Control.IsVisible(578)</visible>	
 			<visible>Skin.HasSetting(Disable.global_Itemcount)</visible>			
 		</control>
 	</include>	    
 	<include name="global_MenuGuide">
 		<control type="group" id="6100">
+		<visible>!Skin.HasSetting(MenuGuide)</visible>
 			<left>20</left>
 			<top>16</top>
 			<include>toggle_Menu</include>
@@ -173,9 +178,9 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>navigation/left.png</texture>
-				<visible>[Control.IsVisible(50) | Control.IsVisible(51)  | Control.IsVisible(511) | Control.IsVisible(512) | Control.IsVisible(501) | Control.IsVisible(524) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(542) | Control.IsVisible(543) | Control.IsVisible(544) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572)  | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(575) | Control.IsVisible(576) | Control.IsVisible(5761) | Control.IsVisible(577) | Control.IsVisible(578) | Control.IsVisible(579) | Control.IsVisible(591) | Control.IsVisible(61) | Control.IsVisible(611) | Control.IsVisible(612) | Control.IsVisible(622) | Control.IsVisible(63) | Control.IsVisible(631) | Control.IsVisible(632) | Control.IsVisible(67) | Control.IsVisible(68) | Control.IsVisible(692) | Control.IsVisible(695) | Control.IsVisible(694) | Window.IsActive(weather) | Window.IsActive(pvr) | Window.IsActive(600) | Window.IsActive(SettingsCategory.xml)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+				<visible>[Control.IsVisible(50) | Control.IsVisible(51)  | Control.IsVisible(511) | Control.IsVisible(512) | Control.IsVisible(501) | Control.IsVisible(524) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(542) | Control.IsVisible(543) | Control.IsVisible(544) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572)  | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(575) | Control.IsVisible(576) | Control.IsVisible(5761) | Control.IsVisible(577) | Control.IsVisible(579) | Control.IsVisible(591) | Control.IsVisible(61) | Control.IsVisible(611) | Control.IsVisible(612) | Control.IsVisible(622) | Control.IsVisible(63) | Control.IsVisible(631) | Control.IsVisible(632) | Control.IsVisible(67) | Control.IsVisible(68) | Control.IsVisible(692) | Control.IsVisible(695) | Control.IsVisible(694) | Window.IsActive(weather) | Window.IsActive(pvr) | Window.IsActive(600) | Window.IsActive(SettingsCategory.xml)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 				<include>nav_IndicatorLeft</include>
-				<colordiffuse>Color1</colordiffuse>
+				<colordiffuse>Color1</colordiffuse>				
 			</control>
 			<control type="image">
 				<width>32</width>
@@ -183,7 +188,7 @@
 				<texture>navigation/up.png</texture>
 				<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(53) | Control.IsVisible(535) | Control.IsVisible(581) | Control.IsVisible(59) | Control.IsVisible(592) | Control.IsVisible(593) | Control.IsVisible(594) | Control.IsVisible(595) | Control.IsVisible(596) | Control.IsVisible(597) | Control.IsVisible(60) | Control.IsVisible(62) | Control.IsVisible(621) | Control.IsVisible(69) | Control.IsVisible(691) | Control.IsVisible(693)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Window.IsActive(weather)</visible>
 				<include>nav_IndicatorUp</include>
-				<colordiffuse>Color1</colordiffuse>
+				<colordiffuse>Color1</colordiffuse>				
 			</control>
 		</control>
 	</include>
@@ -1168,23 +1173,45 @@
 		</control>		
 	</include>
 <!--WINDOW TITLES-->
-	<include name="windowTitle">
-		<left>59</left>
+	<include name="windowTitle">	
+		<left>60</left>
 		<top>15</top>
-		<width>950</width>
+		<width>800</width>
 		<aligny>center</aligny>
-		<font>light_Window</font>
-		<textcolor>Color1</textcolor>
+		<font>light_Window</font>		
+		<textcolor>Color1</textcolor>		
+		<scroll>true</scroll>
 		<include>transition_WindowTitle</include>
 		<include>toggle_Menu</include>
 		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(531)] + !Control.IsVisible(9900)</visible>
 		<animation effect="slide" end="-27" time="0" condition="Skin.HasSetting(global.kiosk)">Conditional</animation>
+	<visible>!Skin.HasSetting(BlackFontTitle)</visible>
 	</include>
+	<include name="windowTitleBlackHuge">	
+		<left>60</left>
+		<top>18</top>
+		<width>800</width>
+		<aligny>center</aligny>
+		<font>black_huge</font>		
+		<textcolor>Color1</textcolor>		
+		<scroll>true</scroll>
+		<include>transition_WindowTitle</include>
+		<include>toggle_Menu</include>
+		<visible>![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(busydialog) | Control.IsVisible(531)] + !Control.IsVisible(9900)</visible>
+		<visible>!Control.IsVisible(578)</visible>
+		<animation effect="slide" end="-26" time="0" condition="Skin.HasSetting(global.kiosk)">Conditional</animation>
+	<visible>Skin.HasSetting(BlackFontTitle)</visible>
+	</include>	
 	<include name="windowTitle_Video">
 		<control type="label">
 			<label>$VAR[window_Title.Video]</label>
 			<include>windowTitle</include>
-			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>
+			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>	
+			</control>
+			<control type="label">
+			<label>$VAR[window_Title.Video]</label>
+			<include>windowTitleBlackHuge</include>
+			<visible>!Skin.HasSetting(TitleWindowsHidden) + Skin.HasSetting(BlackFontTitle)</visible>		
 		</control>
 	</include>		
 	<include name="windowTitle_Music">
@@ -1193,12 +1220,22 @@
 			<include>windowTitle</include>
 			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>
 		</control>
+		<control type="label">
+			<label>$VAR[window_Title.Music]</label>
+			<include>windowTitleBlackHuge</include>
+			<visible>!Skin.HasSetting(TitleWindowsHidden) + Skin.HasSetting(BlackFontTitle)</visible>	
+		</control>
 	</include>
 	<include name="windowTitle_Pictures">
 		<control type="label">
 			<label>$VAR[window_Title.Pictures]</label>
 			<include>windowTitle</include>
 			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>
+		</control>
+		<control type="label">
+			<label>$VAR[window_Title.Pictures]</label>
+		<include>windowTitleBlackHuge</include>
+			<visible>!Skin.HasSetting(TitleWindowsHidden) + Skin.HasSetting(BlackFontTitle)</visible>
 		</control>
 	</include>
 	<include name="windowTitle_Programs">
@@ -1207,12 +1244,23 @@
 			<include>windowTitle</include>
 			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>
 		</control>
+		<control type="label">
+			<label>$VAR[window_Title.Programs]</label>
+			<include>windowTitleBlackHuge</include>
+			<visible>!Skin.HasSetting(TitleWindowsHidden) + Skin.HasSetting(BlackFontTitle)</visible>
+		</control>
 	</include>
 	<include name="windowTitle_System">
 		<control type="label">
 			<label>$VAR[window_Title.System]</label>
 			<include>windowTitle</include>
 			<animation effect="slide" end="-27" time="0" condition="Window.IsActive(settings) | Window.IsActive(systeminfo) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(filemanager)">Conditional</animation>
+		</control>
+		<control type="label">
+			<label>$VAR[window_Title.System]</label>
+			<include>windowTitleBlackHuge</include>
+			<animation effect="slide" end="-27" time="0" condition="Window.IsActive(settings) | Window.IsActive(systeminfo) | Window.IsActive(profiles) | Window.IsActive(skinsettings) | Window.IsActive(filemanager)">Conditional</animation>
+		<visible>Skin.HasSetting(BlackFontTitle)</visible>
 		</control>
 	</include>
 	<include name="windowTitle_Addons">
@@ -1221,17 +1269,32 @@
 			<include>windowTitle</include>
 			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>
 		</control>
+		<control type="label">
+			<label>$VAR[window_Title.Addons]</label>
+			<include>windowTitleBlackHuge</include>
+			<visible>!Skin.HasSetting(TitleWindowsHidden) + Skin.HasSetting(BlackFontTitle)</visible>
+		</control>
 	</include>
 	<include name="windowTitle_PVR">
 		<control type="label">
 			<label>$VAR[window_Title.PVR]</label>
 			<include>windowTitle</include>
 		</control>
+		<control type="label">
+			<label>$VAR[window_Title.PVR]</label>
+			<include>windowTitleBlackHuge</include>
+			<visible>Skin.HasSetting(BlackFontTitle)</visible>
+		</control>
 	</include>
 	<include name="windowTitle_Playlists">
 		<control type="label">
 			<label>$VAR[window_Title.Playlists]</label>
 			<include>windowTitle</include>
+		</control>
+		<control type="label">
+			<label>$VAR[window_Title.Playlists]</label>
+			<include>windowTitleBlackHuge</include>
+			<visible>Skin.HasSetting(BlackFontTitle)</visible>
 		</control>
 	</include>
 	<include name="windowTitle_Weather">
@@ -1240,5 +1303,10 @@
 			<include>windowTitle</include>
 			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>
 		</control>
-	</include>
+		<control type="label">
+			<label>$VAR[window_Title.Weather]</label>
+			<include>windowTitleBlackHuge</include>
+			<visible>!Skin.HasSetting(TitleWindowsHidden) + Skin.HasSetting(BlackFontTitle)</visible>
+		</control>
+	</include>	
 </includes>
