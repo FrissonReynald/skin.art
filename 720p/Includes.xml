@@ -173,7 +173,7 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>navigation/left.png</texture>
-				<visible>[Control.IsVisible(50) | Control.IsVisible(51)  | Control.IsVisible(511) | Control.IsVisible(512) | Control.IsVisible(501) | Control.IsVisible(524) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(542) | Control.IsVisible(543) | Control.IsVisible(544) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572)  | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(575) | Control.IsVisible(576) | Control.IsVisible(577) | Control.IsVisible(578) | Control.IsVisible(579) | Control.IsVisible(591) | Control.IsVisible(61) | Control.IsVisible(611) | Control.IsVisible(612) | Control.IsVisible(622) | Control.IsVisible(63) | Control.IsVisible(631) | Control.IsVisible(632) | Control.IsVisible(67) | Control.IsVisible(68) | Control.IsVisible(692) | Control.IsVisible(695) | Control.IsVisible(694) | Window.IsActive(weather) | Window.IsActive(pvr) | Window.IsActive(600) | Window.IsActive(SettingsCategory.xml)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
+				<visible>[Control.IsVisible(50) | Control.IsVisible(51)  | Control.IsVisible(511) | Control.IsVisible(512) | Control.IsVisible(501) | Control.IsVisible(524) | Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(542) | Control.IsVisible(543) | Control.IsVisible(544) | Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572)  | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(575) | Control.IsVisible(576) | Control.IsVisible(5761) | Control.IsVisible(577) | Control.IsVisible(578) | Control.IsVisible(579) | Control.IsVisible(591) | Control.IsVisible(61) | Control.IsVisible(611) | Control.IsVisible(612) | Control.IsVisible(622) | Control.IsVisible(63) | Control.IsVisible(631) | Control.IsVisible(632) | Control.IsVisible(67) | Control.IsVisible(68) | Control.IsVisible(692) | Control.IsVisible(695) | Control.IsVisible(694) | Window.IsActive(weather) | Window.IsActive(pvr) | Window.IsActive(600) | Window.IsActive(SettingsCategory.xml)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)]</visible>
 				<include>nav_IndicatorLeft</include>
 				<colordiffuse>Color1</colordiffuse>
 			</control>
@@ -181,7 +181,7 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>navigation/up.png</texture>
-				<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(53) | Control.IsVisible(535) | Control.IsVisible(5761) | Control.IsVisible(581) | Control.IsVisible(59) | Control.IsVisible(592) | Control.IsVisible(593) | Control.IsVisible(594) | Control.IsVisible(595) | Control.IsVisible(596) | Control.IsVisible(597) | Control.IsVisible(60) | Control.IsVisible(62) | Control.IsVisible(621) | Control.IsVisible(69) | Control.IsVisible(691) | Control.IsVisible(693)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Window.IsActive(weather)</visible>
+				<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522) | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(53) | Control.IsVisible(535) | Control.IsVisible(581) | Control.IsVisible(59) | Control.IsVisible(592) | Control.IsVisible(593) | Control.IsVisible(594) | Control.IsVisible(595) | Control.IsVisible(596) | Control.IsVisible(597) | Control.IsVisible(60) | Control.IsVisible(62) | Control.IsVisible(621) | Control.IsVisible(69) | Control.IsVisible(691) | Control.IsVisible(693)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation)] + !Window.IsActive(weather)</visible>
 				<include>nav_IndicatorUp</include>
 				<colordiffuse>Color1</colordiffuse>
 			</control>
@@ -442,7 +442,8 @@
 			<left>1272</left>
 			<height>screen_Height</height>
 			<onleft condition="Window.IsActive(SettingsCategory.xml)">5</onleft>
-			<onleft condition="!Window.IsActive(videoplaylist)">50</onleft>			
+			<onleft condition="!Window.IsActive(videoplaylist)">50</onleft>	
+			<onleft condition="Control.IsVisible(5761)">5761</onleft>	
 			<onleft condition="Control.IsVisible(591)">591</onleft>
 			<onleft condition="Control.IsVisible(591)">591</onleft>
 			<onleft condition="Control.IsVisible(61) | Control.IsVisible(611)">61</onleft>
@@ -462,8 +463,7 @@
 			<onup condition="Control.IsVisible(592)">592</onup>
 			<onup condition="Control.IsVisible(593)">593</onup>
 			<onup condition="Control.IsVisible(594)">594</onup>
-			<onup condition="Control.IsVisible(535) | Control.IsVisible(595)">535</onup>
-			<onup condition="Control.IsVisible(5761)">5761</onup>
+			<onup condition="Control.IsVisible(535) | Control.IsVisible(595)">535</onup>			
 			<onup condition="Control.IsVisible(596)">596</onup>	
 			<onup condition="Control.IsVisible(597)">597</onup>	
 			<onup condition="Control.IsVisible(60)">60</onup>
@@ -1184,24 +1184,28 @@
 		<control type="label">
 			<label>$VAR[window_Title.Video]</label>
 			<include>windowTitle</include>
+			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>
 		</control>
 	</include>		
 	<include name="windowTitle_Music">
 		<control type="label">
 			<label>$VAR[window_Title.Music]</label>
 			<include>windowTitle</include>
+			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>
 		</control>
 	</include>
 	<include name="windowTitle_Pictures">
 		<control type="label">
 			<label>$VAR[window_Title.Pictures]</label>
 			<include>windowTitle</include>
+			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>
 		</control>
 	</include>
 	<include name="windowTitle_Programs">
 		<control type="label">
 			<label>$VAR[window_Title.Programs]</label>
 			<include>windowTitle</include>
+			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>
 		</control>
 	</include>
 	<include name="windowTitle_System">
@@ -1215,6 +1219,7 @@
 		<control type="label">
 			<label>$VAR[window_Title.Addons]</label>
 			<include>windowTitle</include>
+			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>
 		</control>
 	</include>
 	<include name="windowTitle_PVR">
@@ -1233,6 +1238,7 @@
 		<control type="label">
 			<label>$VAR[window_Title.Weather]</label>
 			<include>windowTitle</include>
+			<visible>!Skin.HasSetting(TitleWindowsHidden)</visible>
 		</control>
-	</include>	
+	</include>
 </includes>

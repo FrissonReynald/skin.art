@@ -680,22 +680,14 @@
 			</control>			
 			<!--texte box Landscape -->						
 			<control type="group">
-					<control type="label">
-					<left>505</left>
-					<top>480</top>	
-					<label>$VAR[gallery_Header]</label>
-					<width>525</width>
-					<textcolor>Color1</textcolor>
-					<include>detail_Title</include>
-					<visible>Control.IsVisible(591)</visible>
-				</control>
+				
 			</control>	
 				<control type="textbox">
-					<top>510</top>
-					<left>505</left>
-					<width>530</width>
+					<top>485</top>
+					<left>500</left>
+					<width>540</width>
 					<align>justify</align>
-					<height max="160">auto</height>
+					<height max="185">auto</height>
 					<label>$VAR[global_Plot]</label>
 					<include>detail_Text</include>
 					<visible>Control.IsVisible(591)</visible>

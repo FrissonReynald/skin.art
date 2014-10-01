@@ -313,13 +313,14 @@
 				<!--SUB MENU-->					
 			<control type="group">	
 			<control type="image">			
-			<top>60</top>
+			<top>64</top>
 			<left>-150</left>
 					<width>1920</width>
 					<height>57</height>
 					<aspectratio>stretch</aspectratio>				
 					<texture colordiffuse="base_5">home/panel.png</texture>
-					<animation type="Conditional" condition="!IntegerGreaterThan(Container(9111).NumItems,0)" reversible="true">
+						<animation effect="fade" start="100" end="60" condition="Skin.HasSetting(opacitymenu.disable)">Conditional</animation>
+						<animation type="Conditional" condition="!IntegerGreaterThan(Container(9111).NumItems,0)" reversible="true">
 							<effect type="Slide" time="50" center="auto" start="0,0" end="-4000,0" easing="In" tween="Cubic"/>
 						</animation>
 					<visible>ControlGroup(229).HasFocus() | Control.HasFocus(9110) | Control.HasFocus(9111)</visible>
@@ -373,9 +374,9 @@
 							<visible>Control.HasFocus(9111)</visible>
 							<control type="image">
 							<left>2</left>
-							<top>-3</top>
+							<top>2</top>
 								<width>238</width>
-								<height>44</height>
+								<height>42</height>
 								<texture colordiffuse="FocusSubmenu">white.png</texture>
 								<bordertexture colordiffuse="base_3">white.png</bordertexture>
 								<bordersize>0</bordersize>

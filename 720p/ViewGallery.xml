@@ -949,7 +949,7 @@
 				</control>
 		</control>		
 	</include>
-	<include name="PanelFocus">
+	<include name="PanelFocus">		
 		<control type="group">
 		<include>Panel_Gallery</include>		
 		<visible>!Control.HasFocus(8000)</visible>

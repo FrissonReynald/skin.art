@@ -570,10 +570,11 @@
 			<left>830</left>
 			<top>105</top>
 				<width>415</width>
-				<height>593</height>
 					<align>justify</align>
-					<label>$INFO[ListItem.Plot]</label>
-					<include>detail_Text</include>
+							<height max="593">auto</height>
+							<label>$VAR[global_Plot]</label>
+							<include>detail_Text</include>
+						
 					<visible>Control.IsVisible(543)</visible>
 				</control>	
 		<visible>Skin.HasSetting(Text_Box)</visible>		

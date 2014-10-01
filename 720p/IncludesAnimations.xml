@@ -2,19 +2,19 @@
 <includes>
 <!--global-->
 	<include name="fadeinout">
-		<animation type="WindowOpen">
-			<effect type="Fade" start="0" end="100" time="200" />
-		</animation>
-		<animation type="WindowClose">
-			<effect type="Fade" start="100" end="0" time="200" />
-		</animation>
-		<animation type="Visible">
-			<effect type="Fade" start="0" end="100" time="200" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="Fade" start="100" end="0" time="100" />
-		</animation>
-	</include>
+	 <animation type="WindowOpen" reversible="false">
+            <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in"  />
+              </animation>
+        <animation type="Visible" reversible="false">
+            <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+           </animation>
+        <animation type="WindowClose" reversible="false">
+            <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+           </animation>
+        <animation type="Hidden" reversible="false">
+            <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+          </animation>
+    </include>
 	<include name="fadein">
 		<animation type="WindowOpen">
 			<effect type="Fade" start="0" end="100" time="200" />
@@ -332,9 +332,8 @@
 		</animation>
 	</include>
 	<include name="Panel_Gallery">
-	 <animation effect="slide" start="0,-500" end="0" delay="1500"  time="1200" easing="inout" tween="cubic">Focus</animation>
-     <animation effect="slide" start="0,0" end="0,300" delay="1500"  time="900" easing="inout" tween="cubic">Unfocus</animation>
-                        <animation effect="fade" start="0" end="100" time="300" tween="Quadratic" easing="Out" condition="Control.HasFocus(534)">Conditional</animation>
+	 <animation effect="slide" start="0,-500" end="0,0" delay="1500"  time="500" easing="inout" tween="cubic">Focus</animation>
+                        <animation effect="fade" start="0" end="100" time="150" tween="Quadratic" easing="Out" condition="Control.HasFocus(534)">Conditional</animation>
         </include>
 		<include name="Panel_Strip">
 	 <animation effect="slide" start="0,0" end="0,-350" delay="2000"  time="700" easing="inout" tween="cubic">Focus</animation>

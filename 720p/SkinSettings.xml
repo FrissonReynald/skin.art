@@ -172,7 +172,7 @@
 					    <include>settings_Radiobutton</include>
 				   </control>
 				   <control type="radiobutton" id="106">
-					    <label>Reduce opacity Menu Horizontal</label>
+					    <label>Reduce opacity Menu</label>
 					    <onclick>Skin.ToggleSetting(opacitymenu.disable)</onclick>					   
 					    <selected>Skin.HasSetting(opacitymenu.disable)</selected>
 						<enable>StringCompare(Skin.String(homemenu.type),vertical) | StringCompare(Skin.String(homemenu.type),horizontal)</enable>
@@ -837,6 +837,20 @@
 					    <selected>Skin.HasSetting(Focus_Banner)</selected>
 					    <include>settings_Radiobutton</include>
 				   </control>
+				   <control type="Label" id="730">
+			            <label>-- OPTIONS WINDOWS --</label>
+						<onclick>noop</onclick>
+						 <font>normal</font>
+						<textcolor>Color1</textcolor>
+						<include>settings_Radiobutton</include>
+					</control>	
+				    <control type="radiobutton" id="731">
+					    <label>Disable window Title</label>
+						<onclick>Skin.ToggleSetting(TitleWindowsHidden)</onclick>					   				    
+					    <selected>Skin.HasSetting(TitleWindowsHidden)</selected>
+					    <include>settings_Radiobutton</include>
+				   </control>
+				   
 			 </control>		
 			<!--SKIN CREDITS-->			
 				<control type="grouplist" id="800">

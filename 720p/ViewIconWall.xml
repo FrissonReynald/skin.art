@@ -1060,8 +1060,8 @@
                     <bordertexture>black.png</bordertexture>
                     <bordersize>0</bordersize>
                     <animation effect="zoom" start="100" end="100" center="auto">Focus</animation>
-                    <animation effect="slide" start="0,0" end="11,0" time="0" condition="Container.Column(0)">Conditional</animation>
-                    <animation effect="slide" start="0,0" end="-11,0" time="0" condition="Container.Column(15)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,0" time="0" condition="Container.Column(0)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,0" time="0" condition="Container.Column(15)">Conditional</animation>
                     <animation effect="slide" start="0,0" end="0,17" time="0" condition="Container.Row(0)">Conditional</animation>
                     <animation effect="slide" start="0,0" end="0,-17" time="0" condition="Container.Row(5)">Conditional</animation>
                     <visible>stringcompare(ListItem.Label,..)</visible>
@@ -1226,22 +1226,13 @@
 			<texture background="true"border="30">frames/contentpanel.png</texture>
 			  <animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>					 
 		</control>
-		<control type="label">	
-		  <left>105</left>
-		<top>100</top>
-						<label>$VAR[gallery_Header]</label>
-						<width>445</width>
-						<textcolor>Color1</textcolor>
-						<include>detail_Title</include>
-						<scroll>true</scroll>
-						<visible>Control.IsVisible(622)</visible>
-					</control>
+		
 		<control type="textbox">
-		<top>140</top>
+		<top>100</top>
 					<left>105</left>
 					<width>450</width>
 					<align>justify</align>
-					<height max="270">auto</height>
+					<height max="315">auto</height>
 					<label>$VAR[global_Plot]</label>					
 					<include>detail_Text</include>					
 				</control>

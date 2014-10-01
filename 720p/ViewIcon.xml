@@ -710,14 +710,27 @@
 				<width>1920</width>
 				<height>70</height>
                <texture background="true">frames/contentpanel.png</texture>
-			   <animation condition="true" effect="Fade" start="70" end="70" time="0">Conditional</animation>					 
+			   <animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>					 
 			  <aspectratio>stretch</aspectratio>			    
 			   <visible>Control.IsVisible(5761)</visible> 			  		   
-			</control>	
+			</control>				
 			
 			<visible>Control.IsVisible(5761) + Skin.HasSetting(FullBackgroundIcon5761)</visible>	
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 		</control>
+		<control type="image">	
+	<include>transition_Content</include>
+			<include>toggle_Menu</include>
+			<include>transition_Info</include>
+				<top>0</top>
+				<left>887</left>
+				<width>400</width>
+				<height>666</height>
+               <texture background="true">frames/contentpanel.png</texture>
+			   <animation condition="true" effect="Fade" start="100" end="100" time="0">Conditional</animation>					 
+			  <aspectratio>stretch</aspectratio>			    
+			   <visible>Control.IsVisible(5761) + Skin.HasSetting(useZoomIconFullOriginal) + Skin.HasSetting(FullBackgroundIcon5761)</visible> 			  		   
+			</control>
 		<control type="panel" id="5761">		
 			<viewtype label="31113">icon</viewtype>	
 			<include>animation_hoverslide</include>
@@ -725,18 +738,20 @@
 			<top>90</top>
 			<width>1270</width>
 			<height>582</height>
-			<onleft>5761</onleft>
-			<onright>5761</onright>
-			<onup>6000</onup>
-			<ondown>71</ondown>
-			<pagecontrol>71</pagecontrol>
+			<onleft>6000</onleft>
+			<onright>70</onright>
+			<onup>5761</onup>
+			<ondown>5761</ondown>
+			<pagecontrol>70</pagecontrol>
 			<preloaditems>4</preloaditems>
-			<orientation>horizontal</orientation>
-			<include>global_Scrolltime</include>
+			<orientation>vertical</orientation>
+			<include>global_ListScroll</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<include>toggle_Menu</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(actors)</visible>
+			 <animation effect="zoom" start="100" end="70" center="10,585" time="240" reversible="false" tween="cubic" condition="Skin.HasSetting(useZoomIconFullOriginal)">Conditional</animation>
+         
 			<itemlayout width="139" height="194">
 				<include>view_IconPortraitSmallOriginal-ContainerCommons</include>
 			</itemlayout>											
@@ -821,6 +836,182 @@
 					</control>
 				</control>
 			</control>
+			<!--Option Small & Info -->
+			<control type="group">
+			<top>10</top>
+			<visible>Control.IsVisible(5761) + Skin.HasSetting(useZoomIconFullOriginal)</visible>			
+			<control type="textbox">			
+				<top>235</top>
+					<left>900</left>
+				    <width>360</width>
+					<height>350</height>
+					<align>justify</align>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>					
+				</control>
+			<control type="group">			
+			 <left>900</left>
+				  <top>45</top>		
+                    <control type="grouplist"> 
+					 <top>30</top>
+                        <width>360</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="300">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20339]:</label>
+							<include>detail_Sub</include>
+							 <scroll>true</scroll>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="300">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Director]</label>
+                            <scroll>true</scroll>							
+                        </control>
+                    </control>
+                    <control type="grouplist"> 
+					 <top>60</top>
+                        <width>360</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="300">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20417]:</label>
+							<include>detail_Sub</include>
+							 <scroll>true</scroll>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="300">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Writer]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="grouplist"> 
+					 <top>90</top>
+                        <width>360</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="300">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[563]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="300">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Rating]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>                  
+                    <control type="grouplist">
+					 <top>120</top>
+                        <width>360</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="300">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[572]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="300">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Studio]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="grouplist">   
+                     <top>150</top>
+                        <width>360</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="300">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20074]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width>300</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Mpaa]</label>                           
+                            <scroll>true</scroll>
+                            <wrapmultiline>true</wrapmultiline>
+                        </control>
+                    </control>  
+				</control> 
+				<control type="grouplist" id="100">				
+				<left>20</left>
+				<top>70</top>
+				<width>950</width>
+				<height>200</height>
+				<itemgap>15</itemgap>
+				<orientation>horizontal</orientation>
+		<control type="image">	
+		<fadetime>fadetime_Thumb</fadetime>
+		<width>277</width>
+		<height>150</height>
+		<texture background="true">$VAR[view_Extra.Thumb]</texture>
+		<aspectratio>scale</aspectratio>          			
+		</control>			
+		<control type="image">	
+		<fadetime>fadetime_Thumb</fadetime>
+		<width>277</width>
+		<height>150</height>
+		<texture background="true">$VAR[view_Extra.Thumb2]</texture>
+		<aspectratio>scale</aspectratio>			
+		</control>
+		<control type="image">	
+		<fadetime>fadetime_Thumb</fadetime>
+		<width>277</width>
+		<height>150</height>
+		<texture background="true">$VAR[view_Extra.Thumb3]</texture>
+		<aspectratio>scale</aspectratio>			
+		</control>
+		</control>			
+			<control type="grouplist" id="100">
+				<left>905</left>
+				<bottom>80</bottom>
+				<width>370</width>
+				<height>40</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>				
+				<control type="image">
+					<width>80</width>
+					<height>40</height>
+					<texture>$INFO[ListItem.VideoResolution,flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
+				</control>
+				<control type="image">
+					<width>80</width>
+					<height>40</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+					<width>80</width>
+					<height>40</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				<control type="image">
+					<width>80</width>
+					<height>40</height>
+					<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
+				</control>				
+			</control>
+			</control>
 		</control>	
 	</include>
 	
@@ -842,6 +1033,15 @@
 					<visible>IntegerGreaterThan(ListItem.Rating,0)</visible>						
 				</control>
 				<control type="image">
+				  <right>200</right>
+					<top>647</top>
+					<width>79</width>
+					<height>55</height>
+					<aspectratio align="left">keep</aspectratio>
+					<texture colordiffuse="Color11">$VAR[flag_Studio]</texture>
+					<visible>Control.IsVisible(578) + Skin.HasSetting(useZoomIconFull)</visible>
+				</control>
+				<control type="image">
 					<right>72</right>
 					<top>665</top>
 					<width>128</width>
@@ -857,7 +1057,7 @@
 					<height>55</height>
 					<aspectratio align="left">keep</aspectratio>
 					<texture colordiffuse="Color11">$VAR[flag_Studio]</texture>
-					<visible>Control.IsVisible(578)</visible>	
+					<visible>Control.IsVisible(578) + !Skin.HasSetting(useZoomIconFull)</visible>
 				</control>
 				<control type="group">
 					<left>135</left>
@@ -893,9 +1093,123 @@
 						<include>detail_Sub</include>
 						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
 					</control>
+					<visible>Control.IsVisible(578) + !Skin.HasSetting(useZoomIconFull)</visible>
 				</control>
 			</control>
-		</control>	
+		</control>
+		<control type="group">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<top>10</top>
+			<visible>Control.IsVisible(578) + Skin.HasSetting(useZoomIconFull)</visible>
+			<control type="label">
+					<top>645</top>
+					<left>20</left>
+						<label>$VAR[global_Title]</label>
+						<width>880</width>
+						<font>black_huge</font>	
+						<scroll>true</scroll>					
+						</control>
+				<control type="image">
+					<top>615</top>
+					<left>20</left>
+						<texture colordiffuse="Color2">$VAR[status_List]</texture>
+						<include>status_List</include>
+						<visible>Control.IsVisible(578)</visible>	
+					</control>
+					<control type="label">
+					<top>675</top>
+					<left>20</left>
+						<label>$VAR[global_Info]</label>
+						<width>700</width>
+						<include>detail_Sub</include>
+						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+					</control>
+					<control type="label">
+					<top>675</top>
+					<left>20</left>
+						<label>$VAR[global_Info.Addon]</label>
+						<width>450</width>
+						<include>detail_Sub</include>
+						<visible>SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+					</control>					
+					
+			<control type="textbox">			
+				<top>443</top>
+					<left>20</left>
+				    <width>850</width>
+					<height>168</height>
+					<align>justify</align>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>					
+				</control>			
+				<control type="grouplist" id="100">				
+				<left>900</left>
+				<top>20</top>
+				<width>370</width>
+				<height>800</height>
+				<itemgap>15</itemgap>
+				<orientation>vertical</orientation>
+		<control type="image">	
+		<fadetime>fadetime_Thumb</fadetime>
+		<width>375</width>
+		<height>180</height>
+		<texture background="true">$VAR[view_Extra.Thumb]</texture>
+		<aspectratio>scale</aspectratio>          			
+		</control>			
+		<control type="image">	
+		<fadetime>fadetime_Thumb</fadetime>
+		<width>375</width>
+		<height>180</height>
+		<texture background="true">$VAR[view_Extra.Thumb2]</texture>
+		<aspectratio>scale</aspectratio>			
+		</control>
+		<control type="image">	
+		<fadetime>fadetime_Thumb</fadetime>
+		<width>375</width>
+		<height>180</height>
+		<texture background="true">$VAR[view_Extra.Thumb3]</texture>
+		<aspectratio>scale</aspectratio>			
+		</control>
+		</control>			
+			<control type="grouplist" id="100">
+				<left>905</left>
+				<bottom>80</bottom>
+				<width>370</width>
+				<height>40</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>				
+				<control type="image">
+					<width>80</width>
+					<height>40</height>
+					<texture>$INFO[ListItem.VideoResolution,flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
+				</control>
+				<control type="image">
+					<width>80</width>
+					<height>40</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+					<width>80</width>
+					<height>40</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				<control type="image">
+					<width>80</width>
+					<height>40</height>
+					<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
+				</control>				
+			</control>
+			</control>
 	</include>
 	<!--Icon Full (578)-->
 	<include name="view_IconPortraitFull-ContainerCommons">		
@@ -964,6 +1278,8 @@
 			<include>transition_Content</include>
 			<include>transition_Info</include>
 			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+			 <animation effect="zoom" start="100" end="70" center="20,20" time="240" reversible="false" tween="cubic" condition="Skin.HasSetting(useZoomIconFull)">Conditional</animation>
+         
 			<itemlayout height="200" width="138">								
 				<control type="image">					
 					<width>130</width>
@@ -1623,7 +1939,7 @@
 					<aspectratio align="left" aligny="center">keep</aspectratio>
 				</control>	
 				<control type="group">
-				<left>150</left>
+				<left>160</left>
 						<top>160</top>						
 						<control type="textbox">
 						<left>-280</left>
@@ -2396,21 +2712,12 @@
 					<texture>$VAR[global_Fanart]</texture>
 				 <visible>Control.IsVisible(571)</visible>
 				  <visible>Container.Content(seasons)</visible>
-				</control>
-				<control type="label">
-					<left>-15</left>
-					<top>440</top>	
-						<label>$VAR[gallery_Header]</label>
-						<width>455</width>
-						<textcolor>Color2</textcolor>
-						<include>detail_Title</include>
-						 <visible>Control.IsVisible(571)</visible>
-					</control>
+				</control>				
 				<control type="textbox" id="4">
 				<left>-15</left>
-					    <top>464</top>
+					    <top>445</top>
 						<width>492</width>
-						<height>130</height>
+						<height>158</height>
 						<label>$VAR[global_Plot]</label>
 						<include>detail_Text</include>
 						<align>justify</align>
@@ -2554,22 +2861,13 @@
 				<aspectratio>scale</aspectratio>					
 					<texture>$VAR[thumb_Landscape]</texture>
 				 <visible>Control.IsVisible(573)</visible>
-				</control>
-				<control type="label">
-					<left>-15</left>
-					<top>440</top>	
-						<label>$VAR[gallery_Header]</label>
-						<width>455</width>
-						<textcolor>Color2</textcolor>
-						<include>detail_Title</include>
-						 <visible>Control.IsVisible(573)</visible>
-					</control>
+				</control>				
 				<control type="textbox" id="4">
 				<left>-15</left>
-					    <top>469</top>
+					    <top>442</top>
 						<width>495</width>
 						<align>justify</align>
-						<height>132</height>
+						<height>158</height>
 						<label>$VAR[global_Plot]</label>
 						<include>detail_Text</include>
 						<visible>!SubString(ListItem.Icon,default)</visible>

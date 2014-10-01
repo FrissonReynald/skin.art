@@ -308,20 +308,7 @@
 				</control>
 			</control>		        
 	</control>
-    </control>
-		<control type="group">
-		<left>690</left>
-		<top>305</top>	
-			<control type="group">
-					<control type="label">					
-						<label>$VAR[gallery_Header]</label>
-						<width>520</width>
-						<textcolor>Color1</textcolor>
-						<include>detail_Title</include>
-						<visible>Control.IsVisible(61)</visible>
-					</control>
-			</control>
-		</control>	
+    </control>		
             <!--info et flag -->			
 				<control type="image">
 				    <left>-10</left>
@@ -371,6 +358,18 @@
 					<aspectratio align="left">keep</aspectratio>
 					<texture>$VAR[flag_Studio]</texture>
 					<visible>Control.IsVisible(61)</visible>
+					<visible>Container.Content(movies)</visible>
+				</control>
+				<control type="image">
+				    <top>665</top>
+				    <left>50</left>
+					<bottom>40</bottom>
+					<width>80</width>
+					<height>45</height>
+					<aspectratio align="left">keep</aspectratio>
+					<texture>$VAR[flag_Studio]</texture>
+					<visible>Control.IsVisible(61)</visible>
+					<visible>Container.Content(tvshows)</visible>
 				</control>
 				<control type="label">
 					 <left>50</left>
@@ -378,17 +377,9 @@
 					 <width>460</width>
 					 <label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
 					 <include>detail_Sub</include>
-					 <visible>Container.Content(tvshows) | Container.Content(sets) + !IsEmpty(ListItem.TVShowTitle)</visible>
+					 <visible>Container.Content(sets)</visible>
 					 <visible>Control.IsVisible(61)</visible>
-				</control>
-				<control type="label">
-				            <left>690</left>
-							<top>675</top>
-							<label>$VAR[nextaired_Info]</label>
-							<width>470</width>
-							<include>detail_Sub</include>
-							<visible>Control.IsVisible(61)</visible>
-				</control>
+				</control>				
 				<control type="image">
 					<width>90</width>
 					<right>30</right>
@@ -401,11 +392,11 @@
 		<!--info 2-->
 		<control type="group">
 		        <left>690</left>
-		        <top>340</top>
+		        <top>295</top>
 				<control type="textbox">									
 					<width>530</width>
 					<align>justify</align>
-					<height max="290">auto</height>
+					<height max="345">auto</height>
 					<label>$VAR[global_Plot]</label>
 					<include>detail_Text</include>
 					<visible>Control.IsVisible(61)</visible>
@@ -428,10 +419,10 @@
 		</control>
 		        <control type="textbox">
 				<left>90</left>
-					<top>45</top>
+					<top>0</top>
 					<width>530</width>
 					<align>justify</align>
-					<height max="160">auto</height>
+					<height max="190">auto</height>
 					<label>$VAR[global_Plot]</label>
 					<include>detail_Text</include>
 					<visible>Control.IsVisible(61)</visible>

@@ -359,6 +359,12 @@
 				<include>menu_Button</include>
 				<visible>Control.IsVisible(5761)</visible>		
 		</control>	
+		<control type="button" id="3041">
+			<label>Setting</label>
+			<onclick>ActivateWindow(6823)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(578)</visible>		
+		</control>	
 		<!-- List Small-->
 		<control type="button" id="305">
 			<label>Setting</label>

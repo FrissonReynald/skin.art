@@ -117,7 +117,6 @@
 		<include>detail_Poster_Handbone</include>
 		<include>detail_Poster_ListRight</include>
 		<include>detail_FanartList_Handbone</include>		
-	
 	<!--list (50)-->
 		<control type="group">
 			<include>toggle_Menu</include>
@@ -202,7 +201,6 @@
 				<control type="group">
 						<left>-80</left>
 						<top>7</top>
-					
 							  <control type="image">
 					<left>300</left>
 					<top>200</top>
@@ -216,8 +214,6 @@
 					<effect type="slide" start="-50,0" end="0,0" time="980" delay="750" tween="sine" easing="out"/>
 					</animation>
 				  </control>
-					
-					
 						<control type="image">
 							<top>4</top>
 							<width>425</width>
@@ -494,7 +490,6 @@
 				<control type="group">
 						<left>-80</left>
 						<top>7</top>
-					 
 				<control type="textbox">
 				  <top>5</top>									
 				<left>20</left>
@@ -506,7 +501,6 @@
 				<aspectratio>stretch</aspectratio>			     
            <visible>Control.HasFocus(8000)</visible>
 				</control> 
-				
 			<control type="grouplist" id="100">
 				<left>25</left>
 				<bottom>190</bottom>
@@ -563,9 +557,6 @@
 					</animation>
 				<visible>!Control.HasFocus(8000)</visible>
 				  </control>
-						
-					
-						
 						<control type="image">
 						<top>4</top>
 							<width>425</width>
