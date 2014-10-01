@@ -195,7 +195,7 @@
 					<include>detail_Text</include>
 				</control>		
 			</control>
-			<visible>Skin.HasSetting(PlotTextPanelStripFocus) + !Skin.HasSetting(TextBox_PanelStrip)</visible>
+			<visible>Skin.HasSetting(PlotTextPanelStripFocus)</visible>
 			 </control>				
 			<control type="image">				
 					<width>840</width>
@@ -209,16 +209,15 @@
 					<height>357</height>
 						<aspectratio scalediffuse="true">scale</aspectratio>
 					<texture>white.png</texture>	
-				<visible>Skin.HasSetting(Landscape_PanelStrip)</visible>	
-				</control>
+					</control>
 			<control type="image">	
 			<top>43</top>
 					<width>840</width>
 					<height>357</height>
 						<aspectratio scalediffuse="true">scale</aspectratio>				
-					<texture>$VAR[view_Extra.Thumb2]</texture>
-				<visible>Skin.HasSetting(Landscape_PanelStrip)</visible>	
+					<texture>$VAR[view_Extra.Thumb2]</texture>				
 				</control>
+				<visible>Skin.HasSetting(Landscape_PanelStrip)</visible>	
 			</control>
 			<control type="image">			
 			<width>840</width>
@@ -245,8 +244,21 @@
                         <animation effect="slide" delay="1600" end="0,-100" time="300" tween="quadratic">Focus</animation>
                          <animation effect="zoom" start="70" end="100" center="auto" time="160" condition="Control.HasFocus(693)">Conditional</animation>
                                  <bordersize>7</bordersize>
-							<visible>!Skin.HasSetting(PlotTextPanelStripFocus) | [Skin.HasSetting(TextBox_PanelStrip)]</visible>
+							<visible>Skin.HasSetting(Landscape_PanelStrip) + !Skin.HasSetting(PlotTextPanelStripFocus)</visible>
 						  </control>
+						<control type="image">
+                        <left>20</left>
+                        <top>20</top>
+                        <width>160</width>
+                        <height>160</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">$VAR[Icon_Discart]</texture>
+                        <animation effect="slide" delay="1600" end="0,-100" time="300" tween="quadratic">Focus</animation>
+                         <animation effect="zoom" start="70" end="100" center="auto" time="160" condition="Control.HasFocus(693)">Conditional</animation>
+                                 <bordersize>7</bordersize>
+							<visible>!Skin.HasSetting(TextBox_PanelStrip)</visible>
+						  </control>  
+						  
 					<control type="image">
                         <left>20</left>
                         <top>55</top>
@@ -257,7 +269,7 @@
                         <animation effect="slide" delay="1600" end="100,0" time="300" tween="quadratic">Focus</animation>
                         <animation effect="zoom" start="70" end="100" center="auto" time="160" condition="Control.HasFocus(693)">Conditional</animation>
                                  <bordersize>7</bordersize>
-						<visible>Skin.HasSetting(PlotTextPanelStripFocus) + Skin.HasSetting(Landscape_PanelStrip) + !Skin.HasSetting(TextBox_PanelStrip)</visible>			 
+						<visible>Skin.HasSetting(PlotTextPanelStripFocus) + Skin.HasSetting(Landscape_PanelStrip)</visible>			 
                     </control>
 						<visible>Skin.HasSetting(Discart_PanelStrip)</visible>	                  
 					</control>
@@ -280,7 +292,7 @@
 						<include>detail_Text</include>
 						<visible>!SubString(ListItem.Icon,default)</visible>
 						</control>
-					<visible>Skin.HasSetting(TextBox_PanelStrip)</visible>		
+					<visible>!Skin.HasSetting(TextBox_PanelStrip)</visible>		
 			</control>			
 			<include>viewPanelStrip-ContainerCommons</include>
 			

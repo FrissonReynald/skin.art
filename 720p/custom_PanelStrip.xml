@@ -119,7 +119,7 @@
 					<width>260</width>	
 					<onclick>Skin.ToggleSetting(TextBox_PanelStrip)</onclick>
 					 <onclick>Skin.ToggleSetting(Landscape_PanelStrip)</onclick>		             
-					  <selected>Skin.HasSetting(TextBox_PanelStrip)</selected>	
+					  <selected>!Skin.HasSetting(TextBox_PanelStrip)</selected>	
 						<include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
 					<visible>![Container.Content(episodes) | Container.Content(seasons)]</visible>
