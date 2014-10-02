@@ -195,7 +195,7 @@
 					<include>detail_Text</include>
 				</control>		
 			</control>
-			<visible>Skin.HasSetting(PlotTextPanelStripFocus)</visible>
+			<visible>Skin.HasSetting(PlotTextPanelStripFocus) + Skin.HasSetting(TextBox_PanelStrip)</visible>
 			 </control>				
 			<control type="image">				
 					<width>840</width>
