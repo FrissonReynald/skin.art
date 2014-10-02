@@ -435,6 +435,13 @@
 				<include>menu_Button</include>
 				<visible>Control.IsVisible(544)</visible>		
 		</control>
+		<!-- Banner Full-->
+		<control type="button" id="3131">
+			<label>Setting</label>
+			<onclick>ActivateWindow(6931)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(545)</visible>		
+		</control>
 		<!-- Gallery Full Alt-->
 		<control type="button" id="314">
 			<label>Setting</label>
@@ -447,6 +454,12 @@
 			<onclick>ActivateWindow(696)</onclick>
 				<include>menu_Button</include>
 				<visible>Control.IsVisible(534)</visible>		
+		</control>
+		<control type="button" id="316">
+			<label>Setting</label>
+			<onclick>ActivateWindow(6961)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(531)</visible>		
 		</control>	
 		<!-- Strip big-->
 		<control type="button" id="317">
@@ -719,9 +732,10 @@
 					<onclick condition="Control.IsVisible(54)">Container.SetViewMode(541)</onclick>
 					<onclick condition="Control.IsVisible(541)">Container.SetViewMode(543)</onclick>
 					<onclick condition="Control.IsVisible(543)">Container.SetViewMode(544)</onclick>
-					<onclick condition="Control.IsVisible(544)">Container.SetViewMode(54)</onclick>
+					<onclick condition="Control.IsVisible(544)">Container.SetViewMode(545)</onclick>
+					<onclick condition="Control.IsVisible(545)">Container.SetViewMode(54)</onclick>
 					<include>menu_Button</include>
-					<visible>[Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(543) | Control.IsVisible(544)] + [Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]]</visible>
+					<visible>[Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(543) | Control.IsVisible(544) | Control.IsVisible(545)] + [Container.Content(tvshows) | Container.Content(seasons) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]]</visible>
 			    </control>
 			<!--Strip: small or Large-->
 				<control type="button" id="118">

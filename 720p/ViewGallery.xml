@@ -286,8 +286,8 @@
 			<aspectratio>stretch</aspectratio>
 		</control>
 		<control type="image">
-			<left>40</left>
-			<top>20</top>
+			<left>43</left>
+			<top>45</top>
 			<width>256</width>
 			<height>99</height>
 			<aspectratio align="center" aligny="top">keep</aspectratio>
@@ -324,7 +324,7 @@
 			<focusedlayout height="screen_Height" width="screen_Width">
 				<include>view_GalleryFull-Commons</include>
 			</focusedlayout>
-		</control>
+		</control>		
 		<control type="group">
 			<include>toggle_Menu</include>
 			<include>fadeinout</include>
@@ -335,24 +335,24 @@
 				<include>screen_Dimensions</include>
 				<aspectratio>stretch</aspectratio>
 				<include>fadeinout</include>
-				<visible>Control.IsVisible(53) + Control.HasFocus(8000)</visible>
-			</control>
-			 <control type="group">
-			 <top>5</top>
+				<visible>Control.IsVisible(531) + Control.HasFocus(8000)</visible>
+			</control>	
+			<control type="group">
+			 <top>105</top>
 			 <control type="image">
-					<left>40</left>
-					<top>280</top>
+					<left>43</left>
+					<top>360</top>
 					<width>180</width>
 					<height>180</height>
 					<texture background="true">$VAR[Icon_Discart]</texture>					
 					<animation type="WindowOpen">
-					<effect type="slide" start="0,0" end="100," time="550" delay="850" tween="cubic" easing="out"/>
+					<effect type="slide" start="0,0" end="0,-100," time="550" delay="850" tween="cubic" easing="out"/>
 	                <effect type="fade" start="0" end="100" time="600" delay="500"/>
 	                </animation>
 	                </control>
 			        <control type="image">
 			        <left>40</left>
-				    <top>250</top>
+				    <top>350</top>
 					<width>185</width>
 					<height>275</height>
 					<texture background="true">$VAR[thumb_Portrait]</texture>
@@ -360,8 +360,80 @@
 				</control>
 				<visible>Control.HasFocus(8000)</visible>
 				</control>	
+				<control type="group">
+				<control type="group">
+				 <visible>Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				<control type="image">
+				<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+			
+					<top>-5</top>
+				    <left>-5</left>
+				    <width>1920</width>
+				    <height>45</height>
+				   <texture background="true">black.png</texture>
+				    <aspectratio>scale</aspectratio>
+			    </control>
+			<control type="label">
+					<label>$INFO[ListItem(-1).Label]</label>	
+					 <left>15</left>
+				            <top>5</top>
+					<width>425</width>
+					<align>left</align>
+					<include>detail_Title</include>
+					 <visible>Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			  <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+				</control>
+				<control type="label">
+					<label>$INFO[ListItem(1).Label]</label>	
+					 <left>847</left>
+				            <top>5</top>
+					<width>425</width>
+					<align>right</align>
+					<include>detail_Title</include>
+					 <visible>Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			  <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+				</control>	
+	<visible>!Skin.HasSetting(titleoriginal)</visible>			
+			</control>
 			<control type="group">
-				<left>40</left>
+				 <visible>Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				<control type="image">
+				<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+			
+					<top>-5</top>
+				    <left>-5</left>
+				    <width>1920</width>
+				    <height>45</height>
+				   <texture background="true">black.png</texture>
+				    <aspectratio>scale</aspectratio>
+			    </control>
+			<control type="label">
+					<label>$INFO[ListItem(-1).OriginalTitle]</label>
+					 <left>15</left>
+				            <top>5</top>
+					<width>425</width>
+					<align>left</align>
+					<include>detail_Title</include>
+					 <visible>Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			  <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+				</control>
+				<control type="label">
+					<label>$INFO[ListItem(1).OriginalTitle]</label>
+					 <left>847</left>
+				            <top>5</top>
+					<width>425</width>
+					<align>right</align>
+					<include>detail_Title</include>
+					 <visible>Control.IsVisible(531) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			  <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+				</control>	
+	<visible>Skin.HasSetting(titleoriginal)</visible>			
+			</control>
+			<visible>Skin.HasSetting(PreviousNext_531)</visible>	
+			</control>
+			<control type="group">
+			<visible>!Skin.HasSetting(MinimumGallery_531)+ !Control.HasFocus(8000)</visible>
+			<left>40</left>
 				<top>540</top>
 				<animation effect="slide" start="0,495" end="0,0" easing="Out" tween="Quadratic" time="350">Visible</animation>
 				<animation effect="slide" start="0,0" end="0,495" easing="Out" tween="Quadratic" time="350">Hidden</animation>
@@ -392,6 +464,115 @@
 					<label>$VAR[global_Plot]</label>												
 					<visible>!SubString(ListItem.Icon,default)</visible>
 				</control>				
+			</control>			
+			<control type="group">
+			<visible>Skin.HasSetting(MinimumGallery_531) + !Control.HasFocus(8000)</visible>
+			<left>40</left>
+				<top>660</top>
+				<animation effect="slide" start="0,495" end="0,0" easing="Out" tween="Quadratic" time="350">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,495" easing="Out" tween="Quadratic" time="350">Hidden</animation>
+				<control type="label">
+					<width>1150</width>
+					<label>$VAR[global_Title]</label>
+					<include>detail_Title</include>	
+				</control>
+				<control type="label">
+					<top>30</top>		
+					<width>1150</width>
+					<label>$VAR[global_Info]</label>
+					<include>detail_Sub</include>	
+				</control>
+				<control type="image">
+					<right>40</right>
+					<top>23</top>
+					<width>128</width>
+					<height>22</height>
+					<aspectratio align="right">keep</aspectratio>
+					<include>detail_StarRating</include>
+					<visible>!SubString(ListItem.Icon,default)</visible>
+				</control>							
+			</control>
+			<control type="group">			
+			<visible>Control.HasFocus(8000)</visible>
+			<left>240</left>
+				<top>450</top>
+				<animation effect="slide" start="0,495" end="0,0" easing="Out" tween="Quadratic" time="350">Visible</animation>
+				<animation effect="slide" start="0,0" end="0,495" easing="Out" tween="Quadratic" time="350">Hidden</animation>
+				<control type="label">
+					<width>850</width>
+					<label>$VAR[global_Title]</label>
+					<include>detail_Title</include>	
+				</control>
+				<control type="label">
+					<top>30</top>		
+					<width>850</width>
+					<label>$VAR[global_Info]</label>
+					<include>detail_Sub</include>	
+				</control>
+				<control type="image">
+					<right>45</right>
+					<top>23</top>
+					<width>128</width>
+					<height>22</height>
+					<aspectratio align="right">keep</aspectratio>
+					<include>detail_StarRating</include>
+					<visible>!SubString(ListItem.Icon,default)</visible>
+				</control>
+				<control type="textbox">
+					<top>55</top>
+					<width>1000</width>
+					<height>140</height>
+					<align>justify</align>
+					<label>$VAR[global_Plot]</label>												
+					<visible>!SubString(ListItem.Icon,default)</visible>
+				</control>					
+			</control>
+			<control type="grouplist" id="100">
+		<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+		<visible>Control.IsVisible(531) + Control.HasFocus(8000)</visible>
+				<left>780</left>
+				<bottom>15</bottom>
+				<width>900</width>
+				<height>50</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>				
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[ListItem.VideoResolution,flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoResolution)</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[Listitem.VideoCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoCodec)</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[Listitem.AudioCodec,flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.AudioCodec)</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[Listitem.VideoAspect,flags/video/aspectratio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)] + !IsEmpty(Listitem.VideoAspect)</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>45</height>
+					<texture>$VAR[flag_Studio]</texture>
+					<aspectratio align="center">keep</aspectratio>					
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
+				</control>
 			</control>
 		</control>
 	</include>
