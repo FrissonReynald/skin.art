@@ -1843,9 +1843,9 @@
 			<visible>Control.IsVisible(542)</visible>
 			</control>
 	<control type="image">
-				<top>340</top>				
+				<top>430</top>				
 				<width>1280</width>
-				<height>500</height>
+				<height>530</height>
 			<texture border="5" colordiffuse="cc151f27">coverflow/coverflow_frame.png</texture>
 			<aspectratio>stretch</aspectratio>
 			<visible>Control.IsVisible(542) + Container.Content(sets)</visible>
@@ -2087,49 +2087,49 @@
 						<width>115</width>
 						<height>115</height>
 						<aspectratio>stretch</aspectratio>
-						<texture background="true" flipy="true">$INFO[Window(home).Property(Set.Movie.1.Art(discart))]</texture>
+						<texture background="true" flipy="true"diffuse="music_Cdart/cd_mask-movieset.png">$INFO[Window(home).Property(Set.Movie.1.Art(discart))]</texture>
 					 <colordiffuse>ff666666</colordiffuse>	
 					</control>					
 					<control type="image">					
 						<width>110</width>
 						<height>110</height>
 						<aspectratio>stretch</aspectratio>
-						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.2.Art(discart))]</texture>
+						<texture background="true"flipy="true"diffuse="music_Cdart/cd_mask-movieset.png">$INFO[Window(home).Property(Set.Movie.2.Art(discart))]</texture>
 					 <colordiffuse>ff666666</colordiffuse>	
 					</control>
 					<control type="image">					
 						<width>110</width>
 						<height>110</height>
 						<aspectratio>stretch</aspectratio>
-						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.3.Art(discart))]</texture>
+						<texture background="true"flipy="true"diffuse="music_Cdart/cd_mask-movieset.png">$INFO[Window(home).Property(Set.Movie.3.Art(discart))]</texture>
 					 <colordiffuse>ff666666</colordiffuse>	
 					</control>
 					<control type="image">								
 						<width>110</width>
 						<height>110</height>
 						<aspectratio>stretch</aspectratio>
-						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.4.Art(discart))]</texture>
+						<texture background="true"flipy="true"diffuse="music_Cdart/cd_mask-movieset.png">$INFO[Window(home).Property(Set.Movie.4.Art(discart))]</texture>
 					 <colordiffuse>ff666666</colordiffuse>	
 					</control>
 					<control type="image">					
 						<width>110</width>
 						<height>110</height>
 						<aspectratio>stretch</aspectratio>
-						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.5.Art(discart))]</texture>
+						<texture background="true"flipy="true"diffuse="music_Cdart/cd_mask-movieset.png">$INFO[Window(home).Property(Set.Movie.5.Art(discart))]</texture>
 					 <colordiffuse>ff666666</colordiffuse>	
 					</control>
 					<control type="image">					
 						<width>110</width>
 						<height>110</height>
 						<aspectratio>stretch</aspectratio>
-						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.6.Art(discart))]</texture>
+						<texture background="true"flipy="true"diffuse="music_Cdart/cd_mask-movieset.png">$INFO[Window(home).Property(Set.Movie.6.Art(discart))]</texture>
 					 <colordiffuse>ff666666</colordiffuse>	
 					</control>
 				<control type="image">				
 						<width>110</width>
 						<height>110</height>
 						<aspectratio>stretch</aspectratio>
-						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.7.Art(discart))]</texture>
+						<texture background="true"flipy="true"diffuse="music_Cdart/cd_mask-movieset.png">$INFO[Window(home).Property(Set.Movie.7.Art(discart))]</texture>
 					 <colordiffuse>ff666666</colordiffuse>	
 					</control>					
 				<control type="image">				
@@ -2138,9 +2138,9 @@
 						<aspectratio>stretch</aspectratio>
 						<texture background="true"flipy="true">$INFO[Window(home).Property(Set.Movie.8.Art(discart))]</texture>
 					 <colordiffuse>ff666666</colordiffuse>	
-					</control>
+					</control>						
 					<visible>Control.IsVisible(542) + Skin.HasSetting(MoviesSets2Discart.movies.enable) + [Container.Content(movies) | Container.Content(sets)] + Skin.HasSetting(MoviesSetsDiscartreflect.movies.enable)</visible>
-				</control>				
+				</control>
 		</control>
 	</include>
 	<!--SQUARE-->

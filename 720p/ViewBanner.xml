@@ -1076,7 +1076,7 @@
 	<include name="view_BannerFull">	
 		<control type="panel" id="545">
 			<viewtype label="31110">wide</viewtype> 	
-			<left>60</left>
+			<left>65</left>
 			<top>100</top>
 			<width>1160</width>
 			<height>490</height>
@@ -1262,7 +1262,108 @@
 					<texture background="true">$VAR[view_Extra.Thumb3]</texture>
 							<fadetime>fadetime_Thumb</fadetime>
 							<aspectratio align="center" aligny="top">scale</aspectratio>
+							<visible>!Skin.HasSetting(Cast)</visible>
 						</control>		
 			</control>
+			<control type="group">
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<visible>Control.IsVisible(545)</visible>
+			<visible>Skin.HasSetting(Cast) + Skin.HasSetting(useZoomBannerFull)</visible>
+			 <left>870</left>
+				            <top>400</top>	
+                    <control type="grouplist"> 
+					 <top>30</top>
+                        <width>390</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="400">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20339]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                           <width min="50" max="390">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Director]</label>
+                            <scroll>true</scroll>							
+                        </control>
+                    </control>
+                    <control type="grouplist"> 
+					 <top>60</top>
+                        <width>390</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                           <width min="50" max="390">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20417]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="390">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Writer]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="grouplist"> 
+					 <top>90</top>
+                        <width>390</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                           <width min="50" max="390">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[563]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width min="50" max="390">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Rating]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>                  
+                    <control type="grouplist">
+					 <top>120</top>
+                        <width>390</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="390">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[572]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                           <width min="50" max="390">auto</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Studio]</label>
+                            <scroll>true</scroll>
+                        </control>
+                    </control>
+                    <control type="grouplist">   
+                     <top>150</top>
+                        <width>390</width>
+                        <orientation>horizontal</orientation>
+                        <itemgap>10</itemgap>
+                        <control type="label">
+                            <width min="50" max="390">auto</width>
+                            <aligny>bottom</aligny>
+                            <label>$LOCALIZE[20074]:</label>
+							<include>detail_Sub</include>
+                        </control>
+                        <control type="label">
+                            <width>390</width>
+                            <aligny>bottom</aligny>
+                            <label fallback="N/A">$INFO[ListItem.Mpaa]</label>                           
+                            <scroll>true</scroll>
+                            <wrapmultiline>true</wrapmultiline>
+                        </control>
+                    </control>   
+				 </control> 
 	</include>			
 </includes>

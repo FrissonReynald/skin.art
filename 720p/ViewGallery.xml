@@ -282,7 +282,7 @@
 		<control type="image">
 			<include>screen_Dimensions</include>
 			<texture>overlays/vignetteFullscreen.png</texture>
-			<colordiffuse>base_2</colordiffuse>
+			<colordiffuse>base_4</colordiffuse>
 			<aspectratio>stretch</aspectratio>
 		</control>
 		<control type="image">
@@ -461,8 +461,10 @@
 					<top>55</top>
 					<width>1200</width>
 					<height>80</height>
+					<align>justify</align>
 					<label>$VAR[global_Plot]</label>												
 					<visible>!SubString(ListItem.Icon,default)</visible>
+					<include>detail_Text</include>	
 				</control>				
 			</control>			
 			<control type="group">
@@ -523,7 +525,8 @@
 					<width>1000</width>
 					<height>140</height>
 					<align>justify</align>
-					<label>$VAR[global_Plot]</label>												
+					<label>$VAR[global_Plot]</label>	
+					<include>detail_Text</include>	
 					<visible>!SubString(ListItem.Icon,default)</visible>
 				</control>					
 			</control>
@@ -751,7 +754,8 @@
 					<width>800</width>
 					<height>80</height>
 					<align>justify</align>
-					<label>$VAR[global_Plot]</label>				
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>	
 					<visible>!SubString(ListItem.Icon,default)</visible>
 				</control>
 				<control type="image">

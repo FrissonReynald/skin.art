@@ -6,7 +6,7 @@
 	<color name="base_3">ff9acd32</color><!--secondary overlay / menu color (home menu)-->
 	<color name="base_33">ffa4d247</color><!--secondary overlay / menu color (home menu)-->
 	<color name="base_333">ff9acd32</color><!--secondary overlay / menu color (home menu)-->
-	<color name="base_4">ae9acd32</color><!--vignette2-->
+	<color name="base_4">aa9acd32</color><!--vignette2-->
 	<color name="base_5">ee000000</color><!--main color menu horizontal-->
 	<color name="base_6">ffffffff</color><!--main color menu vertical-->
 	<color name="base_7">afd0cd65</color><!--main color menu vertical-->
