@@ -9,7 +9,7 @@
 		<import addon="script.skinshortcuts" version="0.4.0"/>
 		<import addon="script.tv.show.next.aired" version="6.0.10"/>
 		<import addon="script.watchlist" version="0.0.2"/>
-		<import addon="service.library.data.provider" version="0.0.4"/>
+		<import addon="service.library.data.provider" version="0.0.5"/>
 	</requires>
 	<extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" effectslowdown="1.00" debugging="false">
 		<res width="1280" height="720" aspect="16:9" default="true" folder="720p" />
