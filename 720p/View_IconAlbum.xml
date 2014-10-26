@@ -156,16 +156,16 @@
 						<include>detail_Text</include>
 						<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
 						</control>
-				<control type="label">
+				<control type="textbox">
 						 <left>50</left>
 				    <top>248</top>
 					<width>300</width>
-					<height>310</height>
+					<height>300</height>
 					<align>justify</align>
 						<label>$VAR[Tracklist_Info]</label>						
 						<include>detail_Text</include>
 						<visible>Skin.HasSetting(tracklist) + Container.Content(albums)</visible>					
-					</control>	
+					</control>					
 			</control>				
 			
 			<!--container-->

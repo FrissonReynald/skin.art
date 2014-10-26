@@ -36,10 +36,10 @@
 				<height>450</height>
 				
 				<control type="image">
-                        <left>45</left>
+                        <left>38</left>
                         <top>110</top>
-                        <width>205</width>
-                        <height>205</height>
+                        <width>215</width>
+                        <height>215</height>
                         <aspectratio>keep</aspectratio>
                         <texture background="true">$VAR[Icon_Discart]</texture>
 						 <animation type="WindowOpen">
@@ -65,7 +65,7 @@
 						<width>290</width>
 				<height>450</height>
 						<texture background="true">$VAR[thumb_Portrait]</texture>
-						<aspectratio>scale</aspectratio>
+						<aspectratio>stretch</aspectratio>
 						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>					
 						<control type="image">						

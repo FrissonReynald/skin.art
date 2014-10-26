@@ -106,7 +106,14 @@
 						<include>dialog_PVRstatus</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="300" height="80">				
+				<focusedlayout width="300" height="80">	
+				<control type="image">
+							<left>-5</left>
+							<top>0</top>
+						<width>600</width>
+						<height>80</height>
+							<texture>white.png</texture>							
+						</control>
 					<control type="image">					
 						<width>550</width>
 						<height>80</height>
@@ -141,6 +148,7 @@
 						<control type="label">
 							<width>300</width>
 							<label>[B]$INFO[ListItem.Title][/B] ($INFO[ListItem.StartTime,,- ]$INFO[ListItem.EndTime])</label>
+							<textcolor>ff000000</textcolor>
 							<aligny>top</aligny>
 							<include>dialog_CommonListItemFocus</include>
 						</control>	
@@ -159,6 +167,7 @@
 						<control type="label">
 							<top>37</top>
 							<width>300</width>
+							<textcolor>ff000000</textcolor>
 							<label>$LOCALIZE[209]$INFO[ListItem.NextTitle,: ]</label>
 							<aligny>top</aligny>
 							<include>dialog_CommonListItemFocus</include>
